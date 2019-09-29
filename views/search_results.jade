@@ -1,0 +1,11 @@
+doctype html
+html
+head
+title=title
+body
+    h1 Search result
+
+    each item, index in searchResultList
+        a(href='/details?'+index)
+          h1= item._source.key
+        p= item._source.desc
