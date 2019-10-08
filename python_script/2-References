@@ -1,0 +1,23 @@
+</div><p class=MsoNormal><span lang=EN-GB>The present document defines the
+Stage&nbsp;2 service description for the Evolved 3GPP Packet Switched Domain -
+also known as the Evolved Packet System (EPS) in this document. The Evolved
+3GPP Packet Switched Domain provides IP connectivity using the Evolved
+Universal Terrestrial Radio Access Network (E-UTRAN).</span></p><p class=MsoNormal><span lang=EN-GB>The specification covers both roaming and
+non-roaming scenarios and covers all aspects, including mobility between
+E-UTRAN and pre-E-UTRAN 3GPP radio access technologies, policy control and
+charging, and authentication.</span></p><p class=MsoNormal><span lang=EN-GB>The Radio Access Network functionality is
+documented only to the extent necessary to describe the overall system.
+TS&nbsp;36.300&nbsp;[5] contains the overall description of the Evolved
+Universal Terrestrial Radio Access (E-UTRA) and Evolved Universal Terrestrial
+Radio Access Network (E-UTRAN).</span></p><p class=MsoNormal><span lang=EN-GB>ITU-T Recommendation I.130&nbsp;[3]
+describes a three-stage method for characterisation of telecommunication
+services, and ITU-T Recommendation Q.65&nbsp;[4] defines Stage&nbsp;2 of the
+method.</span></p><p class=MsoNormal><span lang=EN-GB>TS&nbsp;23.402&nbsp;[2] is a companion
+specification to this specification.</span></p><p class=MsoNormal><span lang=EN-GB>An Evolved Packet System architecture
+optimised for the support of Cellular IoT (Internet of Things) applications is
+also defined in this document.</span></p><p class=MsoNormal><span lang=EN-GB>The Evolved Packet System also provides
+support for the E-UTRAN to control a Dual Connectivity radio connection that
+uses a combination of E-UTRA and another radio access technology (e.g. NR).
+TS&nbsp;36.300&nbsp;[5] contains the overall description for Dual Connectivity.</span></p><p class=MsoNormal><span lang=EN-GB>Enhancements to support interworking of EPS
+with 5GS are captured in TS&nbsp;23.501&nbsp;[83] and TS&nbsp;23.502&nbsp;[84].</span></p><div style='mso-element:para-border-div;border:none;border-top:solid windowtext 1.5pt;
+padding:3.0pt 0in 0in 0in'>
