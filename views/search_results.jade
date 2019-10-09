@@ -6,6 +6,6 @@ body
     h1 Search result
 
     each item, index in searchResultList
-        a(href='/details?'+index)
+        a(href='/details?'+index, target="_blank")
           h1= item._source.key
         p= item._source.desc
