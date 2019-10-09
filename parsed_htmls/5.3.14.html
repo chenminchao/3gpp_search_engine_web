@@ -3102,6 +3102,74 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11134035"><span
-lang=EN-GB>5.4<span style='mso-tab-count:1'>        </span>Session Management,
-QoS and interaction with PCC functionality</span></a></span></h2></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134034"><span
+lang=EN-GB>5.3.14<span style='mso-tab-count:1'>    </span>UE Radio Capability
+Match Request</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the MME, e.g. based on SRVCC capability in NAS, UE Usage Type or local policy,
+requires more information on the UE radio capabilities support to be able to
+set the IMS voice over PS Session Supported Indication (see clause&nbsp;4.3.5.8),
+then the MME may send a UE Radio Capability Match Request message to the eNB. This
+procedure is typically used during the Initial Attach procedure, during
+Tracking Area Update procedure for the &quot;first TAU following GERAN/UTRAN
+Attach&quot; or for &quot;UE radio capability update&quot; or when MME has not
+received the Voice Support Match Indicator (as part of the MM Context).</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1092" type="#_x0000_t75" style='width:305.5pt;height:190.5pt'
+ o:ole="">
+ <v:imagedata src="23401-g30_files/image135.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=407 height=254
+src="23401-g30_files/image136.gif" v:shapes="_x0000_i1092"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1092"
+  DrawAspect="Content" ObjectID="_1631980420">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.14-1: UE Radio Capability Match Request</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2333R4_TEI11_\(Rel-11\)" 20120301T0957'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>1<span style='mso-tab-count:
+1'>    </span>The MME indicates whether the MME wants to receive Voice support
+match indicator. The MME may include the UE Radio Capability information that
+it has previously received from the eNB via a S1-AP UE CAPABILITY INFO INDICATION
+as described in clause&nbsp;5.11.2.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2333R4_TEI11_\(Rel-11\)" 20120301T0957'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
+1'>   </span>Upon receiving a UE Radio Capability Match Request from the MME,
+if the eNB has not already received the UE radio capabilities from the UE or from
+MME in step&nbsp;1, the eNB requests the UE to upload the UE radio capability
+information by sending the RRC UE Capability Enquiry.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2333R4_TEI11_\(Rel-11\)" 20120301T0957'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span style='mso-tab-count:
+1'>   </span>The UE provides the eNB with its UE radio capabilities sending the
+RRC UE Capability Information.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2333R4_TEI11_\(Rel-11\)" 20120301T0957'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span style='mso-tab-count:
+1'>   </span>The eNB checks whether the UE radio capabilities are compatible
+with the network configuration for ensuring voice service continuity of voice
+calls initiated in IMS.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2333R4_TEI11_\(Rel-11\)" 20120301T0957'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>For determining the appropriate UE Radio Capability Match
+Response, the eNB is configured by the operator to check whether the UE
+supports certain capabilities required for Voice continuity of voice calls
+using IMS PS. In a shared network, the eNB keeps a configuration separately per
+PLMN.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>What checks to perform depends on network
+configuration, i.e. following are some examples of UE capabilities to be taken
+into account:</span></span></p><p class=B4 style='mso-prop-change:"23401_CR2376R1_TEI11_\(Rel-11\)" 20120613T0927'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>the SRVCC, and UTRAN/E-UTRAN Voice over PS capabilities;</span></span></p><p class=B4 style='mso-prop-change:"23401_CR2376R1_TEI11_\(Rel-11\)" 20120613T0927'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>the Radio capabilities for UTRAN/E-UTRAN FDD and/or TDD; and/or</span></span></p><p class=B4 style='mso-prop-change:"23401_CR2376R1_TEI11_\(Rel-11\)" 20120613T0927'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>the support of UTRAN/E-UTRAN frequency bands.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>The network configuration considered in the
+decision for the Voice Support Match Indicator is homogenous within a certain
+area (e.g. MME Pool Area) in order to guarantee that the Voice Support Match
+Indicator from the eNB is valid within such area.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2333R4_TEI11_\(Rel-11\)" 20120301T0957'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>The eNB provides a Voice Support Match Indicator to the MME to
+indicate whether the UE capabilities and networks configuration are compatible
+for ensuring voice service continuity of voice calls initiated in IMS.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME stores the received Voice support
+match indicator in the MM Context and uses it as an input for setting the IMS
+voice over PS Session Supported Indication.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>If eNB requested radio capabilities from UE
+in step&nbsp;2 and 3, eNB also sends the UE radio capabilities to the MME using
+the S1-AP UE CAPABILITY INFO INDICATION. The MME stores the UE radio
+capabilities without interpreting them for further provision to the eNB in
+cases described in clause&nbsp;5.11.2.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>Steps 4 and 5 may be received by the MME in
+any order.</span></span></p></body>

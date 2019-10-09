@@ -3102,30 +3102,131 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133921"><span
-lang=EN-GB>4.7.4<span style='mso-tab-count:1'>      </span>Support for
-Application / Service Layer Rate Adaptation</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23\.401 CR0065R2 Implementation" 20080228T1307'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The E&#8209;UTRAN/UTRAN and
-the UE support the RFC&nbsp;3168&nbsp;[55] Explicit Congestion Notification
-(ECN), as described in TS&nbsp;36.300&nbsp;[5], TS&nbsp;25.401&nbsp;[16] and TS&nbsp;26.114&nbsp;[56].
-The IP level ECN scheme enables the E&#8209;UTRAN/UTRAN to trigger a rate adaptation
-scheme at the application / service / transport layer. To make sufficient time
-available for end-to-end codec rate adaptation the E-UTRAN/UTRAN should attempt
-to not drop any packets on a bearer for a default grace period of at least 500
-ms after it has indicated congestion with ECN on the bearer for packets within
-the packet delay budget. During this ECN grace period the E-UTRAN/UTRAN should
-also attempt to meet the QCI characteristics / QoS class associated with the
-bearer.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>Note that the receiving end-point should
-interpret all ECN-CE signals received within one end-to-end round-trip time as
-one &quot;congestion event&quot; (see IETF&nbsp;RFC&nbsp;3168&nbsp;[55] and TS&nbsp;26.114&nbsp;[56]).</span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR0065R2 Implementation" 20080228T1307'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The MBR of a particular GBR
-bearer may be set larger than the GBR.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>Enforcement of APN-AMBR / UE-AMBR is
-independent of whether the MBR of a particular GBR bearer has been set larger
-than the GBR (see clause&nbsp;4.7.3).</span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR0065R2 Implementation" 20080228T1307'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The EPC does not support
-E-UTRAN/UTRAN-initiated &quot;QoS re-negotiation&quot;. That is, the EPC does
-not support an eNodeB/RNC initiated bearer modification procedure. If an
-eNodeB/RNC can no longer sustain the GBR of an active GBR bearer then the eNodeB/RNC
-should simply trigger a deactivation of that bearer.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133920"><span
+lang=EN-GB>4.7.3<span style='mso-tab-count:1'>      </span>Bearer level QoS
+parameters</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+EPS bearer QoS profile includes the parameters QCI, ARP, GBR and MBR, described
+in this clause. This clause also describes QoS parameters which are applied to
+an aggregated set of EPS Bearers: APN&#8209;AMBR and UE&#8209;AMBR.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
+EPS bearer (GBR and Non-GBR) is associated with the following bearer level QoS
+parameters:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>QoS Class Identifier (QCI);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Allocation and Retention Priority (ARP).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
+QCI is a scalar that is used as a reference to access node-specific parameters
+that control bearer level packet forwarding treatment (e.g. scheduling weights,
+admission thresholds, queue management thresholds, link layer protocol
+configuration, etc.), and that have been pre-configured by the operator owning
+the access node (e.g. eNodeB). A one-to-one mapping of standardized QCI values
+to standardized characteristics is captured in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>On the radio interface and on S1, each PDU
+(e.g. RLC PDU or GTP-U PDU) is indirectly associated with one QCI via the
+bearer identifier carried in the PDU header. The same applies to the S5 and S8
+interfaces if they are based on GTP.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>When required by operator policy, the eNodeB
+can be configured to also use the ARP priority level in addition to the QCI to
+control bearer level packet forwarding treatment in the eNodeB for SDFs having
+high priority ARPs.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+ARP shall contain information about the priority level (scalar), the
+pre-emption capability (flag) and the pre-emption vulnerability (flag). The
+primary purpose of ARP is to decide whether a bearer establishment /
+modification request can be accepted or needs to be rejected due to resource
+limitations (typically available radio capacity for GBR bearers). The priority
+level information of the ARP is used for this decision to ensure that the
+request of the bearer with the higher priority level is preferred. In addition,
+the ARP can be used (e.g. by the eNodeB) to decide which bearer(s) to drop
+during exceptional resource limitations (e.g. at handover). The pre-emption
+capability information of the ARP defines whether a bearer with a lower ARP priority
+level should be dropped to free up the required resources. The pre-emption
+vulnerability information of the ARP defines whether a bearer is applicable for
+such dropping by a pre-emption capable bearer with a higher ARP priority level.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Once
+a bearer has been successfully established, the packet handling (e.g. scheduling
+and rate control) within the eNodeB, PDN GW, and Serving GW should be solely
+determined by the following EPS bearer QoS parameters: QCI, GBR and MBR, and by
+the AMBR parameters. However, when required by operator policy, the eNodeB can
+be configured to also use a bearer's ARP priority level in addition to the QCI
+to determine the relative priority of the SDFs for packet handling (e.g.
+scheduling and rate control) in the eNodeB as defined in TS&nbsp;23.203&nbsp;[6]
+clause&nbsp;6.1.7.2. This configuration applies only for bearers with high
+priority ARPs as defined in TS&nbsp;23.203&nbsp;[6] clause&nbsp;6.1.7.3.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+ARP priority level may be used in addition to the QCI to determine the
+transport level packet marking, e.g. to set the DiffServ Code Point. The ARP is
+not included within the EPS QoS Profile sent to the UE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>The ARP should be understood as &quot;Priority
+of Allocation and Retention&quot;; not as &quot;Allocation, Retention, and
+Priority&quot;.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>Video telephony is one use case where it may
+be beneficial to use EPS bearers with different ARP values for the same UE. In
+this use case an operator could map voice to one bearer with a higher ARP, and
+video to another bearer with a lower ARP. In a congestion situation (e.g. cell edge)
+the eNodeB can then drop the &quot;video bearer&quot; without affecting the
+&quot;voice bearer&quot;. This would improve service continuity.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>The ARP may also be used to free up capacity
+in exceptional situations, e.g. a disaster situation. In such a case the eNodeB
+may drop bearers with a lower ARP priority level to free up capacity if the
+pre-emption vulnerability information allows this.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
+GBR bearer is additionally associated with the following bearer level QoS
+parameters:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Guaranteed Bit Rate (GBR);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Maximum Bit Rate (MBR).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+GBR denotes the bit rate that can be expected to be provided by a GBR bearer.
+The MBR limits the bit rate that can be expected to be provided by a GBR bearer
+(e.g. excess traffic may get discarded by a rate shaping function). See clause&nbsp;4.7.4
+for further details on GBR and MBR.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>GBR
+bearers are not supported by NB-IoT. The PDN GW uses the RAT Type to ensure
+that GBR bearers are not active when the UE is using NB-IoT.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
+APN access, by a UE, is associated with the following QoS parameter:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>per APN Aggregate Maximum Bit Rate
+(APN-AMBR).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+subscribed APN&#8209;AMBR is a subscription parameter stored per APN in the HSS,
+which applies as APN-AMBR unless the APN-AMBR is modified by the MME (e.g in
+roaming scenarios and/or for usage of NB-IoT) or the PDN GW, based on local
+policy (e.g. for RAT Type = NB-IoT) or PCRF interactions. The APN-AMBR limits
+the aggregate bit rate that can be expected to be provided across all Non&#8209;GBR
+bearers and across all PDN connections of the same APN (e.g. excess traffic may
+get discarded by a rate shaping function). Each of those Non&#8209;GBR bearers
+could potentially utilize the entire APN&#8209;AMBR, e.g. when the other Non&#8209;GBR
+bearers do not carry any traffic. GBR bearers are outside the scope of APN&#8209;AMBR.
+The P&#8209;GW enforces the APN&#8209;AMBR in downlink. Enforcement of APN&#8209;AMBR
+in uplink is done in the UE and additionally in the P&#8209;GW.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
+style='mso-tab-count:1'>  </span>All simultaneous active PDN connections of a
+UE that are associated with the same APN shall be provided by the same PDN GW
+(see clauses&nbsp;4.3.8.1 and 5.10.1).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>APN-AMBR
+applies to all PDN connections of an APN. For the case of multiple PDN
+connections of an APN, if a change of APN-AMBR occurs due to local policy or
+the PDN GW is provided the updated APN-AMBR for each PDN connection from the MME
+or PCRF, the PDN GW initiates explicit signaling for each PDN connection to
+update the APN-AMBR value.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
+UE in state EMM-REGISTERED is associated with the following bearer aggregate
+level QoS parameter:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>per UE Aggregate Maximum Bit Rate (UE-AMBR).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE&#8209;AMBR is limited by a subscription parameter stored in the HSS. The MME
+shall set the UE&#8209;AMBR to the sum of the APN&#8209;AMBR of all active APNs
+up to the value of the subscribed UE&#8209;AMBR. The UE&#8209;AMBR limits the
+aggregate bit rate that can be expected to be provided across all Non&#8209;GBR
+bearers of a UE (e.g. excess traffic may get discarded by a rate shaping
+function). Each of those Non&#8209;GBR bearers could potentially utilize the
+entire UE&#8209;AMBR, e.g. when the other Non&#8209;GBR bearers do not carry
+any traffic. GBR bearers are outside the scope of UE AMBR. The E&#8209;UTRAN
+enforces the UE&#8209;AMBR in uplink and downlink except for PDN connections
+using the Control Plane CIoT EPS Optimisation.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+GBR and MBR denote bit rates of traffic per bearer while UE-AMBR/APN-AMBR denote
+bit rates of traffic per group of bearers. Each of those QoS parameters has an
+uplink and a downlink component. On S1_MME the values of the GBR, MBR, and AMBR
+refer to the bit stream excluding the GTP-U/IP header overhead of the tunnel on
+S1_U.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+HSS defines, for each PDN subscription context, the 'EPS subscribed QoS
+profile' which contains the bearer level QoS parameter values for the default
+bearer (QCI and ARP) and the subscribed APN-AMBR value. The subscribed ARP
+shall be used to set the priority level of the EPS bearer parameter ARP for the
+default bearer while the pre-emption capability and the pre-emption
+vulnerability information for the default bearer are set based on MME operator
+policy. In addition, the subscribed ARP shall be applied by the P-GW for setting
+the ARP priority level of all dedicated EPS bearers of the same PDN connection
+unless a different ARP priority level setting is required (due to P-GW
+configuration or interaction with the PCRF).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;7:<span
+style='mso-tab-count:1'>  </span>The ARP parameter of the EPS bearer can be
+modified by the P&#8209;GW (e.g. based on interaction with the PCRF due to e.g.
+MPS user initiated session) to assign the appropriate pre-emption capability
+and the pre-emption vulnerability setting.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+ARP pre-emption vulnerability of the default bearer should be set appropriately
+to minimize the risk of unnecessary release of the default bearer.</span></span></p></body>

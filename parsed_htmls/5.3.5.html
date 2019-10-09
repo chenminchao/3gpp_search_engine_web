@@ -3102,131 +3102,159 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134002"><span
-lang=EN-GB>5.3.5A<span style='mso-tab-count:1'>    </span>Connection Resume
-procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
-procedure is used by the UE to resume the ECM-connection if the UE and the
-network support User Plane CIoT EPS Optimisation and the UE has stored the
-necessary information to conduct the Connection Resume procedure (see TS&nbsp;36.300&nbsp;[5])
-otherwise the Service Request procedures are used, see clause&nbsp;5.3.4.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1076" type="#_x0000_t75" style='width:286.5pt;height:171.5pt'
- o:ole="">
- <v:imagedata src="23401-g30_files/image103.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=382 height=229
-src="23401-g30_files/image104.gif" v:shapes="_x0000_i1076"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1076"
-  DrawAspect="Content" ObjectID="_1631980405">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134001"><span
+lang=EN-GB>5.3.5<span style='mso-tab-count:1'>      </span>S1 release procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
+procedure is used to release the logical S1-AP signalling connection (over S1-MME)
+and all S1 bearers (in S1-U) for a UE. This Procedure releases the S11-U bearer
+in Control Plane CIoT EPS Optimisation (except in case of buffering in MME),
+instead of the S1-U bearer. The procedure will move the UE from ECM-CONNECTED
+to ECM-IDLE in both the UE and MME, and all UE related context information is deleted
+in the eNodeB. When the S1-AP signalling connection is lost, e.g. due to loss
+of the signalling transport or because of an eNodeB or MME failure, the S1
+release procedure is performed locally by the eNodeB and by the MME. When the
+S1 release procedure is performed locally by the eNodeB or by the MME each node
+performs locally its actions as described in the procedure flow below without
+using or relying on any of the signalling shown directly between eNodeB and
+MME.</span></span></p><p class=MsoNormal style='mso-pagination:widow-orphan lines-together;
+page-break-after:avoid'><span style='mso-bookmark:historyclause'><span
+lang=EN-GB>If Service Gap Control shall be applied for the UE (see
+clause&nbsp;4.3.17.9) and the Service Gap timer is not already running, the
+Service Gap timer shall be started in MME and UE when entering ECM-IDLE, unless
+the connection was initiated after a paging of an MT event, or after a TAU
+procedure without any active flag set or signalling active flag set.</span></span></p><p class=MsoNormal style='mso-pagination:widow-orphan lines-together;
+page-break-after:avoid'><span style='mso-bookmark:historyclause'><span
+lang=EN-GB>The initiation of S1 Release procedure is either:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>eNodeB-initiated with cause e.g. O&amp;M
+Intervention, Unspecified Failure, User Inactivity, Repeated RRC signalling
+Integrity Check Failure, Release due to UE generated signalling connection
+release, CS Fallback triggered, Inter-RAT Redirection, etc. as defined in TS&nbsp;36.413&nbsp;[36];
+or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>MME-initiated with cause e.g. authentication
+failure, detach, not allowed CSG cell (e.g. the CSG ID of the currently used
+CSG cell expires or is removed from the CSG subscription data), etc.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Both
+eNodeB-initiated and MME-initiated S1 release procedures are shown in Figure
+5.3.5-1.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1075" type="#_x0000_t75" style='width:423.5pt;height:271pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image101.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=565 height=361
+src="23401-g30_files/image102.gif" v:shapes="_x0000_i1075"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1075"
+  DrawAspect="Content" ObjectID="_1631980404">
  </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.5A-1: UE initiated Connection Resume procedure</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
-1'>   </span>The UE triggers the Random Access procedure to the eNodeB, see TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
-1'>   </span>The UE triggers the RRC Connection Resume procedure including
-information needed by the eNodeB to access the UE's stored AS context, see TS&nbsp;36.300&nbsp;[5].
-The E-UTRAN performs security checks. EPS bearer state synchronization is
-performed between the UE and the network, i.e. the UE shall locally remove any
-EPS bearer for which no radio bearer is setup and which is not a Control Plane
-CIoT EPS bearer. If the radio bearer for a default EPS bearer is not
-established, the UE shall locally deactivate all EPS bearers associated to that
-default EPS bearer.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span style='mso-tab-count:
-1'>   </span>The eNodeB notifies the MME that the UE's RRC connection is
-resumed in the S1-AP UE Context Resume Request message which includes an RRC
-resume cause. If the eNodeB is not able to admit all suspended bearers, the
-eNodeB shall indicate this in the list of rejected EPS bearers, see TS&nbsp;36.413&nbsp;[36].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If there is a Service Gap timer running in the MME for the UE
-and the MME is not waiting for a MT paging response from the UE and the RRC
-Connection Establishment Cause for the Connection Resume Request is not
-'mo-Signalling', the MME rejects the resume request by sending a S1-AP UE
-Context Resume Reject message to eNodeB.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>If the UE then sends a subsequent Service
-Request while the Service Gap timer is running, the MME will send a Service
-Reject NAS message to the UE with a Mobility Management back-off timer
-corresponding to the remaining time of the current Service Gap timer (see
-procedure in clause&nbsp;5.3.4).</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The MME enters the ECM-CONNECTED state. The MME identifies that
-the UE returns at the eNodeB for which MME has stored data related to the S1AP
-association, UE Context and bearer context including the DL TEID(s), necessary
-to resume the connection, see Connection Suspend procedure in
-clause&nbsp;5.3.4A.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If a default EPS bearer is not accepted by the eNodeB, all the
-EPS bearers associated to that default bearer shall be treated as non-accepted
-bearers. The MME releases the non-accepted and non-established bearers by
-triggering the bearer release procedure as specified in clause&nbsp;5.4.4.2.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>To assist Location Services, the eNB indicates the UE's
-Coverage Level to the MME.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>3a.<span style='mso-tab-count:
-1'> </span>If the S1-U connection is resumed and the UE is accessing via the
-NB-IoT RAT with the RRC resume cause set to &quot;MO exception data&quot;, the
-MME should notify the Serving Gateway of each use of this establishment cause
-by the MO Exception Data Counter. The MME maintains the MO Exception Data
-Counter and sends it to the Serving GW as indicated in TS&nbsp;29.274&nbsp;[43].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>3b.<span style='mso-tab-count:
-1'> </span>The Serving Gateway should notify the PDN GW if the RRC
-establishment cause &quot;MO Exception Data&quot; has been used by the MO
-Exception Data Counter (see TS&nbsp;29.274&nbsp;[43]). The Serving GW indicates
-each use of this RRC establishment cause by the related counter on its CDR.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>3c.<span style='mso-tab-count:
-1'> </span>The PDN GW indicates each use of the RRC establishment cause
-&quot;MO Exception Data&quot; by the related counter on its CDR.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span style='mso-tab-count:
-1'>   </span>MME acknowledges the connection resumption in S1-AP UE Context
-Resume Response message. If the MME is not able to admit all suspended E-RABs
-the MME shall indicate this in the E-RABs Failed To Resume List IE.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span style='mso-tab-count:
-1'>   </span>If the MME included in step&nbsp;4 a list of E-RABs failed to
-resume, the eNodeB reconfigures the radio bearers.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span style='mso-tab-count:
-1'>   </span>The uplink data from the UE can now be forwarded by eNodeB to the
-Serving GW. The eNodeB sends the uplink data to the Serving GW address and TEID
-stored during the Connection Suspend procedure, see clause&nbsp;5.3.4A. The
-Serving GW forwards the uplink data to the PDN GW.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span style='mso-tab-count:
-1'>   </span>The MME sends a Modify Bearer Request message (eNodeB address, S1
-TEID(s) (DL) for the accepted EPS bearers, Delay Downlink Packet Notification
-Request, RAT Type) per PDN connection to the Serving GW. If the Serving GW
-supports Modify Access Bearers Request procedure and if there is no need for
-the Serving GW to send the signalling to the PDN GW, the MME may send Modify
-Access Bearers Request (eNodeB address(es) and TEIDs for downlink user plane
-for the accepted EPS bearers, Delay Downlink Packet Notification Request) per
-UE to the Serving GW to optimise the signalling. The Serving GW is now able to
-transmit downlink data towards the UE.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The MME and the Serving GW clears the DL Data Buffer Expiration
-Time in their UE contexts if it was set, to remember that any DL data buffered
-for a UE using power saving functions has been delivered and to avoid any
-unnecessary user plane setup in conjunction with a later TAU.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span style='mso-tab-count:
-1'>   </span>The Serving GW shall return a Modify Bearer Response (Serving GW
-address and TEID for uplink traffic) to the MME as a response to a Modify Bearer
-Request message, or a Modify Access Bearers Response (Serving GW address and
-TEID for uplink traffic) as a response to a Modify Access Bearers Request
-message. If the Serving GW cannot serve the MME Request in the Modify Access
-Bearers Request message without S5/S8 signalling other than to unpause charging
-in the PDN GW or without corresponding Gxc signalling when PMIP is used over
-the S5/S8 interface, it shall respond to the MME with indicating that the
-modifications are not limited to S1-U bearers, and the MME shall repeat its request
-using a Modify Bearer Request message per PDN connection.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If SIPTO at the Local Network is active for a PDN connection
-with stand-alone GW deployment and the Local Home Network ID for stand-alone
-accessed by the UE differs from the Local Home Network ID where the UE
-initiated the SIPTO@LN PDN Connection, the MME shall request disconnection of
-the SIPTO at the local network PDN connection(s) with the &quot;reactivation requested&quot;
-cause value according to clause&nbsp;5.10.3. If the UE has no other PDN
-connection, the MME initiated &quot;explicit detach with reattach
-required&quot; procedure according to clause&nbsp;5.3.8.3.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If SIPTO at the Local Network is active for a PDN connection
-with collocated LGW deployement and the L-GW CN address of the cell accessed by
-the UE differs from the L-GW CN address of the cell where the UE initiated the
-SIPTO at the Local Network PDN Connection, the MME shall request disconnection
-of the SIPTO at the local network PDN connection(s) with the &quot;reactivation
-requested&quot; cause value according to clause&nbsp;5.10.3. If the UE has no
-other PDN connection, the MME initiated &quot;explicit detach with reattach
-required&quot; procedure according to clause&nbsp;5.3.8.3.</span></span></p></body>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 5.3.5-1:
+S1 Release Procedure</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1a.<span
+style='mso-tab-count:1'> </span>In certain cases the eNodeB may release the
+UE's signalling connection before or in parallel to requesting the MME to
+release the S1 context, e.g. the eNodeB initiates an RRC Connection Release for
+CS Fallback by redirection. If the reason for the release is that the eNodeB
+received Release Assistance Indicator in Access Stratum as defined in TS&nbsp;36.321&nbsp;[87],
+the eNodeB should not immediately release the RRC connection, instead send S1
+UE context Release Request with appropriate cause value e.g. user inactivity.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1b.<span
+style='mso-tab-count:1'> </span>If the eNodeB detects a need to release the
+UE's signalling connection and all radio bearers for the UE, the eNodeB sends
+an S1 UE Context Release Request (Cause) message to the MME. Cause indicates the
+reason for the release (e.g. O&amp;M intervention, unspecified failure, user
+inactivity, repeated integrity checking failure, or release due to UE generated
+signalling connection release).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the PLMN has configured secondary RAT
+reporting and the eNodeB has Secondary RAT usage data to report, the Secondary
+RAT usage data is included in S1 UE Context Release Request.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Step 1 is only performed when the
+eNodeB-initiated S1 release procedure is considered. Step 1 is not performed
+and the procedure starts with Step 2 when the MME-initiated S1 release
+procedure is considered.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME upon receiving S1 UE context
+Release Request with Cause=user inactivity continues with the S1 release
+procedure unless the MME is aware of pending MT traffic or signalling and/or NAS
+Release Assistance Information that may have been received in NAS PDU when
+Control Plane CIoT EPS Optimisation is used, which indicates that downlink data
+is expected.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>For Control Plane CIoT EPS Optimisation
+with data buffering in the MME, step&nbsp;2 and step&nbsp;3 are skipped.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The MME sends a Release Access Bearers Request
+(Abnormal Release of Radio Link Indication, Secondary RAT usage data) message
+to the S&#8209;GW that requests the release of all S1-U bearers for the UE, or
+the S11-U in Control Plane CIoT EPS Optimisation if buffering is in the S-GW.
+This message is triggered either by an S1 Release Request message from the
+eNodeB, or by another MME event. The Abnormal Release of Radio Link Indication
+is included if the S1 release procedure is due to an abnormal release of the
+radio link. If secondary RAT usage data was received in Step 1b, the MME
+includes Secondary RAT usage data in this message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span
+style='mso-tab-count:1'>   </span>If the S-GW has received a Release Access
+Bearers Request, the S&#8209;GW releases all eNodeB related information (address
+and TEIDs), or the MME TEIDs related information in Control Plane CIoT EPS
+Optimisation (address and TEIDs), for the UE and responds with a Release Access
+Bearers Response message to the MME. Other elements of the UE's S&#8209;GW
+context are not affected. The S&#8209;GW retains the S1-U configuration that
+the S&#8209;GW allocated for the UE's bearers. The S&#8209;GW starts buffering
+downlink packets received for the UE and initiating the &quot;Network Triggered
+Service Request&quot; procedure, described in clause 5.3.4.3, if downlink packets
+arrive for the UE. In Control Plane CIoT EPS Optimisation Downlink data
+triggers Mobile Terminated Data transport in NAS signalling defined in
+clause&nbsp;5.3.4B.3.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>Based on operator policy any received
+Indication of &quot;Abnormal Release of Radio Link&quot; may be used by Serving
+GW in subsequent decisions to trigger PDN charging pause if the feature has
+been enabled on that PDN.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span
+style='mso-tab-count:1'>   </span>The MME releases S1 by sending the S1 UE
+Context Release Command (Cause) message to the eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>If the RRC connection is not already
+released, the eNodeB sends a RRC Connection Release message to the UE in
+Acknowledged Mode. Once the message is acknowledged by the UE, the eNodeB
+deletes the UE's context.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span
+style='mso-tab-count:1'>   </span>The eNodeB confirms the S1 Release by
+returning an S1 UE Context Release Complete (ECGI, TAI, Secondary RAT usage
+data) message to the MME. With this, the signalling connection between the MME
+and the eNodeB for that UE is released. This step shall be performed promptly
+after step&nbsp;4, e.g. it shall not be delayed in situations where the UE does
+not acknowledge the RRC Connection Release.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If Dual Connectivity was active at the
+time of the release, the eNodeB shall include the PSCell ID.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The eNodeB may include the Information On
+Recommended Cells And eNodeBs For Paging in the S1 UE Context Release Complete
+message. If available, the MME shall store this information to be used when
+paging the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The eNB includes Information for Enhanced
+Coverage, if available, in the S1 UE Context Release Complete message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the PLMN has configured secondary RAT
+usage data reporting, the eNodeB has not included Secondary RAT usage data at step&nbsp;1b,
+and the eNodeB has Secondary RAT usage data to report, the Secondary RAT usage
+data is included in this message. If Secondary RAT usage data was included at
+step&nbsp;1b then MME ignores Secondary RAT usage data at step&nbsp;6.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME deletes any eNodeB related
+information (&quot;eNodeB Address in Use for S1-MME&quot;, &quot;MME UE S1 AP
+ID&quot; and &quot;eNB UE S1AP ID&quot;) from the UE's MME context, but,
+retains the rest of the UE's MME context including the S&#8209;GW's S1-U
+configuration information (address and TEIDs). All non-GBR EPS bearers
+established for the UE are preserved in the MME and in the Serving GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the cause of S1 release is because of
+User I inactivity, Inter-RAT Redirection, the MME shall preserve the GBR
+bearers. If the cause of S1 release is because of CS Fallback triggered,
+further details about bearer handling are described in TS&nbsp;23.272&nbsp;[58].
+Otherwise, e.g. Radio Connection With UE Lost, S1 signalling connection lost, eNodeB
+failure the MME shall trigger the MME Initiated Dedicated Bearer Deactivation procedure
+(clause&nbsp;5.4.4.2) for the GBR bearer(s) of the UE after the S1 Release
+procedure is completed.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>EPC does not support the GPRS preservation feature
+with setting the MBR for GBR bearers to zero.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>The MME can defer the deactivation of GBR
+bearers for a short period (in the order of seconds) upon receipt of an S1AP UE
+Context Release Request due to radio reasons, so as to allow the UE to re-establish
+the corresponding radio and S1-U bearers and thus avoid deactivation of the GBR
+bearers.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If LIPA is active for a PDN connection,
+the HeNB informs the collocated L-GW by internal signalling to releases the
+direct user plane path to the HeNB. After the direct user plane path is
+released, if downlink packets arrive for the UE, the L-GW forwards the first
+packet on the S5 tunnel to the S&#8209;GW to initiate the &quot;Network
+Triggered Service Request&quot; procedure, as described in clause&nbsp;5.3.4.3.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span
+style='mso-tab-count:1'>   </span>If the eNodeB provided and MME accepted
+Secondary RAT usage data in step&nbsp;6 (i.e. MME initiated S1 release), the MME
+initiates the Secondary RAT usage data reporting procedure in clause&nbsp;5.7A.3
+as illustrated in figure 5.7A.3-2 (steps 7a - 7d). If PGW secondary RAT usage
+reporting is active, steps 7b and 7c are performed, otherwise only steps 7a and
+7d are performed.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the eNodeB provided Secondary RAT usage
+data in step&nbsp;1b (i.e. eNB initiated S1 release) and PGW secondary RAT
+usage data reporting is active, the MME initiates the Secondary RAT usage data
+reporting procedure in clause&nbsp;5.7A.3 as illustrated in figure 5.7A.3-2.</span></span></p></body>

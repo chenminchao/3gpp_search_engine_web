@@ -3102,131 +3102,227 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133920"><span
-lang=EN-GB>4.7.3<span style='mso-tab-count:1'>      </span>Bearer level QoS
-parameters</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-EPS bearer QoS profile includes the parameters QCI, ARP, GBR and MBR, described
-in this clause. This clause also describes QoS parameters which are applied to
-an aggregated set of EPS Bearers: APN&#8209;AMBR and UE&#8209;AMBR.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
-EPS bearer (GBR and Non-GBR) is associated with the following bearer level QoS
-parameters:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>QoS Class Identifier (QCI);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Allocation and Retention Priority (ARP).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
-QCI is a scalar that is used as a reference to access node-specific parameters
-that control bearer level packet forwarding treatment (e.g. scheduling weights,
-admission thresholds, queue management thresholds, link layer protocol
-configuration, etc.), and that have been pre-configured by the operator owning
-the access node (e.g. eNodeB). A one-to-one mapping of standardized QCI values
-to standardized characteristics is captured in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>On the radio interface and on S1, each PDU
-(e.g. RLC PDU or GTP-U PDU) is indirectly associated with one QCI via the
-bearer identifier carried in the PDU header. The same applies to the S5 and S8
-interfaces if they are based on GTP.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>When required by operator policy, the eNodeB
-can be configured to also use the ARP priority level in addition to the QCI to
-control bearer level packet forwarding treatment in the eNodeB for SDFs having
-high priority ARPs.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-ARP shall contain information about the priority level (scalar), the
-pre-emption capability (flag) and the pre-emption vulnerability (flag). The
-primary purpose of ARP is to decide whether a bearer establishment /
-modification request can be accepted or needs to be rejected due to resource
-limitations (typically available radio capacity for GBR bearers). The priority
-level information of the ARP is used for this decision to ensure that the
-request of the bearer with the higher priority level is preferred. In addition,
-the ARP can be used (e.g. by the eNodeB) to decide which bearer(s) to drop
-during exceptional resource limitations (e.g. at handover). The pre-emption
-capability information of the ARP defines whether a bearer with a lower ARP priority
-level should be dropped to free up the required resources. The pre-emption
-vulnerability information of the ARP defines whether a bearer is applicable for
-such dropping by a pre-emption capable bearer with a higher ARP priority level.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Once
-a bearer has been successfully established, the packet handling (e.g. scheduling
-and rate control) within the eNodeB, PDN GW, and Serving GW should be solely
-determined by the following EPS bearer QoS parameters: QCI, GBR and MBR, and by
-the AMBR parameters. However, when required by operator policy, the eNodeB can
-be configured to also use a bearer's ARP priority level in addition to the QCI
-to determine the relative priority of the SDFs for packet handling (e.g.
-scheduling and rate control) in the eNodeB as defined in TS&nbsp;23.203&nbsp;[6]
-clause&nbsp;6.1.7.2. This configuration applies only for bearers with high
-priority ARPs as defined in TS&nbsp;23.203&nbsp;[6] clause&nbsp;6.1.7.3.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-ARP priority level may be used in addition to the QCI to determine the
-transport level packet marking, e.g. to set the DiffServ Code Point. The ARP is
-not included within the EPS QoS Profile sent to the UE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
-style='mso-tab-count:1'>  </span>The ARP should be understood as &quot;Priority
-of Allocation and Retention&quot;; not as &quot;Allocation, Retention, and
-Priority&quot;.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
-style='mso-tab-count:1'>  </span>Video telephony is one use case where it may
-be beneficial to use EPS bearers with different ARP values for the same UE. In
-this use case an operator could map voice to one bearer with a higher ARP, and
-video to another bearer with a lower ARP. In a congestion situation (e.g. cell edge)
-the eNodeB can then drop the &quot;video bearer&quot; without affecting the
-&quot;voice bearer&quot;. This would improve service continuity.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
-style='mso-tab-count:1'>  </span>The ARP may also be used to free up capacity
-in exceptional situations, e.g. a disaster situation. In such a case the eNodeB
-may drop bearers with a lower ARP priority level to free up capacity if the
-pre-emption vulnerability information allows this.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
-GBR bearer is additionally associated with the following bearer level QoS
-parameters:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Guaranteed Bit Rate (GBR);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Maximum Bit Rate (MBR).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-GBR denotes the bit rate that can be expected to be provided by a GBR bearer.
-The MBR limits the bit rate that can be expected to be provided by a GBR bearer
-(e.g. excess traffic may get discarded by a rate shaping function). See clause&nbsp;4.7.4
-for further details on GBR and MBR.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>GBR
-bearers are not supported by NB-IoT. The PDN GW uses the RAT Type to ensure
-that GBR bearers are not active when the UE is using NB-IoT.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
-APN access, by a UE, is associated with the following QoS parameter:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>per APN Aggregate Maximum Bit Rate
-(APN-AMBR).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-subscribed APN&#8209;AMBR is a subscription parameter stored per APN in the HSS,
-which applies as APN-AMBR unless the APN-AMBR is modified by the MME (e.g in
-roaming scenarios and/or for usage of NB-IoT) or the PDN GW, based on local
-policy (e.g. for RAT Type = NB-IoT) or PCRF interactions. The APN-AMBR limits
-the aggregate bit rate that can be expected to be provided across all Non&#8209;GBR
-bearers and across all PDN connections of the same APN (e.g. excess traffic may
-get discarded by a rate shaping function). Each of those Non&#8209;GBR bearers
-could potentially utilize the entire APN&#8209;AMBR, e.g. when the other Non&#8209;GBR
-bearers do not carry any traffic. GBR bearers are outside the scope of APN&#8209;AMBR.
-The P&#8209;GW enforces the APN&#8209;AMBR in downlink. Enforcement of APN&#8209;AMBR
-in uplink is done in the UE and additionally in the P&#8209;GW.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
-style='mso-tab-count:1'>  </span>All simultaneous active PDN connections of a
-UE that are associated with the same APN shall be provided by the same PDN GW
-(see clauses&nbsp;4.3.8.1 and 5.10.1).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>APN-AMBR
-applies to all PDN connections of an APN. For the case of multiple PDN
-connections of an APN, if a change of APN-AMBR occurs due to local policy or
-the PDN GW is provided the updated APN-AMBR for each PDN connection from the MME
-or PCRF, the PDN GW initiates explicit signaling for each PDN connection to
-update the APN-AMBR value.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Each
-UE in state EMM-REGISTERED is associated with the following bearer aggregate
-level QoS parameter:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>per UE Aggregate Maximum Bit Rate (UE-AMBR).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-UE&#8209;AMBR is limited by a subscription parameter stored in the HSS. The MME
-shall set the UE&#8209;AMBR to the sum of the APN&#8209;AMBR of all active APNs
-up to the value of the subscribed UE&#8209;AMBR. The UE&#8209;AMBR limits the
-aggregate bit rate that can be expected to be provided across all Non&#8209;GBR
-bearers of a UE (e.g. excess traffic may get discarded by a rate shaping
-function). Each of those Non&#8209;GBR bearers could potentially utilize the
-entire UE&#8209;AMBR, e.g. when the other Non&#8209;GBR bearers do not carry
-any traffic. GBR bearers are outside the scope of UE AMBR. The E&#8209;UTRAN
-enforces the UE&#8209;AMBR in uplink and downlink except for PDN connections
-using the Control Plane CIoT EPS Optimisation.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-GBR and MBR denote bit rates of traffic per bearer while UE-AMBR/APN-AMBR denote
-bit rates of traffic per group of bearers. Each of those QoS parameters has an
-uplink and a downlink component. On S1_MME the values of the GBR, MBR, and AMBR
-refer to the bit stream excluding the GTP-U/IP header overhead of the tunnel on
-S1_U.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-HSS defines, for each PDN subscription context, the 'EPS subscribed QoS
-profile' which contains the bearer level QoS parameter values for the default
-bearer (QCI and ARP) and the subscribed APN-AMBR value. The subscribed ARP
-shall be used to set the priority level of the EPS bearer parameter ARP for the
-default bearer while the pre-emption capability and the pre-emption
-vulnerability information for the default bearer are set based on MME operator
-policy. In addition, the subscribed ARP shall be applied by the P-GW for setting
-the ARP priority level of all dedicated EPS bearers of the same PDN connection
-unless a different ARP priority level setting is required (due to P-GW
-configuration or interaction with the PCRF).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;7:<span
-style='mso-tab-count:1'>  </span>The ARP parameter of the EPS bearer can be
-modified by the P&#8209;GW (e.g. based on interaction with the PCRF due to e.g.
-MPS user initiated session) to assign the appropriate pre-emption capability
-and the pre-emption vulnerability setting.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-ARP pre-emption vulnerability of the default bearer should be set appropriately
-to minimize the risk of unnecessary release of the default bearer.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133916"><span
+lang=EN-GB>4.7.2<span style='mso-tab-count:1'>      </span>The EPS bearer</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133917"><span
+lang=EN-GB>4.7.2.1<span style='mso-tab-count:1'>          </span>The EPS bearer
+in general</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
+E-UTRAN access to the EPC the PDN connectivity service is provided by an EPS
+bearer for GTP-based S5/S8, and if IP is in use, by an EPS bearer concatenated
+with IP connectivity between Serving GW and PDN GW for PMIP-based S5/S8.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+this release of the specifications, dedicated bearers are only supported for
+the IP and Ethernet PDN Connectivity Service.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+User Plane (S1-U) is used for data traffic, then an EPS bearer uniquely
+identifies traffic flows that receive a common QoS treatment between a UE and a
+PDN GW for GTP-based S5/S8, and between UE and Serving GW for PMIP-based S5/S8.
+The packet filters signalled in the NAS procedures are associated with a unique
+packet filter identifier on per-PDN connection basis.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The EPS Bearer Identity together with the
+packet filter identifier is used to reference which packet filter the UE
+intends to modify or delete, i.e. it is used to implement the unique packet
+filter identifier.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
+EPS bearer is the level of granularity for bearer level QoS control in the
+EPC/E-UTRAN. That is, all traffic mapped to the same EPS bearer receive the
+same bearer level packet forwarding treatment (e.g. scheduling policy, queue
+management policy, rate shaping policy, RLC configuration, etc.). Providing
+different bearer level packet forwarding treatment requires separate EPS
+bearers.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>In addition but independent to bearer level
+QoS control, the PCC framework allows an optional enforcement of service level
+QoS control on the granularity of SDFs independent of the mapping of SDFs to
+EPS bearers.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>One
+EPS bearer is established when the UE connects to a PDN, and that remains established
+throughout the lifetime of the PDN connection to provide the UE with always-on connectivity
+to that PDN. That bearer is referred to as the default bearer. Any additional
+EPS bearer that is established for the same PDN connection is referred to as a
+dedicated bearer.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+EPS bearer traffic flow template (TFT) is the set of all packet filters
+associated with that EPS bearer. An UpLink Traffic Flow Template (UL TFT) is
+the set of uplink packet filters in a TFT. A DownLink Traffic Flow Template (DL
+TFT) is the set of downlink packet filters in a TFT. Every dedicated EPS bearer
+is associated with a TFT. A TFT may be also assigned to the default EPS bearer.
+The UE uses the UL TFT for mapping traffic to an EPS bearer in the uplink
+direction. The PCEF (for GTP-based S5/S8) or the BBERF (for PMIP-based S5/S8)
+uses the DL TFT for mapping traffic to an EPS bearer in the downlink direction.
+The UE may use the UL TFT and DL TFT to associate EPS Bearer Activation or
+Modification procedures to an application and to traffic flow aggregates of the
+application. Therefore the PDN GW shall, in the Create Dedicated Bearer Request
+and the Update Bearer Request messages, provide all available traffic flow
+description information (e.g. source and destination IP address and port
+numbers and the protocol information).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
+the UE, the evaluation precedence order of the packet filters making up the UL
+TFTs is signalled from the P&#8209;GW to the UE as part of any appropriate TFT
+operations.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>The evaluation precedence index of the packet
+filters associated with the default bearer, in relation to those associated
+with the dedicated bearers, is up to operator configuration. It is possible to
+&quot;force&quot; certain traffic onto the default bearer by setting the
+evaluation precedence index of the corresponding filters to a value that is
+lower than the values used for filters associated with the dedicated bearers.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Further
+details about the TFT and the TFT operations are described in clause&nbsp;15.3
+of TS&nbsp;23.060&nbsp;[7]. The details about the TFT packet filter(s) are
+described in clause&nbsp;15.3.2 of TS&nbsp;23.060&nbsp;[7] for PDN connections
+of IP type and in clause&nbsp;5.7.6.3 of TS&nbsp;23.501&nbsp;[83] for PDN
+connections of Ethernet type.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
+TFT of an uplink unidirectional EPS bearer is only associated with UL packet
+filter(s) that matches the uplink unidirectional traffic flow(s) A TFT of a
+downlink unidirectional EPS bearer is associated with DL packet filter(s) that
+matches the unidirectional traffic flow(s) and a UL packet filter that
+effectively disallows any useful packet flows (see clause&nbsp;15.3.3.4 in TS&nbsp;23.060&nbsp;[7]
+for an example of such packet filter.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE routes uplink packets to the different EPS bearers based on uplink packet
+filters in the TFTs assigned to these EPS bearers. The UE evaluates for a
+match, first the uplink packet filter amongst all TFTs that has the lowest
+evaluation precedence index and, if no match is found, proceeds with the
+evaluation of uplink packet filters in increasing order of their evaluation
+precedence index. This procedure shall be executed until a match is found or
+all uplink packet filters have been evaluated. If a match is found, the uplink data
+packet is transmitted on the EPS bearer that is associated with the TFT of the
+matching uplink packet filter. If no match is found, the uplink data packet
+shall be sent via the EPS bearer that has not been assigned any uplink packet
+filter. If all EPS bearers (including the default EPS bearer for that PDN) have
+been assigned one or more uplink packet filters, the UE shall discard the
+uplink data packet.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>The above algorithm implies that there is at
+most one EPS bearer without any uplink packet filter. Therefore, some UEs may
+expect that during the lifetime of a PDN connection (where only network has
+provided TFT packet filters) at most one EPS bearer exists without any uplink
+packet filter.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>To
+ensure that at most one EPS bearer exists without any uplink packet filter, the
+PCEF (for GTP-based S5/S8) or the BBERF (for PMIP-based S5/S8) maintains a
+valid state for the TFT settings of the PDN connection as defined in
+clause&nbsp;15.3.0 of TS&nbsp;23.060&nbsp;[7] and if necessary, adds a packet
+filter which effectively disallows any useful packet flows in uplink direction
+(see clause&nbsp;15.3.3.4 in TS&nbsp;23.060&nbsp;[7] for an example of such a
+packet filter) to the TFT of a dedicated bearer.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>The default bearer is the only bearer that may
+be without any uplink packet filter and thus, a packet filter which effectively
+disallows any useful packet flows in uplink direction will not be added by the
+PCEF/BBERF.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+initial bearer level QoS parameter values of the default bearer are assigned by
+the network, based on subscription data (in E-UTRAN the MME sets those initial
+values based on subscription data retrieved from HSS).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+a non-roaming scenario, the PCEF may change the QoS parameter value received
+from the MME based on interaction with the PCRF or based on local configuration.
+When the PCEF changes those values, the MME shall use the bearer level QoS
+parameter values received on the S11 reference point during establishment or
+modification of the default bearer.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+a roaming scenario, based on local configuration, the MME may downgrade the ARP
+or APN-AMBR and/or remap QCI parameter values received from HSS to the value
+locally configured in MME (e.g. when the values received from HSS do not comply
+with services provided by the visited PLMN). The PCEF may change the QoS parameter
+values received from the MME based on interaction with the PCRF or based on
+local configuration. Alternatively, the PCEF may reject the bearer
+establishment.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
+style='mso-tab-count:1'>  </span>For certain APNs (e.g. the IMS APN defined by
+the GSMA) the QCI value is strictly defined and therefore remapping of QCI is
+not permitted.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;7:<span
+style='mso-tab-count:1'>  </span>In roaming scenarios, the ARP/APN-AMBR/QCI
+values provided by the MME for a default bearer may deviate from the subscribed
+values depending on the roaming agreement. If the PCC/PCEF rejects the establishment
+of the default bearer, this implies that Attach via E-UTRAN will fail.
+Similarly, if the PCEF (based on interaction with the PCRF or based on local
+configuration) upgrades the ARP/APN-AMBR/QCI parameter values received from the
+MME, the default bearer establishment and attach may be rejected by the MME.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;8:<span
+style='mso-tab-count:1'>  </span>Subscription data related to bearer level QoS
+parameter values retrieved from the HSS are not applicable for dedicated bearers.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
+WB-E-UTRA, the decision to establish or modify a dedicated bearer can only be
+taken by the EPC, and the bearer level QoS parameter values are always assigned
+by the EPC.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Dedicated
+bearers are not supported over NB-IoT. The PDN GW uses the RAT Type to ensure
+that no dedicated bearers are active when the UE is accessing over NB-IoT. In
+case of inter-RAT mobility from WB-EUTRA to NB-IoT, the UE and MME indicate
+local deactivation of non-default EPS bearers at TAU as specified in TS&nbsp;24.301&nbsp;[46].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+MME shall not modify the bearer level QoS parameter values received on the S11
+reference point during establishment or modification of a default or dedicated
+bearer (except when the conditions described in NOTE&nbsp;8 apply).
+Consequently, &quot;QoS negotiation&quot; between the E-UTRAN and the EPC
+during default or dedicated bearer establishment / modification is not
+supported. Based on local configuration, the MME may reject the establishment
+or modification of a default or dedicated bearer<span
+style='mso-spacerun:yes'>  </span>if the bearer level QoS parameter values sent
+by the PCEF over a GTP based S8 roaming interface do not comply with a roaming
+agreement.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;9:<span
+style='mso-tab-count:1'>  </span>The MME, based on local policies, can
+downgrade the ARP pre-emption capability, APN-AMBR or MBR (for GBR bearers)
+parameters received over S8 and allow the bearer establishment or modification
+of a default or dedicated bearer. The HPLMN is expected to set EPS QoS
+parameters compliant with roaming agreements, therefore the HPLMN is not
+informed about any downgrade of EPS bearer QoS parameters. The consequences of
+such a downgrade are that APN-AMBR and MBR enforcement at the HPLMN and at the
+UE will not be aligned.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>At
+inter-RAT mobility, based on local configuration, the MME may perform a mapping
+of QCI values for which there is no mapping defined in Table E.3 or which are
+not supported in the target RAT.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;10:<span
+style='mso-tab-count:1'> </span>The PCRF ensures that the EPS bearer QCI values
+are aligned with the QCI values mapped by the MME for the current RAT as
+described in clause&nbsp;A.4.1.2 of TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+distinction between default and dedicated bearers should be transparent to the access
+network (e.g. E-UTRAN).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
+EPS bearer is referred to as a GBR bearer if dedicated network resources
+related to a Guaranteed Bit Rate (GBR) value that is associated with the EPS
+bearer are permanently allocated (e.g. by an admission control function in the
+eNodeB) at bearer establishment/modification. Otherwise, an EPS bearer is
+referred to as a Non-GBR bearer.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;11:<span
+style='mso-tab-count:1'> </span>Admission control can be performed at
+establishment / modification of a Non-GBR bearer even though a Non-GBR bearer
+is not associated with a GBR value.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
+dedicated bearer can either be a GBR or a Non-GBR bearer. A default bearer
+shall be a Non-GBR bearer.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;12:<span
+style='mso-tab-count:1'> </span>A default bearer provides the UE with connectivity
+throughout the lifetime of the PDN connection. That motivates the restriction
+of a default bearer to bearer type Non-GBR.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133918"><span
+lang=EN-GB>4.7.2.2<span style='mso-tab-count:1'>          </span>The EPS bearer
+with GTP-based S5/S8</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1045" type="#_x0000_t75" style='width:480pt;height:211.5pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image041.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=640 height=282
+src="23401-g30_files/image042.gif" v:shapes="_x0000_i1045"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1045"
+  DrawAspect="Content" ObjectID="_1631980382">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+4.7.2.2-1: Two Unicast EPS bearers (GTP-based S5/S8)</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
+EPS bearer is realized by the following elements:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>In the UE, the UL TFT maps a traffic flow
+aggregate to an EPS bearer in the uplink direction;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>In the PDN&nbsp;GW, the DL TFT maps a
+traffic flow aggregate to an EPS bearer in the downlink direction;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>A radio bearer (defined in TS&nbsp;36.300&nbsp;[5])
+transports the packets of an EPS bearer between a UE and an eNodeB. If a radio
+bearer exists, there is a one-to-one mapping between an EPS bearer and this
+radio bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>An S1 bearer transports the packets of an
+EPS bearer between an eNodeB and a Serving GW;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>An E-RAB (E-UTRAN Radio Access Bearer)
+refers to the concatenation of an S1 bearer and the corresponding radio bearer,
+as defined in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>An S5/S8 bearer transports the packets of an
+EPS bearer between a Serving GW and a PDN GW;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>A UE stores a mapping between an uplink packet
+filter and a radio bearer to create the mapping between a traffic flow
+aggregate and a radio bearer in the uplink;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>A PDN GW stores a mapping between a downlink
+packet filter and an S5/S8 bearer to create the mapping between a traffic flow
+aggregate and an S5/S8 bearer in the downlink;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>An eNodeB stores a one-to-one mapping
+between a radio bearer and an S1 Bearer to create the mapping between a radio
+bearer and an S1 bearer in both the uplink and downlink;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>A Serving GW stores a one-to-one mapping between
+an S1 Bearer and an S5/S8 bearer to create the mapping between an S1 bearer and
+an S5/S8 bearer in both the uplink and downlink.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+PDN GW routes downlink packets to the different EPS bearers based on the
+downlink packet filters in the TFTs assigned to the EPS bearers in the PDN
+connection. Upon reception of a downlink data packet, the PDN GW evaluates for
+a match, first the downlink packet filter that has the lowest evaluation precedence
+index and, if no match is found, proceeds with the evaluation of downlink
+packet filters in increasing order of their evaluation precedence index. This
+procedure shall be executed until a match is found, in which case the downlink
+data packet is tunnelled to the Serving GW on the EPS bearer that is associated
+with the TFT of the matching downlink packet filter. If no match is found, the
+downlink data packet shall be sent via the EPS bearer that does not have any
+TFT assigned. If all EPS bearers (including the default EPS bearer for that
+PDN) have been assigned a TFT, the PDN GW shall discard the downlink data
+packet.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133919"><span
+lang=EN-GB>4.7.2.3<span style='mso-tab-count:1'>          </span>The EPS bearer
+with PMIP-based S5/S8</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>See
+clause&nbsp;4.10.3 in TS&nbsp;23.402&nbsp;[2].</span></span></p></body>

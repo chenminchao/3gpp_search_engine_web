@@ -3102,1111 +3102,385 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133977"><span
-lang=EN-GB>5.3.2<span style='mso-tab-count:1'>      </span>Attach procedure</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133978"><span
-lang=EN-GB>5.3.2.1<span style='mso-tab-count:1'>          </span>E-UTRAN
-Initial Attach</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
-UE/user needs to register with the network to receive services that require
-registration. This registration is described as Network Attachment. The
-always-on connectivity for UE/users of the EPS may be enabled by establishing a
-default EPS bearer during Network Attachment. The PCC rules applied to the
-default EPS bearer may be predefined in the PDN GW and activated in the
-attachment by the PDN GW itself. The Attach procedure may trigger one or
-multiple Dedicated Bearer Establishment procedures to establish dedicated EPS
-bearer(s) for that UE. During the attach procedure, the UE may request for an
-IP address allocation. Terminals utilising only IETF based mechanisms for IP
-address allocation are also supported.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>During
-the Initial Attach procedure the Mobile Equipment Identity is obtained from the
-UE. The MME operator may check the ME Identity with an EIR. The MME passes the
-ME Identity (IMEISV) to the HSS and to the PDN&nbsp;GW.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>During
-the Initial Attach procedure, if the MME supports SRVCC and if any of the
-conditions described in step&nbsp;8 in Figure 5.3.2.1-1 are satisfied, the MME
-informs the HSS with the UE SRVCC capability e.g. for further IMS registration.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-E-UTRAN Initial Attach procedure is used for Emergency Attach by UEs that need
-to perform emergency services but cannot gain normal services from the network.
-These UEs are in limited service state as defined in TS&nbsp;23.122&nbsp;[10].
-Also UEs that had attached for normal services and do not have emergency
-bearers established and are camped on a cell in limited service state (e.g.
-restricted Tracking Area or not allowed CSG) shall initiate the Attach
-procedures indicating that the attach is to receive emergency services. UEs
-that camp normally on a cell, i.e. UEs that are not in limited service state,
-should initiate normal initial attach when not already attached and shall
-initiate the UE Requested PDN Connectivity procedure to receive emergency EPS
-bearer services.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>A UE that is emergency attached performs
-initial attach procedure before being able to obtain normal services.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-E-UTRAN Initial Attach procedure is used for RLOS Attach by UEs in limited
-service state as defined in TS&nbsp;23.122&nbsp;[10], as well as UEs attached
-for normal services but moved to a cell in limited service state (e.g.
-restricted Tracking Area or not allowed CSG).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
-order to limit load on the network, only when performing an E-UTRAN Attach with
-a new PLMN (i.e. not the registered PLMN or an equivalent PLMN of the
-registered PLMN), a UE configured to perform Attach with IMSI at PLMN change
-(see TS&nbsp;24.368&nbsp;[69]) shall identify itself by its IMSI instead of any
-stored temporary identifier.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
-procedure is also used to establish the first PDN connection over E-UTRAN when
-the UE already has active PDN connections over a non-3GPP access network and
-wants to establish simultaneous PDN connections to different APNs over multiple
-accesses.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1063" type="#_x0000_t75" style='width:456.5pt;height:658pt' o:ole="">
- <v:imagedata src="23401-g30_files/image077.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=609 height=877
-src="23401-g30_files/image078.gif" v:shapes="_x0000_i1063"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1063"
-  DrawAspect="Content" ObjectID="_1631980391">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.2.1-1: Attach procedure</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>For a PMIP-based S5/S8, procedure steps (A),
-(B), and (C) are defined in TS&nbsp;23.402&nbsp;[2]. Steps&nbsp;7, 10, 13, 14,
-15 and 23a/b concern GTP based S5/S8.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
-style='mso-tab-count:1'>  </span>The Serving GWs and PDN GWs involved in steps&nbsp;7
-and/or 10 may be different to those in steps&nbsp;13&#8209;15.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
-style='mso-tab-count:1'>  </span>The steps in (D) are executed only upon
-handover from non-3GPP access or if Presence Reporting Area Information is
-received from the MME.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
-style='mso-tab-count:1'>  </span>More detail on procedure steps (E) is defined
-in the procedure steps (B) in clause&nbsp;5.3.8.3.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
-style='mso-tab-count:1'>  </span>More detail on procedure steps (F) is defined
-in the procedure steps (B) in clause&nbsp;5.3.8.4.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
-style='mso-tab-count:1'>   </span>A UE, camping on an E-UTRAN cell reads the
-related System Information Broadcast.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>An E-UTRAN cell for a PLMN that supports
-CIoT enhancements shall broadcast:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For the NB-IoT case:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Whether it can connect to an MME which
-supports EPS Attach without PDN Connectivity.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For the WB-E-UTRAN case:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Whether it supports Control Plane CIoT EPS
-Optimisation and it can connect to an MME which supports Control Plane CIoT EPS
-Optimisation.</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Whether it supports User Plane CIoT EPS
-Optimisation and it can connect to an MME which supports User Plane CIoT EPS
-Optimisation.</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Whether it can connect to an MME which
-supports EPS Attach without PDN Connectivity.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the PLMN does not advertise support of
-EPS attach without PDN connectivity and the UE can only attach without PDN
-connectivity, then the UE shall not attach to the PLMN in this cell and shall
-proceed as specified in TS&nbsp;23.122&nbsp;[10].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>In the case of WB-E-UTRAN, if the PLMN
-does not support Control Plane CIoT EPS Optimisation, and the UE only supports
-Control Plane CIoT EPS Optimisation and cannot otherwise attach, then the UE
-shall not proceed with the Attach to the PLMN in this cell and shall proceed as
-specified in TS&nbsp;23.122&nbsp;[10].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>An E-UTRAN cell for a PLMN that supports
-Restricted Local Operator Service shall broadcast:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Whether it supports Restricted Local
-Operator Service.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the PLMN does not advertise support for
-Restricted Local Operator Services, the UE shall not proceed with the Attach
-with indication that the attach is to receive Restricted Local Operator
-Services to the PLMN in this cell.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If a Service Gap timer is running in the
-UE (see clause&nbsp;4.3.17.9) and the Attach Type is not Emergency Attach and
-it is not an Attach without PDN connectivity, then the UE shall not send Attach
-Requests to this PLMN or any other PLMN as long as the timer is running.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE can proceed to attach, it
-initiates the Attach procedure by the transmission, to the eNodeB, of an Attach
-Request (IMSI or old GUTI, Old GUTI type, last visited TAI (if available), UE
-Core Network Capability, UE Specific DRX parameters, extended idle mode DRX
-parameters, Attach Type, ESM message container (Request Type, PDN Type,
-Protocol Configuration Options, Ciphered Options Transfer Flag, Header
-Compression Configuration), KSIASME, NAS sequence number, NAS-MAC, additional
-GUTI, P-TMSI signature, Voice domain preference and UE's usage setting, Preferred
-Network behaviour, MS Network Capability, Support for restriction of use of
-Enhanced Coverage, UE has UE Radio Capability ID assigned for the selected PLMN)
-message together with RRC parameters indicating the Selected Network and the
-old GUMMEI.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>In the RRC connection establishment
-signalling associated with the Attach Request, the UE indicates its support of
-the CIoT EPS Optimisations, relevant for MME selection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE identifies itself with the old
-GUTI, the UE shall set the Old GUTI Type to indicate whether the Old GUTI is a
-native GUTI or is mapped from a P-TMSI and RAI. The old GUTI may be derived
-from a P&#8209;TMSI and RAI. IMSI shall be included if the UE does not have a
-valid GUTI or a valid P&#8209;TMSI available, or if the UE is configured to
-perform Attach with IMSI at PLMN change and is accessing a new PLMN. The UE
-stores the TIN in detached state. If the UE's TIN indicates &quot;GUTI&quot; or
-&quot;RAT-related TMSI&quot; and the UE holds a valid GUTI then the old GUTI
-indicates this valid GUTI. If the UE's TIN indicates &quot;P&#8209;TMSI&quot;
-and the UE holds a valid P&#8209;TMSI and related RAI then these two elements
-are indicated as the old GUTI. Mapping a P&#8209;TMSI and RAI to a GUTI is
-specified in TS&nbsp;23.003&nbsp;[9]. If the UE holds a valid GUTI and the old
-GUTI indicates a GUTI mapped from a P-TMSI and RAI, then the UE indicates the
-GUTI as additional GUTI. If the old GUTI indicates a GUTI mapped from a P-TMSI
-and RAI and the UE has a valid P-TMSI signature associated to it, the P-TMSI
-signature shall be included. The UE sets the voice domain preference and UE's
-usage setting according to its configuration, as described in
-clause&nbsp;4.3.5.9.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>Alternatively, when a UE only supports
-E-UTRAN, if the UE has a GUTI available and the UE is accessing the same PLMN
-(or ePLMN), then it identifies itself with the old GUTI and sets the Old GUTI
-Type to 'native', otherwise the UE configuration determines whether the UE
-identifies itself with its IMSI or the Old GUTI.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The UE includes the extended idle mode DRX
-parameters information element if the UE needs to enable extended idle mode
-DRX.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If available, the last visited TAI shall
-be included in order to help the MME produce a good list of TAIs for any
-subsequent Attach Accept message. Selected Network indicates the PLMN that is
-selected for network sharing purposes. The RRC parameter &quot;old GUMMEI&quot;
-takes its value from the &quot;old GUTI&quot; contained in the Attach Request.
-UE Network Capability is described in UE capabilities, see clause&nbsp;5.11.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE has valid security parameters,
-the Attach Request message shall be integrity protected by the NAS-MAC in order
-to allow validation of the UE by the MME. KSI<sub>ASME</sub>, NAS sequence
-number and NAS-MAC are included if the UE has valid EPS security parameters.
-NAS sequence number indicates the sequential number of the NAS message. If the
-UE does not have a valid EPS security association, then the Attach Request
-message is not integrity protected. In this case the security association is
-established in step&nbsp;5a. The UE network capabilities indicate also the
-supported NAS and AS security algorithms.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>PDN type indicates the requested IP version
-(IPv4, IPv4/IPv6, IPv6). For a UE that support CIoT EPS Optimisations, the PDN
-type may also be &quot;Non-IP&quot;. PDN type may also indicate Ethernet.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>Protocol Configuration Options (PCO) are
-used to transfer parameters between the UE and the PDN GW, and sent transparently
-through the MME and the Serving GW. The Protocol Configuration Options may
-include the Address Allocation Preference indicating that the UE prefers to
-obtain an IPv4 address only after the default bearer activation by means of
-DHCPv4. If the UE intends to send PCO which require ciphering (e.g., PAP/CHAP
-usernames and passwords) or send an APN, or both, the UE shall set the Ciphered
-Options Transfer Flag and send PCO or APN or both only after authentication and
-NAS security setup have been completed (see below).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;7:<span
-style='mso-tab-count:1'>  </span>External network operators wanting to use PAP
-for authentication are warned that PAP is an obsolete protocol from a security
-point of view. CHAP provides stronger security than PAP.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE supports 3GPP PS Data Off, it shall
-include in the PCO the 3GPP PS Data Off UE Status, which indicates whether the
-user has activated or deactivated 3GPP PS Data Off.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE has UTRAN or GERAN capabilities,
-it shall send the NRSU in the PCO to indicate the support of the network requested
-bearer control in UTRAN/GERAN. The UE sends the ETFTU in the PCO to indicate
-the support of the extended TFT filter format. Request Type is included in the
-ESM message container and indicates &quot;Handover&quot; when the UE has
-already an activated PDN GW/HA due to mobility with non-3GPP accesses.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If a UE indicates support of CIoT EPS
-Optimisations in the RRC message, it may omit the ESM message container. If the
-ESM message container is omitted the MME shall not establish a PDN connection
-as part of the Attach procedure. In this case steps 6, 12 to 16 and 23 to 26
-are not executed. In addition, for the case of UEs attaching with Control Plane
-CIoT EPS Optimisation with no user plane establishment, steps 17 to 22 are
-replaced by S1 AP NAS Transport and RRC Direct Transfer messages that just
-transport the NAS Attach Accept and NAS Attach Complete messages.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>Attach Type indicates whether it is an EPS
-attach or a combined EPS/IMSI attach or an Emergency Attach or an RLOS Attach.
-Emergency Attach and RLOS Attach shall not be indicated when the UE is using
-NB-IoT. When using CIoT EPS Optimisations, the UE may indicate EPS attach and
-request SMS by setting the &quot;SMS transfer without Combined Attach&quot;
-flag in the Preferred Network Behaviour IE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If a UE includes a Preferred Network
-Behaviour, this defines the Network Behaviour the UE is expecting to be
-available in the network as defined in clause&nbsp;4.3.5.10.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If a UE indicated Control Plane CIoT EPS Optimisation
-supported in Preferred Network Behavior, and the UE included the ESM message
-container, and the PDN type was IPv4 or IPv6 or IPv4v6, and the UE supports
-header compression, it shall include the Header Compression Configuration. The
-Header Compression Configuration includes the information necessary for the
-ROHC channel setup. Optionally, the Header Compression Configuration may include
-additional header compression context setup parameters if the UE already has
-the application traffic information, e.g. the target server IP address.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach the UE shall set
-both the Attach Type and the Request Type to &quot;Emergency&quot; and the IMSI
-shall be included if the UE does not have a valid GUTI or a valid P-TMSI
-available. The IMEI shall be included when the UE has no IMSI, no valid GUTI
-and no valid P-TMSI.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For RLOS attach, the UE shall set the
-Attach Type to &quot;RLOS&quot; and the Request Type to &quot;RLOS&quot;, the
-IMSI shall be included if available. The IMEI shall be included when the UE has
-no IMSI, no valid GUTI and no valid P-TMSI.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE supports RACS as defined in clause&nbsp;5.11.3a,
-and if the UE is provisioned with a UE Radio Capability ID for use in the
-selected PLMN (i.e.PLMN-assigned for the specific PLMN or
-manufacturer-assigned), the UE includes a flag that indicates it has an
-assigned UE Radio Capability ID for use in the selected PLMN but the actual UE
-Radio Capability is provided to MME after security context is established in
-step&nbsp;6 (see below).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
-style='mso-tab-count:1'>   </span>The eNodeB derives the MME address from the
-RRC parameters carrying the old GUMMEI, the indicated Selected Network and the
-RAT (NB-IoT or WB-E-UTRAN). If that MME is not associated with the eNodeB or
-the old GUMMEI is not available, the eNodeB selects an MME as described in
-clause 4.3.8.3 on &quot;MME selection function&quot;. The eNodeB forwards the
-Attach Request message in a S1-MME control message (Initial UE message)
-together with the Selected Network, CSG access mode, CSG ID, L-GW address,
-TAI+ECGI of the cell from where it received the message to the new MME. CSG ID
-is provided if the UE attaches via a CSG cell or hybrid cell. CSG access mode
-is provided if the UE attaches via a hybrid cell. If the CSG access mode is not
-provided but the CSG ID is provided, the MME shall consider the cell as a CSG
-cell. If the eNodeB has a collocated L-GW, it includes the L-GW address in the
-Initial UE message to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME is not configured to support
-Emergency Attach the MME shall reject any Attach Request that indicates Attach
-Type &quot;Emergency&quot;.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME is not configured to support
-RLOS Attach, the MME shall reject any Attach Request that indicates Attach Type
-&quot;RLOS&quot;.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE has included the Preferred
-Network Behaviour, and what the UE indicated it supports in Preferred Network
-Behaviour is incompatible with the network support e.g. the UE indicated
-support only for Control Plane CIoT EPS Optimisation and the MME only supports
-User Plane CIoT EPS Optimisation, the MME shall reject the Attach Request with
-an appropriate cause value (e.g. one that avoids retries on this PLMN).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>To assist Location Services, the eNB
-indicates the UE's Coverage Level to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span
-style='mso-tab-count:1'>   </span>If the UE identifies itself with GUTI and the
-MME has changed since detach, the new MME determines the type of the old node,
-i.e. MME or SGSN, as specified in clause&nbsp;4.3.19, uses the GUTI received
-from the UE to derive the old MME/SGSN address, and sends an Identification
-Request (old GUTI, complete Attach Request message) to the old MME/SGSN to
-request the IMSI. If the request is sent to an old MME, the old MME first
-verifies the Attach Request message by NAS MAC and then responds with
-Identification Response (IMSI, MM Context). If the request is sent to an old
-SGSN, the old SGSN first verifies the Attach Request message by the P-TMSI
-signature and then responds with Identification Response (MM Context). If the
-UE is not known in the old MME/SGSN or if the integrity check or P-TMSI signature
-check for the Attach Request message fails, the old MME/SGSN responds with an
-appropriate error cause. The MM context contains security related information
-as well as other parameters (including IMSI) as described in clause&nbsp;5.7.2
-(Information Storage for MME).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The additional GUTI in the Attach Request
-message allows the new MME to find any already existing UE context stored in
-the new MME when the old GUTI indicates a GUTI mapped from a P-TMSI and RAI.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach or a RLOS Attach,
-if the UE identifies itself with a temporary identity that is not known to the
-MME the MME immediately requests the IMSI from the UE. If the UE identifies
-itself with IMEI, the IMSI request shall be skipped.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;8:<span
-style='mso-tab-count:1'>  </span>A SGSN always responds with the UMTS security
-parameters and the MME may store it for later use.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span
-style='mso-tab-count:1'>   </span>If the UE is unknown in both the old MME/SGSN
-and new MME, the new MME sends an Identity Request to the UE to request the
-IMSI. The UE responds with Identity Response (IMSI).</span></span></p><p class=B1 style='page-break-after:avoid'><span style='mso-bookmark:historyclause'><span
-lang=EN-GB>5a<span style='mso-tab-count:1'>  </span>If no UE context for the UE
-exists anywhere in the network, if the Attach Request (sent in step 1) was not
-integrity protected, or if the check of the integrity failed, then
-authentication and NAS security setup to activate integrity protection and NAS
-ciphering are mandatory. Otherwise it is optional. If NAS security algorithm is
-to be changed, the NAS security setup is performed in this step. The
-authentication and NAS security setup functions are defined in clause&nbsp;5.3.10
-on &quot;Security Function&quot;.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE supports RACS as indicated in
-the UE Network Capability, and if the UE indicated that it is provisioned with
-UE Radio Capability ID for the selected PLMN then authentication and NAS
-security setup to activate integrity protection and NAS ciphering are
-mandatory. The MME shall request the UE to provide the UE Radio Capability ID
-in Security Mode Command and the UE shall include the UE Radio Capability ID in
-Security Mode Command Accept for the supported UE radio capabilities.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME is configured to support
-Emergency Attach for unauthenticated IMSIs and the UE indicated Attach Type
-&quot;Emergency&quot; the MME skips the authentication and security setup or
-the MME accepts that the authentication may fail and continues the attach procedure.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME is configured to support RLOS
-Attach and the UE indicated Attach Type &quot;RLOS&quot;, based on local
-regulation and operator policy, the MME may skip the authentication and
-security setup, or the MME may perform authentication if security information
-is available or obtainable from HSS and continues the attach procedure
-regardless of the authentication result.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>After step&nbsp;5a, all NAS messages shall
-be protected by the NAS security functions (integrity and ciphering) indicated
-by the MME unless the UE is emergency attached and not successfully authenticated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5b.<span
-style='mso-tab-count:1'> </span>The ME Identity (IMEISV) shall be retrieved
-from the UE. The ME identity shall be transferred encrypted unless the UE
-performs Emergency Attach or RLOS Attach and cannot be authenticated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach or RLOS Attach,
-the UE may have included the IMEI in the Emergency Attach or RLOS Attach. If
-so, the ME Identity retrieval is skipped.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>In order to minimise signalling delays,
-the retrieval of the ME Identity may be combined with NAS security setup in
-step&nbsp;5a. The MME may send the ME Identity Check Request (ME Identity,
-IMSI) to the EIR. The EIR shall respond with ME Identity Check Ack (Result).
-Dependent upon the Result, the MME decides whether to continue with this Attach
-procedure or to reject the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach or RLOS Attach,
-the IMEI check to the EIR may be performed. If the IMEI is blocked, operator
-policies determine whether the Emergency Attach or RLOS Attach procedure
-continues or is stopped.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE supports RACS, as indicated in
-the UE Core Network Capability IE, the MME shall use the IMEI of the UE to
-obtain the TAC for the purpose of RACS operation.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span
-style='mso-tab-count:1'>   </span>If the UE has set the Ciphered Options
-Transfer Flag in the Attach Request message, the Ciphered Options i.e. PCO or
-APN or both, shall now be retrieved from the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>In order to handle situations where the UE
-may have subscriptions to multiple PDNs, if the Protocol Configuration Options
-contains user credentials (e.g. user name/password within PAP or CHAP
-parameters) then the UE should also send the APN to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span
-style='mso-tab-count:1'>   </span>If there are active bearer contexts in the
-new MME for this particular UE (i.e. the UE re-attaches to the same MME without
-having properly detached before), the new MME deletes these bearer contexts by
-sending Delete Session Request (LBI) messages to the GWs involved. The GWs
-acknowledge with Delete Session Response (Cause) message.</span></span><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133968"><span
+lang=EN-GB>5.3.1<span style='mso-tab-count:1'>      </span>IP address
+allocation</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133969"><span
+lang=EN-GB>5.3.1.1<span style='mso-tab-count:1'>          </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+procedures of clause&nbsp;5.3.1 apply to UEs activating a PDN connection of PDN
+Type IPv4, IPv6 or IPv4v6. Part of it also applies for PDN Type Non-IP when SGi
+PtP Tunnelling based on UDP/IP, see clause&nbsp;4.3.17.8, is used. The
+procedures of clause&nbsp;5.3.1 do not apply to UEs activating a PDN connection
+of PDN Type Ethernet.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
+UE shall perform the address allocation procedures for at least one IP address (either
+IPv4 address or IPv6 prefix) after the default bearer activation if no IPv4
+address is allocated during the default bearer activation.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>One
+of the following ways shall be used to allocate IP addresses for the UE:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>a)<span
+style='mso-tab-count:1'>   </span>The HPLMN allocates the IP address to the UE
+when the default bearer is activated (dynamic or static HPLMN address);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>b)<span
+style='mso-tab-count:1'>  </span>The VPLMN allocates the IP address to the UE
+when the default bearer is activated (dynamic VPLMN address); or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>c)<span
+style='mso-tab-count:1'>   </span>The PDN operator or administrator allocates
+an </span></span><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:ZH-CN'>(dynamic or static) </span><span lang=EN-GB>IP
+address to the UE when the default bearer is activated (External PDN Address
+Allocation).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+IP address allocated for the default bearer shall also be used for the
+dedicated bearers within the same PDN connection. IP address allocation for PDN
+connections,</span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-fareast-language:JA'> </span><span lang=EN-GB>which are
+activated by the UE requested PDN connectivity procedure, is handled with the
+same set of mechanisms as those used within the Attach procedure.</span></span></p><p class=MsoNormal style='mso-prop-change:23401CR0011R15 20080527T1513'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>PDN types IPv4, IPv6 and
+IPv4v6 are supported. An EPS Bearer of PDN type IPv4v6 may be associated with
+one IPv6 prefix only or with both one IPv4 address and one IPv6 prefix. PDN
+type IPv4 is associated with an IPv4 address. PDN type IPv6 is associated with
+an IPv6 prefix. PDN types IPv4 and IPv6 are utilised for the UE and/or the PDN
+GW support IPv4 addressing only or IPv6 prefix only; or operator preferences
+dictate the use of a single IP version only, or the subscription is limited to
+IPv4 only or IPv6 only for this APN. In addition, PDN type IPv4 and IPv6 are
+utilised for interworking with nodes of</span></span><span style='mso-bookmark:
+historyclause'><span lang=EN-GB style='mso-fareast-language:JA'> </span><span
+lang=EN-GB>earlier releases.</span></span></p><p class=MsoNormal style='mso-prop-change:23401CR0011R15 20080527T1513'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The way that the UE sets
+the requested PDN type may be pre-configured in the device per APN. Unless
+otherwise configured (including when the UE does not send any APN), the UE sets
+the PDN type during the Attach or PDN Connectivity procedures based on its IP
+stack configuration as follows:</span></span></p><p class=B1 style='mso-prop-change:23401CR0011R15 20080527T1514'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>A UE which is IPv6 and IPv4 capable shall request for PDN type
+IPv4v6.</span></span></p><p class=B1 style='mso-prop-change:23401CR0011R15 20080527T1514'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>A UE which is only IPv4 capable shall request for PDN type IPv4.</span></span></p><p class=B1 style='mso-prop-change:23401CR0011R15 20080527T1514'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>A UE which is only IPv6 capable shall request for PDN type IPv6.</span></span></p><p class=B1 style='mso-prop-change:23401CR0011R15 20080527T1514'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>When the IP version capability of the UE is unknown in the UE (as
+in the case when the MT and TE are separated and the capability of the TE is
+not known in the MT), the UE shall request for PDN type IPv4v6.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>At intersystem changes between GERAN/UTRAN and
+E-UTRAN there is a 1-to-1 mapping between PDP type IPv4v6 and PDN type IPv4v6
+without re-negotiation of the PDP/PDN type used for a PDN connection.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+HSS stores one or more PDN types per APN in the subscription data. During the
+Attach or UE requested PDN connectivity procedure the MME compares the
+requested PDN type to the PDN type in the subscription records for the given
+APN and sets the PDN type as follows:</span></span></p><p class=B1 style='mso-prop-change:23401_CR0812R2 20090304T1604'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>If the requested PDN type is allowed by subscription, the MME
+sets the PDN type as requested.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0812R2 20090304T1604'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>If the requested PDN type is IPv4v6 and subscription data only
+allows PDN type IPv4 or only allows PDN type IPv6, the MME sets the PDN type
+according to the subscribed value. A reason cause shall be returned to the UE
+indicating that only the assigned PDN type is allowed. In this case the UE shall
+not request another PDN connection to the same APN for the other IP version
+during the existence of the PDN connection.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0812R2 20090304T1604'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>If the requested PDN type is IPv4 or IPv6, and either the
+requested PDN type or PDN type IPv4v6 are subscribed, the MME sets the PDN type
+as requested. Otherwis the PDN connection request is rejected.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0812R2 20090304T1604'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>If the requested PDN type is IPv4v6, and both IPv4 and IPv6 PDN
+types are allowed by subscription but not IPv4v6, the MME shall set the PDN
+type to IPv4 or IPv6 where the selection between IPv4 and IPv6 is
+implementation specific. The UE should then initiate the UE requested PDN
+connectivity procedure to this APN in order to activate a second PDN connection
+with the other single address PDN type which was not allocated by the network.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>If the MT and TE are separated, the UE might
+not be able to use reason cause &quot;single address bearers only&quot; as a
+trigger for activating a second single-stack EPS bearer.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+PDN GW may restrict the usage of a PDN type IPv4v6 as follows.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>If the PDN GW receives a request for PDN
+type IPv4v6, but the PDN GW operator preferences dictate the use of IPv4
+addressing only or IPv6 prefix only for this APN, the PDN type shall be changed
+to a single address PDN type (IPv4 or IPv6) and a reason cause shall be returned
+to the UE indicating that only the assigned PDN type is allowed. In this case
+the UE shall not request another PDN connection to the same APN for the other
+IP version during the existence of the PDN connection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>If the PDN GW receives a request for PDN
+type IPv4v6, but the MME does not set the Dual Address Bearer Flag due to the
+MME operator using single addressing per bearer to support interworking with
+nodes of earlier releases the PDN type shall be changed to a single IP version
+only and a reason cause shall be returned to the UE indicating that only single
+IP version per PDN connection is allowed. In this case the UE should request
+another PDN connection for the other IP version using the UE requested PDN
+connectivity procedure to the same APN with a single address PDN type (IPv4 or
+IPv6) other than the one already activated.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>During
+inter-RAT mobility between E&#8209;UTRAN and UTRAN/GERAN, an EPS bearer with
+PDN type IPv4v6 shall be mapped one-to-one to PDP type IPv4v6.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>During
+inter-RAT mobility between E-UTRAN and UTRAN/GERAN, an EPS bearer with PDN type
+IPv4 shall be mapped one-to-one to a PDP context of PDP type IPv4. An EPS
+bearer with PDN type IPv6 shall be mapped one-to-one to a PDP context of PDP
+type IPv6.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>It
+is the HPLMN operator that shall define in the subscription whether a dynamic
+HPLMN or VPLMN address may be used.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>The EPS UE may indicate to the network
+within the Protocol Configuration Options element that the UE wants to obtain
+the IPv4 address with DHCPv4, which is a deferred IPv4 address allocation
+option, or during the default bearer activation procedure. This implies the following
+behaviour both for static and dynamic address allocation:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>the UE may indicate that it prefers to
+obtain an IPv4 address as part of the default bearer activation procedure. In
+such a case, the UE relies on the EPS network to provide IPv4 address to the UE
+as part of the default bearer activation procedure.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>the UE may indicate that it prefers to
+obtain the IPv4 address after the default bearer setup by DHCPv4. That is, when
+the EPS network supports DHCPv4 and allows that, it does not provide the IPv4
+address for the UE as part of the default bearer activation procedures. The
+network may respond to the UE by setting the PDN Address to 0.0.0.0. After the
+default bearer establishment procedure is completed, the UE uses the
+connectivity with the EPS and initiates the IPv4 address allocation on its own
+using DHCPv4. However, if the EPS network provides IPv4 address to the UE as
+part of the default bearer activation procedure, the UE should accept the IPv4
+address indicated in the default bearer activation procedure.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>if the UE sends no Address Allocation
+Preference, the PDN GW determines whether DHCPv4 is used between the UE and the
+PDN GW (for the deferred IPv4 address allocation) or not, based on per APN
+configuration</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>Both EPS network elements and UE shall
+support the following mechanisms:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>a.<span
+style='mso-tab-count:1'>   </span>IPv4 address allocation via default bearer
+activation, if IPv4 is supported.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>b.<span
+style='mso-tab-count:1'>   </span>/64 IPv6 prefix allocation via IPv6 Stateless
+Address autoconfiguration according to RFC&nbsp;4862&nbsp;[18], if IPv6 is
+supported;</span></span></p><p class=MsoNormal style='mso-prop-change:23401CR0294R1 20080525T2249'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Furthermore, the Protocol
+Configuration Options may be used during bearer activation to configure
+parameters which are needed for IP address allocation.</span></span></p><p class=MsoNormal style='mso-prop-change:23401CR0294R1 20080525T2249'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Both EPS network elements
+and UE may support the following mechanisms:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>a.<span
+style='mso-tab-count:1'>   </span>IPv4 address allocation and IPv4 parameter
+configuration after the attach procedure via DHCPv4 according to
+RFC&nbsp;2131&nbsp;[19] and RFC&nbsp;4039&nbsp;[25];</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>b.<span
+style='mso-tab-count:1'>   </span>IPv6 parameter configuration via Stateless
+DHCPv6 according to RFC&nbsp;3736&nbsp;[20].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>c.<span
+style='mso-tab-count:1'>   </span>Allocation of IPv6 prefixes using DHCPv6
+according to RFC&nbsp;3633&nbsp;[21].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>EPS
+network elements may support the following mechanism:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>a.<span
+style='mso-tab-count:1'>   </span>Allocation of a static IPv4 address and/or a
+static IPv6 prefix based on subscription data in the HSS.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>If the static IP address/prefix is not
+stored in the HSS subscription record, it may be configured on a per-user
+per-APN basis in the DHCP/Radius/Diameter server and the PDN GW retrieves the
+IP address/prefix for the UE from the DHCP/Radius/Diameter server. In this
+case, static IP address/prefix is allocated by the same procedures as the
+dynamic IP address/prefix allocation (i.e. in such cases it is transparent to
+the PDN GW if the IP address is static or dynamic).<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>If the static IP address/prefix is stored in
+the HSS subscription record, during the default bearer establishment the PDN GW
+receives this static IP address/prefix from Serving GW. In this case the PDN GW
+shall deliver the received address/prefix to the UE. The static IP
+address/prefix is delivered to the UE in the same way as a dynamic IP
+address/prefix. Thus it is transparent to the UE whether the PLMN or the
+external PDN allocates the IP address and whether the IP address is static or dynamic.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>The following clauses describe how the above
+listed IP address allocation mechanisms work when GTP based S5/S8 is used. The
+way of working of the IP address allocation mechanisms for PMIP based S5/S8 can
+be found in TS&nbsp;23.402&nbsp;[2].The procedures can be used both for PLMN
+(VPLMN/HPLMN) or external PDN based IP address allocation.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+order to support DHCP based IP address configuration, the PDN GW shall act as
+the DHCP server towards the UE for both HPLMN assigned dynamic and static IP
+addressing and for VPLMN assigned dynamic IP addressing. When DHCP is used for
+external PDN assigned addressing and parameter configuration, the PDN GW shall
+act as the DHCP server towards the UE and it shall act as the DHCP client
+towards the external DHCP server. The Serving GW does not have any DHCP
+functionality. It forwards packets, including DHCP packets, between the UE and
+the PDN GW.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>IPv6
+Stateless Address autoconfiguration specified in RFC&nbsp;4862&nbsp;[18] is the
+basic mechanism to allocate /64 IPv6 prefix to the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>During
+default bearer establishment, the PDN GW sends the IPv6 prefix and Interface
+Identifier to the S&#8209;GW, and then the S&#8209;GW forwards the IPv6 prefix
+and Interface Identifier to the MME or to the SGSN. The MME or the SGSN
+forwards the IPv6 Interface Identifier to the UE. The MME does not forward the
+IPv6 prefix to the UE. If the UE receives the IPv6 prefix from the SGSN during
+PDP Context Activation procedure, it shall ignore it.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133970"><span
+lang=EN-GB>5.3.1.2<span style='mso-tab-count:1'>          </span>IP address
+allocation, renewal and release mechanisms for GTP based S5/S8</span></a></span></h4><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133971"><span
+lang=EN-GB>5.3.1.2.1<span style='mso-tab-count:1'>              </span>IPv4
+address allocation via default bearer activation and release via PDN connection
+release</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
+IPv4 address may be provided to the UE as part of the default bearer activation
+and the IPv4 address is released when PDN connection associated with the IPv4
+address is released.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+the PLMN allocates an IPv4 address, it is the PDN&nbsp;GW responsibility to
+allocate and release the IPv4 address. The PDN GW may use an internal IPv4
+address pool in this case. The PDN GW allocates an IPv4 address upon default
+bearer activation and it releases the IPv4 address upon PDN connection release
+associated with the IPv4 address for a given UE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>If the PDN type is IPv4v6, when the PDN
+Connection is released, the IPv6 address is also released.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+an IPv4 address is allocated from an external PDN, it is the PDN GW responsibility
+to obtain the IPv4 address from the external PDN, and to allocate, renew and
+release the IPv4 address. The PDN GW may use DHCPv4 to obtain, renew and
+release the IPv4 address from the external PDN. If RADIUS or Diameter is used
+towards the external PDN, as described in TS&nbsp;29.061&nbsp;[38], the IP
+address can be obtained, renewed and released as part of these procedures. If
+DHCPv4 is used, the PDN GW functions as a DHCPv4 Client. If RADIUS is used, the
+PDN GW functions as a RADIUS Client. If Diameter is used, the PDN GW functions
+as a Diameter Client.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>After
+releasing the IPv4 address, the PDN GW should not assign that IPv4 address to
+other user immediately.</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133972"><span
+lang=EN-GB>5.3.1.2.2<span style='mso-tab-count:1'>              </span>Allocation,
+renewal and release of the IPv6 default prefix via IPv6 stateless address
+autoconfiguration</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+the PLMN allocates an IPv6 prefix, it is the PDN GW responsibility to allocate
+and release the IPv6 prefix. The PDN GW may use an internal IPv6 prefix pool in
+this case. The PDN GW allocates a globally unique /64 IPv6 prefix via Router
+Advertisement to a given UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+an IPv6 prefix is allocated from an external PDN, it is the PDN GW
+responsibility to obtain the IPv6 prefix from the external PDN and to allocate,
+renew and release the IPv6 prefix. The PDN GW may use DHCPv6 to obtain the IPv6
+prefix from the external PDN. In this case, the PDN GW functions as a DHCPv6
+client. If RADIUS or Diameter is used towards the external PDN as described in TS&nbsp;29.061&nbsp;[38],
+the IPv6 prefix can be obtained, renewed and released as part of these
+procedures. If RADIUS is used, the PDN GW functions as the RADIUS Client. If
+Diameter is used, the PDN GW functions as the Diameter Client.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+procedure of stateless IPv6 address autoconfiguration is the following: After
+default bearer establishment the UE may send a Router Solicitation message to
+the PDN GW to solicit a Router Advertisement message. The PDN&nbsp;GW sends a
+Router Advertisement message (solicited or unsolicited) to the UE. The Router
+Advertisement messages shall contain the same IPv6 prefix as the one provided
+during default bearer establishment. If the UE receives an IPv6 prefix from a
+SGSN during the PDP Context activation procedure, it shall ignore it.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>After
+the UE has received the Router Advertisement message, it constructs a full IPv6
+address via IPv6 Stateless Address autoconfiguration in accordance with RFC&nbsp;4862&nbsp;[18].
+To ensure that the link-local address generated by the UE does not collide with
+the link-local address of the PDN GW, the PDN GW shall provide an interface
+identifier (see RFC&nbsp;4862&nbsp;[18]) to the UE and the UE shall use this
+interface identifier to configure its link-local address. For stateless address
+autoconfiguration however, the UE can choose any interface identifier to generate
+IPv6 addresses, other than link-local, without involving the network. However,
+the UE shall not use any identifiers defined in TS&nbsp;23.003&nbsp;[9] as the
+basis for generating the interface identifier. For privacy, the UE may change
+the interface identifier used to generate full IPv6 address, as defined in TS&nbsp;23.221&nbsp;[27]
+without involving the network.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Any
+prefix that the PDN GW advertises to the UE is globally unique. The PDN GW
+shall also record the relationship between the UE's identity (IMSI) and the allocated
+IPv6 prefix. Because any prefix that the PDN GW advertises to the UE is
+globally unique, there is no need for the UE to perform Duplicate Address Detection
+for any IPv6 address configured from the allocated IPv6 prefix. Even if the UE
+does not need to use Neighbor Solicitation messages for Duplicate Address Detection,
+the UE may, for example, use them to perform Neighbor Unreachability Detection
+towards the PDN GW, as defined in RFC&nbsp;4861&nbsp;[32]. Therefore, the PDN
+GW shall respond with a Neighbor Advertisement upon receiving a Neighbor
+Solicitation message from the UE.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR0279R4 20080910T1521'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>In order to renew the
+allocated IPv6 prefix, the PDN GW sends a Router Advertisement (solicited or
+unsolicited) to the UE with the same prefix and new non-zero values in
+preferred and valid lifetime fields.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR0279R4 20080910T1521'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>In order to release the
+allocated IPv6 prefix, the PDN GW shall initiate the PDN connection release procedure.
+Upon release of the PDN connection, the UE shall implicitly release the prefix
+for the corresponding PDN connection.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>If the PDN type is IPv4v6, when the PDN
+Connection is released, the IPv4 address is also released.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR0279R4 20080910T1521'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>After releasing the IPv6
+prefix, the PDN GW should not assign that IPv6 prefix to other user
+immediately.</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133973"><span
+lang=EN-GB>5.3.1.2.3<span style='mso-tab-count:1'>              </span>IPv6
+parameter configuration via stateless DHCPv6</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE may use stateless DHCPv6 for additional parameter configuration. The PDN GW
+acts as the DHCP server. When PLMN based parameter configuration is used, the
+PDN GW provides the requested parameters from locally provisioned database. </span></span><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-bidi-font-family:
-Arial'> If a PCRF is deployed, the PDN GW employs an IP-CAN Session Termination
-procedure to indicate that </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-bidi-font-family:Arial;mso-fareast-language:ZH-CN'>resources
-have been released.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span
-style='mso-tab-count:1'>   </span>If the MME has changed since the last detach,
-or if there is no valid subscription context for the UE in the MME, or if the
-UE provides an IMSI or the UE provides an old GUTI which doesn't refer to a valid
-context in the MME, or for some network sharing scenario (e.g. GWCN) if the
-PLMN-ID of the TAI supplied by the eNodeB is different from that of the GUTI in
-the UE's context, the MME sends an Update Location Request (MME Identity, IMSI,
-ME Identity (IMEISV), MME Capabilities, ULR-Flags, Homogeneous Support of IMS
-Voice over PS Sessions, UE SRVCC capability, equivalent PLMN list) message to
-the HSS. The MME capabilities indicate the MME's support for regional access
-restrictions functionality. ULR-Flags indicates &quot;Initial-Attach-Indicator&quot;
-as this is an Attach procedure. The inclusion of the equivalent PLMN list
-indicates that the MME supports the inter-PLMN handover to a CSG cell in an
-equivalent PLMN using the subscription information of the target PLMN. The
-&quot;Homogenous Support of IMS Voice over PS Sessions&quot; indication (see
-clause&nbsp;4.3.5.8A) shall not be included unless the MME has completed its
-evaluation of the support of &quot;IMS Voice over PS Session&quot; as specified
-in clause&nbsp;4.3.5.8.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;9:<span
-style='mso-tab-count:1'>  </span>At this step, the MME may not have all the
-information needed to determine the setting of the IMS Voice over PS Session
-Supported indication for this UE (see clause&nbsp;4.3.5.8). Hence the MME can
-send the &quot;Homogenous Support of IMS Voice over PS Sessions&quot; later on
-in this procedure.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE performs Initial or Handover
-Attach in a VPLMN supporting Autonomous CSG Roaming and the HPLMN has enabled
-Autonomous CSG Roaming in the VPLMN (via Service Level Agreement) and the MME
-needs to retrieve the CSG subscription information of the UE from the CSS, the
-MME initiates the Update CSG Location Procedure with CSS as described in
-clause&nbsp;5.3.12.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME determines that only the UE
-SRVCC capability has changed, the MME sends a Notify Request to the HSS to
-inform about the changed UE SRVCC capability.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If there is a valid subscription context
-for the UE in the MME with a Service Gap timer running and the Attach Type is
-not Emergency Attach and it is not an Attach without PDN connectivity, the MME
-rejects the Attach Request from the UE with an appropriate cause value. In
-addition, MME may also provide a UE with a Mobility Management Back-off Timer
-set to the remaining value of the Service Gap timer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach in which the UE
-was not successfully authenticated, the MME shall not send an Update Location
-Request to the HSS.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an RLOS Attach the MME shall not send
-an Update Location Request to the HSS.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>9.<span
-style='mso-tab-count:1'>   </span>The HSS sends Cancel Location (IMSI,
-Cancellation Type) to the old MME. The old MME acknowledges with Cancel Location
-Ack (IMSI) and removes the MM and bearer contexts. If the ULR-Flags indicates
-&quot;Initial-Attach-Indicator&quot; and the HSS has the SGSN registration,
-then the HSS sends Cancel Location (IMSI, Cancellation Type) to the old SGSN.
-The Cancellation Type indicates the old MME/SGSN to release the old Serving GW
-resource.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>10.<span
-style='mso-tab-count:1'> </span>If there are active bearer contexts in the old
-MME/SGSN for this particular UE, the old MME/SGSN deletes these bearer contexts
-by sending Delete Session Request (LBI) messages to the GWs involved. The GWs
-return Delete Session Response (Cause) message to the old MME/SGSN.</span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-bidi-font-family:
-Arial'> If a PCRF is deployed, the PDN GW employs an IP&#8209;CAN Session
-Termination procedure as defined in </span><span lang=EN-GB>TS&nbsp;23.203&nbsp;</span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-bidi-font-family:
-Arial'>[6] to indicate that </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-bidi-font-family:Arial;mso-fareast-language:ZH-CN'>resources
-have been released.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>11.<span
-style='mso-tab-count:1'> </span>The HSS acknowledges the Update Location
-message by sending an Update Location Ack (IMSI, Subscription data) message to
-the new MME. The Subscription Data contain one or more PDN subscription
-contexts. Each PDN subscription context contains an 'EPS subscribed QoS
-profile' and the subscribed APN-AMBR (see clause&nbsp;4.7.3) and the WLAN
-offloadability indication (see clause&nbsp;4.3.23). The new MME validates the
-UE's presence in the (new) TA.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If due to regional subscription
-restrictions or access restrictions (e.g. CSG restrictions) the UE is not allowed
-to attach in the TA or due to subscription checking fails for other reasons,
-the new MME rejects the Attach Request with an appropriate cause. If all checks
-are successful then the new MME constructs a context for the UE. If the APN provided
-by the UE is not allowed by subscription, based on operator policy, the MME may
-reject the Attach Request from the UE with an appropriate cause, or accept the
-Attach Request by replacing the UE requested APN with a network supported APN.
-The MME uses that network supported APN for the remainder of this procedure,
-except that the MME provides to the UE the same APN that the UE requested. If
-the Update Location is rejected by the HSS, the new MME rejects the Attach
-Request from the UE with an appropriate cause.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The Subscription Data may contain CSG
-subscription information for the registered PLMN and for the equivalent PLMN
-list requested by MME in step&nbsp;8.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The subscription data may contain Enhanced
-Coverage Restricted parameter. If received from the HSS, MME stores this
-Enhanced Coverage Restricted parameter in the MME MM context.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The subscription data may contain Service
-Gap Time parameter. If received from the HSS, MME stores this Service Gap Time
-in the MME MM context and passes it to the UE in the Attach Accept message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The subscription data may contain
-Subscribed Paging Time Window parameter that applies to the UEs on a specific
-RAT, e.g. NB-IoT. If received from the HSS, MME stores this Subscribed Paging
-Time Window parameter in the MME MM context.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE provided APN is authorized for
-LIPA according to the user subscription, the MME shall use the CSG Subscription
-Data to authorize the connection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach or RLOS Attach,
-the MME shall not check for access restrictions, regional restrictions or
-subscription restrictions (e.g. CSG restrictions). For an Emergency Attach, the
-MME shall ignore any unsuccessful Update Location Response from HSS and
-continue with the Attach procedure.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>12.<span
-style='mso-tab-count:1'> </span>If an ESM container was not included in the
-Attach Request, steps 12, 13,14,15,16 are skipped. If the attach type is not
-set to &quot;Emergency&quot; or &quot;RLOS&quot;, and the ESM container was
-included in the Attach Request, and the UE has indicated support for Attach
-without PDN Connectivity, and the network supports Attach without PDN Connectivity,
-and the PDN Connection Restriction is set in the subscriber data, then the new
-MME shall not establish PDN connection, and steps 12, 13, 14, 15 and 16 are
-skipped.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an Emergency Attach the MME applies
-the parameters from MME Emergency Configuration Data for the emergency bearer
-establishment performed in this step and any potentially stored IMSI related
-subscription data are ignored by the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For a RLOS Attach, the MME applies the
-parameters from MME RLOS Configuration Data for the RLOS default bearer
-establishment performed in this step and any potentially stored IMSI related
-subscription data are ignored by the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE performs Initial or Handover
-Attach via a CSG cell and there is no subscription for that CSG or the CSG subscription
-is expired the MME shall reject the Attach Request with an appropriate cause.
-If the UE has this CSG ID and associated PLMN on its Allowed CSG list the UE
-shall remove the CSG ID and associated PLMN from the list when receiving this
-reject cause.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If a subscribed PDN address is allocated
-for the UE for this APN, the PDN subscription context contains the UE's IPv4
-address and/or the IPv6 prefix and optionally the PDN GW identity. If the PDN
-subscription context contains a subscribed IPv4 address and/or IPv6 prefix, the
-MME indicates it in the PDN address. For Request Type indicating &quot;Initial
-request&quot;, if the UE does not provide an APN, the MME shall use the PDN GW
-corresponding to the default APN for default bearer activation. If the UE
-provides an APN, this APN shall be employed for default bearer activation. For Request
-Type indicating &quot;Handover&quot;, if the UE provides an APN, the MME shall
-use the PDN GW corresponding to the provided APN for default bearer activation,
-If the UE does not provide an APN, and the subscription context from HSS
-contains a PDN GW identity corresponding to the default APN, the MME shall use
-the PDN GW corresponding to the default APN for default bearer activation. The
-case where the Request Type indicates &quot;Handover&quot; and the UE does not provide
-an APN, and the subscription context from HSS does not contain a PDN GW
-identity corresponding to the default APN constitutes an error case. If the
-Request Type indicates &quot;Initial request&quot; and the selected PDN subscription
-context contains no PDN GW identity the new MME selects a PDN GW as described
-in clause&nbsp;4.3.8.1 on PDN GW selection function (3GPP accesses). If the PDN
-subscription context contains a dynamically allocated PDN GW identity and the
-Request Type does not indicate &quot;Handover&quot; the MME may select a new
-PDN GW as described in clause PDN GW selection function, e.g. to allocate a PDN
-GW that allows for more efficient routing.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For initial and handover Emergency Attach
-the MME uses the PDN GW Selection function defined in clause&nbsp;4.3.12.4 to select
-a PDN GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For initial RLOS Attach, the MME uses the
-PDN GW Selection function defined in clause&nbsp;4.3.12a.4 to select a PDN GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the subscription context does not
-indicate that the APN is for a PDN connection to an SCEF, the new MME selects a
-Serving GW as described in clause 4.3.8.2 on Serving GW selection function and
-allocates an EPS Bearer Identity for the Default Bearer associated with the UE.
-Then it sends a Create Session Request (IMSI, MSISDN, MME TEID for control
-plane, PDN GW address, PDN Address, APN, RAT type, LTE-M RAT type reporting to
-PGW flag, Default EPS Bearer QoS, PDN Type, APN-AMBR, EPS Bearer Identity,
-Protocol Configuration Options, Handover Indication, ME Identity (IMEISV), User
-Location Information (ECGI), UE Time Zone, User CSG Information, MS Info Change
-Reporting support indication, Selection Mode, Charging Characteristics, Trace
-Reference, Trace Type, Trigger Id, OMC Identity, Maximum APN Restriction, Dual
-Address Bearer Flag, the Protocol Type over S5/S8, Serving Network, APN Rate
-Control Status) message to the selected Serving GW. If Control Plane CIoT EPS
-Optimisation applies, then the MME shall also indicate S11-U tunnelling of NAS
-user data and send its own S11-U IP address and MME DL TEID for DL data forwarding
-by the SGW. User CSG Information includes CSG ID, access mode and CSG
-membership indication.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For PDN type &quot;non-IP&quot; when
-Control Plane CIoT EPS Optimisations are enabled for the UE, if APN
-subscription data indicate a SCEF connection needs to be used, then the MME
-allocates an EPS Bearer Identity for the Default Bearer associated with the UE
-and establishes a connection to the SCEF address indicated in subscription data
-as per TS&nbsp;23.682&nbsp;[74] and the steps 12,13,14,15,16 are not executed.
-The rest of the interactions with the UE apply as specified below.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME determines the PDN connection
-shall only use the Control Plane CIoT EPS Optimisation, the MME shall include a
-Control Plane Only PDN Connection Indicator in Create Session Request.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the Request Type indicates
-&quot;Emergency&quot; or &quot;RLOS&quot;, Maximum APN restriction control
-shall not be performed.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For emergency attached or RLOS attached
-UEs IMSI is included if available and if the IMSI cannot be authenticated then
-the IMSI shall be marked as unauthenticated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The RAT type is provided in this message
-for the later PCC decision. The RAT type shall distinguish between NB-IoT,
-LTE-M and WB-E-UTRA types. The subscribed APN&#8209;AMBR for the APN is also
-provided in this message. The MSISDN is included if provided in the subscription
-data from the HSS. Handover Indication is included if the Request Type
-indicates handover. Selection Mode indicates whether a subscribed APN was
-selected, or a non-subscribed APN sent by the UE was selected. Charging
-Characteristics indicates which kind of charging the bearer context is liable
-for. The MME may change the requested PDN type according to the subscription
-data for this APN as described in clause&nbsp;5.3.1.1. The MME shall set the
-Dual Address Bearer Flag when the PDN type is set to IPv4v6 and all SGSNs which
-the UE may be handed over to are Release&nbsp;8 or above supporting dual
-addressing, which is determined based on node pre-configuration by the
-operator. The Protocol Type over S5/S8 is provided to Serving GW which protocol
-should be used over S5/S8 interface.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The charging characteristics for the PS
-subscription and individually subscribed APNs as well as the way of handling
-Charging Characteristics and whether to send them or not to the P&#8209;GW is
-defined in TS&nbsp;32.251&nbsp;[44]. The MME shall include Trace Reference,
-Trace Type, Trigger Id, and OMC Identity if S&#8209;GW and/or P&#8209;GW trace
-is activated. The MME shall copy Trace Reference, Trace Type, and OMC Identity
-from the trace information received from the HLR or OMC.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The Maximum APN Restriction denotes the
-most stringent restriction as required by any already active bearer context. If
-there are no already active bearer contexts, this value is set to the least
-restrictive type (see clause 15.4 of TS&nbsp;23.060&nbsp;[7]). If the P&#8209;GW
-receives the Maximum APN Restriction, then the P&#8209;GW shall check if the
-Maximum APN Restriction value does not conflict with the APN Restriction value
-associated with this bearer context request. If there is no conflict the
-request shall be allowed, otherwise the request shall be rejected with sending
-an appropriate error cause to the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME requires the eNB to check
-whether the UE radio capabilities are compatible with the network configuration
-(e.g. whether the SRVCC or frequency support by the UE matches that of the network)
-to be able to set the IMS voice over PS Session Supported Indication (see
-clause&nbsp;4.3.5.8), then the MME may send a UE Radio Capability Match Request
-to the eNB as defined in clause&nbsp;5.3.14.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The MME includes the latest APN Rate
-Control status if it has stored it.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>13.<span
-style='mso-tab-count:1'> </span>The Serving GW creates a new entry in its EPS
-Bearer table and sends a Create Session Request (IMSI, MSISDN, APN, Serving GW
-Address for the user plane, Serving GW TEID of the user plane, Serving GW TEID
-of the control plane, RAT type, Default EPS Bearer QoS, PDN Type, PDN Address,
-subscribed APN-AMBR, EPS Bearer Identity, Protocol Configuration Options,
-Handover Indication, ME Identity, User Location Information (ECGI), UE Time
-Zone, User CSG Information, MS Info Change Reporting support indication, PDN
-Charging Pause Support indication, Selection Mode, Charging Characteristics,
-Trace Reference, Trace Type, Trigger Id, OMC Identity, Maximum APN Restriction,
-Dual Address Bearer Flag, Serving Network, APN Rate Control Status) message to
-the PDN GW indicated by the PDN GW address received in the previous step. After
-this step, the Serving GW buffers any downlink packets it may receive from the
-PDN GW without sending a Downlink Data Notification message to the MME until it
-receives the Modify Bearer Request message in step 23 below. The MSISDN is included
-if received from the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the Serving GW has received the Control
-Plane Only PDN Connection Indicator in step&nbsp;12, the Serving GW informs the
-PDN GW this information in Create Session Request. The Serving GW and PDN GW
-shall indicate the use of CP only on their CDRs.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>PDN&nbsp;GWs shall not perform any checks
-of Maximum APN Restriction if Create Session Request includes the emergency APN
-or RLOS APN.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For emergency attached or RLOS attached
-UEs IMSI is included if available and if the IMSI cannot be authenticated then
-the IMSI shall be marked as unauthenticated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>In the case of handover attach, and if the
-PDN GW detects that the 3GPP PS Data Off UE Status is active, the PDN GW shall
-indicate this status to the charging system for offline and online charging.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>14.<span
-style='mso-tab-count:1'> </span></span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-language:ZH-CN'>If dynamic PCC is deployed and
-the Handover Indication is not present, </span><span lang=EN-GB>the PDN GW
-performs an IP-CAN Session Establishment procedure as defined in TS&nbsp;23.203&nbsp;[6],
-and thereby obtains the default PCC rules for the UE. If the UE is accessing
-over WB-E-UTRA, this may lead to the establishment of a number of dedicated
-bearers following the procedures defined in clause 5.4.1 in association with
-the establishment of the default bearer, which is described in Annex&nbsp;F.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The IMSI, APN, UE IP address, User Location
-Information (ECGI), UE Time Zone, Serving Network, RAT type, APN-AMBR, Default
-EPS Bearer QoS, ETFTU (if ETFTU is not provided it means UE and/or the
-PDN&nbsp;GW does not support the extended TFT filter format) are provided to
-the PCRF by the PDN GW if received by the previous message. The User Location
-Information and UE Time Zone are used for location based charging. For
-emergency attached or RLOS attached UEs which are unauthenticated the
-PDN&nbsp;GW provides the IMEI as the UE Identity instead of IMSI, to the PCRF.
-If the PCRF decides that the PDN connection may use the extended TFT filter
-format, it shall return the ETFTN indicator to the PDN&nbsp;GW for inclusion in
-the protocol Configuration Options returned to the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The PCRF may modify the APN-AMBR and the
-QoS parameters (QCI and ARP) associated with the default bearer in the response
-to the PDN GW as defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the PCC is configured to support emergency
-services and if dynamic PCC is deployed, the PCRF, based on the emergency APN,
-sets the ARP of the PCC rules to a value that is reserved for emergency
-services and the authorization of dynamic PCC rules as described in of TS&nbsp;23.203&nbsp;[6].
-If dynamic PCC is not deployed, the PDN GW uses the ARP of the default
-emergency EPS bearer for any potentially initiated dedicated emergency EPS
-bearer. The P&#8209;GW determines that emergency services are requested based
-on the emergency APN received in Create Session Request message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the PCC is configured to support
-Restricted Local Operator Services and if dynamic PCC is deployed, the PCRF,
-based on the RLOS APN, sets the ARP of the PCC rules to a value based on
-operator policy and the authorization of dynamic PCC rules as described in of TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;10:<span
-style='mso-tab-count:1'> </span>While the PDN GW/PCEF may be configured to activate
-predefined PCC rules for the default bearer, the interaction with the PCRF is
-still required </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-language:ZH-CN'>to provide e.g. the UE IP address
-information to the PCRF</span><span lang=EN-GB>.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;11:<span
-style='mso-tab-count:1'> </span>If the IP address is not available when the PDN
-GW performs the IP-CAN Session Establishment procedure with the PCRF, the PDN
-GW initiates an IP-CAN Session Modification procedure to inform the PCRF about
-an allocated IP address as soon as the address is available. In this version of
-the specification, this is applicable only to IPv4 address allocation.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If dynamic PCC is deployed and the Handover Indication is
-present, the PDN GW executes a PCEF Initiated IP&#8209;CAN Session Modification
-procedure with the PCRF as specified in TS&nbsp;23.203&nbsp;[6] to report the
-new IP&#8209;CAN type. Depending on the active PCC rules, the establishment of
-dedicated bearers for the UE may be required. The establishment of those
-bearers shall take place in combination with the default bearer activation as
-described in Annex&nbsp;F. This procedure can continue without waiting for a PCRF
-response. If changes to the active PCC rules are required, the PCRF may provide
-them after the handover procedure is finished.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>In both cases (Handover Indication is present or not), if
-dynamic PCC is not deployed, the PDN GW may apply local QoS policy. If the UE
-is accessing over WB-E-UTRA, this may lead to the establishment of a number of
-dedicated bearers for the UE following the procedures defined in
-clause&nbsp;5.4.1 in combination with the establishment of the default bearer,
-which is described in Annex&nbsp;F.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If the CSG information reporting triggers are received from the
-PCRF, the PDN&nbsp;GW should set the CSG Information Reporting Action IE
-accordingly.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If 3GPP PS Data Off status is received in the PCO from the UE
-and PDN GW supports 3GPP PS Data Off, the PDN GW shall provide the 3GPP PS Data
-Off status to the PCRF. If the PCRF supports 3GPP PS Data Off, it shall return
-3GPP PS Data Off support to the PDN GW for inclusion in the PCO returned to the
-UE.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The additional behaviour of the PDN GW for 3GPP PS Data Off is
-defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If received, the PDN GW may take the APN Rate Control Status
-into account when encoding the APN Rate Control parameters in Protocol Configuration
-Options and when enforcing the APN Rate Control as described in clause&nbsp;4.7.7.3.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>15.<span style='mso-tab-count:
-1'> </span>The P&#8209;GW creates a new entry in its EPS bearer context table
-and generates a Charging Id for the Default Bearer. The new entry allows the P&#8209;GW
-to route user plane PDUs between the S&#8209;GW and the packet data network,
-and to start charging. The way the P&#8209;GW handles Charging Characteristics
-that it may have received is defined in TS&nbsp;32.251&nbsp;[44].</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The PDN GW returns a Create Session Response (PDN GW Address
-for the user plane, PDN GW TEID of the user plane, PDN GW TEID of the control
-plane, PDN Type, PDN Address</span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-language:ZH-CN'>, EPS Bearer Identity, EPS Bearer
-QoS, Protocol Configuration Options, Charging Id, Prohibit Payload Compression,
-APN Restriction, Cause, MS Info Change Reporting Action (Start) (if the PDN GW
-decides to receive UE's location information during the session), CSG
-Information Reporting Action (Start) (if the PDN GW decides to receive UE's
-User CSG information during the session), Presence Reporting Area Action (if
-the PDN GW decides to receive notifications about a change of UE presence in
-Presence Reporting Area), PDN Charging Pause Enabled indication (if PDN GW has
-chosen to enable the function), APN-AMBR, Delay Tolerant Connection</span><span
-lang=EN-GB>) message to the Serving GW.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The PDN GW takes into account the received PDN type, the Dual
-Address Bearer Flag and the policies of operator when the PDN GW selects the
-PDN type to be used as follows. If the received PDN type is IPv4v6 and both
-IPv4 and IPv6 addressing is possible in the PDN but the Dual Address Bearer Flag
-is not set, or only single IP version addressing for this APN is possible in
-the PDN, the PDN GW selects a single IP version (either IPv4 or IPv6). If the
-received PDN type is IPv4 or IPv6 or &quot;Non-IP&quot; or &quot;Ethernet&quot;,
-the PDN GW uses the received PDN type if it is supported in the PDN, otherwise
-an appropriate error cause will be returned. For IPv4, IPv6 and IPv4v6, the PDN
-GW allocates a PDN Address according to the selected PDN type. If the PDN GW
-has selected a PDN type different from the received PDN Type, the PDN GW
-indicates together with the PDN type IE a reason cause to the UE why the PDN
-type has been modified, as described in clause&nbsp;5.3.1.1. The PDN GW shall
-either accept or reject (but not modify) the PDN type if the PDN type is set to
-&quot;Non-IP&quot; or &quot;Ethernet&quot;. PDN Address may contain an IPv4
-address for IPv4 and/or an IPv6 prefix and an Interface Identifier, or be
-omitted for PDN types &quot;Non-IP&quot; and &quot;Ethernet&quot;. If the PDN
-has been configured by the operator so that the PDN addresses for the requested
-APN shall be allocated by usage of DHCPv4 only, or if the PDN GW allows the UE
-to use DHCPv4 for address allocation according to the Address Allocation
-Preference received from the UE, the PDN Address shall be set to 0.0.0.0,
-indicating that the IPv4 PDN address shall be negotiated by the UE with DHCPv4
-after completion of the Default Bearer Activation procedure. For external PDN
-addressing for IPv6, the PDN GW obtains the IPv6 prefix from the external PDN
-using either RADIUS or Diameter client function. In the PDN Address field of
-the Create Session Response, the PDN GW includes the Interface Identifier and
-IPv6 prefix. The PDN GW sends Router Advertisement to the UE after default
-bearer establishment with the IPv6 prefix information for all cases.</span></span></p><p class=B1 style='mso-pagination:widow-orphan lines-together'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If the PDN address is contained in the Create Session Request,
-the PDN GW shall allocate the IPv4 address and/or IPv6 prefix contained in the
-PDN address to the UE. The IP address allocation details are described in
-clause 5.3.1 on &quot;IP Address Allocation&quot;. The PDN GW derives the BCM
-based on the NRSU and operator policy. The PDN&nbsp;GW derives whether the
-extended TFT filter format is to be used based on the ETFTU, ETFTN received
-from the PCRF and operator policy. Protocol Configuration Options contains the
-BCM, ETFTN as well as optional PDN parameters that the P&#8209;GW may transfer
-to the UE. These optional PDN parameters may be requested by the UE, or may be
-sent unsolicited by the P&#8209;GW. Protocol Configuration Options are sent
-transparently through the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The PDN GW includes a Delay Tolerant
-Connection indication if the PDN GW supports receiving a rejection cause from
-the SGW indicating that the UE is temporarily not reachable due to power saving
-and holding mobile terminated procedures, until the PDN GW receives a message
-indicating that the UE is available for end to end signalling.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>When the Handover Indication is present,
-the PDN GW does not yet send downlink packets to the S&#8209;GW; the downlink
-path is to be switched at step&nbsp;23a.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the PDN GW is an L-GW, it does not
-forward downlink packets to the S-GW. The packets will only be forwarded to the
-HeNB at step&nbsp;20 via the direct user plane path.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the 3GPP PS Data Off UE Status was
-present in the Create Session Request PCO and the network supports 3GPP PS Data
-Off feature, the PDN GW shall include the 3GPP PS Data Off Support Indication
-in the Create Session Response PCO.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>16.<span
-style='mso-tab-count:1'> </span>The Serving GW returns a Create Session
-Response (PDN Type, PDN Address, Serving GW address for User Plane, Serving GW
-TEID User Plane, Serving GW TEID for control plane</span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-ZH-CN'>, EPS Bearer Identity, EPS Bearer QoS, PDN GW addresses and TEIDs
-(GTP-based S5/S8) or GRE keys (PMIP-based S5/S8) at the PDN GW(s) for uplink
-traffic, Protocol Configuration Options, Prohibit Payload Compression, APN
-Restriction, Cause, MS Info Change Reporting Action (Start), Presence Reporting
-Area Action, CSG Information Reporting Action (Start), APN-AMBR, Delay Tolerant
-Connection</span><span lang=EN-GB>) message to the new MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If Control Plane CIoT EPS Optimisation
-applies, and if the MME does not include Control Plane Only PDN Connection
-Indicator in the Create Session Request:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>If separation of S11-U from S1-U is
-required, the Serving GW shall include the Serving GW IP address and TEID for
-S11-U and additionally the Serving GW IP address and TEID for S1-U in Create
-Session Response.</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Otherwise, if separation of S11-U from S1-U
-is not required, the Serving GW includes the Serving GW IP address and TEID for
-S11-U in Create Session Response.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>17.<span
-style='mso-tab-count:1'> </span>If an APN Restriction is received, then the MME
-shall store this value for the Bearer Context and the MME shall check this
-received value with the stored value for the Maximum APN Restriction to ensure
-there are no conflicts between values. If the Bearer Context is accepted, the
-MME shall determine a (new) value for the Maximum APN Restriction. If there is
-no previously stored value for Maximum APN Restriction, then the Maximum APN
-Restriction shall be set to the value of the received APN Restriction. MME
-shall not deactivate bearer(s) with emergency ARP, if present, to maintain
-valid APN restriction combination.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The P-GW shall ignore Maximum APN
-restriction if the request includes the Emergency APN.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MS Info Change Reporting Action
-(Start) and/or the CSG Information Reporting Action (Start) are received for
-this bearer context, then the MME shall store this for the bearer context and
-the MME shall report to that P-GW via the S-GW whenever a UE's location and/or
-User CSG information change occurs that meets the P-GW request, as described in
-clause&nbsp;15.1.1a of TS&nbsp;23.060&nbsp;[7]. If Presence Reporting Area
-Action is received for this bearer context, the MME shall store this
-information for the bearer context and shall report to that P-GW via the S-GW
-whenever a change of UE presence in a Presence Reporting Area is detected, as
-described in clause&nbsp;5.9.2.2.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The MME determines the UE AMBR to be used
-by the eNodeB based on the subscribed UE-AMBR and the APN&#8209;AMBR for the
-default APN, see clause&nbsp;4.7.3.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For emergency attach or RLOS attach the
-MME determines the UE-AMBR to be used by the eNodeB from the APN AMBR received
-from the S-GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If new MME hasn't received, from Step 12,
-Voice Support Match Indicator for the UE from the eNB then, based on
-implementation, the MME may set IMS Voice over PS session supported Indication
-and update it at a later stage.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The new MME sends an Attach Accept (GUTI,
-TAI List, Session Management Request (APN, PDN Type, PDN Address, EPS Bearer
-Identity, Protocol Configuration Options, Header Compression Configuration,
-Control Plane Only Indicator), NAS sequence number, NAS-MAC, IMS Voice over PS
-session supported Indication, Emergency Service Support indicator, LCS Support
-Indication, Supported Network Behaviour, Service Gap Time, Enhanced Coverage
-Restricted, Indication for support of 15 EPS bearers per UE) message to the
-eNodeB. GUTI is included if the new MME allocates a new GUTI. PDN Type and PDN
-Address are omitted if the Attach Request (step&nbsp;1) did not contain an ESM
-message container. The MME indicates the CIoT EPS Optimisations it accepts in
-the Supported Network Behaviour information as defined in clause&nbsp;4.3.5.10.
-Service Gap Time is included if Service Gap Time is present in the subscription
-information (step&nbsp;11) and the UE has indicated UE Service Gap Control
-Capability. This message is contained in an S1_MME control message Initial Context
-Setup Request, unless the MME has selected to use the Control Plane CIoT EPS Optimisation,
-or, the UE did not include the ESM message container in the Attach Request
-(step&nbsp;1), in which case an S1-AP Downlink NAS transport message is used. The
-S1-AP Initial Context Setup Request message also includes the AS security
-context information for the UE, the Handover Restriction List, the EPS Bearer
-QoS</span></span><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:ZH-CN'>, the UE-AMBR, EPS Bearer Identity</span><span
-lang=EN-GB>, as well as the TEID at the Serving GW used for user plane and the
-address of the Serving GW for user plane and whether User Plane CIoT EPS
-Optimisation is allowed for the UE. If the PDN type is set to
-&quot;Non-IP&quot; the MME includes it in the S1-AP Initial Context Setup
-Request so that the eNodeB disables header compression. If the PDN type is set
-to &quot;Ethernet&quot; the MME includes it in the S1-AP Initial Context Setup
-Request so that any eNodeB header compression functionality can act
-appropriately. In addition, if the PDN connection is established for Local IP
-Access, the corresponding S1 Initial Context Setup Request message includes a
-Correlation ID for enabling the direct user plane path between the HeNB and the
-L-GW. If the PDN connection is established for SIPTO at the Local Network with
-L-GW function collocated with the (H)eNB, the corresponding S1-AP Initial
-Context Setup Request message includes a SIPTO Correlation ID for enabling the
-direct user plane path between the (H)eNB and the L-GW. LIPA and SIPTO do not apply
-to Control Plane CIoT EPS Optimisation.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;12:<span
-style='mso-tab-count:1'> </span>In this release of the 3GPP specification the
-Correlation ID and SIPTO Correlation ID is set equal to the user plane PDN GW
-TEID (GTP-based S5) or GRE key (PMIP-based S5) that the MME has received in step&nbsp;16.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If Control Plane CIoT EPS Optimisation
-applies for an IP PDN connection, and the UE has sent in the Attach Request the
-Header Compression Configuration, and the MME supports the header compression
-parameters, the MME shall include the Header Compression Configuration in the
-PDN Connectivity Accept message. The MME also binds the uplink and downlink
-ROHC channels to support header compression feedback signalling. If the UE has
-included header compression context setup parameters in Header Compression
-Configuration in the Attach Request, the MME may acknowledge the header
-compression context setup parameters. If the ROHC context is not established
-during the attach procedure for the PDN connection, before using the compressed
-format for sending the data, the UE and the MME need to establish the ROHC context
-with ROHC IR packet based on Header Compression Configuration.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME based on local policy
-determines the PDN connection shall only use the Control Plane CIoT EPS
-Optimisation, the MME shall include a Control Plane Only Indicator in the
-Session Management Request. For PDN connections with an SCEF, the MME shall
-always include the Control Plane Only Indicator.A UE receiving the Control
-Plane Only Indicator, for a PDN connection shall only use the Control Plane
-CIoT EPS Optimisation for this PDN connection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the ESM container was not included in
-the Attach Request in step&nbsp;1, then the Attach Accept message shall not
-include PDN related parameters, and the Downlink NAS transfer S1-AP message
-shall not include Access stratum context related information but may include
-CSG related information.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the attach type is not set to
-&quot;Emergency&quot;, and the ESM container was included in Attach Request in
-step&nbsp;1, and the UE indicated support of Attach without PDN Connection in
-the Attach Request, and the MME supports Attach without PDN Connection, and PDN
-connection restriction is set in subscriber data, then the MME shall discard
-the ESM container in the Attach Request message, and shall not include PDN
-related parameters in the Attach Accept, but may include CSG related information.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>In the Attach Accept message, the MME does
-not include the IPv6 prefix within the PDN Address. The MME includes the EPS
-Bearer QoS parameter QCI and APN-AMBR into the Session Management Request.
-Furthermore, if the UE has UTRAN or GERAN capabilities and the network supports
-mobility to UTRAN or GERAN, the MME uses the EPS bearer QoS information to
-derive the corresponding PDP context parameters QoS Negotiated (R99 QoS
-profile), Radio Priority, Packet Flow Id and TI and includes them in the
-Session Management Request. If the UE indicated in the UE Network Capability it
-does not support BSS packet flow procedures, then the MME shall not include the
-Packet Flow Id. Handover Restriction List is described in clause&nbsp;4.3.5.7
-&quot;Mobility Restrictions&quot;. The MME sets the IMS Voice over PS session
-supported Indication as described in clause&nbsp;4.3.5.8. LCS Support
-Indication indicates whether the network supports the EPC-MO-LR and/or CS-MO-LR
-as described in TS&nbsp;23.271&nbsp;[57]. The MME may include an indication
-whether the traffic of this PDN Connection is allowed to be offloaded to WLAN,
-as described in clause&nbsp;4.3.23. Indication for support of 15 EPS bearers
-per UE indicates the network support for up to 15 EPS bearers per UE as defined
-in clause&nbsp;4.12.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE initiates the Attach procedure
-at a hybrid cell, the MME shall check whether the CSG ID is contained in the
-CSG subscription and is not expired. The MME shall send an indication whether
-the UE is a CSG member to the RAN along with the S1-MME control message. Based
-on this information the RAN may perform differentiated treatment for CSG and
-non-CSG members.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the MME or PDN GW has changed the PDN
-Type, an appropriate reason cause shall be returned to the UE as described in
-clause&nbsp;5.3.1.1. If the UE has indicated PDN type &quot;Non-IP&quot; or
-&quot;Ethernet&quot;, the MME and PDN GW shall not change PDN type.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an emergency attached UE, i.e. for UEs
-that have only emergency EPS bearers established, there is no AS security context
-information included in the S1 control messages and there is no NAS level
-security when the UE cannot be authenticated. The Emergency Service Support
-indicator informs the UE that Emergency bearer services are supported, i.e. the
-UE is allowed to request PDN connectivity for emergency services.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For RLOS attached UEs, i.e. for UEs that
-have only RLOS PDN connection established, there is no AS security context
-information included in the S1 control messages and there is no NAS level
-security when the UE cannot be successfully authenticated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE included extended idle mode DRX
-parameters information element, the MME includes extended idle mode DRX
-parameters information element if it decides to enable extended idle mode DRX
-with Paging Time Window length assigned considering Subscribed Paging Time
-Window (if available) and the local policy.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE included support for restriction
-of use of Enhanced Coverage in step&nbsp;1, the MME sends Enhanced Coverage
-Restricted parameter to the eNB in S1-AP Initial Context Set-up Request
-message. MME also sends Enhanced Coverage Restricted parameter to the UE in the
-Attach Accept message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE has indicated support for dual
-connectivity with NR in the Attach Request and the UE is not allowed to use NR
-as Secondary RAT, the MME indicates that to the UE in the Attach Accept
-message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If RACS is supported in the MME and MME
-has received UE Radio Capability ID earlier in this procedure, it signals the
-UE Radio Capability ID to the eNB in S1-AP Initial Context Set-up Request
-message. If the eNB does not have mapping between the specific UE Radio
-Capability ID and the UE radio capabilities, it shall use the procedure
-described in TS&nbsp;36.413&nbsp;[36] to retrieve the mapping from the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>18.<span
-style='mso-tab-count:1'> </span>If the eNodeB received an S1-AP Initial Context
-Setup Request the eNodeB sends the RRC Connection Reconfiguration message </span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-ZH-CN'>including the EPS Radio Bearer Identity</span><span lang=EN-GB> to the
-UE, and the Attach Accept message will be sent along to the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the eNodeB received an S1-AP Downlink
-NAS Transport message (e.g. containing the Attach Accept message), the eNode B
-sends a RRC Direct Transfer message to the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The UE shall store the QoS Negotiated,
-Radio Priority, Packet Flow Id and TI, which it received in the Session
-Management Request, for use when accessing via GERAN or UTRAN. The APN is
-provided to the UE to notify it of the APN for which the activated default
-bearer is associated. For further details, see TS&nbsp;36.331&nbsp;[37]. The UE
-may provide EPS Bearer QoS parameters to the application handling the traffic
-flow(s). The application usage of the EPS Bearer QoS is implementation
-dependent. The UE shall not reject the RRC Connection Reconfiguration on the
-basis of the EPS Bearer QoS parameters contained in the Session Management
-Request.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE receives Enhanced Coverage
-Restricted parameter in the Attach Accept message, UE shall store this
-information and shall use the value of Enhanced Coverage Restricted parameter
-to determine if enhanced coverage feature should be used or not. If the UE
-receives a Service Gap Time in the Attach Accept message, the UE shall store
-this parameter and apply Service Gap Control (see clause&nbsp;4.3.17.9).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the attach procedure is initiated by
-manual CSG selection and occurs via a CSG cell, the UE upon receiving the Attach
-accept shall check if the CSG ID and associated PLMN of the cell where the UE
-has sent the Attach Request message is contained in its Allowed CSG list. If
-the CSG ID and associated PLMN is not in the UE's Allowed CSG list, the UE
-shall add the CSG ID and associated PLMN to its Allowed CSG list. Manual CSG selection
-is not supported when an emergency service has been initiated.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;13:<span
-style='mso-tab-count:1'> </span>If the UE receives an Attach Accept message via
-a hybrid cell, the UE does not add the corresponding CSG ID and associated PLMN
-to its Allowed CSG list. Adding a CSG ID and associated PLMN to the UE's local
-Allowed CSG list for a hybrid cell is performed only by OTA or OMA DM
-procedures.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>When receiving the Attach Accept message
-the UE shall set its TIN to &quot;GUTI&quot; as no ISR Activated is indicated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the UE receives an IPv4 address set to
-0.0.0.0, it may negotiate the IPv4 address with DHCPv4 as specified in TS&nbsp;29.061&nbsp;[38].
-If the UE receives an IPv6 interface identifier, it may wait for the Router
-Advertisement from the network with the IPv6 prefix information or it may send
-a Router Solicitation if necessary.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;14:<span
-style='mso-tab-count:1'> </span>The IP address allocation details are described
-in clause 5.3.1 on &quot;IP Address Allocation&quot;.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If Control Plane CIoT EPS Optimisation
-applies or the UE has not included the ESM message container in the Attach
-Request in step&nbsp;1, then the steps 19 and 20 are not executed.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>19.<span
-style='mso-tab-count:1'> </span>The UE sends the RRC Connection Reconfiguration
-Complete message to the eNodeB. For further details, see TS&nbsp;36.331&nbsp;[37].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>20.<span
-style='mso-tab-count:1'> </span>The eNodeB sends the Initial Context Response
-message to the new MME. This Initial Context Response message includes the TEID
-of the eNodeB and the address of the eNodeB used for downlink traffic on the
-S1_U reference point.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>The MME shall be prepared to receive this
-message either before or after the Attach Complete message (sent in
-step&nbsp;22).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the Correlation ID or SIPTO Correlation
-ID was included in the Initial Context Setup Request message, the eNodeB shall
-use the included information to establish direct user plane path with the L-GW
-and forward uplink data for Local IP Access or SIPTO at the Local Network with
-L-GW function collocated with the (H)eNB accordingly.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>21.<span
-style='mso-tab-count:1'> </span>The UE sends a Direct Transfer message to the
-eNodeB, which includes the Attach Complete (EPS Bearer Identity, NAS sequence
-number, NAS-MAC) message. If the UE omitted the ESM message container from the
-Attach Request message in step&nbsp;1, then the EPS Bearer Identity is omitted
-from the Attach Complete message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>22.<span
-style='mso-tab-count:1'> </span>The eNodeB forwards the Attach Complete message
-to the new MME in an Uplink NAS Transport message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the ESM message container was included
-in step&nbsp;1, after the Attach Accept message and once the UE has obtained
-(if applicable to the PDN type) a PDN Address, the UE can then send uplink
-packets towards the eNodeB which will then be tunnelled to the Serving GW and
-PDN GW. If Control Plane CIoT EPS Optimisations apply, UL data is sent as
-specified in clause&nbsp;5.3.4B. If the UE requested for a dual address PDN
-type (IPv4v6) to a given APN and was granted a single address PDN type (IPv4 or
-IPv6) by the network with a reason cause indicating that only single IP version
-per PDN connection is allowed sent together with the PDN type, the UE should
-request for the activation of a parallel PDN connection to the same APN with a
-single address PDN type (IPv4 or IPv6) other than the one already activated. If
-the UE receives no reason cause in step&nbsp;18 in response to an IPv4v6 PDN
-type and it receives an IPv6 Interface Identifier apart from the IPv4 address
-or 0.0.0.0 in the PDN Address field, it considers that the request for a dual
-address PDN was successful. It can wait for the Router Advertisement from the
-network with the IPv6 prefix information or it may send Router Solicitation if
-necessary.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>23.<span
-style='mso-tab-count:1'> </span>Upon reception of both, the Initial Context
-Response message in step&nbsp;20 and the Attach Complete message in
-step&nbsp;22, the new MME sends a Modify Bearer Request (EPS Bearer Identity,
-eNodeB address, eNodeB TEID, Handover Indication, Presence Reporting Area Information,
-RAT type, LTE-M RAT type reporting to PGW) message to the Serving GW. If the
-Control Plane CIoT EPS Optimisation applies and the PDN connection is not
-served by a SCEF and if the MME does not need to report a change of UE presence
-in Presence Reporting Area, sending of Modify Bearer Request and steps 23a, 23b
-and 24 are skipped; otherwise if the PDN connection is served by SCEF, steps
-23,24, 25, and 26 are not executed. If the MME has been requested to report a
-change of UE presence in Presence Reporting Area, the MME includes in this
-message the Presence Reporting Area Information comprising the PRA identifier(s)
-and indication(s) on whether the UE is inside or outside the area(s). When receiving
-the request for reporting change of UE presence in Presence Reporting Area, and
-the MME decides not to activate reporting UE presence in one or more of the
-received Presence Reporting Area(s), the MME reports also the inactive Presence
-Reporting Area(s) in this message. The RAT type information element is included
-if the UE is using the LTE-M RAT type. If PDN GW expects the LTE-M RAT type
-reporting as specified in clause&nbsp;5.11.5, the MME also includes the LTE-M
-RAT type reporting to PGW flag to indicate that the Serving GW needs to forward
-the LTE-M RAT type to the PGW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>23a.<span
-style='mso-tab-count:1'>     </span>If the Handover Indication is included in
-step 23, the Serving GW sends a Modify Bearer Request (Handover Indication)
-message to the PDN GW to prompt the PDN GW to tunnel packets from non 3GPP IP
-access to 3GPP access system and immediately start routing packets to the
-Serving GW for the default and any dedicated EPS bearers established. If
-Presence Reporting Area Information is included in step&nbsp;23, the Serving GW
-sends a Modify Bearer Request (Presence Reporting Area Information) message to
-the PDN GW. If the LTE-M RAT type and the LTE-M RAT type reporting to PGW flag
-were received at step&nbsp;23, the Serving GW shall include the LTE-M RAT type
-in the Modify Bearer Request message to the PGW. Otherwise the Serving GW
-includes RAT type WB-E-UTRAN.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;15:<span
-style='mso-tab-count:1'> </span>The PDN GW is expected to handle the uplink
-packets sent by the UE via 3GPP access after step&nbsp;22, even if they arrive
-before path switch in step&nbsp;23.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;16:<span
-style='mso-tab-count:1'> </span>The PDN GW forwards the Presence Reporting Area
-Information to the PCRF, to the OCS or to both as defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>23b.<span
-style='mso-tab-count:1'>    </span>The PDN GW acknowledges by sending Modify
-Bearer Response to the Serving GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>24.<span
-style='mso-tab-count:1'> </span>The Serving GW acknowledges by sending Modify
-Bearer Response (EPS Bearer Identity) message to the new MME. The Serving GW
-can then send its buffered downlink packets.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If there is a &quot;Availability after DDN
-Failure&quot; monitoring event or a &quot;UE Reachability&quot; monitoring
-event configured for the UE in the EMM Context of the MME, the MME sends an
-event notification (see TS&nbsp;23.682&nbsp;[74] for further information).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>25.<span
-style='mso-tab-count:1'> </span>After the MME receives Modify Bearer Response
-(EPS Bearer Identity) message, if Request Type does not indicate handover and
-an EPS bearer was established and the subscription data indicates that the user
-is allowed to perform handover to non-3GPP accesses, and if the MME selected a
-PDN GW that is different from the PDN GW identity which was indicated by the
-HSS in the PDN subscription context, the MME shall send a Notify Request
-including the APN and PDN GW identity to the HSS for mobility with non-3GPP
-accesses. The message shall include information that identifies the PLMN in
-which the PDN&nbsp;GW is located.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If the ME identity of the UE has changed
-and step&nbsp;8 has not been performed, the MME sends a Notify Request (ME
-Identity) message to inform the HSS of the updated ME identity.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For an unauthenticated or roaming UE, if
-the Request Type of the UE requested connectivity procedure indicates
-&quot;Emergency&quot;, the MME shall not send any Notify Request to an HSS. For
-a non-roaming authenticated UE, based on operator configuration (e.g. on
-whether Voice over WLAN is supported or not by the operator, on whether the operator
-uses a fixed PDN GW for emergency calls, etc.), if the Request Type indicates
-&quot;Emergency&quot;, the MME may send a Notify Request to the HSS including
-the &quot;PDN GW currently in use for emergency services&quot;, which comprises
-the PDN GW address and an indication that the PDN connection is for emergency
-services. The HSS shall store it as part of the UE context for emergency
-services.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>For any UEs, if Request Type of the UE
-requested connectivity procedure indicates &quot;RLOS&quot;, the MME shall not
-send any Notify Request to an HSS.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>After step&nbsp;8, and in parallel to any
-of the preceding steps, the MME shall send a Notify Request (Homogeneous Support
-of IMS Voice over PS Sessions) message to the HSS:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>If the MME has evaluated the support of IMS
-Voice over PS Sessions, see clause&nbsp;4.3.5.8, and</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>If the MME determines that it needs to
-update the Homogeneous Support of IMS Voice over PS Sessions, see
-clause&nbsp;4.3.5.8A.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>26.<span
-style='mso-tab-count:1'> </span>In the case of non-emergency services, the HSS
-stores the APN and PDN GW identity pair. In the case of emergency services, the
-HSS stores the &quot;PDN GW currently in use for emergency services&quot;. The
-HSS then sends a Notify Response to the MME.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;17:<span
-style='mso-tab-count:1'> </span>For handover from non-3GPP access, the PDN GW
-initiates resource allocation deactivation procedure in the trusted/untrusted
-non-3GPP IP access as specified in TS&nbsp;23.402&nbsp;[2].</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133979"><span
-lang=EN-GB>5.3.2.2<span style='mso-tab-count:1'>          </span>UTRAN/GERAN
-Initial Attach</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
-a UE attaches to UTRAN/GERAN, it executes the normal attach procedure as
-defined in TS&nbsp;23.060&nbsp;[7]. When the UE needs an IP address, it
-initiates PDP context activation procedure as defined in TS&nbsp;23.060&nbsp;[7].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
-procedure along with PDP context activation is also used to establish the first
-PDN connection over UTRAN/GERAN when the UE already has active PDN connections
-over a non-3GPP access network and wants to establish simultaneous PDN
-connections to different APNs over multiple accesses.</span></span></p></body>
+Arial'>When external PDN based parameter configuration is used, the PDN GW
+obtains the requested configuration parameters from the external PDN as
+described in the previous clauses. When the PDN GW acts as a DHCPv6 server
+towards the UE, the PDN GW may act as DHCPv6 client towards the external PDN to
+request the configuration parameters for the UE. If RADIUS or Diameter is used
+towards the external PDN as described in TS&nbsp;29.061&nbsp;[38], the
+requested configuration parameters can be fetched as part of these procedures.</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133974"><span
+lang=EN-GB>5.3.1.2.4<span style='mso-tab-count:1'>              </span>IPv4
+address allocation, renewal and release and IPv4 parameter configuration via
+DHCPv4</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+the PLMN allocates an IPv4 address, it is the PDN GW responsibility to
+allocate, renew and release the IPv4 address.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+external PDN allocation is used, the PDN GW functions as a DHCPv4 server
+towards the UE. The PDN GW may act as a DHCP Client when interacting with a
+DHCPv4 server in the external PDN in order to obtain, renew and release the
+IPv4 address and to obtain the configuration parameters. Or, if RADIUS or
+Diameter is used towards the external PDN as described in TS&nbsp;29.061&nbsp;[38],
+the IPv4 address and the requested configuration parameters can be obtained, renewed
+and released as part of these procedures.</span></span></p><p class=MsoNormal style='mso-pagination:widow-orphan lines-together'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If dynamic policy
+provisioning is deployed, and the PCRF was not informed about the IPv4 address
+at IP-CAN session establishment, the PDN GW shall initiate an IP-CAN Session
+Modification procedure to inform the PCRF about an allocated IPv4 address. If
+the IPv4 address is released, the PDN GW shall inform the PCRF about the
+de-allocation of an IPv4 address.</span></span></p><p class=MsoNormal style='mso-pagination:widow-orphan lines-together'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE sends DHCPv4
+lease renewal message to renew the lease of the allocated IPv4 address, the PDN
+GW shall renew the lease of the allocated IPv4 address. If the IPv4 address was
+obtained from an external PDN, the PDN GW shall perform the DHCPv4 lease
+renewal procedure with the external PDN if DHCPv4 was used for obtaining IPv4
+address from external PDN. If Diameter or RADIUS procedures where used to
+obtain the IPv4 address from external PDN, the PDN GW may perform corresponding
+update procedures as applicable. If the external PDN extends lease of the
+allocated IPv4 address, the PDN GW responds accordingly to the UE. Otherwise,
+if the external PDN does not extend the lease of the allocated IPv4 address,
+the PDN GW responds with the remaining lease time of the IPv4 address. If there
+is no PDN address allocated to the UE for this PDN connection, the PDN GW shall
+perform PDN GW initiated bearer deactivation procedure as defined in
+clause&nbsp;5.4.4.1.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR0279R4 20080910T1522'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE sends DHCPv4
+release message to release the allocated IPv4 address for the PDN connection,
+the PDN GW may anytime thereafter release the IPv4 address. If the PDN
+connection has no allocated PDN address, the PDN GW may at any time initiate
+PDN GW initiated bearer deactivation procedure as defined in clause&nbsp;5.4.4.1.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>If the PDN type is IPv4v6 the release of
+the allocated IPv4 address does not mean that there is no allocated PDN address
+for the PDN connection, as the IPv6 prefix still remains allocated to that PDN
+connection.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR0279R4 20080910T1522'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the PDN connection is
+released without any DHCPv4 release signalling with the UE, the UE and the PDN
+GW shall release the IPv4 address implicitly, as soon as the PDN connection is
+released.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR0279R4 20080910T1522'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>After releasing the IPv4
+address, the PDN GW should not assign that IPv4 address to any other user
+immediately.</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133975"><span
+lang=EN-GB>5.3.1.2.5<span style='mso-tab-count:1'>              </span>Void</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'><o:p>&nbsp;</o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133976"><span
+lang=EN-GB>5.3.1.2.6<span style='mso-tab-count:1'>              </span>IPv6
+Prefix Delegation via DHCPv6</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>Optionally a single network prefix shorter
+than the default /64 prefix may be assigned to a PDN connection. In this case,
+the /64 default prefix used for IPv6 stateless autoconfiguration will be
+allocated from this network prefix; the remaining address space from the
+network prefix can be delegated to the PDN connection using prefix delegation
+after the default bearer establishment and IPv6 prefix allocation via IPv6
+stateless address autoconfiguration as defined in clause&nbsp;5.3.1.2.2. When
+PLMN based parameter configuration is used, the PDN GW provides the requested
+IPv6 prefix from a locally provisioned pool. When external PDN based IPv6
+prefix allocation is used, the PDN GW obtains the prefix from the external PDN.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>Allocation of IPv6 prefixes with flexible
+prefix length can leverage e.g. local configuration on the PDN&nbsp;GW or
+interaction with the AAA server.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>The address space provided is maintained as
+an IPv6 address space pool available to the PDN connection for DHCPv6 IPv6
+prefix requests with the exclusion of the IPv6 prefix that is allocated to the
+PDN connection during default bearer establishment as defined in clause&nbsp;5.3.1.2.2.
+The total IPv6 address space available for the PDN connection (UE default
+bearer prefix and UE PDN connection IPv6 address space pool) shall be possible
+to aggregate into one IPv6 prefix that will represent all IPv6 addresses that
+the UE may use. If the UE had indicated that it supports prefix exclusion and
+the prefix to be delegated to the UE includes the /64 prefix that was allocated
+to the PDN Connection, the PDN GW shall utilise the prefix exclusion feature as
+specified for DHCPv6 Prefix Delegation in</span><span lang=EN-GB>
+IETF&nbsp;RFC&nbsp;6603</span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-bidi-font-family:Arial'>&nbsp;[70].<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-bidi-font-family:Arial'>The UE uses DHCPv6 to request additional
+IPv6 prefixes (i.e. prefixes in addition to the default prefix) from the PDN GW
+after completing stateless IPv6 address autoconfiguration procedures. The UE
+acts as a &quot;Requesting Router&quot; as described in RFC&nbsp;3633&nbsp;[21]
+and inserts one or more IA_PD option(s) into a DHCPv6 Solicit message sent from
+the UE to the PDN GW. The PDN GW acts as the DHCP server and fulfils the role
+of a &quot;Delegating Router&quot; according to RFC&nbsp;3633&nbsp;[21]. The UE
+optionally includes the RAPID_COMMIT option in the DHCPv6 Solicit message to
+trigger two-message DHCPv6 procedure instead of the four-message DHCPv6
+procedure. The UE shall include OPTION_PD_EXCLUDE option code in an OPTION_ORO
+option to indicate support for prefix exclusion. In response to the DHCPv6
+Solicit message, the UE receives a DHCPv6 Reply message with one or more IA_PD
+prefix(es) for every IA_PD option that it sent in the DHCPv6 Solicit message.
+The PDN GW delegates a prefix excluding the default prefix with help of
+OPTION_PD_EXCLUDE. Prefix exclusion procedures shall follow</span><span
+lang=EN-GB> IETF&nbsp;RFC&nbsp;6603</span></span><span style='mso-bookmark:
+historyclause'><span lang=EN-GB style='mso-bidi-font-family:Arial'>&nbsp;[70].<o:p></o:p></span></span></p></body>

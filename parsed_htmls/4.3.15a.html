@@ -3102,81 +3102,135 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133823"><span
-lang=EN-GB>4.3.16<span style='mso-tab-count:1'>    </span>Local IP Access
-(LIPA) function</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The LIPA function enables a
-UE connected via a HeNB to access other entities in the same
-residential/enterprise network without the user plane traversing the mobile
-operator's network except HeNB subsystem.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The Local IP Access is
-achieved using a Local GW (L-GW) colocated with the HeNB.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>LIPA is established by the
-UE requesting a new PDN connection to an APN for which LIPA is permitted, and
-the network selecting the Local GW associated with the HeNB and enabling a
-direct user plane path between the Local GW and the HeNB. The HeNB supporting
-the LIPA function includes the Local GW address to the MME in every INITIAL UE
-MESSAGE and every UPLINK NAS TRANSPORT control message as specified in TS&nbsp;36.413&nbsp;[36].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>The protocol option (i.e. GTP or PMIP)
-supported on the S5 interface between Local GW and S&#8209;GW is configured on
-the MME.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>For this release of the
-specification no interface between the L-GW and the PCRF is specified and there
-is no support for Dedicated bearers on the PDN connection used for Local IP
-Access. The Local GW (L-GW) shall reject any UE requested bearer resource
-modification.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133819"><span
+lang=EN-GB>4.3.15a<span style='mso-tab-count:1'>  </span>Selected IP Traffic
+Offload (SIPTO) at the Local Network</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133820"><span
+lang=EN-GB>4.3.15a.1<span style='mso-tab-count:1'>      </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The SIPTO at the Local Network function enables an IP capable UE connected
+via a (H)eNB to access a defined IP network (e.g. the Internet) without the
+user plane traversing the mobile operator's network.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The subscription data in the HSS are configured per user and per APN to
+indicate to the MME if offload at the local network is allowed or not.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>SIPTO at the Local Network can be achieved by selecting a L-GW function
+collocated with the (H)eNB or selecting stand-alone GWs (with S-GW and L-GW
+collocated) residing in the Local Network. In both cases the selected IP
+traffic is offloaded via the Local Network.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Specific to the HeNB subsystem, the applicability of SIPTO at the Local
+Network does not depend on CSG membership and the feature can be applied to any
+UE, as long as the UE is allowed to access the cell.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For this release of the specification, no interface between the L-GW and
+the PCRF is specified and there is no support for dedicated bearers on the PDN
+connection used for SIPTO at the Local Network. The Local GW (L-GW) shall
+reject any UE requested bearer resource modification.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For this release of the specification, SIPTO at the Local Network is
+intended for offloading Internet traffic only, thus the L-GW does not provide APN
+specific connectivity. Therefore if the subscription data in the HSS indicate
+that offload at the Local Network is allowed, this implies that the related APN
+is typically used for providing Internet connectivity.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1105'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>If the MME detects a change in SIPTO permissions in the subscription data
+for a given subscriber for a given APN and the subscriber has already established
+a SIPTO at the local network PDN connection to that APN, the MME shall release
+the SIPTO at the Local Network PDN connection for that APN with
+&quot;reactivation requested&quot; cause as specified in clause&nbsp;5.10.3.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>In this release of the specification it is
+assumed that the target S-GW selected during the Handover also has connectivity
+to the L-GW.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133821"><span
+lang=EN-GB>4.3.15a.2<span style='mso-tab-count:1'>      </span>SIPTO at the
+Local Network with stand-alone GW (with S-GW and L-GW collocated) function</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1106'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>SIPTO at the Local Network is achieved using a stand-alone GW (with S-GW
+and L-GW collocated) residing in the Local Network.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1106'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>A (H)eNB supporting SIPTO at the Local Network with the stand-alone GW
+includes the Local Home Network ID to the MME in every INITIAL UE MESSAGE,
+every UPLINK NAS TRANSPORT control message, HANDOVER NOTIFY and PATH SWITCH REQUEST
+messages.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1106'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>If a SIPTO PDN connection is initiated as an additional subsequent PDN
+connection, the MME should check if the S&#8209;GW is optimal for the user's
+current location. If it is not, and if the network supports S-GW relocation
+without being triggered by a mobility event, the MME may decide to perform an
+MME triggered Serving GW relocation according to clause&nbsp;5.10.4, when
+possible (e.g. no other restrictions apply).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1106'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For SIPTO at the Local Network with a stand-alone GW, the location of the
+Serving GW may be determined based on the operator policy and user's profile
+regarding support of SIPTO at Local Network so that:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1108'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>At attachment to the (H)eNB, a local S-GW can always be selected
+independent of whether a SIPTO at the Local Network PDN connection is established
+or not. If mobility is performed to the macro network without having a SIPTO
+connection, a S-GW relocation can be performed as specified via existing
+mobility procedures with S-GW relocation.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1108'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>At attachment to a (H)eNB, a macro S-GW may be allocated for PDN
+connection in the operator's network. If a new PDN connection is requested by
+the UE that requires that a local S-GW is selected to provide for SIPTO at the
+Local Network, S-GW relocation from the macro S-GW to the local S-GW shall be
+performed as specified in clause&nbsp;5.10.4.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>As
+IP data session continuity for SIPTO at the Local Network PDN connection is not
+supported in this release of the specification, subsequent to handover
+completion the (target) MME should disconnect the SIPTO at the Local Network
+PDN connection with &quot;reactivation requested&quot; cause as specified in
+clause&nbsp;5.10.3, unless the Local Home Network ID is not changed. The IP
+data session should be maintained if the Local Home Network ID is not changed. If
+the UE has no other PDN connection and the Local Home Network ID is changed,
+the (target) MME initiates &quot;explicit detach with reattach required&quot;
+procedure according to clause&nbsp;5.3.8.3.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2546R5_LIMONET_\(Rel-12\)" 20130614T1714'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Upon completion of Tracking
+Area Update procedure, the (new) MME shall trigger the re-establishment of the
+SIPTO at the Local Network PDN connection when it detects that the UE has moved
+away from the (H)eNB and to a (H)eNB with different Local Home Network ID, as
+specified in clause&nbsp;5.3.3 and clause&nbsp;5.3.4.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>It is expected that all MMEs/SGSNs in a
+PLMN have support for SIPTO at the Local Network where the operator deploys
+this feature, in order to support mobility procedures. For a mobility event
+where target MME/SGSN does not support SIPTO at the Local Network, the handling
+of PDN deactivation for SIPTO at Local Network PDN connection is not specified.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133822"><span
+lang=EN-GB>4.3.15a.3<span style='mso-tab-count:1'>      </span>SIPTO at the
+Local Network with L-GW function collocated with the (H)eNB</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>SIPTO at the Local Network is achieved using a
+Local GW (L-GW) function collocated with the (H)eNB and using the same
+procedures as described in clause&nbsp;4.3.15, with the following additions:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1109'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The (H)eNB supporting the SIPTO at the Local Network function
+includes the Local GW address to the MME in every INITIAL UE MESSAGE and every
+UPLINK NAS TRANSPORT control message specified in TS&nbsp;36.413&nbsp;[36].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1109'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The PDN GW selection function uses the L-GW address proposed by
+(H)eNB in the S1-AP message, instead of DNS interrogation.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1109'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Specific to the HeNB subsystem, the Local GW information for
+SIPTO at the Local Network is signalled on S1 separately from the Local GW
+information for LIPA. The L-GW shall be able to discriminate between PDN
+connection for SIPTO at the Local Network and for LIPA.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The protocol option (i.e. GTP or PMIP) supported
+on the S5 interface between Local GW and S&#8209;GW is configured on the MME.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1109'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>The direct user plane path
-between the HeNB and the collocated L-GW is enabled with a Correlation ID
-parameter that is associated with the default EPS bearer on a PDN connection
-used for Local IP Access. Upon establishment of the default EPS bearer the MME
-sets the Correlation ID equal to the PDN GW TEID (GTP-based S5) or the PDN GW
-GRE key (PMIP-based S5). The Correlation ID is then signalled by the MME to the
-HeNB as part of E-RAB establishment and is stored in the E-RAB context in the
-HeNB. The Correlation ID is used in the HeNB for matching the radio bearers
-with the direct user plane path connections from the collocated L-GW.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE is roaming and if
-the HSS indicates LIPA roaming allowed for this UE in this VPLMN, then the
-VPLMN (i.e. MME) may provide LIPA for this UE. Furthermore, in the absence of
-any LIPA information for the requested APN from the HSS, the VPLMN (i.e MME)
-shall not provide LIPA. The VPLMN address allowed flag is not considered when
-establishing a LIPA PDN connection.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>LIPA is supported for APNs
-that are valid only when the UE is connected to a specific CSG. LIPA is also
-supported for &quot;conditional&quot; APNs that can be authorized to LIPA
-service when the UE is using specific CSG. APNs marked as &quot;LIPA
-prohibited&quot; or without a LIPA permission indication cannot be used for
-LIPA.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>MME shall release a LIPA
-PDN connection to an APN if it detects that the UE's LIPA CSG authorization data
-for this APN has changed and the LIPA PDN connection is no longer allowed in
-the current cell.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>As mobility of the LIPA PDN
-connection is not supported in this release of the specification, the LIPA PDN
-connection shall be released when the UE moves away from H(e)NB. Before
-starting the handover procedure towards the target RAN, the H(e)NB shall
-request using an intra-node signalling the collocated L-GW to release the LIPA
-PDN connection. The H(e)NB determines that the UE has a LIPA PDN connection
-from the presence of the Correlation ID in the UE (E-)RAB context. The L-GW
-shall then initiate and complete the release of the LIPA PDN connection using
-the PDN GW initiated bearer deactivation procedure as per clause&nbsp;5.4.4.1
-or GGSN initiated PDP context deactivation procedure as specified in TS&nbsp;23.060&nbsp;[7].
-The H(e)NB shall not proceed with the handover preparation procedure towards
-the target RAN until the UE's (E-)RAB context is clear for the Correlation ID.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>At the handover, the source
-MME checks whether the LIPA PDN connection has been released. If it has not
-been released:</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2030R2_\(Rel-10\)" 20110314T1709'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>and the handover is the<span style='mso-spacerun:yes'> 
-</span>S1-based handover or the Inter-RAT handover, the source MME shall reject
-the handover.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2030R2_\(Rel-10\)" 20110314T1709'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>and the handover is X2-based handover, the MME shall send a Path
-Switch Request Failure message (see more detail in TS&nbsp;36.413&nbsp;[36]) to
-the target HeNB. The MME performs explicit detach of the UE as described in the
-MME initiated detach procedure of clause&nbsp;5.3.8.3.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>The direct signalling (implementation
-dependent) from the H(e)NB to the L-GW is only possible since mobility of the
-LIPA PDN connection is not supported in this release.</span></span></p><p class=MsoNormal style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1504'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>During idle state mobility
-events, the MME/SGSN shall deactivate the LIPA PDN connection when it detects
-that the UE has moved away from the HeNB.</span></span></p></body>
+between the (H)eNB and the collocated L-GW is enabled with a SIPTO Correlation
+ID parameter that is associated with the default EPS bearer on the PDN connection
+used for SIPTO at the Local Network. Upon establishment of the default EPS
+bearer the MME sets the SIPTO Correlation ID equal to the PDN GW TEID (GTP-based
+S5) or the PDN GW GRE key (PMIP-based S5). The SIPTO Correlation ID is then
+signalled by the MME to the (H)eNB as part of E-RAB establishment and is stored
+in the E-RAB context in the (H)eNB. The SIPTO Correlation ID is used in the
+(H)eNB for matching the radio bearers with the direct user plane path
+connections from the collocated L-GW for SIPTO at local network PDN connection.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2508R1_LIMONET_\(Rel-12\)" 20130211T1109'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>As IP data session
+continuity for the SIPTO at the Local Network PDN connection is not supported
+in this release of the specification, the SIPTO at the Local Network PDN
+connection shall be re-established when the UE moves away from (H)eNB. During
+the handover procedure, when the source (H)eNB releases its resources related
+to the UE, the (H)eNB shall request using intra-node signalling the collocated
+L-GW to re-establish the SIPTO at the Local Network PDN connection. The L-GW
+starts a timer. When the timer expires, the L-GW shall initiate the release of
+the SIPTO at the Local Network PDN connection using the PDN GW initiated bearer
+deactivation procedure according to clause&nbsp;5.4.4.1 with the
+&quot;reactivation requested&quot; cause value.</span></span></p></body>

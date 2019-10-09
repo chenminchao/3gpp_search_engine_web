@@ -3102,43 +3102,81 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133862"><span
-lang=EN-GB>4.3.22<span style='mso-tab-count:1'>    </span>UE Power Saving Mode</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
-UE may adopt a PSM that is described in TS&nbsp;23.682&nbsp;[74]. If a UE is
-capable of adopting a PSM and it wants to use the PSM it shall request an
-Active Time value and may request a Periodic TAU/RAU Timer value during every
-Attach and TAU procedures, which are handled as described in TS&nbsp;23.682&nbsp;[74].
-The UE shall not request a Periodic TAU/RAU Timer value if it is not requesting
-an Active Time value. The network shall not allocate an Active Time value if
-the UE has not requested it.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>PSM
-has no support in the CS domain on the network side.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>When the PSM is activated the UE might not be
-available for paging of Mobile Terminated CS services even though the UE is
-registered in the CS domain.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>The Attach and TAU procedures of this
-specification are not showing the details of the Periodic TAU Time and Active
-Time negotiation, i.e. are not showing the related IEs.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2603R9_MTCe-UEPCOP_\(Rel-12\)" 20131206T1100'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the network allocates an
-Active Time value, the UE and the MME starts the Active timer (see
-clause&nbsp;4.3.5.2) with the Active Time value allocated by the network when
-transitioning from ECM_CONNECTED to ECM_IDLE. The UE shall stop the Active
-timer, if running, when a transition to ECM_CONNECTED mode is made. When the
-Active timer expires, the UE deactivates its Access Stratrum functions and
-enters PSM. In PSM, due to deactivation of Access Stratum functions, the UE
-stops all idle mode procedures, but continues to run any NAS timers that may apply,
-e.g. the periodic TAU timer. The UE shall resume Access Stratum functions and
-idle mode procedures before the periodic TAU timer expires for performing the
-periodic TAU procedure as applicable. The UE may resume idle mode procedures and
-Access Stratum functions any time while in PSM, e.g. for mobile originated
-communications. Any timers and conditions that remain valid during power-off,
-e.g. for NAS-level back-off, apply in the same way during PSM.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2603R9_MTCe-UEPCOP_\(Rel-12\)" 20131206T1100'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>When the Active timer
-expires for the UE, the MME knows that the UE entered PSM and is not available
-for paging. The MME handles availability for paging as detailed in clause&nbsp;4.3.5.2.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2603R9_MTCe-UEPCOP_\(Rel-12\)" 20131206T1100'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>On UE side the PSM complies
-with some substates of EMM_REGISTERED, as specified in TS&nbsp;24.301&nbsp;[46].
-The MME considers the UE to be EMM_REGISTERED, but not reachable. The UE's Access
-Stratum functions are considered as deactivated during PSM.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
-mobile terminated data while a UE is in PSM, the functions for High latency
-communication may be used as described in clause&nbsp;4.3.17.7.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
-the UE has bearers for emergency services, the UE shall not apply PSM.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133858"><span
+lang=EN-GB>4.3.21<span style='mso-tab-count:1'>    </span>Core Network assisted
+eNodeB parameters tuning</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133859"><span
+lang=EN-GB>4.3.21.1<span style='mso-tab-count:1'>        </span>CN Assistance
+Information</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"Plenary-23203_CR0854R3_CNO_ULI_\(Rel-12\)" 20131213T1129'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Core Network assisted
+eNodeB parameters tuning aids the eNodeB to minimize the UE state transitions
+and achieve optimum network behaviour. How the eNB uses the Core Network
+assistance information is not in scope of this specification and is implementation
+specific.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Core
+Network assistance information may be derived by the MME per UE in the MME
+based on collection of UE behaviour statistics or other available information
+about the expected UE behaviour (such as subscribed APN, IMSI ranges or other
+subscription information). If the HSS provides the Communication Pattern (CP)
+parameters (see TS&nbsp;23.682&nbsp;[74]) within the subscription profile
+information, then the MME may use the CP parameters for selecting the CN
+assisted eNB parameters. The CP parameters received from the HSS are used by
+the MME as input to derive the CN assisted eNB parameter values. For the case
+of statistics-based Core Network assistance information collection, this may be
+enabled based on local configuration (e.g. subscribed APN, IMSI ranges or other
+subscription information). This information provides the eNB with a way to
+understand the UE behaviour for these aspects:</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2684R9_MTCe-SDDTE_\(Rel-12\)" 20140613T1611'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>&quot;Expected UE activity behaviour&quot;, i.e. the expected
+pattern of the UE's changes between ECM-CONNECTED and ECM-IDLE states. This may
+be derived e.g. from statistical information or from subscription information.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2684R9_MTCe-SDDTE_\(Rel-12\)" 20140613T1611'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>&quot;Expected HO interval&quot;, i.e. the expected time interval
+between inter-eNB handovers. This may be derived e.g. from statistical
+information or from subscription information. The &quot;Expected HO
+interval&quot; parameter is not based on subscription information. Highly
+mobile UEs may have the ECM-CONNECTED state reduced to reduce handover
+signalling, unless the activity data do not justify that, as reduced handover
+signalling would be outweighed by more Service Request signalling).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>&quot;UE Differentiation Information&quot;
+including the Communication Pattern parameters (see TS&nbsp;23.682&nbsp;[74])
+to support Uu operation optimisation for NB-IoT UE differentiation.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+respective signalling to support this feature is specified in TS&nbsp;36.413&nbsp;[36].
+The cases where the Traffic Profile (see see TS&nbsp;23.682&nbsp;[74]) is not
+used are described in clauses 5.3.4B.2 and 5.3.4B.3.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+MME decides when to send this information to the eNB as &quot;Expected UE
+behaviour&quot; carried in S1-AP signalling over the S1-MME interface as per
+procedure documented in clause&nbsp;4.3.21.3.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The calculation of the Core Network assistance
+information, i.e. the algorithms used and related criteria, and the decision
+when it is considered suitable and stable to send to the eNB are vendor
+specific. Unreliable information should not be provided to the eNB as it may drive
+undesirable system effects.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>It is recommended the MME or, depending on
+where this assessment is performed, the eNB, can consider the average times in
+the ECM-CONNECTED and ECM-IDLE states an accurate representation of the traffic
+patterns if the average time in ECM-CONNECTED mode is short enough to assume
+the UE is generally actively transmitting and/or receiving data while in ECM-CONNECTED
+state.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>When there are multiple overlapping CP
+parameter sets received from the HSS for one UE, then the MME considers a merge
+per CP parameter when deriving the CN assisted eNB parameters, e.g. based on
+the Scheduled communication time and/or Communication duration time parameters.
+A conflict on the Stationary Indication parameter can be resolved by considering
+the UE as &quot;mobile&quot;.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133860"><span
+lang=EN-GB>4.3.21.2<span style='mso-tab-count:1'>        </span>Void</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133861"><span
+lang=EN-GB>4.3.21.3<span style='mso-tab-count:1'>        </span>Core Network
+Assistance Procedures</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"Plenary-23203_CR0854R3_CNO_ULI_\(Rel-12\)" 20131213T1130'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The MME provides CN
+assistance information to the eNodeB if available, during the setup of the S1
+signalling connection (e.g., Attach, Service Request).</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23203_CR0854R3_CNO_ULI_\(Rel-12\)" 20131213T1130'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The following figure is a
+high level description of the transfer of information from an MME to eNodeB
+during a service request procedure.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1036" type="#_x0000_t75" style='width:457pt;height:374pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image023.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=609 height=499
+src="23401-g30_files/image024.gif" v:shapes="_x0000_i1036"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1036"
+  DrawAspect="Content" ObjectID="_1631980374">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+4.3.21.3-1: Core Network assisted eNodeB parameters tuning</span></span></p></body>

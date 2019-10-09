@@ -3102,64 +3102,114 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134026"><span
-lang=EN-GB>5.3.11<span style='mso-tab-count:1'>    </span>UE Reachability procedures</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134027"><span
-lang=EN-GB>5.3.11.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>There are two procedures necessary for any
-service related entity that would need to be notified by the reachability of
-the UE at EPC NAS level:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1503'><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134018"><span
+lang=EN-GB>5.3.10<span style='mso-tab-count:1'>    </span>Security Function</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134019"><span
+lang=EN-GB>5.3.10.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The security functions include:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>UE Reachability Notification Request procedure; and</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1503'><span
+1'>    </span>Guards against unauthorised EPS service usage (authentication of
+the UE by the network and service request validation).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>UE Activity Notification procedure.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134028"><span
-lang=EN-GB>5.3.11.2<span style='mso-tab-count:1'>        </span>UE Reachability
-Notification Request procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The UE Reachability Notification Request procedure
-is illustrated in Figure&nbsp;5.3.11.2-1.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1088" type="#_x0000_t75" style='width:288.5pt;height:83.5pt'
- o:ole="">
- <v:imagedata src="23401-g30_files/image127.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=385 height=111
-src="23401-g30_files/image128.gif" v:shapes="_x0000_i1088"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1088"
-  DrawAspect="Content" ObjectID="_1631980416">
+1'>    </span>Provision of user identity confidentiality (temporary
+identification and ciphering).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Provision of user data and signalling confidentiality
+(ciphering).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Provision of origin authentication of signalling data (integrity
+protection).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Authentication of the network by the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Security-related
+network functions for EPS are described in TS&nbsp;33.401&nbsp;[41].</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134020"><span
+lang=EN-GB>5.3.10.2<span style='mso-tab-count:1'>        </span>Authentication
+and Key Agreement</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>EPS AKA is the authentication and key agreement
+procedure that shall be used over E-UTRAN, between the UE and MME. EPS AKA is
+specified in TS&nbsp;33.401&nbsp;[41].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134021"><span
+lang=EN-GB>5.3.10.3<span style='mso-tab-count:1'>        </span>User Identity
+Confidentiality</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>An M-TMSI identifies a user between the UE and
+the MME. The relationship between M-TMSI and IMSI is known only in the UE and
+in the MME.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134022"><span
+lang=EN-GB>5.3.10.4<span style='mso-tab-count:1'>        </span>User Data and
+Signalling Confidentiality</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1524'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>There are two different levels of the security associations between the UE
+and the network.<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>i)<span
+style='mso-tab-count:1'>   </span>RRC and UP security association is between
+the UE and E&#8209;UTRAN. The RRC security associations protect the RRC signalling
+between the UE and E&#8209;UTRAN (integrity protection and ciphering). The UP
+security association is also between the UE and E&#8209;UTRAN and provide user
+plane encryption function.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>ii)<span
+style='mso-tab-count:1'>  </span>NAS security association is between the UE and
+the MME. It provides integrity protection and encryption of NAS signalling and,
+when the Control Plane CIoT EPS Optimisation is used, user data.</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11134023"><span
+lang=EN-GB>5.3.10.4.1<span style='mso-tab-count:1'>            </span>AS
+security mode command procedure</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1524'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The MME triggers the RRC level AS security mode command procedure by
+sending the needed security parameters to the eNodeB. This enables ciphering of
+the UP traffic and ciphering and integrity protection of the RRC signalling as
+described in TS&nbsp;33.401&nbsp;[41].<o:p></o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11134024"><span
+lang=EN-GB>5.3.10.4.2<span style='mso-tab-count:1'>            </span>NAS
+Security Mode Command procedure</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1525'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The MME uses the NAS Security Mode Command (SMC) procedure to establish a
+NAS security association between the UE and MME, in order to protect the
+further NAS signalling messages. This procedure is also used to make changes in
+the security association, e.g. to change the security algorithm.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1086" type="#_x0000_t75" style='width:260pt;height:108.5pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image123.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=347 height=145
+src="23401-g30_files/image124.gif" v:shapes="_x0000_i1086"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1086"
+  DrawAspect="Content" ObjectID="_1631980414">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.11.2-1: UE Reachability Notification Request Procedure</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1)<span
-style='mso-tab-count:1'>  </span>If a service-related entity requests the HSS
-to provide an indication regarding UE reachability on EPS, the HSS stores the
-service-related entity and sets the URRP-MME parameter to indicate that such
-request is received. If the value of URRP-MME parameter has changed from
-&quot;not set&quot; to &quot;set&quot;, the HSS sends a
-UE-REACHABILITY-NOTIFICATION-REQUEST (URRP-MME) to the MME. If the MME has an
-MM context for that user, the MME sets URRP-MME to indicate the need to report
-to the HSS information regarding changes in UE reachability, e.g. when the next
-NAS activity with that UE is detected.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134029"><span
-lang=EN-GB>5.3.11.3<span style='mso-tab-count:1'>        </span>UE Activity
-Notification procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The UE Activity Notification procedure is
-illustrated in Figure&nbsp;5.3.11.3-1.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1089" type="#_x0000_t75" style='width:317.5pt;height:145.5pt'
+5.3.10.4.2-1: NAS Security Mode Command Procedure</span></span></p><p class=B1 style='mso-prop-change:23401_CR0518R2 20080912T1157'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
+1'>   </span>The MME sends NAS Security Mode Command (Selected NAS algorithms,
+eKSI, ME Identity request, UE Security Capability) message to the UE. ME
+identity request may be included when NAS SMC is combined with ME Identity
+retrieval (see clause&nbsp;5.3.10.5).</span></span></p><p class=B1 style='mso-prop-change:23401_CR0518R2 20080912T1157'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
+1'>   </span>The UE responds NAS with Security Mode Complete (NAS-MAC, ME
+Identity) message. The UE includes the ME Identity if it was requested in
+step&nbsp;1.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>The NAS Security Mode Command procedure is
+typically executed as part of the Attach procedure (see clause&nbsp;5.3.2.1) in
+advance of, or in combination with, executing the ME Identity Check procedure
+(see clause&nbsp;5.3.10.5) and in the TAU procedure (see clauses&nbsp;5.3.3.1
+and 5.3.3.2).</span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1525'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>More details of the procedure are described in TS&nbsp;33.401&nbsp;[41].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134025"><span
+lang=EN-GB>5.3.10.5<span style='mso-tab-count:1'>        </span>ME identity
+check procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Mobile Equipment Identity Check Procedure permits the operator(s) of the MME
+and/or the HSS and/or the PDN&nbsp;GW to check the Mobile Equipment's identity
+(e.g. to check that it has not been stolen, or, to verify that it does not have
+faults).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+ME Identity can be checked by the MME passing it to an Equipment Identity
+Register (EIR) and then the MME analysing the response from the EIR in order to
+determine its subsequent actions (e.g. sending an Attach Reject if the EIR
+indicates that the Mobile Equipment is blacklisted).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+ME identity check procedure is illustrated in Figure 5.3.10.5-1.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1087" type="#_x0000_t75" style='width:281.5pt;height:109.5pt'
  o:ole="">
- <v:imagedata src="23401-g30_files/image129.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=423 height=194
-src="23401-g30_files/image130.gif" v:shapes="_x0000_i1089"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1089"
-  DrawAspect="Content" ObjectID="_1631980417">
+ <v:imagedata src="23401-g30_files/image125.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=375 height=146
+src="23401-g30_files/image126.gif" v:shapes="_x0000_i1087"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1087"
+  DrawAspect="Content" ObjectID="_1631980415">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.11.3-1: UE Activity Procedure</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1508'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1)<span style='mso-tab-count:
-1'>  </span>The MME receives an indication regarding UE reachability, e.g. an
-Attach Request message from the UE or MME receive an indication from S&#8209;GW
-that UE has handed over to non-3GPP coverage.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1508'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>2)<span style='mso-tab-count:
-1'>  </span>If the MME contains an MM context of the UE and if URRP-MME for
-that UE is configured to report once that the UE is reachable, the MME shall
-send a UE-Activity-Notification (IMSI, UE-Reachable) message to the HSS and
-clears the corresponding URRP-MME for that UE.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1508'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>3)<span style='mso-tab-count:
-1'>  </span>When the HSS receives the UE-Activity-Notification (IMSI, UE-Reachable)
-message or the Update Location message for an UE that has URRP-MME set, it
-triggers appropriate notifications to the entities that have subscribed to the
-HSS for this notification and clears the URRP-MME for that UE.</span></span></p></body>
+5.3.10.5-1: Identity Check Procedure</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0143R1 Implementation" 20080228T0859'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
+1'>   </span>The MME sends Identity Request (Identity Type) to the UE. The UE
+responds with Identity Response (Mobile Identity).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0143R1 Implementation" 20080228T0859'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
+1'>   </span>If the MME is configured to check the IMEI against the EIR, it
+sends ME Identity Check (ME Identity, IMSI) to EIR. The EIR responds with ME Identity
+Check Ack (Result).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>The Identity Check Procedure is typically
+executed as part of the Attach procedure (see clause&nbsp;5.3.2.1).</span></span></p></body>

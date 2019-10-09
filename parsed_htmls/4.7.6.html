@@ -3102,140 +3102,33 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133924"><span
-lang=EN-GB>4.7.7<span style='mso-tab-count:1'>      </span>Support of rate
-control of user data using CIoT EPS Optimisation</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133925"><span
-lang=EN-GB>4.7.7.1<span style='mso-tab-count:1'>          </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0552'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The rate of user data sent to and from a UE (e.g. a UE using CIoT EPS Optimisations)
-can be controlled in two different ways:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Serving PLMN Rate Control</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>APN Rate Control</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0552'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Serving PLMN Rate Control is intended to allow the Serving PLMN to protect
-its MME and the Signalling Radio Bearers in the E-UTRAN from the load generated
-by NAS Data PDUs.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0552'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>APN Rate Control is intended to allow HPLMN operators to offer customer
-services such as &quot;maximum of Y messages per day&quot;.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>Existing AMBR mechanisms are not suitable
-for such a service since, for radio efficiency and UE battery life reasons, an
-AMBR of e.g. &gt; 100kbit/s is desirable and such an AMBR translates to a
-potentially large daily data volume.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-PDN GW in the visited PLMN may send the APN rate control parameter for an
-emergency PDN connection.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133926"><span
-lang=EN-GB>4.7.7.2<span style='mso-tab-count:1'>          </span>Serving PLMN
-Rate Control</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The Serving PLMN Rate Control value is configured in the MME.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>Homogeneous support of Serving PLMN Rate
-Control in a network is assumed.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>At PDN connection establishment, the MME may inform the UE and PDN GW/SCEF
-(as specified in TS&nbsp;24.301&nbsp;[46] and TS&nbsp;29.274&nbsp;[43]) of any per
-PDN connection local Serving PLMN Rate Control that the Serving PLMN intends to
-enforce for NAS Data PDUs. The MME shall only indicate Serving PLMN Rate
-Control command to the PDN GW if the PDN connection is using S11-U and set to
-Control Plane only. The MME shall only indicate Serving PLMN Rate Control
-command to the SCEF if that PDN connection is using SCEF.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>This rate control is operator configurable and expressed as &quot;X NAS
-Data PDUs per deci hour&quot; where X is an integer that shall not be less than
-10. There are separate limits for uplink and downlink NAS Data PDUs:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The UE shall limit the rate at which it
-generates uplink NAS Data PDUs to comply with the Serving PLMN policy. In the
-UE the indicated rate control applies only on the PDN connection where it was
-received, and therefore the UE shall limit the rate of its uplink NAS Data PDUs
-to comply with the rate that is indicated for the PDN connection. The indicated
-rate is valid until the PDN connection is released.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The PDN GW/SCEF shall limit the rate at
-which it generates downlink Data PDUs. In the PDN GW/SCEF the indicated rate
-control applies only on the PDN connection where it was received, and therefore
-the PDN&nbsp;GW/SCEF shall limit the rate of its downlink Data PDUs to comply
-with the rate that is indicated for the PDN connection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The MME may enforce thisthese limits per PDN
-connection by discarding or delaying packets that exceed this limitthese limits.
-The Serving PLMN Rate does not include SMS sent via NAS Transport PDUs. The MME
-starts the Serving PLMN Rate Control when the first NAS Data PDU is received.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>In case the UE/PDN GW/SCEF start the Serving
-PLMN rate control at a different time than the MME, PDUs sent within the limit
-enforced at the UE/PDN GW/SCEF can still exceed the limit enforced by the MME.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3<span
-style='mso-tab-count:1'>    </span>It is assumed that the Serving PLMN Rate is sufficiently
-high to not interfere with the APN Rate Control as the APN Rate Control, if
-used, is assumed to allow fewer messages. NAS PDUs related to exception reports
-are not subject to the Serving PLMN Rate Control.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133927"><span
-lang=EN-GB>4.7.7.3<span style='mso-tab-count:1'>          </span>APN Rate
-Control</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The APN Rate Control is configured in the PDN GW or in the SCEF. The PDN GW
-or SCEF can send an APN Uplink Rate Control command to the UE using the PCO
-information element.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The APN Uplink Rate Control applies to data PDUs sent on that APN by either
-Data Radio Bearers (S1-U) or Signalling Radio Bearers (NAS Data PDUs).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The rate control information is separate for uplink and downlink and in the
-form of:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>a positive integer 'number of packets per
-time unit', and</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>an indication as to whether or not exception
-reports can still be sent if this rate control limit has been met, and</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>if the UE indicated support for it, an
-integer 'number of additional allowed exception report packets per time unit'
-once the rate control limit has been reached.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>UEs supporting APN Rate Control shall support the 'number of additional
-allowed exception report packets per time unit' and shall provide an indication
-to the CN at PDN connection establishment.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>Pre-Rel&#8209;14 UEs do not support the
-'number of additional allowed exception report packets per time unit' and do
-not send an indication to the CN at PDN connection establishment.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The UE shall comply with this uplink rate control instruction. If the UE
-exceeds the uplink 'number of packets per time unit', the UE may still send
-uplink exception reports if allowed and the 'number of additional allowed
-exception reports per time unit' has not been exceeded. The UE shall consider
-this rate control instruction as valid until it receives a new one from either
-PDN GW or from SCEF.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>When the last PDN connection using a given APN is released, the APN Rate
-Control Status (including the number of packets still allowed in the given time
-unit, the number of additional exception reports still allowed in the given
-time unit and the termination time of the current APN Rate Control validity
-period) may be stored in the MME so that it can be retrieved for a subsequent
-re-establishment of a new first PDN connection for that given APN.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>At subsequent establishment of a new first PDN connection for that given
-APN, the PDN GW/SCEF may receive the previously stored APN Rate Control Status
-and, if the first APN Rate Control validity period has not expired, it applies
-the received APN Rate Control Status and provides the related parameters to the
-UE in the PCO (instead of the configured APN Rate Control parameters). If the
-initially applied parameters differ from the configured APN Rate Control
-parameters, the PDN GW/SCEF uses the configured APN Rate Control parameters
-once the first APN Rate Control validity period expires, and sends an update to
-the UE with the configured APN Rate Control parameters.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>The storage of the APN Rate Control Status information
-for very long time intervals can be implementation specific.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The PDN GW or SCEF realises the APN rate control based on a 'maximum
-allowed rate' per direction. If PDN GW or SCEF provided the 'number of
-additional allowed exception report packets per time unit' to the UE, then the
-'maximum allowed rate' is equal to the 'number of packets per time unit' plus
-the 'number of additional allowed exception report packets per time unit'.
-Otherwise, the 'maximum allowed rate' is equal to the 'number of packets per
-time unit'.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
-style='mso-tab-count:1'>  </span>Pre-Rel&#8209;14 UEs understand only the
-'number of packets per time unit', and, if an indication that exception reports
-are allowed has been sent to such UEs, there is a risk that exception report
-packets are discarded by the PDN GW or SCEF. To overcome this problem, the PDN
-GW or SCEF can still apply a configured 'number of additional allowed exception
-report packets per time unit' even though not sent to pre-Rel&#8209;14 UEs.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2999R8_CIoT_\(Rel-13\)" 20160612T0553'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The PDN GW or SCEF may enforce the uplink rate by discarding or delaying
-packets that exceed the 'maximum allowed rate'. The PDN GW or SCEF shall enforce
-the downlink rate by discarding or delaying packets that exceed the downlink
-part of the 'maximum allowed rate'.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
-style='mso-tab-count:1'>  </span>It is assumed that the Serving PLMN Rate is sufficiently
-high to not interfere with the APN Rate Control as the APN Rate Control, if
-used, is assumed to allow fewer messages. NAS PDUs related to exception reports
-are not subject to the Serving PLMN Rate Control.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133923"><span
+lang=EN-GB>4.7.6<span style='mso-tab-count:1'>      </span>Bearer Control Mode
+in EPC</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The Bearer Control Mode
+(BCM) for E-UTRAN access is always UE/NW. Hence, explicit signalling between
+the UE and the network to determine BCM for E-UTRAN access does not occur.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>GERAN/UTRAN/E-UTRAN capable
+UEs negotiate the BCM of a PDN Connection applicable for GERAN/UTRAN access
+during E-UTRAN Initial Attach and during UE Requested PDN Connectivity
+procedure. Such UEs provide the Network Request Support UE (NRSU) parameter to
+the PDN GW in PCO. The PDN GW derives the BCM applicable to GERAN/UTRAN access
+based on the NRSU and operator policy. The selected BCM, valid for GERAN/UTRAN,
+is provided back to the UE in PCO IE in the E-UTRAN Attach Accept or PDN
+Connectivity Accept message. The selected BCM is also stored in the PDN GW and
+the UE, and applied by UE upon moving to GERAN or UTRAN access unless explicitly
+informed by PDN GW of a change in BCM (see TS&nbsp;23.060&nbsp;[7]) via PCO IE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>In Rel&#8209;8 it was not mandatory for
+GERAN/UTRAN/E-UTRAN capable UEs to provide NRSU to the PDN&nbsp;GW during
+E-UTRAN Initial Attach and UE Requested PDN Connectivity procedure.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>When a GERAN/UTRAN/E-UTRAN
+capable UE moves from UTRAN or GERAN access to E-UTRAN access, it stores the
+BCM used in UTRAN or GERAN access to be used again when the UE moves back to
+UTRAN or GERAN access unless explicitly informed by PDN GW of a change in BCM
+(see TS&nbsp;23.060&nbsp;[7]) via the PCO IE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If PCC is deployed, the PDN
+GW requests PCRF to perform BCM selection for the RAT the UE is accessing at IP&#8209;CAN
+session establishment and IP-CAN session modification. The PCRF, determines the
+applicable BCM, based on a number of factors (see TS&nbsp;23.203&nbsp;[6]), and
+informs the PDN&nbsp;GW. If the BCM has changed, the PDN&nbsp;GW informs the UE
+of the new BCM via the PCO IE.</span></span></p></body>

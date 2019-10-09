@@ -3102,56 +3102,30 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133922"><span
-lang=EN-GB>4.7.5<span style='mso-tab-count:1'>      </span>Application of PCC
-in the Evolved Packet System</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-Evolved Packet System applies the PCC framework as defined in TS&nbsp;23.203&nbsp;[6]
-for QoS policy and charging control. PCC functionality is present in the AF,
-PCEF and PCRF.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
-EPS needs to <st1:PersonName w:st="on">support</st1:PersonName> both PCEF and
-PCRF functionality to enable dynamic policy and charging control by means of
-installation of PCC rules based on user and service dimensions. However, an EPS
-may only <st1:PersonName w:st="on">support</st1:PersonName> PCEF functionality
-in which case it shall <st1:PersonName w:st="on">support</st1:PersonName>
-static policy and charging control.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>The local configuration of PCEF static
-policy and charging control functionality is not subject to standardization.
-The PCEF static policy and control functionality is not based on subscription
-information.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-following applies to the use of dynamic policy and charging control in EPS:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The service level (per SDF) QoS parameters
-are conveyed in PCC rules (one PCC rule per SDF) over the Gx reference point.
-The service level QoS parameters consist of a QoS Class Identifier (QCI)
-Allocation and Retention Priority (ARP) and authorised Guaranteed and Maximum
-Bit Rate values for uplink and downlink. The QCI is a scalar that represents
-the QoS characteristics that the EPS is expected to provide for the SDF. ARP is
-an indicator of the priority for the SDF that is used to decide about the
-assignment of resources due to resource limitations. The service level ARP
-assigned by PCRF in a PCC rule may be different from the bearer level ARP stored
-in subscription data;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The set of standardized QCIs and their
-characteristics that the PCRF in an EPS can select from is provided in TS&nbsp;23.203&nbsp;[6].
-It is expected that the PCRF selects a QCI in such a way that the IP-CAN
-receiving it can support it;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>It is not required that an IP-CAN supports
-all standardized QCIs;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>In the case of IP address configuration
-subsequent to initial attachment, i.e. through DHCP mechanism to complete the
-IP address configuration, the PDN GW/PCEF shall notify the PCRF of the UE's IP address
-by means of an IP-CAN Session Modification procedure or IP-CAN Session
-Establishment procedure as defined in TS&nbsp;23.203&nbsp;[6] when it is
-assigned. If the PCRF response leads to an EPS bearer modification the PDN GW
-should initiate a bearer update procedure;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>For local breakout, the visited network has
-the capability to reject the QoS authorized by the home network based on
-operator policies.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-following applies regardless of whether dynamic or static policy and charging
-control is used in EPS:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>For E-UTRAN the value of the ARP of an EPS
-bearer is identical to the value of the ARP of the SDF(s) mapped to that EPS
-bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>For the same UE/PDN connection: SDFs
-associated with different QCIs or with the same service-level QCI but different
-ARP shall not be mapped to the same EPS bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The bearer level QCI of an EPS bearer is
-identical to the value of the QCI of the SDF(s) mapped to that EPS bearer.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133921"><span
+lang=EN-GB>4.7.4<span style='mso-tab-count:1'>      </span>Support for
+Application / Service Layer Rate Adaptation</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23\.401 CR0065R2 Implementation" 20080228T1307'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The E&#8209;UTRAN/UTRAN and
+the UE support the RFC&nbsp;3168&nbsp;[55] Explicit Congestion Notification
+(ECN), as described in TS&nbsp;36.300&nbsp;[5], TS&nbsp;25.401&nbsp;[16] and TS&nbsp;26.114&nbsp;[56].
+The IP level ECN scheme enables the E&#8209;UTRAN/UTRAN to trigger a rate adaptation
+scheme at the application / service / transport layer. To make sufficient time
+available for end-to-end codec rate adaptation the E-UTRAN/UTRAN should attempt
+to not drop any packets on a bearer for a default grace period of at least 500
+ms after it has indicated congestion with ECN on the bearer for packets within
+the packet delay budget. During this ECN grace period the E-UTRAN/UTRAN should
+also attempt to meet the QCI characteristics / QoS class associated with the
+bearer.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Note that the receiving end-point should
+interpret all ECN-CE signals received within one end-to-end round-trip time as
+one &quot;congestion event&quot; (see IETF&nbsp;RFC&nbsp;3168&nbsp;[55] and TS&nbsp;26.114&nbsp;[56]).</span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR0065R2 Implementation" 20080228T1307'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The MBR of a particular GBR
+bearer may be set larger than the GBR.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>Enforcement of APN-AMBR / UE-AMBR is
+independent of whether the MBR of a particular GBR bearer has been set larger
+than the GBR (see clause&nbsp;4.7.3).</span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR0065R2 Implementation" 20080228T1307'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The EPC does not support
+E-UTRAN/UTRAN-initiated &quot;QoS re-negotiation&quot;. That is, the EPC does
+not support an eNodeB/RNC initiated bearer modification procedure. If an
+eNodeB/RNC can no longer sustain the GBR of an active GBR bearer then the eNodeB/RNC
+should simply trigger a deactivation of that bearer.</span></span></p></body>

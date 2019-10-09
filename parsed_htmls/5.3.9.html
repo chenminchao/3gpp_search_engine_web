@@ -3102,114 +3102,86 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134018"><span
-lang=EN-GB>5.3.10<span style='mso-tab-count:1'>    </span>Security Function</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134019"><span
-lang=EN-GB>5.3.10.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The security functions include:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Guards against unauthorised EPS service usage (authentication of
-the UE by the network and service request validation).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Provision of user identity confidentiality (temporary
-identification and ciphering).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Provision of user data and signalling confidentiality
-(ciphering).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Provision of origin authentication of signalling data (integrity
-protection).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1519'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Authentication of the network by the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Security-related
-network functions for EPS are described in TS&nbsp;33.401&nbsp;[41].</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134020"><span
-lang=EN-GB>5.3.10.2<span style='mso-tab-count:1'>        </span>Authentication
-and Key Agreement</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>EPS AKA is the authentication and key agreement
-procedure that shall be used over E-UTRAN, between the UE and MME. EPS AKA is
-specified in TS&nbsp;33.401&nbsp;[41].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134021"><span
-lang=EN-GB>5.3.10.3<span style='mso-tab-count:1'>        </span>User Identity
-Confidentiality</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>An M-TMSI identifies a user between the UE and
-the MME. The relationship between M-TMSI and IMSI is known only in the UE and
-in the MME.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134022"><span
-lang=EN-GB>5.3.10.4<span style='mso-tab-count:1'>        </span>User Data and
-Signalling Confidentiality</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1524'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>There are two different levels of the security associations between the UE
-and the network.<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>i)<span
-style='mso-tab-count:1'>   </span>RRC and UP security association is between
-the UE and E&#8209;UTRAN. The RRC security associations protect the RRC signalling
-between the UE and E&#8209;UTRAN (integrity protection and ciphering). The UP
-security association is also between the UE and E&#8209;UTRAN and provide user
-plane encryption function.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>ii)<span
-style='mso-tab-count:1'>  </span>NAS security association is between the UE and
-the MME. It provides integrity protection and encryption of NAS signalling and,
-when the Control Plane CIoT EPS Optimisation is used, user data.</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11134023"><span
-lang=EN-GB>5.3.10.4.1<span style='mso-tab-count:1'>            </span>AS
-security mode command procedure</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1524'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The MME triggers the RRC level AS security mode command procedure by
-sending the needed security parameters to the eNodeB. This enables ciphering of
-the UP traffic and ciphering and integrity protection of the RRC signalling as
-described in TS&nbsp;33.401&nbsp;[41].<o:p></o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11134024"><span
-lang=EN-GB>5.3.10.4.2<span style='mso-tab-count:1'>            </span>NAS
-Security Mode Command procedure</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1525'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The MME uses the NAS Security Mode Command (SMC) procedure to establish a
-NAS security association between the UE and MME, in order to protect the
-further NAS signalling messages. This procedure is also used to make changes in
-the security association, e.g. to change the security algorithm.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1086" type="#_x0000_t75" style='width:260pt;height:108.5pt' o:ole="">
- <v:imagedata src="23401-g30_files/image123.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=347 height=145
-src="23401-g30_files/image124.gif" v:shapes="_x0000_i1086"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1086"
-  DrawAspect="Content" ObjectID="_1631980414">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.10.4.2-1: NAS Security Mode Command Procedure</span></span></p><p class=B1 style='mso-prop-change:23401_CR0518R2 20080912T1157'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
-1'>   </span>The MME sends NAS Security Mode Command (Selected NAS algorithms,
-eKSI, ME Identity request, UE Security Capability) message to the UE. ME
-identity request may be included when NAS SMC is combined with ME Identity
-retrieval (see clause&nbsp;5.3.10.5).</span></span></p><p class=B1 style='mso-prop-change:23401_CR0518R2 20080912T1157'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
-1'>   </span>The UE responds NAS with Security Mode Complete (NAS-MAC, ME
-Identity) message. The UE includes the ME Identity if it was requested in
-step&nbsp;1.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>The NAS Security Mode Command procedure is
-typically executed as part of the Attach procedure (see clause&nbsp;5.3.2.1) in
-advance of, or in combination with, executing the ME Identity Check procedure
-(see clause&nbsp;5.3.10.5) and in the TAU procedure (see clauses&nbsp;5.3.3.1
-and 5.3.3.2).</span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR0044R1 Implementation" 20080228T1525'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>More details of the procedure are described in TS&nbsp;33.401&nbsp;[41].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134025"><span
-lang=EN-GB>5.3.10.5<span style='mso-tab-count:1'>        </span>ME identity
-check procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-Mobile Equipment Identity Check Procedure permits the operator(s) of the MME
-and/or the HSS and/or the PDN&nbsp;GW to check the Mobile Equipment's identity
-(e.g. to check that it has not been stolen, or, to verify that it does not have
-faults).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-ME Identity can be checked by the MME passing it to an Equipment Identity
-Register (EIR) and then the MME analysing the response from the EIR in order to
-determine its subsequent actions (e.g. sending an Attach Reject if the EIR
-indicates that the Mobile Equipment is blacklisted).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-ME identity check procedure is illustrated in Figure 5.3.10.5-1.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1087" type="#_x0000_t75" style='width:281.5pt;height:109.5pt'
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134014"><span
+lang=EN-GB>5.3.9<span style='mso-tab-count:1'>      </span>HSS User Profile
+management function procedure</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134015"><span
+lang=EN-GB style='mso-fareast-language:ZH-CN'>5.3.9.1<span style='mso-tab-count:
+1'>          </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+HSS user profile management function allows the HSS to update the HSS user
+profile stored in the MME. Whenever the HSS user profile is changed for a user
+in the HSS, and the changes affect the HSS user profile stored in the MME, the
+MME shall be informed about these changes by the means of the following
+procedure:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Insert Subscriber Data procedure, used to
+add or modify the HSS user profile in the MME.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134016"><span
+lang=EN-GB>5.3.9.2</span></a></span><span style='mso-bookmark:historyclause'><span
+style='mso-bookmark:_Toc11134016'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'><span style='mso-tab-count:1'>          </span>Insert Subscriber Data
+procedure</span></span></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Insert Subscriber Data procedure is illustrated in Figure&nbsp;5.3.9.2-1.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1084" type="#_x0000_t75" style='width:175.5pt;height:90.5pt'
  o:ole="">
- <v:imagedata src="23401-g30_files/image125.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=375 height=146
-src="23401-g30_files/image126.gif" v:shapes="_x0000_i1087"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1087"
-  DrawAspect="Content" ObjectID="_1631980415">
+ <v:imagedata src="23401-g30_files/image119.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=234 height=121
+src="23401-g30_files/image120.gif" v:shapes="_x0000_i1084"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1084"
+  DrawAspect="Content" ObjectID="_1631980413">
  </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.10.5-1: Identity Check Procedure</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0143R1 Implementation" 20080228T0859'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
-1'>   </span>The MME sends Identity Request (Identity Type) to the UE. The UE
-responds with Identity Response (Mobile Identity).</span></span></p><p class=B1 style='mso-prop-change:"23\.401 CR0143R1 Implementation" 20080228T0859'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
-1'>   </span>If the MME is configured to check the IMEI against the EIR, it
-sends ME Identity Check (ME Identity, IMSI) to EIR. The EIR responds with ME Identity
-Check Ack (Result).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>The Identity Check Procedure is typically
-executed as part of the Attach procedure (see clause&nbsp;5.3.2.1).</span></span></p></body>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 5.3.9.2<span
+style='mso-no-proof:yes'>-1</span>: Insert Subscriber Data procedure</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>The HSS sends an Insert Subscriber Data
+(IMSI, Subscription Data) message to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The MME updates the stored Subscription Data
+and acknowledges the Insert Subscriber Data message by returning an Insert
+Subscriber Data Ack (IMSI) message to the HSS. The update result should be
+contained in the Ack message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME initiates appropriate action
+according to the changed subscriber data (e.g. MME initiates detach if the UE
+is not allowed to roam in this network). For received PDN subscription contexts
+that have no related active PDN connection in the MME, no further action is
+required except storage in the MME. Otherwise if the subscribed QoS Profile has
+been modified and the UE is in ECM&#8209;CONNECTED state or in ECM-IDLE state
+when ISR is not activated but the UE is reachable by the MME, the HSS Initiated
+Subscribed QoS Modification procedure, as described in Figure&nbsp;5.4.2.2-1,
+is invoked from step&nbsp;2a. When ISR is not activated and the UE is in ECM
+IDLE state and is not reachable by the MME, e.g. when the UE is suspended, when
+the UE has entered into power saving mode or when the PPF is cleared in the
+MME, the HSS Initiated Subscribed QoS Modification procedure, as described in
+Figure 5.4.2.2-1, is invoked from step&nbsp;2a at the next ECM IDLE to ECM
+CONNECTED transition. If the UE is in ECM&#8209;IDLE state and the ISR is
+activated, this procedure is invoked at the next ECM&#8209;IDLE to ECM&#8209;CONNECTED
+transition. If the UE is in ECM&#8209;IDLE state and the ISR is not activated
+and if the subscription change no longer allows the PDN connection, the MME
+initiated PDN disconnection procedure in clause 5.10.3 is used to delete the
+concerned PDN connection. If the MME receives RAT specific Subscribed Paging
+Time Window that is different from the one stored in the MME MM context, the MME
+updates RAT specific Subscribed Paging Time Window parameter in the MME MM
+context to the value received from the HSS.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the UE is in ECM-CONNECTED state and
+connected via a CSG or hybrid cell, the MME shall check the received CSG
+subscription data. If the MME detects that the CSG membership to that cell has
+changed or expired, the MME initiates the procedure in clause&nbsp;5.16.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the MME received a changed Service Gap Time
+parameter in the updated subscription data, the MME shall provide the new
+Service Gap Time value to the UE in the next Tracking Area Update Accept message,
+or, if the UE does not send any Tracking Area Update Request within a certain
+time period that shall be longer than any PSM or eDRX interval used by the UE,
+the MME may initiate a detach with reattach required of the UE or an RRC
+connection release with release cause load balancing TAU required of the UE.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134017"><span
+lang=EN-GB>5.3.9.3<span style='mso-tab-count:1'>          </span>Purge function</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Purge function allows an MME to inform the HSS that it has deleted the
+subscription data and MM context of a detached UE. The MME may, as an
+implementation option, delete the subscription data and MM context of an UE
+immediately after the implicit or explicit detach of the UE. Alternatively the
+MME may keep for some time the subscription data and the MM context of the detached
+UE, so that the data can be reused at a later attach without accessing the HSS.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1085" type="#_x0000_t75" style='width:259.5pt;height:99.5pt'
+ o:allowoverlap="f">
+ <v:imagedata src="23401-g30_files/image121.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=346 height=133
+src="23401-g30_files/image122.gif" v:shapes="_x0000_i1085"><![endif]></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.9.3-1: Purge Procedure</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>After deleting the Subscription data and MM
+contexts of a detached UE, the MME sends Purge UE (IMSI) message to the HSS.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The HSS sets the UE Purged for E-UTRAN flag
+and acknowledges with a Purge UE Ack message.</span></span></p></body>

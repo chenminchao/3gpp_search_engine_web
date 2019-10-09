@@ -40,15 +40,13 @@ def sort_key_list(paragraph_list_sorted, key_list):
     print(len(paragraph_list_sorted), len(key_list))
     key_list_sorted = []
     for paragraph in paragraph_list_sorted:
+        content = re.sub(r'\<.*?\>', '', paragraph)
         for key in key_list:
-            if str(key[0]) in paragraph and str(key[1].split("(")[0].split('"')[0]) in paragraph:
+            #if str(key[0]) in paragraph and str(key[1].split("(")[0].split('"')[0]) in paragraph:
+            if str(key[0]) in content and str(key[1].split('"')[0]) in content:
                 key_list_sorted.append(key)
-            elif key[0] == 0 and str(key[1]) in paragraph:
+            elif key[0] == 0 and str(key[1]) in content:
                 key_list_sorted.append(key)
-            # ('5.4.2.1', 'PDN GW initiated bearer modification with bearer QoS update')
-            elif len(str(key[0]).split('.')) == 4:
-                if str(key[0])[:-2] in paragraph and str(key[1].split("(")[0].split('"')[0]) in paragraph:
-                    key_list_sorted.append(key)
     print(key_list_sorted)
     for key in key_list:
         if key not in key_list_sorted:

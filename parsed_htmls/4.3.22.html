@@ -3102,76 +3102,43 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133863"><span
-lang=EN-GB>4.3.23<span style='mso-tab-count:1'>    </span>Access network
-selection and traffic steering based on RAN-assisted WLAN interworking</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2697R4_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140613T1636'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>As described in TS&nbsp;36.300&nbsp;[5],
-TS&nbsp;36.304&nbsp;[34], TS&nbsp;36.331&nbsp;[37] and TS&nbsp;25.331&nbsp;[33],
-UTRAN and E-UTRAN may provide RAN assistance parameters to the UE via RRC
-signalling. The RAN assistance parameters may e.g. include E-UTRAN signal
-strength and quality thresholds, WLAN channel utilization thresholds, WLAN
-backhaul data rate thresholds, a list of WLAN identifiers and Offload
-Preference Indicator (OPI). The UE uses the RAN assistance parameters to
-perform access network selection and traffic steering decisions between 3GPP
-access and WLAN using procedures defined in TS&nbsp;36.304&nbsp;[34] or using
-ANDSF policies defined in TS&nbsp;23.402&nbsp;[2]. Co-existence between the
-procedures defined in TS&nbsp;36.304&nbsp;[34] and ANDSF policies is described
-in TS&nbsp;23.402&nbsp;[2].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2697R4_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140613T1636'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>For traffic steering
-decisions using procedures defined in TS&nbsp;36.304&nbsp;[34] the MME may
-provide information to the UE indicating which PDN Connection can be offloaded
-to WLAN and which PDN Connection shall not be offloaded to WLAN. When provided
-by the MME, this indication is provided in NAS signalling on a per PDN
-Connection basis when a PDN Connection is established. The MME may provide a
-per-RAT indication for the PDN connection, e.g. if the indication is different
-for UTRAN and for E-UTRAN. If the MME provides a single indication, the UE
-shall apply such indication both to E-UTRAN and UTRAN.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2697R4_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140613T1636'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Traffic steering decisions
-using procedures defined in TS&nbsp;36.304&nbsp;[34] are not applicable to
-non-seamless WLAN offload (see TS&nbsp;23.402&nbsp;[2] for the definition of
-non-seamless WLAN offload).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2697R4_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140613T1636'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>In order for the operator
-to allow/prohibit WLAN offloading on per user and per APN basis, subscription
-data in the HSS may be configured to indicate if WLAN offload is allowed or
-prohibited for an APN.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2697R4_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140613T1636'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The MME determines the WLAN
-offloading permissions for the UE and PDN Connection as described below:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The MME determines the offloadability of a PDN
-Connection based on subscription data and locally configured policy (e.g. for
-roaming users or when the subscription data does not include any WLAN
-offloadability indication).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>When the UE establishes a new PDN
-Connection, the MME may indicate whether this PDN Connection is offloadable or
-not offloadable to WLAN.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The MME may provide an updated WLAN
-offloadability indication of a PDN Connection to the UE. This may be initiated
-by HSS as part of the Insert Subscriber Data procedure as described in clause&nbsp;5.3.9.2.
-It can also be initiated by the MME by initiating steps&nbsp;4 to 7 of the
-Bearer Modification Procedure in clause&nbsp;5.4.3, Figure 5.4.3-1 or by adding
-the WLAN offloadability indication to a session management NAS message sent to
-the UE as part of an existing procedure. The MME shall not trigger signaling to
-an ECM-IDLE UE solely for the purpose of updating the WLAN offloadability
-indication.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
-the UE applies the procedures defined in TS&nbsp;36.304&nbsp;[34] and TS&nbsp;25.304&nbsp;[12],
-if the UE has Local Operating Environment Information (LOEI), as defined in TS&nbsp;23.261&nbsp;[54],
-the UE shall consider the RAN rules in combination with the non-radio related
-aspects of LOEI, and shall give priority to LOEI in case it indicates WLAN is
-not acceptable for non-radio related reasons. For example, if the active RAN
-rule indicates that traffic shall be moved to WLAN access, but the LOEI in the
-UE indicates that WLAN access is unacceptable due to non-radio related causes
-(e.g. due to authentication issues, low battery power, etc.), the UE shall not
-move the traffic to WLAN.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
-the UE applies the procedures defined in TS&nbsp;36.304&nbsp;[34], the UE takes
-into account the WLAN offloadability indication from MME to perform handover
-between 3GPP access and WLAN access using the handover procedures described in TS&nbsp;23.402&nbsp;[2].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2735R3_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140820T1000'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>When the UE receives a WLAN
-offloadability indication from the network for a PDN connection the UE stores
-it for the lifetime of that PDN Connection and updates it if a new value is
-received from the network. The UE shall apply the latest indication previously
-received for the PDN Connection.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2735R3_UTRA_LTE_WLAN_interw-SA2_\(Rel-12\)" 20140820T1000'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The indication of whether a
-PDN connection is offloadable or not offloadable should be passed from the
-source to the target serving node in mobility management procedures from a MME
-to a MME/SGSN. This allows the target SGSN/MME to learn the indication
-previously provided to the UE and to decide the need for providing an updated
-indication to the UE.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133862"><span
+lang=EN-GB>4.3.22<span style='mso-tab-count:1'>    </span>UE Power Saving Mode</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
+UE may adopt a PSM that is described in TS&nbsp;23.682&nbsp;[74]. If a UE is
+capable of adopting a PSM and it wants to use the PSM it shall request an
+Active Time value and may request a Periodic TAU/RAU Timer value during every
+Attach and TAU procedures, which are handled as described in TS&nbsp;23.682&nbsp;[74].
+The UE shall not request a Periodic TAU/RAU Timer value if it is not requesting
+an Active Time value. The network shall not allocate an Active Time value if
+the UE has not requested it.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>PSM
+has no support in the CS domain on the network side.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>When the PSM is activated the UE might not be
+available for paging of Mobile Terminated CS services even though the UE is
+registered in the CS domain.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>The Attach and TAU procedures of this
+specification are not showing the details of the Periodic TAU Time and Active
+Time negotiation, i.e. are not showing the related IEs.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2603R9_MTCe-UEPCOP_\(Rel-12\)" 20131206T1100'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the network allocates an
+Active Time value, the UE and the MME starts the Active timer (see
+clause&nbsp;4.3.5.2) with the Active Time value allocated by the network when
+transitioning from ECM_CONNECTED to ECM_IDLE. The UE shall stop the Active
+timer, if running, when a transition to ECM_CONNECTED mode is made. When the
+Active timer expires, the UE deactivates its Access Stratrum functions and
+enters PSM. In PSM, due to deactivation of Access Stratum functions, the UE
+stops all idle mode procedures, but continues to run any NAS timers that may apply,
+e.g. the periodic TAU timer. The UE shall resume Access Stratum functions and
+idle mode procedures before the periodic TAU timer expires for performing the
+periodic TAU procedure as applicable. The UE may resume idle mode procedures and
+Access Stratum functions any time while in PSM, e.g. for mobile originated
+communications. Any timers and conditions that remain valid during power-off,
+e.g. for NAS-level back-off, apply in the same way during PSM.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2603R9_MTCe-UEPCOP_\(Rel-12\)" 20131206T1100'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>When the Active timer
+expires for the UE, the MME knows that the UE entered PSM and is not available
+for paging. The MME handles availability for paging as detailed in clause&nbsp;4.3.5.2.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2603R9_MTCe-UEPCOP_\(Rel-12\)" 20131206T1100'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>On UE side the PSM complies
+with some substates of EMM_REGISTERED, as specified in TS&nbsp;24.301&nbsp;[46].
+The MME considers the UE to be EMM_REGISTERED, but not reachable. The UE's Access
+Stratum functions are considered as deactivated during PSM.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
+mobile terminated data while a UE is in PSM, the functions for High latency
+communication may be used as described in clause&nbsp;4.3.17.7.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+the UE has bearers for emergency services, the UE shall not apply PSM.</span></span></p></body>

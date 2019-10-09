@@ -3102,28 +3102,40 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133903"><span
-lang=EN-GB>4.4.13<span style='mso-tab-count:1'>    </span>UCMF</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR3510r1_RACS_\(Rel-16\)" 20190608T1011'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>4.4.13<span
-style='mso-tab-count:1'> </span>UCMF</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3510r1_RACS_\(Rel-16\)" 20190608T1011'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The UCMF is used for
-storage of dictionary entries corresponding to either PLMN-assigned or
-Manufacturer-assigned UE Radio Capability IDs.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3510r1_RACS_\(Rel-16\)" 20190608T1011'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Provisioning of
-Manufacturer-assigned UE Radio Capability ID entries in the UCMF is performed
-from an AS that interacts with the UCMF either directly or via the SCEF (or via
-Network Management) (see TS&nbsp;23.682&nbsp;[74] for further information).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3510r1_RACS_\(Rel-16\)" 20190608T1011'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>For PLMN-assigned UE Radio
-Capability ID the UCMF also is the entity that assigns the UE Radio Capability
-ID values to the UE.</span></span></p><p class=TH style='mso-prop-change:"23401_CR3510r1_RACS_\(Rel-16\)" 20190608T1011'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1040" type="#_x0000_t75" style='width:174.5pt;height:30.5pt'
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133902"><span
+lang=EN-GB>4.4.12<span style='mso-tab-count:1'>    </span>RAN Congestion
+Awareness Function</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The RAN Congestion
+Awareness Function (RCAF) is an element that provides RAN User Plane Congestion
+Information (RUCI) to the PCRF to enable the PCRF to take the RAN user plane
+congestion status into account for policy decisions.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The RCAF collects
+information related to user plane congestion from the RAN's OAM system based on
+which the RCAF determines the congestion level (and the identifier) of an eNB
+or E-UTRAN cell.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Via the Nq interface the
+RCAF determines the UEs served by a congested eNB or congested E-UTRAN cell and
+retrieves the APNs of the active PDN connections of those UEs. The decision
+whether the RCAF operates on eNB or E-UTRAN cell level is up to operator
+configuration.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Via the Np reference point,
+the RCAF sends the RUCI to the PCRFs serving the UEs' PDN connections.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The details of congestion reporting to the PCRF
+and the Np reference point are specified in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>In the case of roaming or RAN sharing as
+specified in TS&nbsp;23.251&nbsp;[24], Np is an inter-operator reference point.
+Whether Np applies in case of roaming and RAN sharing is subject to inter-operator
+agreements.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+4.4.12-1 illustrates the RCAF connected to the MME. The RCAF is located in the
+same PLMN as the serving MME except in network sharing scenarios where the RCAF
+belongs to the RAN operator.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1039" type="#_x0000_t75" style='width:174.5pt;height:30.5pt'
  o:ole="">
- <v:imagedata src="23401-g30_files/image031.emz" o:title=""/>
+ <v:imagedata src="23401-g30_files/image029.emz" o:title=""/>
 </v:shape><![endif]--><![if !vml]><img width=233 height=41
-src="23401-g30_files/image032.gif" v:shapes="_x0000_i1040"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1040"
-  DrawAspect="Content" ObjectID="_1631980378">
+src="23401-g30_files/image030.gif" v:shapes="_x0000_i1039"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1039"
+  DrawAspect="Content" ObjectID="_1631980377">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.4.13-1: UCMF connected to MME</span></span></p></body>
+4.4.12-1: RCAF connected to MME</span></span></p></body>

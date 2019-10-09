@@ -3102,36 +3102,92 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133913"><span
-lang=EN-GB>4.6.4<span style='mso-tab-count:1'>      </span>State transition and
-functions</span></a></span></h3><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1041" type="#_x0000_t75" style='width:354pt;height:108.5pt' o:ole="">
- <v:imagedata src="23401-g30_files/image033.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=472 height=145
-src="23401-g30_files/image034.gif" v:shapes="_x0000_i1041"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1041"
-  DrawAspect="Content" ObjectID="_1631980379">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.6.4-1: EMM state model in UE</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1042" type="#_x0000_t75" style='width:323.5pt;height:121pt' o:ole="">
- <v:imagedata src="23401-g30_files/image035.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=431 height=161
-src="23401-g30_files/image036.gif" v:shapes="_x0000_i1042"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1042"
-  DrawAspect="Content" ObjectID="_1631980380">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.6.4-2: EMM state model in MME</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1043" type="#_x0000_t75" style='width:340.5pt;height:122.5pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image037.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=454 height=163
-src="23401-g30_files/image038.gif" v:shapes="_x0000_i1043"><![endif]></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.6.4-3: ECM state model in UE</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1044" type="#_x0000_t75" style='width:340.5pt;height:122.5pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image039.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=454 height=163
-src="23401-g30_files/image040.gif" v:shapes="_x0000_i1044"><![endif]></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.6.4-4: ECM state model in MME</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133910"><span
+lang=EN-GB>4.6.3<span style='mso-tab-count:1'>      </span>Definition of EPS
+Connection Management states</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133911"><span
+lang=EN-GB>4.6.3.1<span style='mso-tab-count:1'>          </span>ECM-IDLE</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>A
+UE is in ECM-IDLE state when no NAS signalling connection between UE and
+network exists. In ECM-IDLE state, a UE performs cell selection/reselection
+according to TS&nbsp;36.304&nbsp;[34] and PLMN selection according to TS&nbsp;23.122&nbsp;[10].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Except
+for UEs that have had their RRC connection suspended, as described in clause&nbsp;5.3.4A,
+there exists no UE context in E-UTRAN for the UE in the ECM-IDLE state. There
+is no S1_MME and no S1_U connection for the UE in the ECM-IDLE state.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+the EMM-REGISTERED and ECM-IDLE state, the UE shall:</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform a tracking area update if the current TA is not in the
+list of TAs that the UE has received from the network in order to maintain the
+registration and enable the MME to page the UE;</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform the periodic tracking area updating procedure to notify
+the EPC that the UE is available;</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform a tracking area update if the RRC connection was released
+with release cause &quot;load balancing TAU required&quot;;</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform a tracking area update when the UE reselects an E-UTRAN
+cell and the UE's TIN indicates &quot;P-TMSI&quot;;</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform a tracking area update for a change of the UE's Core
+Network Capability information or the UE specific DRX parameter;</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform a tracking area update when a change in conditions in the
+UE require a change in the extended idle mode DRX parameters previously provided
+by the MME.</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>perform a tracking area update when the UE manually selects a CSG
+cell, and the CSG ID and associated PLMN of that cell is absent from both the
+UE's Allowed CSG list and the UE's Operator CSG list;</span></span></p><p class=B1 style='mso-prop-change:23401CR0385 20080527T1453'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>answer to paging from the MME by performing a service request
+procedure or, if the UE has had its RRC connection suspended, the UE initiates
+the Connection Resume procedure (clause&nbsp;5.3.5A);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>perform the service request procedure in
+order to establish the radio bearers when uplink user data is to be sent, or
+uplink NAS signalling is to be sent for UE requested bearer modification
+procedure (clause&nbsp;5.4.5), UE requested PDN connectivity
+(clause&nbsp;5.10.2), UE requested PDN disconnection (clause&nbsp;5.10.3), or
+if the UE has had its RRC connection suspended the UE initiates the Connection
+Resume procedure (clause&nbsp;5.3.5A).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE and the MME shall enter the ECM-CONNECTED state when the signalling
+connection is established between the UE and the MME. Initial NAS messages that
+initiate a transition from ECM-IDLE to ECM-CONNECTED state are Attach Request,
+Tracking Area Update Request, Service Request or Detach Request. A successful
+completion of the Connection Resume procedure, described in
+clause&nbsp;5.3.5.A, initiates at UE and MME a state transition from ECM-IDLE
+to ECM-CONNECTED.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+the UE is in ECM&#8209;IDLE state, the UE and the network may be unsynchronized,
+i.e. the UE and the network may have different sets of established EPS bearers.
+When the UE and the MME enter the ECM&#8209;CONNECTED state, the set of EPS Bearers
+is synchronized between the UE and network.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133912"><span
+lang=EN-GB>4.6.3.2<span style='mso-tab-count:1'>          </span>ECM-CONNECTED</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE location is known in the MME with an accuracy of a serving eNodeB ID. The
+mobility of UE is handled by the handover procedure, except for when the NB-IoT
+is being used, in which case there are no handover procedures.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE performs the tracking area update procedure when the TAI in the EMM system
+information is not in the list of TA's that the UE registered with the network,
+or when the UE handovers to an E&#8209;UTRAN cell and the UE's TIN indicates
+&quot;P-TMSI&quot;.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
+a UE in the ECM-CONNECTED state, there exists a signalling connection between
+the UE and the MME. The signalling connection is made up of two parts: an RRC
+connection and an S1_MME connection.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE shall enter the ECM-IDLE state when its signalling connection to the MME has
+been released or broken. This release or failure is explicitly indicated by the
+eNodeB to the UE or detected by the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+S1 release procedure or, if the UE is enabled to use User Plane CIoT EPS Optimisation
+the S1 Connection Suspend procedure (clause&nbsp;5.3.4A) changes the state at
+both UE and MME from ECM-CONNECTED to ECM-IDLE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The UE may not receive the indication for the
+S1 release, e.g. due to radio link error or out of coverage. In this case, there
+can be temporal mismatch between the ECM-state in the UE and the ECM-state in
+the MME.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>After
+a signalling procedure, the MME may decide to release the signalling connection
+to the UE, after which the state at both the UE and the MME is changed to ECM-IDLE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>There are some abnormal cases where the UE
+transitions to ECM-IDLE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+a UE changes to ECM&#8209;CONNECTED state and the network initiates
+establishment of data radio bearers, then if a data radio bearer cannot be
+established, or the UE cannot maintain a data radio bearer in the ECM-CONNECTED
+state during handovers, the corresponding EPS bearer is deactivated. An
+exception to this is when the UE has been informed by the MME that a specific
+EPS bearer will never use a data radio bearer (e.g.because that EPS bearer is
+for a connection to the SCEF).</span></span></p></body>

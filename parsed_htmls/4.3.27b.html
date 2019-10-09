@@ -3102,36 +3102,10 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133879"><span
-lang=EN-GB>4.3.28<span style='mso-tab-count:1'>    </span>Restriction of use of
-Enhanced Coverage</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR3135R4_CIoT_Ext_\(Rel-14\)" 20161128T1015'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Support of UEs in Enhanced
-Coverage is specified in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3135R4_CIoT_Ext_\(Rel-14\)" 20161128T1015'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The usage of Enhanced Coverage
-may require use of extensive resources (e.g. radio and signalling resources)
-from the network. This feature enables the operator to prevent specific
-subscribers from using Enhanced Coverage.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3135R4_CIoT_Ext_\(Rel-14\)" 20161128T1015'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The UE indicates its
-capability of support for restriction of use of Enhanced Coverage in Attach and
-TAU procedure for the RAT it is camping on to the MME. MME receives Enhanced
-Coverage Restricted parameter from the HSS. This parameter is kept as part of
-subscription data in the HSS and specifies per PLMN whether the enhanced
-coverage functionality is restricted or not for the UE. For roaming UEs, if HSS
-doesn't provide any Enhanced Coverage Restricted parameter or the provided
-Enhanced Coverage Restricted parameter is in conflict with the roaming agreement,
-the MME uses default Enhanced Coverage Restricted parameter locally configured
-in the VPLMN based on the roaming agreement with the subscriber's HPLMN. The UE
-shall assume that restriction for use of Enhanced Coverage is same in the
-equivalent PLMNs. If the UE includes the support for restriction of use of
-Enhanced Coverage, MME sends Enhanced Coverage Restricted parameter to the UE
-in the Attach/TAU Accept message. The UE shall use the value of Enhanced
-Coverage Restricted parameter to determine if enhanced coverage feature is
-restricted or not.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>How this parameter is used by UE at AS
-layer is defined in the RAN specification.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-UE assumes Enhanced Coverage is allowed unless explicitly restricted by the
-network for a PLMN.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-the MME has sent the Enhanced Coverage Restricted parameter to the UE, the MME
-provides an Enhanced Coverage Restricted parameter to the eNB via S1 signalling
-during paging, and whenever the UE context is established in RAN, e.g. during
-service request procedure, attach procedure, and TAU procedure.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133878"><span
+lang=EN-GB>4.3.27b<span style='mso-tab-count:1'>  </span>Enhanced Coverage for
+data centric UEs</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR3252R2_TEI14_\(Rel-14\)" 20170530T1547'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The support for UEs in
+Enhanced Coverage is specified in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3252R2_TEI14_\(Rel-14\)" 20170530T1547'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The IMS impacts for data
+centric UEs in Enhanced Coverage is specified in Annex E of TS&nbsp;23.228&nbsp;[52].</span></span></p></body>

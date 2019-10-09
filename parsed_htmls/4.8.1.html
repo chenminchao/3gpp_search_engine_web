@@ -3102,37 +3102,16 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133931"><span
-lang=EN-GB>4.9<span style='mso-tab-count:1'>        </span>Paging Policy
-Differentiation</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Paging policy
-differentiation is an optional feature that allows the MME, based on operator
-configuration, to apply different paging strategies as defined in
-clause&nbsp;5.3.4.3 for different traffic or service types provided within the
-same PDN connection.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>When it supports Paging
-Policy Differentiation feature, the Serving GW provides a Paging Policy Indication
-in the Downlink Data Notification. The Paging Policy Indication is based on
-information received with the downlink packet that triggers the Downlink Data
-Notification. For example, as defined in TS&nbsp;23.228&nbsp;[52], the P-CSCF
-may support Paging Policy Differentiation by marking packet(s) to be sent
-towards the UE that relate to specific IMS services (e.g. conversational voice
-as defined in IMS multimedia telephony service).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The PDN GW shall not modify
-the received downlink IP packet e.g. the DSCP (IPv4) / TC (IPv6).
-Unconditionally, for each bearer and for each packet of PDN type IPv4, IPv6 or
-IPv4v6 that triggers a Downlink Data Notification, the SGW shall send the DSCP
-in TOS (IPv4) / TC (IPv6) information received in the IP payload of the GTP-U
-packet from the PDN GW in the Paging Policy Indication in the Downlink Data Notification.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>It shall be possible for
-the operator to configure the MME in such a way that the Paging Policy Indicator
-only applies to certain HPLMNs and/or APNs and/or QCIs.</span></span></p><p class=NO style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>Network configuration needs to ensure that the
-information used as a trigger for Paging Policy Indication is not changed
-within the EPS.</span></span></p><p class=NO style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>Network configuration needs to ensure that the
-specific DSCP in TOS (IPv4) / TC (IPv6) value, used as a trigger for Paging
-Policy Indication, is managed correctly in order to avoid the accidental use of
-certain paging policies.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133930"><span
+lang=EN-GB>4.8.1<span style='mso-tab-count:1'>      </span>Network
+Configuration for Interaction with UTRAN/GERAN</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>GPRS
+idle mode mobility within GERAN or UTRAN and also between GERAN and UTRAN
+specifies a set of sequence number handling functions, e.g. the exchange of
+sequence numbers during Routing Area Update procedures. EPS idle mode mobility
+procedures don't specify any such sequence number mappings for IRAT mobility
+scenarios. To avoid interoperation issues a network that deploys E-UTRAN
+together with GERAN and/or UTRAN shall not configure usage of the GPRS feature
+&quot;reordering required&quot; for PDP contexts of PDP type IPv4, IPv6 or
+IPv4v6. Also the network shall not configure usage of lossless PDCP of UTRAN
+and the GERAN SGSN shall not configure usage of acknowledged mode
+LLC/NSAPI/SNDCP.</span></span></p></body>

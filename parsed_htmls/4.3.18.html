@@ -3102,44 +3102,192 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133847"><span
-lang=EN-GB>4.3.19<span style='mso-tab-count:1'>    </span>Core Network node
-resolution</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133848"><span
-lang=EN-GB>4.3.19.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The indication of mapped or native GUTI shall
-be signalled by the UE to the MME as an explicit indication in Attach Request
-and TAU Request messages. The indication of mapped or native P-TMSI/RAI shall
-be signalled by the UE to the SGSN as an explicit indication in Attach Request
-and RAU Request messages. The MME/SGSN resolves the old MME/SGSN using old GUTI
-respective old P-TMSI/RAI sent in the Attach request and TAU/RAU request
-messages , and determines if the old GUTI or the old P-TMSI/RAI is mapped or
-native by one of the following two methods:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1937R1_TEI10_\(Rel-10\)" 20101128T1614'><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133838"><span
+lang=EN-GB>4.3.18<span style='mso-tab-count:1'>    </span>Multimedia Priority
+Service</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133839"><span
+lang=EN-GB>4.3.18.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Multimedia Priority Service (MPS) allows certain subscribers (i.e. Service
+Users as per TS&nbsp;22.153&nbsp;[68]) priority access to system resources in
+situations such as during congestion, creating the ability to deliver or
+complete sessions of a high priority nature. Service Users are
+government-authorized personnel, emergency management officials and/or other
+authorized users. MPS supports priority sessions on an &quot;end-to-end&quot;
+priority basis.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>MPS is based on the ability to invoke, modify, maintain and release
+sessions with priority, and deliver the priority media packets under network
+congestion conditions. MPS is supported in a roaming environment when roaming
+agreements are in place and where regulatory requirements apply.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>If a session terminates on a server in the
+Internet (e.g. web-based service), then the remote end and the Internet
+transport are out of scope for this specification.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>A Service User obtains priority access to the Radio Access Network by using
+the Access Class Barring mechanism according to TS&nbsp;36.331&nbsp;[37] and TS&nbsp;22.011&nbsp;[67].
+This mechanism provides preferential access to UEs based on its assigned Access
+Class. If a Service User belongs to one of the special access-classes as
+defined in TS&nbsp;22.011&nbsp;[67], the UE has preferential access to the
+network compared to ordinary users in periods of congestion.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>MPS subscription allows users to receive priority services, if the network
+supports MPS. MPS subscription entitles a USIM with special Access Class(es).
+MPS subscription includes indication for support of EPS bearer priority
+service, IMS priority service and CS Fallback priority service support for the
+end user. Priority level regarding EPS bearer and IMS are also part of the MPS
+subscription information. The usage of priority level is defined in TS&nbsp;23.203&nbsp;[6]
+and TS&nbsp;23.228&nbsp;[52].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Service Users is treated as On Demand MPS subscribers or not, based on
+regional/national regulatory requirements. On Demand service is based on
+Service User invocation/revocation explicitly and applied to the PDN
+connections for an APN. When not On Demand, MPS service does not require invocation,
+and provides priority treatment for all EPS bearers for a given Service User
+after attachment to the EPS network.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>According to regional/national regulatory
+requirements and operator policy, On-Demand MPS Service Users can be assigned
+the highest priority.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For this release of the specification, MPS is supported for E-UTRAN access
+only in case of 3GPP accesses.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Since the Service User has an access class within the range for priority
+services, the Establishment Cause in RRC connection request is set to
+highPriorityAccess. When the eNodeB receives mobile initiated signalling with
+establishment cause set to highPriorityAccess, the eNodeB handles the RRC
+connection request with priority. When the MME receives and verifies mobile
+initiated signalling with establishment cause set to highPriorityAccess, the
+MME establishes the S1 bearer with priority.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The terminating network identifies the priority of the MPS session and
+applies priority treatment, including paging with priority, to ensure that the
+MPS session can be established with priority to the terminating user (either a
+Service User or normal user).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Priority treatment for MPS includes priority message handling, including
+priority treatment during authentication, security, and location management procedures.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Priority treatment for MPS session requires appropriate ARP and QCI (where
+necessary for non-GBR bearers) setting for bearers according to the operator's
+policy.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>When an MPS session is requested by a Service User, the following bearer
+management principles apply in the network:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1728'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Indication using most significant bit (MSB) in LAC and MME Group
-ID.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1937R1_TEI10_\(Rel-10\)" 20101128T1614'><span
+1'>    </span>EPS bearers (including default bearer) employed in an MPS session
+shall be assigned ARP value settings appropriate for the priority level of the
+Service User.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1728'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Explicit indication sent from UE to MME and SGSN.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133849"><span
-lang=EN-GB>4.3.19.2<span style='mso-tab-count:1'>        </span>MSB in LAC and
-MME Group ID</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1937R1_TEI10_\(Rel-10\)" 20101128T1615'><span
+1'>    </span>Setting ARP pre-emption capability and vulnerability for MPS bearers,
+subject to operator policies and depending on national/regional regulatory
+requirements.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1728'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Pre-emption of non-Service Users over Service Users during
+network congestion situation, subject to operator policy and national/regional
+regulations.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Priority treatment is
+applicable to IMS based multimedia services, priority EPS bearer services (PS
+data without IMS interaction) and CS Fallback.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>For Multimedia Priority
+services any EPC functions, procedures and capabilities are provided according
+to this clause's specification except when specified differently in the
+following clauses.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133840"><span
+lang=EN-GB>4.3.18.2<span style='mso-tab-count:1'>        </span>IMS-based
+Multimedia Priority Services</span></a></span></h4><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133841"><span
+lang=EN-GB>4.3.18.2.1<span style='mso-tab-count:1'>            </span>Originating
+IMS-based MPS Session</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>For PLMNs deployed with such mechanism the MME differentiates between a
-GUMMEI mapped from P-TMSI/RAI and a native GUMMEI based on the value of most
-significant bit of the MME Group ID; i.e. the MSB is set to &quot;0&quot; then
-the GUMMEI is mapped from P-TMSI/RAI and if MSB is set to &quot;1&quot;, the
-GUMMEI is a native one, as specified in TS&nbsp;23.003&nbsp;[9].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1937R1_TEI10_\(Rel-10\)" 20101128T1615'><span
+JA'>IMS based MPS sessions are permitted to be originated from any UE, in
+addition to MPS-subscribed UEs.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>For PLMNs deployed with such mechanism the S4-SGSN differentiates between a
-P-TMSI/RAI mapped from GUTI and a native P-TMSI/RAI based on the value of most
-significant bit of the LAC; i.e. the MSB is set to &quot;1&quot; then the P&#8209;TMSI/RAI
-is mapped from GUTI and if MSB is set to &quot;0&quot;, the P-TMSI/RAI is a
-native one, as specified in TS&nbsp;23.003&nbsp;[9].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133850"><span
-lang=EN-GB>4.3.19.3<span style='mso-tab-count:1'>        </span>Explicit
-Indication</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1937R1_TEI10_\(Rel-10\)" 20101128T1615'><span
+JA'>The MPS-subscribed UE, based on the MPS IMS subscription information,
+operator's policy and national/regional regulations, may be given priority
+treatment for the default bearer and the EPS bearer carrying IMS signalling in
+the EPS prior to and during IMS-based MPS invocation. Further, priority
+treatment in the EPS for signalling and media bearers may be
+modified/established via dynamic PCC based on the session authorization
+information received from the AF.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>For PLMNs deployed with such mechanism the MME differentiates between a
-GUTI mapped from P-TMSI/RAI or a native GUTI based on the explicit indication
-sent by the UE.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1937R1_TEI10_\(Rel-10\)" 20101128T1615'><span
+JA'>As the IMS media bearer is established after the IMS session of the MPS
+service has been established, it can be assigned with correct ARP value when it
+is established. However IMS signalling related EPS bearer needs to be upgraded
+if it has not been assigned with an appropriate ARP setting for the MPS service
+when the IMS session of the MPS service has been initiated.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>For PLMNs deployed with such mechanism the S4-SGSN differentiates between a
-P-TMSI/RAI mapped from GUTI or a native P-TMSI/RAI based on the explicit
-indication sent by the UE.<o:p></o:p></span></span></p></body>
+JA'>Also to avoid cases where the default bearer may not be allocated resources
+in the handover case, due to low ARP priority for the PDN connection, it is necessary
+to assure that the default bearer has an ARP setting appropriate for the MPS
+service.<o:p></o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133842"><span
+lang=EN-GB>4.3.18.2.2<span style='mso-tab-count:1'>            </span>Terminating
+IMS-based MPS Session</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The terminating network identifies the priority of the IMS-based MPS
+session and applies priority treatment to ensure that the call is delivered
+with priority to the terminating user (either a Service User or normal user).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>If the existing ARP of the default or dedicated EPS bearer that is used to
+transport IMS signalling are not appropriate for the MPS service, then PCRF
+updates to the appropriate settings.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>S-GW triggers a new priority paging towards MME in case the ongoing paging
+is lower priority than the incoming data received in the S-GW for IMS
+terminating session.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133843"><span
+lang=EN-GB>4.3.18.3<span style='mso-tab-count:1'>        </span>Priority EPS
+Bearer Services</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The Service User receives on demand priority treatment according to its MPS
+profile, i.e. On-Demand. If the Service User is not authorized to use on-demand
+priority request, the Service User receives priority treatment (i.e.
+appropriate ARP and QCI ) at initial attach for all bearers, based on user
+profile data stored in the HSS/SPR and authorized by the PCRF (see TS&nbsp;23.203&nbsp;[6],
+clause&nbsp;7.2).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>An On-Demand Service User requires explicit invocation/revocation via SPR
+MPS user profile update (see TS&nbsp;23.203&nbsp;[6], clause&nbsp;7.5). Since
+MPS user profile are part of inputs for PCC rules, the update will trigger PCC
+rules modification to achieve appropriate ARP and QCI settings for bearers (see
+TS&nbsp;23.203&nbsp;[6], clause&nbsp;7.4.2).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>When the eNodeB receives mobile initiated signalling with establishment
+cause set to highPriorityAccess, the eNodeB handles the RRC connection request
+with priority. When the MME receives and verifies mobile initiated signalling
+with establishment cause set to highPriorityAccess, the MME establishes the S1
+bearer with priority. Based on MPS EPS priority subscription, MME can verify whether
+the UE is permitted to handle the request preferentially comparing to other UEs
+not prioritized.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>An AF for MPS Priority Service is used to provide Priority EPS Bearer
+Services using network-initiated resource allocation procedures (via
+interaction with PCC) for originating accesses.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>Use of 3rd party AF for MPS services for
+Service Users is outside the scope of 3GPP specification.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133844"><span
+lang=EN-GB>4.3.18.4<span style='mso-tab-count:1'>        </span>CS fallback</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1731'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>CS Fallback allows users to fallback to GERAN/UTRAN/1x RTT while in E-UTRAN
+access thus allowing the network to transfer the call towards GERAN/UTRAN CS
+domain. In order to ensure that a priority CSFB call to/from a service user is
+given proper priority treatment in the EPS, MPS subscription indicates the
+user's CS priority status, i.e. MPS CS Priority, which is provided to MME with
+user's subscription information. When the eNodeB receives mobile initiated
+signalling with establishment cause set to highPriorityAccess, the eNodeB handles
+the RRC connection request with priority. When the MME receives and verifies
+mobile initiated signalling with establishment cause set to highPriorityAccess,
+the MME establishes the S1 bearer with priority.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1731'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Details on the priority treatment of CSFB, see TS&nbsp;23.272&nbsp;[58].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133845"><span
+lang=EN-GB>4.3.18.5<span style='mso-tab-count:1'>        </span>Network
+Congestion Controls for MPS</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>Based on regional/national requirements and
+network operator policy, MPS shall be exempted from network congestion controls
+up to the point where further exemptions cause network instability. The MME
+should not apply NAS level congestion control for mobile initiated signalling
+with establishment cause set to highPriorityAccess. The MME should not apply
+congestion control for termination requests related with an ARP associated with
+MPS.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133846"><span
+lang=EN-GB>4.3.18.6<span style='mso-tab-count:1'>        </span>Load
+Re-balancing between MMEs for MPS</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>When a UE is in ECM-CONNECTED mode with a
+bearer having an ARP associated with MPS, the MME should not release the UE for
+load re-balancing, except under critical conditions such as the need to perform
+an MME node restart. The MME should wait until the UE initiates a TAU or
+becomes ECM-IDLE before initiating load re-balancing.<o:p></o:p></span></span></p></body>

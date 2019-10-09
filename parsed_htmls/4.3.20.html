@@ -3102,81 +3102,174 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133858"><span
-lang=EN-GB>4.3.21<span style='mso-tab-count:1'>    </span>Core Network assisted
-eNodeB parameters tuning</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133859"><span
-lang=EN-GB>4.3.21.1<span style='mso-tab-count:1'>        </span>CN Assistance
-Information</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"Plenary-23203_CR0854R3_CNO_ULI_\(Rel-12\)" 20131213T1129'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Core Network assisted
-eNodeB parameters tuning aids the eNodeB to minimize the UE state transitions
-and achieve optimum network behaviour. How the eNB uses the Core Network
-assistance information is not in scope of this specification and is implementation
-specific.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Core
-Network assistance information may be derived by the MME per UE in the MME
-based on collection of UE behaviour statistics or other available information
-about the expected UE behaviour (such as subscribed APN, IMSI ranges or other
-subscription information). If the HSS provides the Communication Pattern (CP)
-parameters (see TS&nbsp;23.682&nbsp;[74]) within the subscription profile
-information, then the MME may use the CP parameters for selecting the CN
-assisted eNB parameters. The CP parameters received from the HSS are used by
-the MME as input to derive the CN assisted eNB parameter values. For the case
-of statistics-based Core Network assistance information collection, this may be
-enabled based on local configuration (e.g. subscribed APN, IMSI ranges or other
-subscription information). This information provides the eNB with a way to
-understand the UE behaviour for these aspects:</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2684R9_MTCe-SDDTE_\(Rel-12\)" 20140613T1611'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>&quot;Expected UE activity behaviour&quot;, i.e. the expected
-pattern of the UE's changes between ECM-CONNECTED and ECM-IDLE states. This may
-be derived e.g. from statistical information or from subscription information.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2684R9_MTCe-SDDTE_\(Rel-12\)" 20140613T1611'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>&quot;Expected HO interval&quot;, i.e. the expected time interval
-between inter-eNB handovers. This may be derived e.g. from statistical
-information or from subscription information. The &quot;Expected HO
-interval&quot; parameter is not based on subscription information. Highly
-mobile UEs may have the ECM-CONNECTED state reduced to reduce handover
-signalling, unless the activity data do not justify that, as reduced handover
-signalling would be outweighed by more Service Request signalling).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>&quot;UE Differentiation Information&quot;
-including the Communication Pattern parameters (see TS&nbsp;23.682&nbsp;[74])
-to support Uu operation optimisation for NB-IoT UE differentiation.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-respective signalling to support this feature is specified in TS&nbsp;36.413&nbsp;[36].
-The cases where the Traffic Profile (see see TS&nbsp;23.682&nbsp;[74]) is not
-used are described in clauses 5.3.4B.2 and 5.3.4B.3.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-MME decides when to send this information to the eNB as &quot;Expected UE
-behaviour&quot; carried in S1-AP signalling over the S1-MME interface as per
-procedure documented in clause&nbsp;4.3.21.3.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>The calculation of the Core Network assistance
-information, i.e. the algorithms used and related criteria, and the decision
-when it is considered suitable and stable to send to the eNB are vendor
-specific. Unreliable information should not be provided to the eNB as it may drive
-undesirable system effects.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>It is recommended the MME or, depending on
-where this assessment is performed, the eNB, can consider the average times in
-the ECM-CONNECTED and ECM-IDLE states an accurate representation of the traffic
-patterns if the average time in ECM-CONNECTED mode is short enough to assume
-the UE is generally actively transmitting and/or receiving data while in ECM-CONNECTED
-state.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
-style='mso-tab-count:1'>  </span>When there are multiple overlapping CP
-parameter sets received from the HSS for one UE, then the MME considers a merge
-per CP parameter when deriving the CN assisted eNB parameters, e.g. based on
-the Scheduled communication time and/or Communication duration time parameters.
-A conflict on the Stationary Indication parameter can be resolved by considering
-the UE as &quot;mobile&quot;.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133860"><span
-lang=EN-GB>4.3.21.2<span style='mso-tab-count:1'>        </span>Void</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133861"><span
-lang=EN-GB>4.3.21.3<span style='mso-tab-count:1'>        </span>Core Network
-Assistance Procedures</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"Plenary-23203_CR0854R3_CNO_ULI_\(Rel-12\)" 20131213T1130'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The MME provides CN
-assistance information to the eNodeB if available, during the setup of the S1
-signalling connection (e.g., Attach, Service Request).</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23203_CR0854R3_CNO_ULI_\(Rel-12\)" 20131213T1130'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The following figure is a
-high level description of the transfer of information from an MME to eNodeB
-during a service request procedure.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1036" type="#_x0000_t75" style='width:457pt;height:374pt' o:ole="">
- <v:imagedata src="23401-g30_files/image023.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=609 height=499
-src="23401-g30_files/image024.gif" v:shapes="_x0000_i1036"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1036"
-  DrawAspect="Content" ObjectID="_1631980374">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133851"><span
+lang=EN-GB>4.3.20<span style='mso-tab-count:1'>    </span>Relaying function</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133852"><span
+lang=EN-GB>4.3.20.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1615'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The relaying function enables an operator to improve and extend the
+coverage area by having a Relay Node (RN) wirelessly connected to an eNB serving
+the RN, called Donor eNB (DeNB), via a modified version of the E-UTRA radio
+interface called the Un interface as specified in TS&nbsp;36.300&nbsp;[5].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1615'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The relaying function and use of RN/DeNB entities in a network is
+transparent to the operations of the UEs connected to it and associated core
+network entities (e.g. MME, S/P-GW, PCRF etc.) for the UEs.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1615'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The relaying architecture is shown in figure 4.3.20.1-1.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1033" type="#_x0000_t75" style='width:459.5pt;height:181.5pt'
+ o:ole="">
+ <v:imagedata src="23401-g30_files/image017.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=613 height=242
+src="23401-g30_files/image018.gif" v:shapes="_x0000_i1033"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1033"
+  DrawAspect="Content" ObjectID="_1631980370">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.3.21.3-1: Core Network assisted eNodeB parameters tuning</span></span></p></body>
+4.3.20.1-1: Relaying Architecture</span></span></p><p class=NO style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1616'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Impact to core network elements from the
+introduction of RNs and DeNB is minimized by reusing the existing nodes and
+protocols when interacting with the core network.</span></span></p><p class=NO style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1616'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>Functions of the MME for the RN and MME for
+the UE may be collocated in a single MME.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1617'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The RN supports the eNB functionality
+like termination of the radio protocols of the E-UTRA radio interface and the
+S1 and X2 interfaces. The RN also supports a subset of the UE functionality and
+protocols to wirelessly connect to the DeNB.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1617'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>In addition to supporting
+eNB functionality, the DeNB also embeds and provides the S-GW/P-GW-like functions
+needed for the RN operation. This includes creating a session for the RN and
+managing EPS bearers for the RN as shown in clause&nbsp;4.3.20.3, as well as
+terminating the S1-AP and S11 interfaces towards the MME serving the RN. Due to
+the proxy functionality, the DeNB appears as an MME (for S1), an eNB (for X2)
+and an S-GW to the RN.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1617'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The RN and DeNB also
+perform mapping of signalling and data packets onto EPS bearers that are setup
+for the RN. The mapping is based on existing QoS mechanisms defined for the UE
+and the P-GW and are described in TS&nbsp;36.300&nbsp;[5].</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133853"><span
+lang=EN-GB>4.3.20.2<span style='mso-tab-count:1'>        </span>RN startup and
+attach procedure</span></a></span></h4><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133854"><span
+lang=EN-GB>4.3.20.2.1<span style='mso-tab-count:1'>            </span>General</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The startup procedure for the Relay Node is
+based on the normal UE attach procedure and consists of the following two
+phases:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1618'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Phase I: Attach for RN preconfiguration.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1618'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Phase II: Attach for RN operation (MME of the RN).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>When the certificate-based solution is used,
+the RN uses USIM-INI in Phase I and USIM-RN in Phase II with necessarily
+different IMSIs. When pre-shared key is used, there is only need for one USIM
+and the RN uses the same IMSI during Phase I and Phase II. The MME does not
+treat certificate-based and pre-shared key-based solution differently. The use
+of the certificate-based and pre-shared key solutions is specified in
+Annex&nbsp;D of TS&nbsp;33.401&nbsp;[41].</span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133855"><span
+lang=EN-GB>4.3.20.2.2<span style='mso-tab-count:1'>            </span>Attach
+for RN preconfiguration</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1618'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The RN attaches to the E-UTRAN/EPC as a UE at power-up (i.e. the RN shall
+not include the RN indication in the RRC Connection establishment signalling).
+The eNB treats the RN as a normal UE when performing MME selection.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1618'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Because the eNB does not indicate that this is a RN in the S1 interface
+Initial UE message, the MME does not perform any further RN specific actions
+(e.g. it ignores any indication from the HSS that &quot;this subscription
+includes a permission to operate as a RN&quot;).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1618'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The authentication of the &quot;RN acting as an UE&quot; is performed by
+the MME during this attach procedure, using the information obtained from the
+HSS.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The MME performs the S-GW and P-GW selection as
+for a normal UE.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>It is the responsibility of the HSS
+operator to ensure that the RN subscription includes an APN configuration that
+ensures that the RN subscription cannot be used for other purposes, e.g. only a
+single APN is configured for the use of RNs in phase I, and, that this APN is
+reserved for RNs only.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+RN retrieves initial RN configuration parameters as user plane traffic, across
+the SGi reference point, from RN OAM (e.g. list of DeNB cells and selected PLMN).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>After this operation is complete, the RN
+detaches from the network using the normal UE initiated detach procedure, see
+clause&nbsp;5.3.8.2.1 and the RN triggers Phase II.<o:p></o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133856"><span
+lang=EN-GB>4.3.20.2.3<span style='mso-tab-count:1'>            </span>Attach
+for RN operation</span></a></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>To start relay operations, the normal attach
+procedure, with the following exceptions, is applied:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The RN and the USIM-RN perform local security operations (e.g.
+establishment of a secure channel between them) as specified in TS&nbsp;33.401&nbsp;[41];</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The RN selects a cell from the list acquired during Phase I;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The RN establishes an RRC connection with the DeNB, indicating
+that the connection is for a RN;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The DeNB is aware of the MMEs that support RN functionality. In
+all cases when the RN indication is recieved, the DeNB shall ensure that the
+current or (re)selected MME supports RN functionality;</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The RN follows normal UE behaviour, e.g. the
+RN's NAS may use either an IMSI or a GUTI. Also, the RN's NAS may or may not
+provide an S-TMSI to the RN's AS, and hence, the RRCConnectionRequest may
+either contain an S-TMSI or a random value.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>In the S1 interface Initial UE Message, the DeNB sends the RN
+indication to the MME. This message also carries the IP address of the S&#8209;GW/P-GW
+function embedded in the DeNB;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The subscription data supplied to the MME by the HSS for USIM-RN
+includes an indication that the subscription is permitted to be used by a RN.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>If the S1 interface Initial UE Message indicates that this is a
+RN, but the subscription data does not indicate that the subscription includes
+a permission to operate as a RN, then the MME shall reject the NAS procedure (e.g.
+Attach Request, Tracking Area Update Request, Service Request, etc) with an
+appropriate cause value (e.g. one that avoids retries on this PLMN yet does not
+harm a RN that has unexpectedly performed PLMN reselection).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>It is anticipated that the MME checks that the
+HPLMN of the USIM-RN is authorised to attach RNs to this MME.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The MME and RN perform the normal EPS Authentication procedures.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>MME (RN) selects the S-GW/P-GW in DeNB for the RN based on the IP
+address included in the Initial UE Message (i.e. all GW selection and APN
+related procedures are bypassed during this phase). The MME performs S11
+interface signalling with the S-GW/P-GW located in the DeNB;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1626'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The MME accepts the attach procedure and sets up an S1 context
+with the DeNB.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+relay function is enabled, MMEs in a pool should all have the same relaying
+function capability in order to have consistent support for functions such as
+redundancy, load balancing.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1034" type="#_x0000_t75" style='width:417pt;height:162pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image019.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=556 height=216
+src="23401-g30_files/image020.gif" v:shapes="_x0000_i1034"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1034"
+  DrawAspect="Content" ObjectID="_1631980372">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+4.3.20.2-1: RN attach procedure</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1628'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The detach procedure for
+the RN is the same as the normal UE detach procedure, though the RN should
+ensure that no UE is connected to the RN cells before detaching. It is up to RN
+implementation how it ensures no UE is connected.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133857"><span
+lang=EN-GB>4.3.20.3<span style='mso-tab-count:1'>        </span>DeNB E-RAB
+activation/modification</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>This procedure is used by the DeNB to change
+the EPS bearer allocation for the RN. The procedure is the same as the normal
+network-initiated bearer activation/modification procedure with the exception
+that the S-GW/P&#8209;GW functionality (steps 1 and 6) is performed by the
+DeNB.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1035" type="#_x0000_t75" style='width:420.5pt;height:192pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image021.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=561 height=256
+src="23401-g30_files/image022.gif" v:shapes="_x0000_i1035"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1035"
+  DrawAspect="Content" ObjectID="_1631980373">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+4.3.20.3-1: DeNB-initiated bearer activation/modification procedure</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>It is up to implementation if and when the
+DeNB sets up and modifies EPS bearers for the RN, in addition to the initial
+bearer set up procedures at Attach.</span></span></p></body>

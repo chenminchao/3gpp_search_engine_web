@@ -3102,5 +3102,131 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134003"><span
-lang=EN-GB>5.3.6<span style='mso-tab-count:1'>      </span>Void</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134002"><span
+lang=EN-GB>5.3.5A<span style='mso-tab-count:1'>    </span>Connection Resume
+procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
+procedure is used by the UE to resume the ECM-connection if the UE and the
+network support User Plane CIoT EPS Optimisation and the UE has stored the
+necessary information to conduct the Connection Resume procedure (see TS&nbsp;36.300&nbsp;[5])
+otherwise the Service Request procedures are used, see clause&nbsp;5.3.4.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1076" type="#_x0000_t75" style='width:286.5pt;height:171.5pt'
+ o:ole="">
+ <v:imagedata src="23401-g30_files/image103.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=382 height=229
+src="23401-g30_files/image104.gif" v:shapes="_x0000_i1076"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1076"
+  DrawAspect="Content" ObjectID="_1631980405">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.5A-1: UE initiated Connection Resume procedure</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
+1'>   </span>The UE triggers the Random Access procedure to the eNodeB, see TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
+1'>   </span>The UE triggers the RRC Connection Resume procedure including
+information needed by the eNodeB to access the UE's stored AS context, see TS&nbsp;36.300&nbsp;[5].
+The E-UTRAN performs security checks. EPS bearer state synchronization is
+performed between the UE and the network, i.e. the UE shall locally remove any
+EPS bearer for which no radio bearer is setup and which is not a Control Plane
+CIoT EPS bearer. If the radio bearer for a default EPS bearer is not
+established, the UE shall locally deactivate all EPS bearers associated to that
+default EPS bearer.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span style='mso-tab-count:
+1'>   </span>The eNodeB notifies the MME that the UE's RRC connection is
+resumed in the S1-AP UE Context Resume Request message which includes an RRC
+resume cause. If the eNodeB is not able to admit all suspended bearers, the
+eNodeB shall indicate this in the list of rejected EPS bearers, see TS&nbsp;36.413&nbsp;[36].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>If there is a Service Gap timer running in the MME for the UE
+and the MME is not waiting for a MT paging response from the UE and the RRC
+Connection Establishment Cause for the Connection Resume Request is not
+'mo-Signalling', the MME rejects the resume request by sending a S1-AP UE
+Context Resume Reject message to eNodeB.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>If the UE then sends a subsequent Service
+Request while the Service Gap timer is running, the MME will send a Service
+Reject NAS message to the UE with a Mobility Management back-off timer
+corresponding to the remaining time of the current Service Gap timer (see
+procedure in clause&nbsp;5.3.4).</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>The MME enters the ECM-CONNECTED state. The MME identifies that
+the UE returns at the eNodeB for which MME has stored data related to the S1AP
+association, UE Context and bearer context including the DL TEID(s), necessary
+to resume the connection, see Connection Suspend procedure in
+clause&nbsp;5.3.4A.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>If a default EPS bearer is not accepted by the eNodeB, all the
+EPS bearers associated to that default bearer shall be treated as non-accepted
+bearers. The MME releases the non-accepted and non-established bearers by
+triggering the bearer release procedure as specified in clause&nbsp;5.4.4.2.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>To assist Location Services, the eNB indicates the UE's
+Coverage Level to the MME.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3a.<span style='mso-tab-count:
+1'> </span>If the S1-U connection is resumed and the UE is accessing via the
+NB-IoT RAT with the RRC resume cause set to &quot;MO exception data&quot;, the
+MME should notify the Serving Gateway of each use of this establishment cause
+by the MO Exception Data Counter. The MME maintains the MO Exception Data
+Counter and sends it to the Serving GW as indicated in TS&nbsp;29.274&nbsp;[43].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3b.<span style='mso-tab-count:
+1'> </span>The Serving Gateway should notify the PDN GW if the RRC
+establishment cause &quot;MO Exception Data&quot; has been used by the MO
+Exception Data Counter (see TS&nbsp;29.274&nbsp;[43]). The Serving GW indicates
+each use of this RRC establishment cause by the related counter on its CDR.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3c.<span style='mso-tab-count:
+1'> </span>The PDN GW indicates each use of the RRC establishment cause
+&quot;MO Exception Data&quot; by the related counter on its CDR.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span style='mso-tab-count:
+1'>   </span>MME acknowledges the connection resumption in S1-AP UE Context
+Resume Response message. If the MME is not able to admit all suspended E-RABs
+the MME shall indicate this in the E-RABs Failed To Resume List IE.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span style='mso-tab-count:
+1'>   </span>If the MME included in step&nbsp;4 a list of E-RABs failed to
+resume, the eNodeB reconfigures the radio bearers.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span style='mso-tab-count:
+1'>   </span>The uplink data from the UE can now be forwarded by eNodeB to the
+Serving GW. The eNodeB sends the uplink data to the Serving GW address and TEID
+stored during the Connection Suspend procedure, see clause&nbsp;5.3.4A. The
+Serving GW forwards the uplink data to the PDN GW.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span style='mso-tab-count:
+1'>   </span>The MME sends a Modify Bearer Request message (eNodeB address, S1
+TEID(s) (DL) for the accepted EPS bearers, Delay Downlink Packet Notification
+Request, RAT Type) per PDN connection to the Serving GW. If the Serving GW
+supports Modify Access Bearers Request procedure and if there is no need for
+the Serving GW to send the signalling to the PDN GW, the MME may send Modify
+Access Bearers Request (eNodeB address(es) and TEIDs for downlink user plane
+for the accepted EPS bearers, Delay Downlink Packet Notification Request) per
+UE to the Serving GW to optimise the signalling. The Serving GW is now able to
+transmit downlink data towards the UE.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>The MME and the Serving GW clears the DL Data Buffer Expiration
+Time in their UE contexts if it was set, to remember that any DL data buffered
+for a UE using power saving functions has been delivered and to avoid any
+unnecessary user plane setup in conjunction with a later TAU.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span style='mso-tab-count:
+1'>   </span>The Serving GW shall return a Modify Bearer Response (Serving GW
+address and TEID for uplink traffic) to the MME as a response to a Modify Bearer
+Request message, or a Modify Access Bearers Response (Serving GW address and
+TEID for uplink traffic) as a response to a Modify Access Bearers Request
+message. If the Serving GW cannot serve the MME Request in the Modify Access
+Bearers Request message without S5/S8 signalling other than to unpause charging
+in the PDN GW or without corresponding Gxc signalling when PMIP is used over
+the S5/S8 interface, it shall respond to the MME with indicating that the
+modifications are not limited to S1-U bearers, and the MME shall repeat its request
+using a Modify Bearer Request message per PDN connection.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>If SIPTO at the Local Network is active for a PDN connection
+with stand-alone GW deployment and the Local Home Network ID for stand-alone
+accessed by the UE differs from the Local Home Network ID where the UE
+initiated the SIPTO@LN PDN Connection, the MME shall request disconnection of
+the SIPTO at the local network PDN connection(s) with the &quot;reactivation requested&quot;
+cause value according to clause&nbsp;5.10.3. If the UE has no other PDN
+connection, the MME initiated &quot;explicit detach with reattach
+required&quot; procedure according to clause&nbsp;5.3.8.3.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1745'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
+1'>      </span>If SIPTO at the Local Network is active for a PDN connection
+with collocated LGW deployement and the L-GW CN address of the cell accessed by
+the UE differs from the L-GW CN address of the cell where the UE initiated the
+SIPTO at the Local Network PDN Connection, the MME shall request disconnection
+of the SIPTO at the local network PDN connection(s) with the &quot;reactivation
+requested&quot; cause value according to clause&nbsp;5.10.3. If the UE has no
+other PDN connection, the MME initiated &quot;explicit detach with reattach
+required&quot; procedure according to clause&nbsp;5.3.8.3.</span></span></p></body>

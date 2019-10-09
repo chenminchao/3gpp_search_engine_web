@@ -3102,60 +3102,54 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133934"><span
-lang=EN-GB>4.12<span style='mso-tab-count:1'>      </span>Supporting up to 15
-EPS bearers per UE</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>A UE attached to WB-E-UTRAN
-access, including for dual connectivity using E-UTRAN access as described in
-clause&nbsp;4.3.2a, may support 8 or 15 EPS bearers. To enable support of
-establishing 15 EPS bearers, it requires the EPC connected to the E-UTRAN
-access to support 15 EPS bearers for such UEs.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE supports 15 EPS
-bearers, then the UE shall indicate this to the MME in NAS signalling as defined
-in TS&nbsp;24.301&nbsp;[46].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The network shall support
-E-UTRAN idle mode mobility and handover procedures in such PLMNs, where only
-part of the network nodes have been upgraded to support 15 EPS bearers. In case
-of mobility procedures involving target nodes not supporting 15 EPS bearers,
-additional bearers not supported by the non-upgraded nodes should be thus
-released.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The network shall
-homogeneously support 15 EPS bearers per UE, at least per MME pool area/SGW
-serving area, in order to avoid EPS bearer deactivations and attempts from
-services to re-activate the deactivated EPS bearers caused by UE mobility
-within that area, by defining the tracking areas accordingly (see
-clause&nbsp;4.3.5.3).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The MME shall provide the
-UE with a TAI List such that it triggers the UE to perform the TAU procedure,
-as defined in clause&nbsp;5.3.3.0, when the UE enters and exits the area with
-support for 15 EPS bearers per UE. The TAU procedure execution enables the
-nodes in the supporting area to identify a supporting UE when it enters the
-area. When exiting the area, also enables the nodes to remove bearer resources
-for the UE towards nodes without support for 15 EPS bearers per UE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>In order for the above TAI List handling to be
-fully successful, the network requires the PGWs the UE is connected to from
-these MME pool area/SGW serving area to be upgaded to support 15 EPS bearers.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>For a UE supporting 15 EPS
-bearers, mobility to UTRAN or GERAN may also lead to selective release of EPS
-bearers, due to the lack of support of 15 PDP contexts in the GPRS core network
-and Radio Access networks.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>EPS bearers need to be released either because
-the UE has more than 8 active EPS bearers, or because they are identified by
-EPS Bearer Identities not supported.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>In order to minimize the
-impact from release of bearers not supported by the target nodes during
-mobility, the MME should be able to allocate the EPS bearer IDs in such way
-that the bearers with higher operator preference will be preserved in case of
-mobility involving legacy target nodes. This prioritised bearer allocation
-should be based on, at least, the Allocation Retention Priority of the EPS
-bearers and may take other bearer parameters (e.g. QCI, APN) into
-consideration.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3430_INOBEAR_\(Rel-15\)" 20180607T1121'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>All PDN GWs in a PLMN shall
-support 15 EPS bearers. MME may be configured to take into account additional
-PDN GW information such as whether the HPLMN supports 15 EPS bearers when selecting
-PDN GW (e.g. in case of roaming users Home Routed PDN GW selection) for UEs
-supporting 15 EPS bearers.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3430_INOBEAR_\(Rel-15\)" 20180607T1121'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>For inter-PLMN handover,
-support of 15 EPS bearers is based on MME configuration according to operator
-policy (e.g. bilateral agreements between operators).</span></span></p><div style='mso-element:para-border-div;border:none;border-top:solid windowtext 1.5pt;
-padding:3.0pt 0in 0in 0in'></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133933"><span
+lang=EN-GB>4.11<span style='mso-tab-count:1'>      </span>User Plane CIoT EPS Optimisation</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The User Plane CIoT EPS Optimisation
+functionality enables support for transfer of user plane data without the need
+for using the Service Request procedure to establish Access Stratum (AS) context
+in the serving eNodeB and UE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the following
+preconditions are met:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>UE and MME support User Plane CIOT EPS
+Optimisation as defined in clause&nbsp;4.3.5.10,</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>MME indicates &quot;UE User Plane CIoT
+Support Indicator&quot; IE to &quot;supported&quot; as defined in TS&nbsp;36.413&nbsp;[36],</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>and the UE performs an initial connection
+establishment that establishes the AS bearers and the AS security context in
+the network and UE,</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>then the RRC connection can
+be suspended by means of a Connection Suspend Procedure (see
+clause&nbsp;5.3.4A).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Based on trigger from the
+NAS layer when UE is in ECM-IDLE including if it attempts to send data using
+Control Plane CIoT EPS Optimisation as defined in clause&nbsp;5.3.4B, the UE
+shall attempt the Connection Resume procedure, see clause&nbsp;5.3.5A and TS&nbsp;24.301&nbsp;[46].
+If the Connection Resume procedure fails, the UE initiates the pending NAS
+procedure, see TS&nbsp;24.301&nbsp;[46]. To maintain support for User Plane
+CIoT EPS Optimisation at UE mobility between cells configured on different
+eNodeBs, the AS Context should be transferred between the eNodeBs, see TS&nbsp;36.300&nbsp;[5]
+and TS&nbsp;36.423&nbsp;[76].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>By using the Connection
+Suspend procedure, see clause&nbsp;5.3.5A and TS&nbsp;36.300&nbsp;[5]:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>the UE at transition into ECM-IDLE stores
+the AS information;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>the eNodeB stores the AS information, the
+S1AP association and the bearer context for that UE;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>MME stores the S1AP association and the
+bearer context for that UE and enters ECM-IDLE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>In the context of this
+functionality, the UE and the eNodeB store the relevant AS information at
+transition into ECM-IDLE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>By using the Connection
+Resume procedure, see clause&nbsp;5.3.5A and TS&nbsp;36.300&nbsp;[5]:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>the UE resumes the connection with the
+network using the AS information stored during the Connection Suspend procedure;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>the, potentially new, eNodeB notifies the
+MME that the connection with the UE has been securely resumed and the MME enters
+ECM-CONNECTED.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+a MME has a S1AP association stored for a UE and the MME receives for that UE a
+EMM procedure over another UE-associated logical S1-connection or at Tracking
+Area Update procedure with MME change, or SGSN Context Request, when the UE has
+re-attached, or when the UE has been Detached, the MME and the previously
+involved eNodeB shall delete that stored S1AP association using the S1 Release
+procedure, see clause&nbsp;5.3.5 and TS&nbsp;36.413&nbsp;[36].</span></span></p></body>

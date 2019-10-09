@@ -3102,192 +3102,696 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133838"><span
-lang=EN-GB>4.3.18<span style='mso-tab-count:1'>    </span>Multimedia Priority
-Service</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133839"><span
-lang=EN-GB>4.3.18.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133824"><span
+lang=EN-GB>4.3.17<span style='mso-tab-count:1'>    </span>Support for Machine
+Type Communications (MTC)</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133825"><span
+lang=EN-GB>4.3.17.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1644'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Multimedia Priority Service (MPS) allows certain subscribers (i.e. Service
-Users as per TS&nbsp;22.153&nbsp;[68]) priority access to system resources in
-situations such as during congestion, creating the ability to deliver or
-complete sessions of a high priority nature. Service Users are
-government-authorized personnel, emergency management officials and/or other
-authorized users. MPS supports priority sessions on an &quot;end-to-end&quot;
-priority basis.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+JA'>This clause provides an overview about functionality for Machine Type
+Communications according to service requirements described in TS&nbsp;22.368&nbsp;[66].
+The specific functionality is described in the affected procedures and features
+of this and other specifications. For discrepancies between this overview
+clause&nbsp;and the detailed procedure and function descriptions, the latter
+take precedence.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1644'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>MPS is based on the ability to invoke, modify, maintain and release
-sessions with priority, and deliver the priority media packets under network
-congestion conditions. MPS is supported in a roaming environment when roaming
-agreements are in place and where regulatory requirements apply.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>If a session terminates on a server in the
-Internet (e.g. web-based service), then the remote end and the Internet
-transport are out of scope for this specification.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+JA'>MTC functionality is provided by the visited and home networks when the
+networks are configured to support machine type communication. It applies to
+both the non-roaming case and the roaming case and some functionality may be
+dependent upon the existence of appropriate roaming agreements between the
+operators.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1644'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>A Service User obtains priority access to the Radio Access Network by using
-the Access Class Barring mechanism according to TS&nbsp;36.331&nbsp;[37] and TS&nbsp;22.011&nbsp;[67].
-This mechanism provides preferential access to UEs based on its assigned Access
-Class. If a Service User belongs to one of the special access-classes as
-defined in TS&nbsp;22.011&nbsp;[67], the UE has preferential access to the
-network compared to ordinary users in periods of congestion.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+JA'>Some of the MTC functions are controlled by subscriber data. Other MTC
+functions are based on indicators sent by the UE to the network. MTC
+functionality is performed by UEs that are configured to support different options
+as described in clause&nbsp;4.3.17.4.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Though
+motivated by scenarios and use cases defined in TS&nbsp;22.368&nbsp;[66], the
+functions added to support MTC have general applicability and are in no way
+constrained to any specific scenario or use case except where explicitly stated.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133826"><span
+lang=EN-GB>4.3.17.2<span style='mso-tab-count:1'>        </span>Overview of
+protection from Potential MTC Related Overload</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1644'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>MPS subscription allows users to receive priority services, if the network
-supports MPS. MPS subscription entitles a USIM with special Access Class(es).
-MPS subscription includes indication for support of EPS bearer priority
-service, IMS priority service and CS Fallback priority service support for the
-end user. Priority level regarding EPS bearer and IMS are also part of the MPS
-subscription information. The usage of priority level is defined in TS&nbsp;23.203&nbsp;[6]
-and TS&nbsp;23.228&nbsp;[52].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
+JA'>The number of MTC devices may be several orders of magnitude greater than
+&quot;traditional&quot; devices. Many (but not all) MTC devices will be
+relatively stationary and/or generate low volumes of traffic. However, these
+UEs have the capability to generate normal quantities of signalling. As normal
+signalling from large numbers of UEs may cause overload independently whether
+the UE is used for MTC or not, generic functionality for overload and
+congestion control is required.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1644'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Service Users is treated as On Demand MPS subscribers or not, based on
-regional/national regulatory requirements. On Demand service is based on
-Service User invocation/revocation explicitly and applied to the PDN
-connections for an APN. When not On Demand, MPS service does not require invocation,
-and provides priority treatment for all EPS bearers for a given Service User
-after attachment to the EPS network.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>According to regional/national regulatory
-requirements and operator policy, On-Demand MPS Service Users can be assigned
-the highest priority.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>For this release of the specification, MPS is supported for E-UTRAN access
-only in case of 3GPP accesses.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Since the Service User has an access class within the range for priority
-services, the Establishment Cause in RRC connection request is set to
-highPriorityAccess. When the eNodeB receives mobile initiated signalling with
-establishment cause set to highPriorityAccess, the eNodeB handles the RRC
-connection request with priority. When the MME receives and verifies mobile
-initiated signalling with establishment cause set to highPriorityAccess, the
-MME establishes the S1 bearer with priority.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The terminating network identifies the priority of the MPS session and
-applies priority treatment, including paging with priority, to ensure that the
-MPS session can be established with priority to the terminating user (either a
-Service User or normal user).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Priority treatment for MPS includes priority message handling, including
-priority treatment during authentication, security, and location management procedures.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Priority treatment for MPS session requires appropriate ARP and QCI (where
-necessary for non-GBR bearers) setting for bearers according to the operator's
-policy.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>When an MPS session is requested by a Service User, the following bearer
-management principles apply in the network:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1728'><span
+JA'>The total signalling from large numbers of UEs is a concern in at least two
+situations:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>EPS bearers (including default bearer) employed in an MPS session
-shall be assigned ARP value settings appropriate for the priority level of the
-Service User.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1728'><span
+1'>    </span>when an application (running in many UEs) requests many UEs to do
+&quot;something&quot; at the same time; and/or</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Setting ARP pre-emption capability and vulnerability for MPS bearers,
-subject to operator policies and depending on national/regional regulatory
-requirements.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1728'><span
+1'>    </span>when many UEs are roamers and their serving network fails, then
+they can all move onto the local competing networks, and potentially overload
+the not (yet) failed network(s).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>To
+counter these potential problems, the following standardised indications and
+mechanisms are provided in a generic manner. These permit node specific
+features to be developed to protect the networks.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>a)<span style='mso-tab-count:
+1'>   </span>Where applicable, UEs can be configured for enhancements as
+described in subsequent bullets Post-manufacturing configuration can be
+performed remotely as described in clause&nbsp;4.3.17.4.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>b)<span style='mso-tab-count:
+1'>  </span>For mobile originated services, UEs configured for low access
+priority provide the E-UTRAN with information indicating that the RRC
+connection establishment request has low access priority (see
+clause&nbsp;4.3.17.4). Clause&nbsp;4.3.17.4 describes when low access priority
+is not applicable.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>c)<span style='mso-tab-count:
+1'>   </span>RRC signalling has the capability of providing 'extended wait
+timers' when rejecting messages from UEs. These 'extended wait timers' are only
+used by UEs that access the network with low access priority.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>d)<span style='mso-tab-count:
+1'>  </span>The MME can initiate rejection of RRC connection establishments in
+the E-UTRAN for UEs that access the network with low access priority as
+described in clause&nbsp;4.3.7.4.1. In addition, MME signalling or O&amp;M can
+trigger E-UTRAN to initiate Extended Access Barring. These mechanisms are
+further described in clause&nbsp;4.3.7.4.1.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>e)<span style='mso-tab-count:
+1'>   </span>Overload messages from the MME to E-UTRAN are extended to aid the
+RAN in performing the functionality in bullets b, c and d above.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1645'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>f)<span style='mso-tab-count:
+1'>   </span>UEs configured with a long minimum periodic PLMN search time limit
+(see TS&nbsp;24.368&nbsp;[69]) have an increased minimum time in between their
+searches for more preferred PLMNs.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Following the failure of a more preferred
+PLMN, UEs configured as above might change to other local competing networks.
+Expiry of this search timer will lead to the UE re-attempting to access the
+failed network, and then, if that network has not yet recovered, reaccessing
+one of the local competing networks. Use of a too short timer for the more
+preferred PLMN search can both prevent the failed network from recovering, and,
+impose more load on the local competing networks.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>g)<span
+style='mso-tab-count:1'>  </span>At PLMN change, UEs configured to perform
+Attach with IMSI at PLMN change (see TS&nbsp;24.368&nbsp;[69]) do this rather
+than a TA update with GUTI (thus avoiding the need to reject the TA update, and
+to request the IMSI following the subsequent Attach with GUTI).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>In the case of a network failure, this reduces
+the message processing load on a local competing network and hence makes that
+network more likely to survive the failure of the other network.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1647'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>h)<span style='mso-tab-count:
+1'>  </span>For mobile originated services, UEs configured for low access
+priority (see TS&nbsp;24.368&nbsp;[69]) provide a low access priority
+indication to the MME in NAS signalling that permit the MME to undertake protective
+measures (e.g. to permit the MME to immediately command the UE to move to a
+state where it does not need to generate further signalling messages and/or
+does not reselect PLMNs), as described in clause&nbsp;4.3.7.4.1.
+Clause&nbsp;4.3.17.4 describes when low access priority is not applicable.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1647'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>i)<span style='mso-tab-count:
+1'>   </span>Using Periodic TAU timer value sent by the HSS and/or UE provided
+low access priority indication (bullet h above), the MME can allocate a long
+periodic TAU timer value to the UE. A long periodic TAU timer is likely to slow
+down the rate at which a UE detects a network failure and thus it slows down the
+rate of movement of UEs from a failed network to other local competing networks
+(see clause&nbsp;4.3.17.3).</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1647'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>j)<span style='mso-tab-count:
+1'>   </span>Mechanisms for the MME and P-GW to detect congestion associated with
+a particular APN (see clauses 4.3.7.4.2 and 4.3.7.5).</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1647'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>k)<span style='mso-tab-count:
+1'>  </span>The addition of 'back off timers' to EMM and ESM signalling
+messages (e.g. to rejection messages). These include some time randomisation to
+guard against a repeat of a load peak. The MME should be able to apply this
+behaviour on a per-APN basis. as described in clause&nbsp;4.3.7.4.2</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1647'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>l)<span style='mso-tab-count:
+1'>   </span>Signalling that permits the P-GW to request the MME to generate
+the above ESM signalling with 'back off timers' (see clause&nbsp;4.3.7.5).</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1675R5_NIMTC_\(Rel-10\)" 20100917T1647'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>m)<span style='mso-tab-count:
+1'> </span>An MME overload control mechanism to selectively limit the number of
+Downlink Data Notification requests the S-GW sends to the MME for downlink low
+priority traffic received for UEs in idle mode (see clause&nbsp;4.3.7.4.1a).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>n)<span
+style='mso-tab-count:1'>  </span>UE configured for specific handling of the
+invalid USIM state, the &quot;forbidden PLMN list&quot;, the &quot;forbidden
+PLMNs for attach in S1mode list&quot; and the &quot;forbidden PLMNs for GPRS
+service list&quot; remembers that the USIM is invalid and keeps the PLMN
+forbidden lists even if the UE is switched off and then switched on.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>o)<span
+style='mso-tab-count:1'>  </span>When the UE has an activated PDN connection
+without low access priority or the UE is requested to establish such a PDN
+connection and the UE is configured with a permission for overriding low access
+priority the UE doesn't provide a low access priority indication to the MME in NAS
+MM signalling and also not to the RAN in the RRC requests. In the NAS request
+for activating a PDN connection this UE always indicates what the upper layers
+requested, i.e. the UE indicates low access priority in that NAS request unless
+the upper layers request activation of a PDN connection without low access
+priority.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>p)<span
+style='mso-tab-count:1'>  </span>When the UE has an activated PDN connection
+that is without low access priority or the UE is requested to activate such a
+PDN connection and the UE is configured with a permission for overriding Extended
+Access Barring, then the UE ignores any Extended Access Barring (if it is
+activated in the network) as defined in TS&nbsp;22.011&nbsp;[67].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>It is assumed that the mechanisms described in
+this entire clause are designed by Stage&nbsp;3 in a manner that allows extensibility
+and forward compatibility.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>q)<span
+style='mso-tab-count:1'>  </span>The eNodeB may use the low access priority
+indication provided by the UE to steer UEs configured for low access priority
+to specific MMEs.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133827"><span
+lang=EN-GB>4.3.17.3<span style='mso-tab-count:1'>        </span>Optimising
+periodic TAU Signalling</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1724R3_NIMTC_\(Rel-10\)" 20100917T1711'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>To reduce network load from periodic TAU signalling and to increase the
+time until the UE detects a potential need for changing the RAT or PLMN (e.g.
+due to network problems) the longer values of the periodic TAU timer and Mobile
+Reachable timer shall be supported.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1724R3_NIMTC_\(Rel-10\)" 20100917T1711'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>A long periodic RAU/TAU timer value may be locally configured at MME or may
+be stored as part of the subscription data in HSS. During Attach and TAU
+procedures the MME allocates the periodic RAU/TAU timer value as periodic TAU
+timer to the UE based on VPLMN operator policy, low access priority indication
+from the UE, periodic RAU/TAU timer value requested by UE and subscription
+information received from the HSS.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1724R3_NIMTC_\(Rel-10\)" 20100917T1711'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>If MME receives a subscribed periodic RAU/TAU timer value from the HSS it
+allocates the subscribed value to the UE as periodic TAU timer. A visited PLMN
+MME may use subscribed periodic RAU/TAU timer value, if available, as an indication
+to decide for allocating a locally configured periodic RAU/TAU timer value to
+the UE.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1724R3_NIMTC_\(Rel-10\)" 20100917T1711'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>If no subscribed periodic RAU/TAU timer value is received from the HSS, the
+MME should:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>if the periodic RAU/TAU timer value
+requested by UE is within the boundaries of the VPLMN operator policy, allocate
+the value requested by the UE;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>if the periodic RAU/TAU timer value requested
+by UE is higher than allowed per the VPLMN operator policy, allocate the
+highest allowed value per the VPLMN operator policy;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>if the periodic RAU/TAU timer value
+requested by UE is lower than allowed per the VPLMN operator policy, allocate
+the lowest allowed value per the VPLMN operator policy.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133828"><span
+lang=EN-GB>4.3.17.4<span style='mso-tab-count:1'>        </span>UE
+configuration and usage of indicators</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>A subscriber can by agreement with its operator
+be required to use UEs that are configured (see TS&nbsp;24.368&nbsp;[69]) to
+support one or more of the following options:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR1760R12_NIMTC_\(Rel-10\)" 20101126T1802'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Pre-emption of non-Service Users over Service Users during
-network congestion situation, subject to operator policy and national/regional
-regulations.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Priority treatment is
-applicable to IMS based multimedia services, priority EPS bearer services (PS
-data without IMS interaction) and CS Fallback.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>For Multimedia Priority
-services any EPC functions, procedures and capabilities are provided according
-to this clause's specification except when specified differently in the
-following clauses.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133840"><span
-lang=EN-GB>4.3.18.2<span style='mso-tab-count:1'>        </span>IMS-based
-Multimedia Priority Services</span></a></span></h4><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133841"><span
-lang=EN-GB>4.3.18.2.1<span style='mso-tab-count:1'>            </span>Originating
-IMS-based MPS Session</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
+1'>    </span>UE configured for low access priority; and/or</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1760R12_NIMTC_\(Rel-10\)" 20101126T1802'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>UE configured with a permission for overriding low access
+priority, which is only applicable for a UE that is also configured for low
+access priority; and/or</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1760R12_NIMTC_\(Rel-10\)" 20101126T1802'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>UE configured to perform Attach with IMSI at PLMN change; and/or</span></span></p><p class=B1 style='mso-prop-change:"23401_CR1760R12_NIMTC_\(Rel-10\)" 20101126T1802'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>UE configured with a long minimum periodic PLMN search time
+limit; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>UE configured for specific handling of the
+invalid USIM state, the &quot;forbidden PLMN list&quot;, the &quot;forbidden
+PLMNs for attach in S1mode list&quot; and the &quot;forbidden PLMNs for GPRS
+service list&quot;; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>UE configured for Extended Access Barring;
+and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>UE configured with a permission for
+overriding Extended Access Barring, which is only applicable for a UE that is
+also configured for Extended Access Barring.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>When a UE is accessing the network with low
+access priority, then the UE may be subject for longer backoff timers at
+overload and consequently need to be designed to be tolerant to delays when
+accessing the network.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>IMS based MPS sessions are permitted to be originated from any UE, in
-addition to MPS-subscribed UEs.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
+JA'>UEs can be configured for one or more of the above options with the
+following restrictions:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR2313R2_TEI11_\(Rel-11\)" 20120301T0940'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>in this Release of the specification, a UE that is configured for
+low access priority shall also be configured for Extended Access Barring; and</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2313R2_TEI11_\(Rel-11\)" 20120301T0940'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>in this Release of the specification, a UE that is configured for
+Extended Access Barring shall be configured for low access priority.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2448R4_SIMTC-Reach_\(Rel-11\)" 20121204T1449'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>in this Release of the specification, a UE that is configured for
+overriding low access priority shall also be configured for overriding Extended
+Access Barring; and</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2448R4_SIMTC-Reach_\(Rel-11\)" 20121204T1449'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>in this Release of the specification, a UE that is configured for
+overriding Extended Access Barring shall also be configured for overriding low
+access priority.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The MPS-subscribed UE, based on the MPS IMS subscription information,
-operator's policy and national/regional regulations, may be given priority
-treatment for the default bearer and the EPS bearer carrying IMS signalling in
-the EPS prior to and during IMS-based MPS invocation. Further, priority
-treatment in the EPS for signalling and media bearers may be
-modified/established via dynamic PCC based on the session authorization
-information received from the AF.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
+JA'>UEs can be configured for one or more of the above options.
+Post-manufacturing configuration of these options in the UE can be performed
+only by OMA DM or (U)SIM OTA procedures. UEs capable of the above options
+should support configuration of these options by both OMA DM and (U)SIM OTA
+procedures.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>As the IMS media bearer is established after the IMS session of the MPS
-service has been established, it can be assigned with correct ARP value when it
-is established. However IMS signalling related EPS bearer needs to be upgraded
-if it has not been assigned with an appropriate ARP setting for the MPS service
-when the IMS session of the MPS service has been initiated.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1729'><span
+JA'>A UE configured for low access priority shall transmit the low access
+priority indicator to the MME during the appropriate NAS signalling procedures
+and transmit the corresponding low access priority to the E-UTRAN during RRC
+connection establishment procedures.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>The low access priority indicator in NAS
+signalling and the corresponding low access priority for RRC connection establishment
+are used by the network to decide whether to accept the NAS request or the
+setup of the RRC connection respectively.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Also to avoid cases where the default bearer may not be allocated resources
-in the handover case, due to low ARP priority for the PDN connection, it is necessary
-to assure that the default bearer has an ARP setting appropriate for the MPS
-service.<o:p></o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133842"><span
-lang=EN-GB>4.3.18.2.2<span style='mso-tab-count:1'>            </span>Terminating
-IMS-based MPS Session</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'>Low access priority shall not be applicable in the following situations:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR2027R5_\(Rel-10\)" 20110314T1701'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>for all procedures related to an emergency PDN connection; used
+for IMS Emergency sessions that are to be prioritized as per the requirements
+for IMS Emergency session procedures (see clause&nbsp;4.3.12). When an
+emergency PDN connection gets established, the MME may, based on MME
+configuration, initiate the deactivation of any non-emergency PDN connection
+using the MME requested PDN disconnection procedure described in
+clause&nbsp;5.10.3;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2027R5_\(Rel-10\)" 20110314T1701'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>for all procedures when preferential access to the network is
+provided to the UE by the Access Class 11-15 mechanism according to TS&nbsp;36.331&nbsp;[37]
+and TS&nbsp;22.011&nbsp;[67] e.g. for Multimedia Priority Services as described
+in clause&nbsp;4.3.18;</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>The configuration of a UE for low access
+priority and Access Class 11-15 are configured independently of each other.
+However, the home operator can take care to prevent a subscription for Access
+Class 11-15 from being used in a UE configured for low access priority.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2027R5_\(Rel-10\)" 20110314T1701'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>for RRC connection establishment procedures when responding to paging;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2027R5_\(Rel-10\)" 20110314T1701'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>for a UE configured with a permission for overriding low access
+priority under conditions described by bullet o in clause&nbsp;4.3.17.2; or</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2027R5_\(Rel-10\)" 20110314T1701'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>other specific situations described in TS&nbsp;24.301&nbsp;[46].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The terminating network identifies the priority of the IMS-based MPS
-session and applies priority treatment to ensure that the call is delivered
-with priority to the terminating user (either a Service User or normal user).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'>If the NAS session management request message used to establish a new PDN
+connection contains a low access priority indication, the MME shall forward the
+low access priority indication in the Create Session Request message to the
+S-GW/P&#8209;GW. The low priority indication gets associated with a PDN connection
+when it is established and it shall not change until the PDN connection is
+deactivated.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>If the existing ARP of the default or dedicated EPS bearer that is used to
-transport IMS signalling are not appropriate for the MPS service, then PCRF
-updates to the appropriate settings.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'>The low access priority indication may be included in charging records by
+the visited and home networks. In order to permit the S-GW to include the low
+access priority indicator in the charging records, the low access priority
+indicator should be stored in the MME EPS Bearer contexts and should be passed
+as part of these contexts to other SGSN/MME or S-GW nodes in mobility
+management procedures.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>In this release there is no other usage of
+storing the low access priority indicator in EPS Bearer contexts other than for
+the purpose to include it in charging records. Particularly, the low access
+priority indicator in EPS Bearer contexts is not used by the network to make overload
+control decisions.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>S-GW triggers a new priority paging towards MME in case the ongoing paging
-is lower priority than the incoming data received in the S-GW for IMS
-terminating session.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133843"><span
-lang=EN-GB>4.3.18.3<span style='mso-tab-count:1'>        </span>Priority EPS
-Bearer Services</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'>A network node may invoke one or more of the following mechanisms based on
+the indicators received in signalling from UEs or forwarded by other network
+nodes:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>based on the low access priority indicator
+in NAS request messages, bullets e, h, i, k and l as defined in
+clause&nbsp;4.3.17.2; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>based on the low access priority for RRC
+connection establishment, bullets b, c and q as defined in
+clause&nbsp;4.3.17.2.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1695R3_NIMTC_\(Rel-10\)" 20100917T1700'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The Service User receives on demand priority treatment according to its MPS
-profile, i.e. On-Demand. If the Service User is not authorized to use on-demand
-priority request, the Service User receives priority treatment (i.e.
-appropriate ARP and QCI ) at initial attach for all bearers, based on user
-profile data stored in the HSS/SPR and authorized by the PCRF (see TS&nbsp;23.203&nbsp;[6],
-clause&nbsp;7.2).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'>A UE shall invoke one or more of the following mechanisms based on the configuration
+and capabilities of the UE:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>when UE is configured with a long minimum
+periodic PLMN search time limit, the UE invokes actions as described in bullet
+f in clause&nbsp;4.3.17.2; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>when UE is configured to perform Attach with
+IMSI at PLMN change, the UE invokes actions as described in bullet g in
+clause&nbsp;4.3.17.2; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>when a UE is configured for low access
+priority, the UE invokes actions as described in bullets b and h in
+clause&nbsp;4.3.17.2; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>when UE is configured for specific handling
+of the invalid USIM state, the &quot;forbidden PLMN list&quot;, the
+&quot;forbidden PLMNs for attach in S1mode list&quot; and the &quot;forbidden
+PLMNs for GPRS service list&quot;, the UE invokes actions as defined in bullet
+n in clause&nbsp;4.3.17.2; and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>when UE is configured for Extended Access
+Barring, the UE invokes actions as defined in bullet d in clause&nbsp;4.3.17.2;
+and/or</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>when a UE is configured with a permission
+for overriding low access priority and configured with a permission for
+overriding Extended Access Barring, the UE invokes actions as described in
+bullets o) and p) in clause&nbsp;4.3.17.2.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133829"><span
+lang=EN-GB>4.3.17.5<span style='mso-tab-count:1'>        </span>Void</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1697R3_NIMTC_\(Rel-10\)" 20100917T1706'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>An On-Demand Service User requires explicit invocation/revocation via SPR
-MPS user profile update (see TS&nbsp;23.203&nbsp;[6], clause&nbsp;7.5). Since
-MPS user profile are part of inputs for PCC rules, the update will trigger PCC
-rules modification to achieve appropriate ARP and QCI settings for bearers (see
-TS&nbsp;23.203&nbsp;[6], clause&nbsp;7.4.2).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'><o:p>&nbsp;</o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133830"><span
+lang=EN-GB>4.3.17.6<span style='mso-tab-count:1'>        </span>Support of UEs
+configured for low access priority, Extended Access Barring and permission for
+override</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The feature is specified in TS&nbsp;23.060&nbsp;[7]
+clause&nbsp;5.3.13.6.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133831"><span
+lang=EN-GB>4.3.17.7<span style='mso-tab-count:1'>        </span>High latency
+communication</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2862R3_HLcom_\(Rel-13\)" 20150616T1006'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>When the eNodeB receives mobile initiated signalling with establishment
-cause set to highPriorityAccess, the eNodeB handles the RRC connection request
-with priority. When the MME receives and verifies mobile initiated signalling
-with establishment cause set to highPriorityAccess, the MME establishes the S1
-bearer with priority. Based on MPS EPS priority subscription, MME can verify whether
-the UE is permitted to handle the request preferentially comparing to other UEs
-not prioritized.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1730'><span
+JA'>Functions for High latency communication may be used to handle mobile
+terminated (MT) communication with UEs being unreachable while using power
+saving functions e.g. UE Power Saving Mode (see clause&nbsp;4.3.22) or extended
+idle mode DRX (see clause&nbsp;5.13a) depending on operator configuration. &quot;High
+latency&quot; refers to the initial response time before normal exchange of
+packets is established. That is, the time it takes before a UE has woken up
+from its power saving state and responded to the initial downlink packet(s).
+The feature is described in TS&nbsp;23.682&nbsp;[74].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2862R3_HLcom_\(Rel-13\)" 20150616T1006'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>An AF for MPS Priority Service is used to provide Priority EPS Bearer
-Services using network-initiated resource allocation procedures (via
-interaction with PCC) for originating accesses.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>Use of 3rd party AF for MPS services for
-Service Users is outside the scope of 3GPP specification.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133844"><span
-lang=EN-GB>4.3.18.4<span style='mso-tab-count:1'>        </span>CS fallback</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1731'><span
+JA'>The High latency communication includes invoking extended buffering of MT
+data at the Serving GW when the UE is in a power saving state and not
+reachable. The handling is specified in the Network Triggered Service Request
+procedure, clause&nbsp;5.3.4.3. Establishing the user plane for delivering the
+buffered data when the UE contacts the MME or SGSN by signalling shall be done
+in the Tracking Area Update and Routing Area Update procedures. The MME/SGSN
+uses its parameter DL Data Buffer Expiration Time in the MM context information
+to remember if there is buffered DL data to be delivered when the UE becomes
+reachable. When set, the DL Data Buffer Expiration Time shall be cleared at any
+user plane setup to the RAN, i.e. buffered DL data can been delivered. At
+TAU/RAU procedures with MME/SGSN change, the old MME/SGSN shall indicate in the
+context response to the new MME/SGSN that buffered DL data is waiting and hence
+the new MME/SGSN shall establish the user plane for delivery of the buffered DL
+data. When the DL Data Buffer Expiration Time has expired, the MME/SGSN
+considers no DL data to be buffered and no indications of Buffered DL Data
+Waiting are sent during context transfers at TAU procedures. At TAU/RAU
+procedures with Serving GW change, the buffered DL data is forwarded to the new
+Serving GW or Gn/Gp-SGSN.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2862R3_HLcom_\(Rel-13\)" 20150616T1006'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>CS Fallback allows users to fallback to GERAN/UTRAN/1x RTT while in E-UTRAN
-access thus allowing the network to transfer the call towards GERAN/UTRAN CS
-domain. In order to ensure that a priority CSFB call to/from a service user is
-given proper priority treatment in the EPS, MPS subscription indicates the
-user's CS priority status, i.e. MPS CS Priority, which is provided to MME with
-user's subscription information. When the eNodeB receives mobile initiated
-signalling with establishment cause set to highPriorityAccess, the eNodeB handles
-the RRC connection request with priority. When the MME receives and verifies
-mobile initiated signalling with establishment cause set to highPriorityAccess,
-the MME establishes the S1 bearer with priority.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1714R2_eMPS_\(Rel-10\)" 20100917T1731'><span
+JA'>For Control Plane CIoT EPS Optimisation, the High latency communication
+includes invoking the buffering of MT data at the Serving GW or the MME as
+specified in Mobile Terminated Data Transport in Control Plane CIoT EPS Optimisation
+with P-GW connectivity, clause&nbsp;5.3.4B.3. When the UE contacts MME, MME
+delivers the buffered data using NAS PDUs. If MT data is buffered in MME, at
+TAU procedures with MME change the buffered data in the old MME is discarded.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2862R3_HLcom_\(Rel-13\)" 20150616T1006'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Details on the priority treatment of CSFB, see TS&nbsp;23.272&nbsp;[58].<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133845"><span
-lang=EN-GB>4.3.18.5<span style='mso-tab-count:1'>        </span>Network
-Congestion Controls for MPS</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>Based on regional/national requirements and
-network operator policy, MPS shall be exempted from network congestion controls
-up to the point where further exemptions cause network instability. The MME
-should not apply NAS level congestion control for mobile initiated signalling
-with establishment cause set to highPriorityAccess. The MME should not apply
-congestion control for termination requests related with an ARP associated with
-MPS.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133846"><span
-lang=EN-GB>4.3.18.6<span style='mso-tab-count:1'>        </span>Load
-Re-balancing between MMEs for MPS</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>When a UE is in ECM-CONNECTED mode with a
-bearer having an ARP associated with MPS, the MME should not release the UE for
-load re-balancing, except under critical conditions such as the need to perform
-an MME node restart. The MME should wait until the UE initiates a TAU or
-becomes ECM-IDLE before initiating load re-balancing.<o:p></o:p></span></span></p></body>
+JA'>The High latency communication also includes sending event notifications to
+application servers that have requested &quot;UE Reachability&quot; or
+&quot;Availability after DDN failure&quot; monitoring events. Event
+notifications are sent when a UE becomes reachable, for example as part of the
+Attach Procedure, TAU/RAU procedures and the UE triggered Service Request
+procedure.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+&quot;UE Reachability&quot; moniorting is requested for UE's that are using extended
+idle mode DRX, an event notification is sent to the application server when the
+UE is about to become reachable for paging.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the MME is aware that some signalling or data is pending in the network for an
+UE that is known as being unreachable for a long duration, e.g. for UE's having
+extended idle mode DRX or PSM enabled, the MME may include a Pending Data
+indication in the next S1-AP message towards an eNB. If the eNB receives this
+indication, the eNB may take this information into account when determining
+user inactivity. At inter-RAN node handovers, if some signalling or data are
+still pending, the target MME may send a Pending Data indication to the target
+RAN node.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133832"><span
+lang=EN-GB>4.3.17.8<span style='mso-tab-count:1'>        </span>Support for
+Non-IP Data Delivery (NIDD)</span></a></span></h4><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133833"><span
+lang=EN-GB>4.3.17.8.1<span style='mso-tab-count:1'>            </span>General</span></a></span></h5><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1749'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The support of Non-IP data is part of the CIoT EPS Optimisations. A PDN
+Type &quot;Non-IP&quot; is used for Non-IP data. The Non-IP data delivery to
+SCS/AS is accomplished by one of two mechanisms:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Delivery using SCEF as defined in
+clause&nbsp;4.3.17.8.3.2.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Delivery using a Point-to-Point (PtP) SGi
+tunnel as defined in clause&nbsp;4.3.17.8.3.3.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1749'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>When the Reliable Data Service is not used, Non-IP data in-sequence delivery
+cannot be guaranteed and data PDUs may be lost requiring higher protocol layers
+to ensure guaranteed delivery when needed. The Reliable Data Service is defined
+in TS&nbsp;23.682&nbsp;[74].<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>If UEs use protocols that require
+broadcast/multicast mechanisms (e.g. use &quot;IP stacks&quot; on top of PDN
+connections of type &quot;Non-IP&quot;), this may cause increased traffic and
+power consumption to the UE and the network.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1749'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The SMS service may also be used to deliver data without use of the IP
+protocol. The SMS service is always supported for CIoT EPS Optimisations, i.e.
+can be used simultaneously with Non-IP and IP data. When only the SMS service is
+needed, an attach without PDN connection establishment can be used, see
+clause&nbsp;5.3.2.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1749'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Dedicated bearers are not supported for the Non-IP data.<o:p></o:p></span></span></p><h5><span style='mso-bookmark:historyclause'><a name="_Toc11133834"><span
+lang=EN-GB>4.3.17.8.2<span style='mso-tab-count:1'>            </span>ESM
+Procedures</span></a><span lang=EN-GB><span style='mso-tab-count:1'> </span></span></span></h5><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The UE indicates in the ESM connection request,
+e.g. in Attach or PDN Connectivity Request, that a Non-IP PDN type shall be
+used. The subscription information has a default APN for PDN Type Non-IP, which
+the MME uses for the first received Non-IP connectivity request unless the UE
+has included an APN in the request.<o:p></o:p></span></span></p><h5 style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1750'><span
+style='mso-bookmark:historyclause'><a name="_Toc11133835"><span lang=EN-GB>4.3.17.8.3<span
+style='mso-tab-count:1'>            </span>Delivery mechanism</span></a></span></h5><p class=H6><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.3.17.8.3.1<span
+style='mso-tab-count:1'>               </span>General</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>At
+each PDN connectivity request, the MME decides which delivery mechanism (SCEF
+based delivery or SGi based delivery) is used for delivering the Non-IP data
+between RAN and AS. An indication associated with the used APN determines if
+SCEF based delivery or SGi based delivery shall be used.</span></span></p><p class=H6><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.3.17.8.3.2<span
+style='mso-tab-count:1'>               </span>SCEF based delivery</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>When the MME decides to use SCEF based delivery mechanism for Non-IP data,
+a PDN connection is established towards the selected SCEF. Such a PDN Connection
+is also known as an &quot;SCEF Connection&quot;. The APN used for SCEF based
+delivery is an FQDN, which either resolves to an SCEF hostname or to an SCEF IP
+addresss.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The SCEF based delivery is applicable only to the Control Plane CIoT EPS Optimisation
+(see clause&nbsp;4.10).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The support of Non-IP data via the SCEF is further defined in TS&nbsp;23.682&nbsp;[74].<o:p></o:p></span></span></p><p class=H6 style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>4.3.17.8.3.3<span
+style='mso-tab-count:1'>               </span>SGi based delivery</span></span></p><p class=H6 style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>4.3.17.8.3.3.1<span
+style='mso-tab-count:1'>             </span>General</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>When support of Non-IP data
+is provided at the SGi interface, different point-to-point tunneling techniques
+may be used. Point-to-point tunneling by UDP/IP encapsulation can be used as
+described in clause&nbsp;4.3.17.8.3.3.2 below. Other techniques as described in
+clause&nbsp;4.3.17.8.3.3 below may be used.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Support for the SGi based
+delivery of Non-IP data can be used by any UE. That is, it is independent of
+support for the User Plane CIoT EPS Optimisation and the Control Plane CIoT EPS
+Optimisation (see clause&nbsp;4.10).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1751'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The P-GW decides at PDN
+connection establishment based on pre-configuration which point-to-point
+tunneling technique is used for the SGi based delivery between the P-GW and the
+AS.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>The pre-configuration can be done in the
+P-GW per APN or based on other criterion such as SLA between operator and 3rd
+party application service provider, etc.</span></span></p><p class=H6><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.3.17.8.3.3.2<span
+style='mso-tab-count:1'>             </span>SGi PtP tunnelling based on UDP/IP</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1752'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>SGi PtP tunnelling based on UDP/IP may be used to deliver Non-IP data to AS
+via SGi.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1752'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>A point-to-point tunnel is used by the P-GW towards the AS. The tunnel
+parameters (i.e. destination IP address and UDP port) for SGi PtP tunneling based
+on UDP/IP are pre-configured on the P-GW. IP address allocation procedures for
+PDN connections are performed locally (e.g. without involving the UE) by the
+P-GW based on APN configuration and according to clause&nbsp;5.3.1. Only single
+IP address is used (i.e. both IPv4 and IPv6 addresses are not allocated).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1752'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The P-GW acts as a transparent forwarding node for the payload between the
+UE and the AS.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1752'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For uplink Non-IP data, the P-GW forwards the received data to the AS over
+the SGi PtP tunnel using UDP/IP encapsulation. When the Reliable Data Service
+is enabled, the P-GW processes the Reliable Data Service Header. The Reliable
+Data Service Configuration is pre-configured on the P-GW. The Reliable Data
+Service Configuration is defined in TS&nbsp;23.682&nbsp;[74].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1752'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For downlink Non-IP data, the AS sends the data using UDP/IP encapsulation
+with the IP address of the UE and the 3GPP defined UDP port for &quot;Non-IP&quot;
+data. The P-GW decapsulates the received data (i.e. removes the UDP/IP headers)
+and forwards the data to S-GW on the GTP-U tunnel identified by the IP address
+of the UE (i.e. PDN connection) for delivery to the UE. When the Reliable Data
+Service is enabled, the P-GW adds the Reliable Data Service Header.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1752'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The P-GW performs the IP related operations (e.g. allocates IP address for
+the PDN connection), but the IP address or IP prefix is not provided to the UE
+(i.e. SLAAC / Router Advertisements are not performed. DHCP or DHCPv6 are not
+used). In case of IPv6 the P-GW assigns an Interface Identifier for the PDN connection.
+The allocated IP address or IPv6 prefix identifies the PDN connection of the
+UE. The P-GW shall inform the MME of the assigned IPv4 address or IPv6 prefix
+and Interface Identifier for a PDN Connection of a given UE. However, the UE is
+not informed about the assigned IPv6 prefix and Interface Identifier.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>It is recommended to use IPv6 for CIoT.
+IPv4 based addressing is deprecated for machine type communication used over
+3GPP accesses, see TS&nbsp;23.221&nbsp;[27].</span></span></p><p class=H6><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.3.17.8.3.3.3<span
+style='mso-tab-count:1'>             </span>Other SGi PtP tunnelling mechanisms</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1753'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>SGi PtP tunnelling mechanisms such as PMIPv6/GRE, L2TP, GTP-C/U, etc, may
+be used to deliver Non-IP data to AS via SGi. The general handling of such
+delivery mechanisms is as described below.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1753'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>A point-to-point tunnel is established by the P-GW towards the AS.
+Depending on the type of protocol employed on the SGi PtP tunnel, the SGi PtP
+tunnel setup may be done at the time of Attach or at the time of first MO
+datagram being sent by the CIoT UE. The P-GW selects the AS based on the P-GW
+configuration (e.g. per APN, or per PtP tunnel type etc.). However, IP address
+allocation procedures for the UE (according to clause&nbsp;5.3.1) are not
+performed by the P-GW.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>An AS can be dedicated for handling a
+specific Non-IP data protocol.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1753'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The P-GW acts as a transparent forwarding node between the UE and the AS.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1753'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For uplink Non-IP data, the P-GW forwards the received data to the AS over
+the established SGi PtP tunnel.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2934R9_CIoT_\(Rel-13\)" 20160305T1753'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For downlink Non-IP data, the AS locates the right SGi PtP tunnel for the
+UE (using information such as UE identifiers in the Non-IP protocol itself,
+etc) to forward the data. The AS sends the data to P-GW over the established
+SGi PtP tunnel. The P-GW in turn sends the data to S-GW on the GTP-U tunnel
+identified by the associated SGi PtP tunnel for delivery to the UE.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133836"><span
+lang=EN-GB>4.3.17.8a<span style='mso-tab-count:1'>      </span>Support of PDN
+type Ethernet</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The support of Ethernet PDN type relies upon the selection of a P-GW that
+supports combined PGW+SMF functionality specified in TS&nbsp;23.501&nbsp;[83], TS&nbsp;23.502&nbsp;[84]
+and TS&nbsp;23.503&nbsp;[88]. This functionality may be supported by a PLMN even
+if it has no NG-RAN coverage, however, it does require that the subscriber has
+a subscription record in the 5GS UDM.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>This feature is described in clause&nbsp;5.6.10.2 of TS&nbsp;23.501&nbsp;[83].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For PDN connection with Ethernet PDN type, IP address allocation is not needed.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>In contrast to the Non-IP PDN type, EPS Dedicated Bearers are supported for
+the Ethernet PDN type (including the TFT as described in clause&nbsp;4.7.2.1).
+The details about the TFT packet filter(s) are described in clause&nbsp;5.7.6.3
+of TS&nbsp;23.501&nbsp;[83].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For PDN connection of Ethernet type, dynamic PCC is applied as described in
+clause&nbsp;4.7.5 with the following differences:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1426'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Dynamic PCC specified in TS&nbsp;23.503&nbsp;[88] is applied,
+i.e. the PCEF interacts with the PCF using N7 interface as described in TS&nbsp;23.501&nbsp;[83],
+and the PCEF does not interact with the PCRF using Gx interface as specified in
+TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1426'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The SDF template included in the PCC rule(s) uses Ethernet packet
+filter as specified in TS&nbsp;23.501&nbsp;[83].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1426'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The description related to IP address configuration is not
+applicable.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Dedicated Core Network functionality (see clause&nbsp;4.3.25) can be used
+to avoid the need for all MMEs in the PLMN to be upgraded to support Ethernet
+PDN Type.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>If the UE's attempt to use the Ethernet PDN Type is rejected by the
+network, the UE may attempt to gain service by requesting the Non-IP PDN type.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Ethernet PDN Type is not supported in GERAN/UTRAN. If the UE only has an
+Ethernet PDN connection established, mobility to GERAN/UTRAN should be
+prevented. To do this, the MME shall indicate to the eNB in Handover
+Restriction List that GERAN/UTRAN is restricted.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3498r2_TEI16_\(Rel-16\)" 20190307T1425'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>For PDN connection with Ethernet PDN type, mobility to Non 3GPP access to
+EPC is not supported.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133837"><span
+lang=EN-GB>4.3.17.9<span style='mso-tab-count:1'>        </span>Service Gap
+Control</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Service Gap Control is an optional feature intended for MTC/CIoT UEs to
+control the frequency at which these UEs can access the network. That is, to
+ensure a minimum time gap between consecutive Mobile Originated data
+communications initiated by the UE. This helps reducing peak load situations when
+there are a large number of these UEs in an operator network. Service Gap
+Control is intended to be used for &quot;small data allowance plans&quot; for
+MTC/CIoT UEs where the applications are tolerant to service latency.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Time critical applications, such as emergency
+services and regulatory prioritised services can suffer from the latency caused
+by the Service Gap Control feature. Therefore Service Gap Control feature is
+not recommended for subscriptions with such applications and services.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Service Gap Time is a subscription parameter used to set the Service Gap
+timer and is enforced in the UE and in the MME on a per UE level (i.e. the same
+Service Gap Timer applies for all PDN connections that the UE has). The UE
+indicates its capability of support for Service Gap Control in the Attach
+Request message and TAU Request message to the MME. The MME passes the Service
+Gap Time to the UE in the Attach Accept message and/or Tracking Area Update
+Accept message for UE that has indicated its supports of the Service Gap
+Control. The Service Gap Control shall be applied in a UE when a Service Gap
+Time is stored in the UE context and applied in the MME when the Service Gap
+Time is stored in the MM context.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Service Gap Control requires the UE to stay in ECM-IDLE mode for at least
+the whole duration of the Service Gap timer before triggering Mobile Originated
+user data transmission, except for procedures that are exempted (see TS&nbsp;24.301&nbsp;[46]).
+The Service Gap timer shall be started each time a UE moves from ECM-CONNECTED
+to ECM-IDLE, unless the connection request was initiated by the paging of a
+Mobile Terminated event, or after a TAU procedure without active flag or
+signalling active flag, which shall not trigger a new or extended Service Gap
+interval. When a Service Gap timer expires, the UE is allowed to send a
+connection request again. If the UE does so, the Service Gap timer will be
+restarted at the next ECM-CONNECTED to ECM-IDLE transition.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The Service Gap control is applied in ECM-IDLE state only and does not
+impact UE Mobile Originated user data transmission or Mobile Originated signaling
+in ECM-CONNECTED state. The Service Gap timer is not stopped upon ECM-IDLE
+state to ECM-CONNECTED state transition. The UE shall not initiate connection
+requests for MO user plane data, MO control plane data, or MO SMS when a
+Service Gap timer is running. The UE shall also not initiate Attach Requests
+when a Service Gap timer is running, unless it is Attach Request without PDN
+connectivity or Emergency Attach which are allowed.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>As a consequence of allowing Attach without
+PDN connectivity procedure, the UE with a running Service Gap timer does not
+initiate further MO signalling, except for tracking area updating procedure,
+until the UE receives MT signalling or after the UE has moved to ECM-IDLE state
+and the Service Gap Timer is not running.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>Implementations need to make sure that latest
+and up-to-date data are always sent when a Service Gap timer expires.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The MME may enforce the Service Gap timer by rejecting connection request
+for MO user plane data, MO control plane data, or MO SMS when a Service Gap
+timer is running. The MME may enforce the Service Gap timer by not allowing
+Attach Requests when a Service Gap timer is running, unless it is Attach
+Request without PDN connectivity or Emergency Attach which are allowed. When
+rejecting the connection requests and the Attach Requests while the Service Gap
+timer is running, the MME may include a Mobility Management back-off timer
+corresponding to the time left of the current Service Gap timer. For the UEs
+that does not support Service Gap Control (e.g. pre-release-15 UEs), Service
+Gap Control may be enforced using &quot;General NAS level Mobility Management
+control&quot; as defined in clause&nbsp;4.3.7.4.2.1.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>When the MME starts the Service Gap timer, the MME should invoke the
+Service Gap timer with a value that is slightly shorter than the Service Gap
+Time value provided to the UE in the subscription information received from the
+HSS.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>This ensures that the MME doesn't reject any
+UE requests just before the Service Gap timer expires e.g. because of slightly
+unsynchronized timers between UE and MME.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>A UE which transitions from a PSM or eDRX power saving state shall apply
+Service Gap Control when it wakes up if the Service Gap timer is still running.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1434'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Additional aspects of Service Gap Control:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Service Gap Control applies in all PLMNs.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>When the Service Gap timer is running and the UE receives paging,
+the UE shall respond as normal.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Service Gap Control applies to low priority (delayTolerant) and
+normal traffic.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Service Gap Control does not apply to exception reporting for
+NB-IoT.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Emergency Attach and Attach without PDN Connectivity are allowed
+when a Service Gap timer is running.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Service Gap Control shall be effective also for UEs performing
+detach and reattach unless it is Attach Request without PDN connectivity or
+Emergency Attach.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Tracking Area Update with active flag or signalling active flag
+is not allowed when a Service Gap timer is running.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>If the Service Gap timer is running, the Service Gap is applied
+at PLMN selection as follows:</span></span></p><p class=B2 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>a)<span style='mso-tab-count:
+1'>  </span>Re-attach to the registered PLMN: The remaining Service Gap timer value
+survives and controls the re-attach.</span></span></p><p class=B2 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>b)<span style='mso-tab-count:
+1'>  </span>Attach or Tracking Area Update to a different PLMN: The remaining
+Service Gap timer value survives and controls the Attach/Tracking Area Update
+to the new PLMN.</span></span></p><p class=B2 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>c)<span style='mso-tab-count:
+1'>  </span>USIM swap: The Service Gap timer is no longer running and the
+Service Gap feature does not apply, unless re-instatiated by the serving PLMN.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Multiple uplink packets and downlink packets are allowed during
+one RRC connection for UE operating within its APN Rate Control limits.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+following procedures are impacted by Service Gap Control:</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>E-UTRAN Initial Attach, see clause&nbsp;5.3.2.1;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Tracking Area Update procedures, see clause&nbsp;5.3.3;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>UE Triggered Service Request, see clause&nbsp;5.3.4.1;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR3328r4_TEI15_\(Rel-15\)" 20171214T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Connection Resume Request, see clause&nbsp;5.3.5A.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><a name="_Hlk531766317"><span
+lang=EN-GB>NOTE&nbsp;5:<span style='mso-tab-count:1'>  </span>Since UE triggered
+Service Request and Connection Resume Request are prevented by Service Gap
+timer, this implictly prevents the UE from initiating </span></a><span
+lang=EN-GB>MO data in Control Plane EPS <a name="_Hlk531766347">Optimisations (</a>see
+clause&nbsp;5.3.4B.2<a name="_Hlk531766361">), </a>MO NIDD procedure<a
+name="_Hlk531766376"> (</a>see TS&nbsp;23.682&nbsp;[74]) and MO SMS (see TS&nbsp;23.272&nbsp;[58]).</span></span></p></body>

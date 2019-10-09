@@ -3102,197 +3102,55 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133869"><span
-lang=EN-GB>4.3.25<span style='mso-tab-count:1'>    </span>Dedicated Core
-Networks (DCNs)</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133870"><span
-lang=EN-GB>4.3.25.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133865"><span
+lang=EN-GB>4.3.24<span style='mso-tab-count:1'>    </span>RAN user plane congestion
+management function</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133866"><span
+lang=EN-GB>4.3.24.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The user plane congestion management function
+addresses how the system can effectively mitigate RAN user plane congestion in
+order to reduce the negative impact on the perceived service quality. The
+congestion mitigation measures include traffic prioritization, traffic
+reduction and limitation of traffic, and shall be able to manage user plane traffic
+across a range of variables including the user's subscription, the type of
+application, and the type of content. Congestion mitigation can be performed in
+the RAN or in the CN, or in a combined way both in the RAN and in the CN.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133867"><span
+lang=EN-GB>4.3.24.2<span style='mso-tab-count:1'>        </span>RAN user plane congestion
+mitigation in the RAN</span></a></span></h4><p class=EditorsNote><span style='mso-bookmark:historyclause'><span lang=EN-GB>Editor's
+note:<span style='mso-tab-count:1'> </span>Text to be added depending on the
+outcome of the UPCON study.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133868"><span
+lang=EN-GB>4.3.24.3<span style='mso-tab-count:1'>        </span>RAN user plane
+congestion mitigation in the CN</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2733R2_UPCON_\(Rel-13\)" 20140820T1042'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>This feature enables an operator to deploy multiple DCNs within a PLMN with
-each DCN consisting of one or multiple CN nodes. Each DCN may be dedicated to
-serve specific type(s) of subscriber. This is an optional feature and enables
-DCNs to be deployed for one or multiple RATs (e.g. GERAN, UTRAN, E-UTRAN, WB-E-UTRAN
-and NB-IoT). There can be several motivations for deploying DCNs, e.g. to
-provide DCNs with specific characteristics/functions or scaling, to isolate
-specific UEs or subscribers (e.g. M2M subscribers, subscribers belonging to a
-specific enterprise or separate administrative domain, etc.).<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
+JA'>RAN user plane congestion mitigation in the CN uses RAN OAM information,
+collected by the RAN Congestion Awareness Function (RCAF), to detect
+congestion. The RAN Congestion Awareness Function is further described in
+clause&nbsp;4.4.12. This functionality is applicable only in case of
+UTRAN/E-UTRAN accesses.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The criteria used for detection of RAN user
+plane congestion (including detection of congestion abatement) are outside the
+scope of 3GPP specifications.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>The interface to the RAN's OAM system is not
+standardized.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2733R2_UPCON_\(Rel-13\)" 20140820T1042'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>A DCN comprises of one or more MME/SGSN and it may comprise of one or more
-SGW/PDN GW/PCRF. This feature enables subscribers to be allocated to and served
-by a DCN based on subscription information (&quot;UE Usage Type&quot;). The
-feature in this clause&nbsp;handles both DCN selections without any specific UE
-functionality, i.e. it works also with UEs of earlier releases and UE assisted
-DCN selection.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
+JA'>The RCAF can transfer RAN user plane congestion information (RUCI) to the
+PCRF over the Np reference point in order to mitigate the congestion by
+measures selected by the PCRF, as specified in TS&nbsp;23.203&nbsp;[6].
+Decisions to apply congestion mitigation measures may take into account
+operator policies and subscriber information and all additional available
+IP-CAN session information.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2733R2_UPCON_\(Rel-13\)" 20140820T1042'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The main specific functions are for routing and maintaining UEs in their
-respective DCN. The following deployment scenarios are supported for DCN:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>DCNs may be deployed to support one RAT only, (e.g. only
-dedicated MMEs are deployed to support E-UTRAN and dedicated SGSNs are not
-deployed), to support multiple RATs, or to support all RATs.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Networks deploying DCNs may have a default DCN, which is managing
-UEs for which a DCN is not available or if sufficient information is not
-available to assign a UE to a DCN. One or multiple DCNs may be deployed
-together with a default DCN that all share the same RAN.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>The architecture supports scenarios where the DCN is only
-deployed in a part of the PLMN e.g. only for one RAT or only in a part of the
-PLMN area. Such heterogeneous or partial deployment of DCNs may, depending on
-operator deployment and configuration, result in service with different
-characteristics or functionality, depending on whether the UE is inside or
-outside the service area or RAT that supports the DCN.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>Heterogeneous or partial deployment of DCNs
-may result in increased occurrence of UEs first being served by a CN node in
-the default DCN and then being redirected to a CN node in the DCN that serves
-the UE when the UE moves from areas outside of DCN coverage to an area of DCN
-coverage. It may also result in an increased re-attach rate in the network. As
-this has impacts on the required capacity of the default CN nodes deployed at
-edge of DCN coverage, it is not recommended to deploy DCNs heterogeneously or partially.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Even if the DCN is not deployed to serve a
-particular RAT or service area of PLMN, the UE in that RAT or service area may
-still be served by a PDN GW from the DCN.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>High
-level overview for supporting DCNs is provided below. Details are captured in
-appropriate clauses of this specification, TS&nbsp;23.060&nbsp;[7] and TS&nbsp;23.236&nbsp;[30].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>An optional subscription information parameter (&quot;UE Usage
-Type&quot;) is used in the selection of a DCN. An operator configures which of
-his DCN(s) serves which UE Usage Type(s). The HSS provides the &quot;UE Usage
-Type&quot; value in the subscription information of the UE to the MME/SGSN. Both
-standardized and operator specific values for UE Usage Type are possible.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>The serving network selects the DCN based on the operator
-configured (UE Usage Type to DCN) mapping, other locally configured operator's
-policies and the UE related context information available at the serving
-network, e.g. information about roaming. UEs with different UE Usage Type
-values may be served by the same DCN. Moreover, UEs that share the same UE
-Usage Type value may be served by different DCNs.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>If the configuration shows no DCN for the specific &quot;UE Usage
-Type&quot; value in the subscription information, then the serving MME/SGSN
-serves the UE by the default DCN or selects a DCN using serving operator
-specific policies.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Some subscribers may be configured without &quot;UE Usage
-Type&quot; value. In this case, the MME/SGSN may select the DCN that serves the
-UE using locally configured operator's policies and the UE related context information
-available at the serving network (other than UE provided DCN-ID). The MME/SGSN
-performs procedures described in clauses 5.19.1 and 5.19.2.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>The &quot;UE Usage Type&quot; is associated with the UE (describing
-its usage characteristic), i.e. there is only one UE Usage Type&quot; per UE
-subscription.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>For each DCN, one or more CN nodes may be configured as part of a
-pool.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>For MME, the MMEGI(s) identifies a DCN within the PLMN. For
-SGSNs, a group identifier(s) identifies a DCN within the PLMN. That is, the group
-of SGSNs that belong to a DCN within a PLMN. This identifier may have the same
-format as NRI (e.g. an NRI value that does not identify a specific SGSN node in
-the serving area) in which case it is called &quot;Null-NRI&quot; or it may
-have a format independent of NRI, in which case it is called &quot;SGSN Group
-ID&quot;. The &quot;Null-NRI&quot; or &quot;SGSN Group ID&quot; is provided by
-an SGSN to RAN which triggers the NNSF procedure to select an SGSN from the
-group of SGSNs corresponding to the Null-NRI/SGSN Group ID (see
-clause&nbsp;5.19.1).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>SGSN Group IDs enable to handle deployment
-scenarios where in a service area all NRI values are allocated to SGSNs and
-hence no NRI value remains that can be used as Null-NRI.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>The dedicated MME/SGSN that serves the UE selects a dedicated
-S-GW and P-GW based on UE Usage Type.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>At initial access to the network if sufficient information is not
-available for RAN to select a specific DCN, the RAN may selects a CN node from
-the default DCN. A redirection to another DCN may then be required.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>To redirect a UE from one DCN to a different DCN, the redirection
-procedure via RAN, described in clause&nbsp;5.19.1, is used to forward the NAS
-message of the UE to the target DCN.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0849'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>All selection functions are aware of DCN(s), including the
-network node selection function (NNSF) of RAN nodes, for selecting and
-maintaining the appropriate DCN for the UEs.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133871"><span
-lang=EN-GB>4.3.25.1a<span style='mso-tab-count:1'>      </span>UE assisted
-Dedicated Core Network selection</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR3024R2_DUMMY_\(eDECOR\)_\(Rel-14\)" 20160612T0725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>This feature is to reduce the need for DECOR reroute by using an indication
-(DCN-ID) sent from the UE and used by RAN to select the correct DCN. The DCN-ID
-shall be assigned to the UE by the serving PLMN and is stored in the UE per
-PLMN ID. Both standardized and operator specific values for DCN-ID are
-possible. The UE shall use the PLMN specific DCN-ID whenever a PLMN specific
-DCN-ID is stored for the target PLMN.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3024R2_DUMMY_\(eDECOR\)_\(Rel-14\)" 20160612T0725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The HPLMN may provision the UE with a single default standardized DCN-ID
-which shall be used by the UE only if the UE has no PLMN specific DCN-ID of the
-target PLMN. When a UE configuration is changed with a new default standardized
-DCN-ID, the UE shall delete all stored PLMN specific DCN-IDs.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3024R2_DUMMY_\(eDECOR\)_\(Rel-14\)" 20160612T0725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The UE provides the DCN-ID to RAN at registration to a new location in the
-network, i.e. in Attach, TAU and RAU. RAN selects serving node (MME or SGSN)
-based on the DCN-ID provided by the UE and configuration in RAN. For E-UTRAN
-the eNB is configured with DCNs supported by the connected MMEs at the setup of
-the S1 connection. For UTRAN and GERAN the BSS/RNC is configured with the DCNs
-supported in the connected SGSN via O&amp;M. Both standardized DCN-IDs and PLMN
-specific DCN-IDs can in the RAN configuration be assigned to the same network.
-If information provided by the UE (e.g. GUTI, NRI, etc.) indicates a node (MME
-or SGSN) for attach/TAU/RAU and a serving node (MME or SGSN) corresponding to
-the UE information can be found by the RAN node, the normal node selection
-shall take precedence over the selection based on DCN-ID. At registration the
-MME/SGSN may check if the correct DCN is selected. The check is performed as
-specified in clause&nbsp;4.3.25.1. If the MME/SGSN concludes that the selected
-DCN is not the correct DCN, a DECOR reroute is performed and the SGSN/MME in
-the new DCN assigns a new DCN-ID to the UE. The serving MME/SGSN can also
-assign a new DCN-ID to the UE if e.g. the DCN-ID in the UE has become obsolete
-or when the UE Usage Type has been updated in the subscription information
-leading to a change of DCN. This is performed as part of the GUTI Reallocation
-procedure.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133872"><span
-lang=EN-GB>4.3.25.2<span style='mso-tab-count:1'>        </span>Considerations
-for Roaming</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0853'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>In the case of roaming, if the HPLMN of the visiting UE does not support
-DCNs, i.e. doesn't provide the UE Usage Type, the serving MME/SGSN may select
-the DCN that serves the UE using operator specific policies based on other
-subscription or UE provided information.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2837R11_DECOR_\(Rel-13\)" 20150616T0853'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>In the case of roaming, if the HPLMN provides the UE Usage Type parameter
-to the VPLMN, this parameter is provided irrespective of its value
-(standardized or operator specific). The handling of the UE Usage Type
-parameter in the VPLMN is based on operator policies, e.g. roaming agreements.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3024R2_DUMMY_\(eDECOR\)_\(Rel-14\)" 20160612T0725'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE assisted DCN
-selection feature is supported:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>If the UE has a DCN-ID for the VPLMN the UE
-shall send that PLMN specific DCN-ID to the RAN, and</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>If the UE has no PLMN specific DCN-ID for
-this VPLMN and if the UE has a pre-provisioned default standardized DCN-ID it
-shall send the pre-provisioned default standardized DCN-ID to the RAN.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133873"><span
-lang=EN-GB>4.3.25.3<span style='mso-tab-count:1'>        </span>Considerations
-for Network Sharing</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>If the network supports the MOCN configuration
-for network sharing (see TS&nbsp;23.251&nbsp;[24]), each network sharing
-operator has separate CN(s). Mechanisms for selection of serving operator for
-supporting and non-supporting UEs are defined in TS&nbsp;23.251&nbsp;[24]. Each
-of the sharing operators may deploy one or more DCNs.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>If Selected PLMN information is provided by the
-UE, the RAN selects the CN operator based on this provided information and then
-DECOR rerouting may, if needed, be initiated within the CN of the selected
-operator. If the UE assisted DCN selection feature is supported and both the
-Selected PLMN information and DCN-ID is provided by the UE, the RAN first
-selects the CN operator followed by selection of a DCN supported by the
-selected CN operator.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>If Selected PLMN information is not provided by
-the UE (may only happen in GERAN and UTRAN), the network initiates MOCN
-redirection, including CS/PS coordination, to select a CN operator that can
-serve the UE. After this, DECOR rerouting is initiated if needed. The serving
-node in the selected DCN ends the MOCN redirection. If the UE assisted DCN selection
-feature is supported and Selected PLMN information is not provided by the UE,
-the network initiates CN operator selection and after the CN operator selection
-is concluded the DCN is selected based on the UE provided DCN-ID. As the PLMN
-information included in the RAI is the Common PLMN (refer to TS&nbsp;23.251&nbsp;[24]),
-which does not reflect the selected CN operator, the network may also return
-the PLMN ID of the selected CN operator. When the UE receives the NAS Accept
-message, the UE associates the DCN-ID with both the PLMN ID of the selected CN
-operator and the Common PLMN IDs.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The functions for redirecting or maintaining
-UEs in specific DCNs are configured to work within the CNs of the same
-operator.<o:p></o:p></span></span></p></body>
+JA'>Different mechanisms and mitigation actions applicable as described in TS&nbsp;23.203&nbsp;[6]
+in order to mitigate RAN User Plane Congestion. Those mechanisms include e.g.
+service/application gating, service/application bandwidth limitation, deferring
+of services.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>Co-existence between congestion mitigation in
+RAN and CN can be assured by appropriate network configuration of applicable
+policies for congestion mitigation, as well as related RAN parameter alignment/tuning,
+such as tuning of parameters for e.g., load balancing, carrier aggregation,
+co-ordinated multipoint, dual connectivity. This parameter alignment/tuning is
+not further specified.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>A condition leading to interoperability issues
+which may lead to suboptimal situation is that the time scales for actions of
+congestion mitigation in RAN and in CN are of comparable duration. Therefore,
+congestion mitigation in RAN and CN cannot have comparable time scales,
+otherwise interoperability is affected.</span></span></p></body>

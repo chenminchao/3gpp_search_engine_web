@@ -3102,22 +3102,120 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134005"><span
-lang=EN-GB>5.3.7<span style='mso-tab-count:1'>      </span>GUTI Reallocation
-procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-MME may initiate the GUTI Reallocation procedure to reallocate the GUTI and/or
-TAI list at any time when a signalling association is established between UE
-and MME. The GUTI Reallocation procedure allocates a new GUTI and/or a new TAI
-list to the UE. The GUTI and/or the TAI list may also be reallocated by the
-Attach or the Tracking Area Update procedures.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-GUTI Reallocation procedure is illustrated in Figure 5.3.7-1.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1078" type="#_x0000_t75" style='width:328pt;height:153pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image107.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=437 height=204
-src="23401-g30_files/image108.gif" v:shapes="_x0000_i1078"><![endif]></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.7-1: GUTI Reallocation Procedure</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
-style='mso-tab-count:1'>   </span>The MME sends GUTI Reallocation Command (GUTI,
-TAI list) to the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
-style='mso-tab-count:1'>   </span>The UE returns GUTI Reallocation Complete
-message to the MME.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134004"><span
+lang=EN-GB>5.3.6A<span style='mso-tab-count:1'>    </span>PDN GW Pause of
+Charging procedure</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2598R4_TEI12_\(Rel-12\)" 20131206T0956'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The PDN GW Pause of Charging
+procedure is optionally supported by the Serving GW and PDN GW and has the
+purpose to limit a mismatch between PDN GW and Serving GW charging volume and
+packet counts. Generally, it aims for the PDN GW charging and usage monitoring
+data to more accurately reflect the downlink traffic actually sent to the
+E-UTRAN.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>A consequence of using this procedure is that
+PDN GW charging data does not correspond to the volume that traversed the PDN GW,
+and it is therefore not possible to count the downlink packets dropped between
+the PDN GW and the E-UTRAN.</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1148'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The Serving GW may indicate
+support of this function to the PDN GW when the PDN connection is activated or
+when a new/target Serving GW is used for a PDN connection. This is indicated to
+the PDN GW by a &quot;PDN Charging Pause Support Indication&quot; in the Create
+Session Request during PDN activation/Attach and in the Modify Bearer Request
+in procedures with a change of Serving GW.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>It is assumed that Pause of PGW Charging is
+not invoked by SGW that is performing extended data buffering.</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1148'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The PDN GW may indicate if
+the feature is to be enabled on a per PDN connection basis, if the current
+Serving GW supports the feature and the operator's policy is to enable the
+feature. This is indicated to the Serving GW by a &quot;PDN Charging Pause Enabled&quot;
+Indication in the Create Session Response during PDN activation/Attach and in
+the Modify Bearer Response in procedures with a change of Serving GW. This is
+an indication to the Serving GW that when the criteria for pause of PDN GW
+charging are met (as described further down in this clause) the PDN GW charging
+can be paused.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>PDNs where this function applies are based on
+an operator policy in the PDN GW. What enters into that policy is operator
+specific but may be based on for example if the PDN uses SDF based charging, UE
+is in home or visited network, APN employed, UE is configured for NAS
+signalling low priority, Charging Characteristics value etc.</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1148'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The PDN GW shall stop any
+charging and usage monitoring actions for the PDN connection upon receiving a
+&quot;PDN Charging Pause Start&quot; Indication in a Modify Bearer Request.
+When the PDN GW receives a Modify Bearer Request for a PDN connection for which
+charging has been stopped previously and, if the Modify Bearer Request contains
+a &quot;PDN Charging Pause Stop&quot; Indication or does not contain a
+&quot;PDN Charging Pause Start&quot; Indication, then the PDN GW shall continue
+charging for the PDN connection.</span></span></p><p class=NO style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1149'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>In addition to the Service Request Procedure,
+the PDN GW charging is also unpaused during mobility procedures involving the
+Serving GW based on Modify Bearer Request messages without &quot;PDN Charging
+Pause Start&quot; indication or during mobility procedures involving the Gn/Gp
+SGSN based on Update PDP Context Request messages.</span></span></p><p class=NO style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1149'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>A Delete Bearer Command or Delete Bearer Request
+or Delete Bearer Response for a dedicated bearer does not unpause a previously
+paused PDN charging.</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1149'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>When bearers become
+suspended for a UE (see TS&nbsp;23.272&nbsp;[58]), the PDN GW charging is no
+longer paused and the PDN GW continues charging for the PDN connection after
+suspended bearers are resumed.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
+style='mso-tab-count:1'>  </span>The PDN GW discards packets received for a
+suspended UE as described in TS&nbsp;23.272&nbsp;[58].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>While
+the PDN GW charging is currently paused and the UE is in ECM-IDLE (for ISR case
+the device is at same time in PMM-IDLE or STANDBY in UTRAN/GERAN accesses) the
+following applies:</span></span></p><p class=B1 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1150'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>The PDN GW shall not perform charging and usage monitoring
+actions for downlink traffic on this PDN.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;7:<span
+style='mso-tab-count:1'>  </span>The Serving GW charges anyway only for the
+amount of transmitted downlink traffic as described in clause&nbsp;5.7A.</span></span></p><p class=B1 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1150'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Based on operator policy/configuration in the PDN GW, the PDN GW
+may limit the rate of downlink traffic sent to the Serving GW.</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1150'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Based on operator
+policy/configuration in the Serving GW, the Serving GW may discard rather than
+buffer the downlink user plane packets for this PDN connection while the PDN GW
+charging is paused. This is to avoid delivery of user plane packets to the UE
+that were not counted in the PDN GW for charging and usage monitoring purposes.
+Regardless of operator policy/configuration, the downlink user plane packets
+received from PDN GW at the Serving GW shall trigger Downlink Data
+Notifications as described in clause&nbsp;5.3.4.3.</span></span></p><p class=MsoNormal style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1150'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>When the Serving GW
+receives a Modify Bearer Request or Modify Access Bearers Request for a PDN
+connection triggering a Modify Bearer Request towards the PDN GW, the Serving
+GW shall consider the PDN charging as being unpaused if it has been paused
+previously.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1077" type="#_x0000_t75" style='width:191.5pt;height:3in' o:ole="">
+ <v:imagedata src="23401-g30_files/image105.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=255 height=288
+src="23401-g30_files/image106.gif" v:shapes="_x0000_i1077"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1077"
+  DrawAspect="Content" ObjectID="_1631980406">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.6A: PDN GW Pause of charging procedure</span></span></p><p class=B1 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1151'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
+1'>   </span>The Serving GW receives downlink data packets for a UE known as
+not user plane connected (i.e. the Serving GW context data indicates no downlink
+user plane TEID for the eNodeB) as described in clause&nbsp;5.3.4.3
+step&nbsp;1, i.e. the packets are buffered or discarded in Serving GW based on
+operator policy.</span></span></p><p class=B1 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1151'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
+1'>   </span>Based on operator policy/configuration the Serving GW triggers the
+procedure to pause PDN charging. Triggering criteria are based on Serving GW
+operator policy/configuration. Example of such policy may be:</span></span></p><p class=B2 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1151'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>a.<span style='mso-tab-count:
+1'>   </span>Operator specified criteria/threshold (e.g. number/fraction of
+packets/bytes dropped at Serving GW in downlink since last time the UE was in ECM-CONNECTED
+state (or for ISR case PMM-CONNECTED state)).</span></span></p><p class=B2 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1151'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>b.<span style='mso-tab-count:
+1'>   </span>Recent indication of &quot;Abnormal Release of Radio Link&quot;
+(see clause&nbsp;5.3.5) or a recent Downlink Data Notification Reject
+(clause&nbsp;5.3.4.3) without UE shortly re-entering ECM-CONNECTED state (or for
+ISR case without also re-entering PMM-CONNECTED state).</span></span></p><p class=B1 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1152'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span style='mso-tab-count:
+1'>   </span>Serving GW sends a Modify Bearer Request (PDN Charging Pause
+Start) message to the PDN GW. PDN Charging Pause Start indicates that PDN GW
+charging shall be paused.</span></span></p><p class=B1 style='mso-prop-change:"Plenary-23401_CR2598R6_TEI12_\(Rel-12\)" 20131213T1152'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span style='mso-tab-count:
+1'>   </span>PDN GW confirms with a Modify Bearer Response message.</span></span></p></body>

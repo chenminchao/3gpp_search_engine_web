@@ -3102,27 +3102,16 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133877"><span
-lang=EN-GB>4.3.27a<span style='mso-tab-count:1'>  </span>Restriction of use of
-Enhanced Coverage for voice centric UE</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR3209R1_TEI13_\(Rel-14\)" 20170221T1428'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Support of UEs in Enhanced
-Coverage is specified in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3209R1_TEI13_\(Rel-14\)" 20170221T1428'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE's usage setting
-is &quot;voice centric&quot; as defined in TS&nbsp;23.221&nbsp;[27], it shall
-not operate in CE mode B.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-the UE supports CE mode B and UE's usage setting is set to &quot;voice
-centric&quot; in the Attach or TAU request message then the MME shall indicate
-to eNB that CE mode B is restricted. If the UE supports CE mode B and UE's
-usage setting is set to &quot;data centric&quot; in the Attach or TAU request
-message then, based on operator's policy and the Enhanced Coverage Restricted
-parameter (see clause&nbsp;4.3.28), the MME shall indicate to eNB that CE mode
-B is not restricted.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-MME keeps the CE mode B Restricted parameter in the MM Context. The MME shall
-send the CE mode B Restricted parameter to the eNB via S1 signalling indicating
-whether the UE is &quot;restricted&quot; or &quot;not restricted&quot; for the
-use of CE mode B, e.g. in PAGING, INITIAL CONTEXT SETUP REQUEST, HANDOVER
-REQUEST, PATH SWITCH REQUEST ACKNOWLEDGE, CONNECTION ESTABLISHMENT INDICATION,
-and DOWNLINK NAS TRANSPORT message carrying the TAU ACCEPT message.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-the UE supports CE mode B and the CE mode B Restricted parameter stored in the
-MME's MM context is set to &quot;not restricted&quot;, the MME shall use the
-extended NAS timer settings for the UE as specified in TS&nbsp;24.301&nbsp;[46].</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133875"><span
+lang=EN-GB>4.3.27<span style='mso-tab-count:1'>    </span>Paging Enhancements</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133876"><span
+lang=EN-GB>4.3.27.1<span style='mso-tab-count:1'>        </span>Paging for
+Enhanced Coverage</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23\.401 CR2917R3 SP-150737" 20151203T1104'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Support of UEs in Enhanced Coverage is specified in TS&nbsp;36.300&nbsp;[5].<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR2917R3 SP-150737" 20151203T1104'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>Whenever S1 is released and Information for Enhanced Coverage is available
+for the UE, the eNB sends it to the MME as described in clause&nbsp;5.3.5.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23\.401 CR2917R3 SP-150737" 20151203T1104'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+JA'>The MME stores the received Information for Enhanced Coverage and, if
+Enhanced Coverage Restricted parameter is not set then MME, includes it in
+every subsequent Paging message for all eNBs selected by the MME for paging.<o:p></o:p></span></span></p></body>

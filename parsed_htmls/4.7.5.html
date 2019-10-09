@@ -3102,33 +3102,56 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133923"><span
-lang=EN-GB>4.7.6<span style='mso-tab-count:1'>      </span>Bearer Control Mode
-in EPC</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The Bearer Control Mode
-(BCM) for E-UTRAN access is always UE/NW. Hence, explicit signalling between
-the UE and the network to determine BCM for E-UTRAN access does not occur.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>GERAN/UTRAN/E-UTRAN capable
-UEs negotiate the BCM of a PDN Connection applicable for GERAN/UTRAN access
-during E-UTRAN Initial Attach and during UE Requested PDN Connectivity
-procedure. Such UEs provide the Network Request Support UE (NRSU) parameter to
-the PDN GW in PCO. The PDN GW derives the BCM applicable to GERAN/UTRAN access
-based on the NRSU and operator policy. The selected BCM, valid for GERAN/UTRAN,
-is provided back to the UE in PCO IE in the E-UTRAN Attach Accept or PDN
-Connectivity Accept message. The selected BCM is also stored in the PDN GW and
-the UE, and applied by UE upon moving to GERAN or UTRAN access unless explicitly
-informed by PDN GW of a change in BCM (see TS&nbsp;23.060&nbsp;[7]) via PCO IE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>In Rel&#8209;8 it was not mandatory for
-GERAN/UTRAN/E-UTRAN capable UEs to provide NRSU to the PDN&nbsp;GW during
-E-UTRAN Initial Attach and UE Requested PDN Connectivity procedure.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>When a GERAN/UTRAN/E-UTRAN
-capable UE moves from UTRAN or GERAN access to E-UTRAN access, it stores the
-BCM used in UTRAN or GERAN access to be used again when the UE moves back to
-UTRAN or GERAN access unless explicitly informed by PDN GW of a change in BCM
-(see TS&nbsp;23.060&nbsp;[7]) via the PCO IE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2295R1_TEI11_\(Rel-11\)" 20120301T0902'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If PCC is deployed, the PDN
-GW requests PCRF to perform BCM selection for the RAT the UE is accessing at IP&#8209;CAN
-session establishment and IP-CAN session modification. The PCRF, determines the
-applicable BCM, based on a number of factors (see TS&nbsp;23.203&nbsp;[6]), and
-informs the PDN&nbsp;GW. If the BCM has changed, the PDN&nbsp;GW informs the UE
-of the new BCM via the PCO IE.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133922"><span
+lang=EN-GB>4.7.5<span style='mso-tab-count:1'>      </span>Application of PCC
+in the Evolved Packet System</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Evolved Packet System applies the PCC framework as defined in TS&nbsp;23.203&nbsp;[6]
+for QoS policy and charging control. PCC functionality is present in the AF,
+PCEF and PCRF.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
+EPS needs to <st1:PersonName w:st="on">support</st1:PersonName> both PCEF and
+PCRF functionality to enable dynamic policy and charging control by means of
+installation of PCC rules based on user and service dimensions. However, an EPS
+may only <st1:PersonName w:st="on">support</st1:PersonName> PCEF functionality
+in which case it shall <st1:PersonName w:st="on">support</st1:PersonName>
+static policy and charging control.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>The local configuration of PCEF static
+policy and charging control functionality is not subject to standardization.
+The PCEF static policy and control functionality is not based on subscription
+information.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+following applies to the use of dynamic policy and charging control in EPS:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>The service level (per SDF) QoS parameters
+are conveyed in PCC rules (one PCC rule per SDF) over the Gx reference point.
+The service level QoS parameters consist of a QoS Class Identifier (QCI)
+Allocation and Retention Priority (ARP) and authorised Guaranteed and Maximum
+Bit Rate values for uplink and downlink. The QCI is a scalar that represents
+the QoS characteristics that the EPS is expected to provide for the SDF. ARP is
+an indicator of the priority for the SDF that is used to decide about the
+assignment of resources due to resource limitations. The service level ARP
+assigned by PCRF in a PCC rule may be different from the bearer level ARP stored
+in subscription data;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>The set of standardized QCIs and their
+characteristics that the PCRF in an EPS can select from is provided in TS&nbsp;23.203&nbsp;[6].
+It is expected that the PCRF selects a QCI in such a way that the IP-CAN
+receiving it can support it;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>It is not required that an IP-CAN supports
+all standardized QCIs;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>In the case of IP address configuration
+subsequent to initial attachment, i.e. through DHCP mechanism to complete the
+IP address configuration, the PDN GW/PCEF shall notify the PCRF of the UE's IP address
+by means of an IP-CAN Session Modification procedure or IP-CAN Session
+Establishment procedure as defined in TS&nbsp;23.203&nbsp;[6] when it is
+assigned. If the PCRF response leads to an EPS bearer modification the PDN GW
+should initiate a bearer update procedure;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>For local breakout, the visited network has
+the capability to reject the QoS authorized by the home network based on
+operator policies.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+following applies regardless of whether dynamic or static policy and charging
+control is used in EPS:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>For E-UTRAN the value of the ARP of an EPS
+bearer is identical to the value of the ARP of the SDF(s) mapped to that EPS
+bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>For the same UE/PDN connection: SDFs
+associated with different QCIs or with the same service-level QCI but different
+ARP shall not be mapped to the same EPS bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>The bearer level QCI of an EPS bearer is
+identical to the value of the QCI of the SDF(s) mapped to that EPS bearer.</span></span></p></body>

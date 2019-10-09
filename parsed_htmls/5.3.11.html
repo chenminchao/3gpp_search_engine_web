@@ -3102,22 +3102,64 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134030"><span
-lang=EN-GB>5.3.12<span style='mso-tab-count:1'>    </span>Update CSG Location Procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-Update CSG Location procedure takes place when the SGSN/MME needs to retrieve
-the CSG subscription information of the UE from the CSS.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1090" type="#_x0000_t75" style='width:300pt;height:149.5pt' o:ole="">
- <v:imagedata src="23401-g30_files/image131.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=400 height=199
-src="23401-g30_files/image132.gif" v:shapes="_x0000_i1090"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1090"
-  DrawAspect="Content" ObjectID="_1631980418">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134026"><span
+lang=EN-GB>5.3.11<span style='mso-tab-count:1'>    </span>UE Reachability procedures</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134027"><span
+lang=EN-GB>5.3.11.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>There are two procedures necessary for any
+service related entity that would need to be notified by the reachability of
+the UE at EPC NAS level:<o:p></o:p></span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1503'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>UE Reachability Notification Request procedure; and</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1503'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>UE Activity Notification procedure.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134028"><span
+lang=EN-GB>5.3.11.2<span style='mso-tab-count:1'>        </span>UE Reachability
+Notification Request procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The UE Reachability Notification Request procedure
+is illustrated in Figure&nbsp;5.3.11.2-1.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1088" type="#_x0000_t75" style='width:288.5pt;height:83.5pt'
+ o:ole="">
+ <v:imagedata src="23401-g30_files/image127.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=385 height=111
+src="23401-g30_files/image128.gif" v:shapes="_x0000_i1088"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1088"
+  DrawAspect="Content" ObjectID="_1631980416">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.12-1: Update CSG Location Procedure</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2149R2_VCSG_\(Rel-11\)" 20111124T1429'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
-1'>   </span>The SGSN/MME sends Update CSG Location Request (MME Identity,
-IMSI, MSISDN) to the CSS. The MSIDSN is included if available.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2149R2_VCSG_\(Rel-11\)" 20111124T1429'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
-1'>   </span>The CSS acknowledges the Update CSG Location message by sending an
-Update CSG Location Ack (IMSI, CSG Subscription data) message to the SGSN/MME.</span></span></p></body>
+5.3.11.2-1: UE Reachability Notification Request Procedure</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1)<span
+style='mso-tab-count:1'>  </span>If a service-related entity requests the HSS
+to provide an indication regarding UE reachability on EPS, the HSS stores the
+service-related entity and sets the URRP-MME parameter to indicate that such
+request is received. If the value of URRP-MME parameter has changed from
+&quot;not set&quot; to &quot;set&quot;, the HSS sends a
+UE-REACHABILITY-NOTIFICATION-REQUEST (URRP-MME) to the MME. If the MME has an
+MM context for that user, the MME sets URRP-MME to indicate the need to report
+to the HSS information regarding changes in UE reachability, e.g. when the next
+NAS activity with that UE is detected.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134029"><span
+lang=EN-GB>5.3.11.3<span style='mso-tab-count:1'>        </span>UE Activity
+Notification procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-language:JA'>The UE Activity Notification procedure is
+illustrated in Figure&nbsp;5.3.11.3-1.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1089" type="#_x0000_t75" style='width:317.5pt;height:145.5pt'
+ o:ole="">
+ <v:imagedata src="23401-g30_files/image129.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=423 height=194
+src="23401-g30_files/image130.gif" v:shapes="_x0000_i1089"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1089"
+  DrawAspect="Content" ObjectID="_1631980417">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.11.3-1: UE Activity Procedure</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1508'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>1)<span style='mso-tab-count:
+1'>  </span>The MME receives an indication regarding UE reachability, e.g. an
+Attach Request message from the UE or MME receive an indication from S&#8209;GW
+that UE has handed over to non-3GPP coverage.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1508'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>2)<span style='mso-tab-count:
+1'>  </span>If the MME contains an MM context of the UE and if URRP-MME for
+that UE is configured to report once that the UE is reachable, the MME shall
+send a UE-Activity-Notification (IMSI, UE-Reachable) message to the HSS and
+clears the corresponding URRP-MME for that UE.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0553R3 20080912T1508'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>3)<span style='mso-tab-count:
+1'>  </span>When the HSS receives the UE-Activity-Notification (IMSI, UE-Reachable)
+message or the Update Location message for an UE that has URRP-MME set, it
+triggers appropriate notifications to the entities that have subscribed to the
+HSS for this notification and clears the URRP-MME for that UE.</span></span></p></body>

@@ -58,9 +58,12 @@ app.get('/details', function (req, res)
 			numbering = values[0] + '.' + values[1] + '.' + values[2]
 		}
 
-		link_html_file = "C:\\3gpp_search_engine\\3gpp_search_engine_web\\parsed_htmls\\" + numbering + ".html"
-		console.log(link_html_file)
-		res.sendFile(link_html_file)
+    html_file = "/" + numbering + ".html"
+    console.log(html_file)
+    res.redirect(html_file)
+		//link_html_file = "C:\\3gpp_search_engine\\3gpp_search_engine_web\\parsed_htmls\\" + numbering + ".html"
+		//console.log(link_html_file)
+		//res.sendFile(link_html_file)
 		//res.render('description', {search_desc : saved_results[id]})
 		/*JSDOM.fromFile("C:\\3gpp_search_engine\\3gpp_search_engine_web\\23401-g30.htm").then(dom => {
   		const window = dom.window;

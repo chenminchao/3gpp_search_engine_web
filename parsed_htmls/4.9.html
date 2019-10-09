@@ -3102,52 +3102,37 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133932"><span
-lang=EN-GB>4.10<span style='mso-tab-count:1'>      </span>Introduction of CIoT
-EPS Optimisations</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>CIoT EPS Optimisations
-provide improved support of small data transfer. One optimisation is based on
-User Plane transport of user data and is referred to as User Plane CIoT EPS
-Optimisation. Another optimisation, known as Control Plane CIoT EPS
-Optimisation, transports user data or SMS messages via MME by encapsulating
-them in NAS, reducing the total number of control plane messages when handling
-a short data transaction. For EPC Mobile Originated Location Request
-(EPC-MO-LR) and EPC Mobile Terminated Location Request (EPC-MT-LR) when the UE
-and network support Control Plane CIoT EPS Optimisation, Control Plane Service
-Request is used. These optimisations can be used separately e.g. if the UE or
-the network supports one of them, or in parallel if the UE and the network
-supports both. If both the Control Plane and User Plane CIoT EPS Optimisations
-are supported for a UE, the PDN connections that only use the Control Plane CIoT
-EPS Optimisation, i.e. the MME has included Control Plane Only Indicator in the
-ESM request, will only be handled via the Control Plane CIoT EPS Optimisation.
-All other PDN connections are handled using Control Plane or User Plane CIoT
-EPS Optimisations. In addition, the Control Plane CIoT Optimisation can be used
-to support PDN connections to an SCEF, while regular S1-U data transfer is used
-independently to support PDN connections to P-GW. The MME shall consistently
-include Control Plane Only Indicator either in all SGi PDN connections of a UE
-or in none of them. All the SGi PDN connections of a UE shall either use S11-U or
-S1-U at any point in time.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The CIoT data could include
-e.g. status information, measurement data from Machine-to-Machine applications.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Several types of MME are
-envisaged, e.g.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>an MME that supports either User Plane or Control Plane CIoT EPS
-Optimisation;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>an MME that supports both User Plane and Control Plane CIoT EPS
-Optimisations;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>an MME that does not support any CIoT EPS Optimisations.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-E-UTRAN shall support the routeing of UEs to an MME that can process the
-request from the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-CIoT EPS Optimisations are negotiated as described in clause&nbsp;4.3.5.10
-&quot;Preferred and Supported Network Behaviour&quot;.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>CIoT
-EPS Optimisations may be supported also by UEs that are not limited to low
-complexity and low throughput applications for Machine Type Communications.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-Control Plane CIoT EPS Optimisation applies, separation of S11-U from S1-U may
-be required, and if required, the MME and the Serving GW shall handle the IP
-address and TEID for the S1-U and the address and TEID for the S11-U
-separately.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>Homogeneous support of separation of S11-U
-from S1-U in the MMEs and Serving GWs is assumed.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133931"><span
+lang=EN-GB>4.9<span style='mso-tab-count:1'>        </span>Paging Policy
+Differentiation</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Paging policy
+differentiation is an optional feature that allows the MME, based on operator
+configuration, to apply different paging strategies as defined in
+clause&nbsp;5.3.4.3 for different traffic or service types provided within the
+same PDN connection.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>When it supports Paging
+Policy Differentiation feature, the Serving GW provides a Paging Policy Indication
+in the Downlink Data Notification. The Paging Policy Indication is based on
+information received with the downlink packet that triggers the Downlink Data
+Notification. For example, as defined in TS&nbsp;23.228&nbsp;[52], the P-CSCF
+may support Paging Policy Differentiation by marking packet(s) to be sent
+towards the UE that relate to specific IMS services (e.g. conversational voice
+as defined in IMS multimedia telephony service).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The PDN GW shall not modify
+the received downlink IP packet e.g. the DSCP (IPv4) / TC (IPv6).
+Unconditionally, for each bearer and for each packet of PDN type IPv4, IPv6 or
+IPv4v6 that triggers a Downlink Data Notification, the SGW shall send the DSCP
+in TOS (IPv4) / TC (IPv6) information received in the IP payload of the GTP-U
+packet from the PDN GW in the Paging Policy Indication in the Downlink Data Notification.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>It shall be possible for
+the operator to configure the MME in such a way that the Paging Policy Indicator
+only applies to certain HPLMNs and/or APNs and/or QCIs.</span></span></p><p class=NO style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Network configuration needs to ensure that the
+information used as a trigger for Paging Policy Indication is not changed
+within the EPS.</span></span></p><p class=NO style='mso-prop-change:"23401_CR2731R7_voE_UTRAN_PPD_\(Rel-13\)" 20141201T1313'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>Network configuration needs to ensure that the
+specific DSCP in TOS (IPv4) / TC (IPv6) value, used as a trigger for Paging
+Policy Indication, is managed correctly in order to avoid the accidental use of
+certain paging policies.</span></span></p></body>

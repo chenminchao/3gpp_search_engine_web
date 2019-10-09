@@ -3102,5 +3102,30 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133929"><span
-lang=EN-GB>4.8<span style='mso-tab-count:1'>        </span>Compatibility Issues</span></a></span></h2></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133928"><span
+lang=EN-GB>4.7.8<span style='mso-tab-count:1'>      </span>Inter-UE QoS for NB-IoT
+UEs using Control Plane CIoT EPS Optimisation</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR3145R2_CIoT_ext_\(Rel-14\)" 20161128T1056'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>To allow the E-UTRAN to
+prioritise resource allocation between different NB-IoT UEs when some of the
+UEs are using the Control Plane CIoT EPS Optimisation, the eNB may request,
+based on configuration, the MME to supply the eNB with the negotiated QoS
+profile for any UE that is using the Control Plane CIoT EPS Optimisation.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3145R2_CIoT_ext_\(Rel-14\)" 20161128T1056'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The QoS profile sent to the
+eNB by the MME consists of the E-RAB Level QoS Parameter in the E-RAB to be
+Setup List IE (see TS&nbsp;36.413&nbsp;[36]).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3145R2_CIoT_ext_\(Rel-14\)" 20161128T1056'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>In order to reduce
+signalling load on the MME, the eNB may be configured to request the QoS
+profile from the MME by using the UE's S-TMSI as identifier, e.g., when the
+eNB's NB-IoT load exceeds certain threshold(s) or when the eNB needs to cache the
+QoS profile.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3145R2_CIoT_ext_\(Rel-14\)" 20161128T1056'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE has more than one
+EPS bearer active, the MME sends QoS profile for only one EPS bearer to the
+eNB. In this case the MME uses local configuration (e.g. considering table
+6.1.7 in TS&nbsp;23.203&nbsp;[6], the MME chooses the non-GBR EPS bearer with
+the QCI corresponding to the highest Priority Level) to determine which EPS
+bearer's QoS to send to the eNB. If the MME has no EPS bearers active for the
+UE, then this fact is indicated to the eNB.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3145R2_CIoT_ext_\(Rel-14\)" 20161128T1056'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The eNB can use the QoS
+profile to assist with resource prioritisation decisions between different
+NB-IoT UEs (irrespective of whether the UE/eNB is using the Control Plane CIoT
+EPS Optimisation, or, the User Plane CIoT EPS Optimisation).</span></span></p></body>

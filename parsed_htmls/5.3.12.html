@@ -3102,47 +3102,22 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134031"><span
-lang=EN-GB>5.3.13<span style='mso-tab-count:1'>    </span>CSS subscription data
-management function procedure</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134032"><span
-lang=EN-GB>5.3.13.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2150R2_VCSG_\(Rel-11\)" 20111124T1431'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The CSS subscription data management function allows the CSS to update the
-CSS subscription data stored in the MME.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2150R2_VCSG_\(Rel-11\)" 20111124T1431'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The CSS subscription data is stored and managed in the MME independently
-from the Subscription Data received from the HSS.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2150R2_VCSG_\(Rel-11\)" 20111124T1431'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Whenever the CSS subscription data is changed for a user in the CSS, and
-the changes affect the CSG subscription information stored in the MME, the MME
-shall be informed about these changes by the means of the following procedure:<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Insert CSG Subscriber Data procedure, used
-to add or modify the CSS subscription data in the MME.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134033"><span
-lang=EN-GB>5.3.13.2<span style='mso-tab-count:1'>        </span>Insert CSG
-Subscriber Data procedure</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The Insert CSG Subscriber Data procedure is
-illustrated in Figure 5.3.13.2-1.<o:p></o:p></span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1091" type="#_x0000_t75" style='width:187.5pt;height:90.5pt'
- o:ole="">
- <v:imagedata src="23401-g30_files/image133.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=250 height=121
-src="23401-g30_files/image134.gif" v:shapes="_x0000_i1091"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1091"
-  DrawAspect="Content" ObjectID="_1631980419">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134030"><span
+lang=EN-GB>5.3.12<span style='mso-tab-count:1'>    </span>Update CSG Location Procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Update CSG Location procedure takes place when the SGSN/MME needs to retrieve
+the CSG subscription information of the UE from the CSS.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1090" type="#_x0000_t75" style='width:300pt;height:149.5pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image131.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=400 height=199
+src="23401-g30_files/image132.gif" v:shapes="_x0000_i1090"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1090"
+  DrawAspect="Content" ObjectID="_1631980418">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.3.13.2-1: Insert CSG Subscriber Data procedure</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2150R2_VCSG_\(Rel-11\)" 20111124T1432'><span
+5.3.12-1: Update CSG Location Procedure</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2149R2_VCSG_\(Rel-11\)" 20111124T1429'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
-1'>   </span>The CSS sends an Insert CSG Subscriber Data (IMSI, CSG
-Subscription Data) message to the MME.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2150R2_VCSG_\(Rel-11\)" 20111124T1432'><span
+1'>   </span>The SGSN/MME sends Update CSG Location Request (MME Identity,
+IMSI, MSISDN) to the CSS. The MSIDSN is included if available.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2149R2_VCSG_\(Rel-11\)" 20111124T1429'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
-1'>   </span>The MME updates the stored CSG Subscription Data and acknowledges
-the Insert CSG Subscriber Data message by returning an Insert CSG Subscriber
-Data Ack (IMSI) message to the CSS. The update result should be contained in
-the Ack message.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2150R2_VCSG_\(Rel-11\)" 20111124T1432'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The MME initiates appropriate action according to the changed
-CSG subscriber data. If the UE is in ECM-CONNECTED state and connected via a
-CSG or hybrid cell, the MME shall check the received CSG subscriber data. If
-the MME detects that the CSG membership to that cell has changed or expired,
-the MME initiates the procedure in clause&nbsp;5.16.</span></span></p></body>
+1'>   </span>The CSS acknowledges the Update CSG Location message by sending an
+Update CSG Location Ack (IMSI, CSG Subscription data) message to the SGSN/MME.</span></span></p></body>

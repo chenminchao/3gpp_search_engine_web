@@ -3102,24 +3102,33 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133901"><span
-lang=EN-GB>4.4.11<span style='mso-tab-count:1'>    </span>CSG Subscriber Server</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1407'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>CSG Subscriber Server (CSS)
-is an optional element that stores CSG subscription data for roaming
-subscribers. The CSS stores and provides VPLMN specific CSG subscription
-information to the MME. The CSS is accessible from the MME via the S7a
-interface. The CSS is always in the same PLMN as the current MME.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1407'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the same CSG ID exists in
-both CSS subscription data and HSS subscription data, the CSG subscription data
-from the HSS shall take precedence over the data from CSS.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1407'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 4.4.11-1 illustrates
-CSS connected to MME.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1038" type="#_x0000_t75" style='width:175pt;height:32pt' o:ole="">
- <v:imagedata src="23401-g30_files/image027.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=233 height=43
-src="23401-g30_files/image028.gif" v:shapes="_x0000_i1038"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1038"
-  DrawAspect="Content" ObjectID="_1631980376">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.4.11-1: CSS connected to MME</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133900"><span
+lang=EN-GB>4.4.10<span style='mso-tab-count:1'>    </span>DeNB</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1631'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>DeNB function is described
+in more detail in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>DeNB
+provides the necessary S/P&#8209;GW functions for the operation of RNs
+connected to the DeNB.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+order to provide the Relay Function the DeNB shall support<span
+style='mso-spacerun:yes'>  </span>the following P-GW functions:</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2027'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>IP address allocation for the UE functionality of the RN;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2027'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Downlink transport level packet mapping between the DSCP value
+used over S1-U of the UE (which is the SGi interface of the PDN GW function in
+the DeNB) and the EPS bearers with an appropriate QCI value and optionally ARP
+priority level value, established between the PDN GW function in the DeNB and
+the UE function of the RN;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2027'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Uplink transport level packet mapping between QCI value and
+optionally ARP priority level value, of the EPS bearers (established between
+the PDN GW function in the DeNB and the UE function of the RN) and the DSCP value
+used over S1-U of the UE (which is the SGi interface of the PDN GW function in
+the DeNB).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+order to provide the Relay Function<span style='mso-spacerun:yes'>  </span>the
+DeNB shall support<span style='mso-spacerun:yes'>  </span>the following S-GW
+functions:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Termination the S11 session of the MME(RN).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2028'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>S-GW functions related to
+ECM-IDLE are not required.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2028'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>S-GW functions related to
+mobility management are not supported.</span></span></p></body>

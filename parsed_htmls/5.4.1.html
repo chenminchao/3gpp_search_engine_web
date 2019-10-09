@@ -3102,6 +3102,175 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134037"><span
-lang=EN-GB>5.4.2<span style='mso-tab-count:1'>      </span>Bearer modification
-with bearer QoS update</span></a></span></h3></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134036"><span
+lang=EN-GB>5.4.1<span style='mso-tab-count:1'>      </span>Dedicated bearer
+activation</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+dedicated bearer activation procedure for a GTP based S5/S8 is depicted in
+figure 5.4.1-1. This procedure shall not be used when the UE is accessing over
+NB-IoT (i.e. RAT Type = NB-IoT).</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1093" type="#_x0000_t75" style='width:6in;height:284.5pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image137.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=379
+src="23401-g30_files/image138.gif" v:shapes="_x0000_i1093"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1093"
+  DrawAspect="Content" ObjectID="_1631980421">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.4.1-1: Dedicated Bearer Activation Procedure</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Steps 3-10 are common for architecture
+variants with GTP based S5/S8 and PMIP-based S5/S8. For an PMIP-based S5/S8,
+procedure steps (A) and (B) are defined in TS&nbsp;23.402&nbsp;[2]. Steps 1, 2,
+11 and 12 concern GTP based S5/S8.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>If dynamic PCC is deployed, the PCRF sends a
+PCC decision provision (QoS policy) message to the PDN GW. This corresponds to
+the initial steps of the PCRF-Initiated IP&#8209;CAN Session Modification
+procedure or to the PCRF response in the PCEF initiated IP-CAN Session
+Modification procedure as defined in TS&nbsp;23.203&nbsp;[6], up to the point
+that the PDN GW requests IP&#8209;CAN Bearer Signalling. The PCC decision
+provision message may indicate that User Location Information and/or UE Time
+Zone Information is to be provided to the PCRF as defined in TS&nbsp;23.203&nbsp;[6].
+If dynamic PCC is not deployed, the PDN GW may apply local QoS policy.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The PDN GW uses this QoS policy to assign the
+EPS Bearer QoS, i.e., it assigns the values to the bearer level QoS parameters
+QCI, ARP, GBR and MBR; see clause 4.7.3. If this dedicated bearer is created as
+part of the handover procedure from non-3GPP access with GTP-based S2a/S2b,
+then the PDN GW applies the Charging Id already in use for the corresponding dedicated
+bearer while the UE was in non-3GPP access (i.e bearer with the same QCI and
+ARP as in non-3GPP access). Otherwise, the PDN GW generates a Charging Id for
+the dedicated bearer. The PDN GW sends a Create Bearer Request message (IMSI, PTI,
+EPS Bearer QoS, Maximum Packet Loss Rate (UL, DL), TFT, S5/S8 TEID, Charging
+Id, LBI, Protocol Configuration Options) to the Serving GW</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>,</span><span lang=EN-GB> the Linked EPS </span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>B</span><span lang=EN-GB>earer </span></span><span style='mso-bookmark:
+historyclause'><span lang=EN-GB style='mso-fareast-language:ZH-CN'>I</span><span
+lang=EN-GB>dentity </span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-fareast-language:ZH-CN'>(LBI) is the </span><span
+lang=EN-GB>EPS Bearer Identity of the default bearer. The Procedure Transaction
+Id (PTI) parameter is only used when the procedure was initiated by a UE </span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-bidi-font-family:
+Arial'>Requested Bearer Resource Modification Procedure - see clause 5.4.5.
+Protocol Configuration Options may be used to transfer application level
+parameters between the UE and the PDN GW (see TS&nbsp;23.228&nbsp;[52]), and
+are sent transparently through the MME and the Serving GW.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>The PCO is sent in the dedicated bearer
+activation procedure either in response to a PCO received from the UE, or
+without the need to send a response to a UE provided PCO e.g. when the network
+wants the bearer to be dedicated for IMS signalling.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>For a QCI=1 bearer, the Maximum Packet
+Loss Rate (UL, DL) may be provided by the PDN GW as described in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span
+style='mso-tab-count:1'>   </span>The Serving GW sends the Create Bearer
+Request (IMSI, PTI, EPS Bearer QoS, Maximum Packet Loss Rate (UL, DL), TFT,
+S1-TEID, PDN GW TEID (GTP-based S5/S8), LBI, Protocol Configuration Options)
+message to the MME. If the UE is in ECM-IDLE state the MME will trigger the
+Network Triggered Service Request from step 3 (which is specified in clause
+5.3.4.3). In that case the following steps 4-7 may be combined into Network
+Triggered Service Request procedure or be performed stand-alone. The MME checks
+if the UE can support the establishment of additional user plane radio bearer
+based on the maximum number of user plane radio bearers indicated by NB-IoT UE
+in the UE Network Capability IE as defined in clause&nbsp;5.11.3 and for WB-E-UTRAN
+in clause&nbsp;4.12.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the UE is in ECM-IDLE state and
+extended idle mode DRX is enabled for the UE, the MME will trigger Network
+Triggered Service Request from step&nbsp;3 (which is specified in
+clause&nbsp;5.3.4.3), and start a timer which is configured to a value smaller
+than the GTP re-transmission timer. If the MME receives no response from the UE
+before the timer expires, the MME sends a Create Bearer Response with a
+rejection cause indicating that the UE is temporarily not reachable due to
+power saving and, if a Delay Tolerant Connection indication was set for the PDN
+connection, the MME sets the internal flag Pending Network Initiated PDN
+Connection Signalling. The rejection is forwarded by the Serving GW to the PDN
+GW. In this case, the steps 4-11 are skipped.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>If ISR is activated and the Serving GW does
+not have a downlink S1-U and the SGSN has notified the Serving GW that the UE
+has moved to PMM-IDLE or STANDBY state, the Serving GW sends Downlink Data
+Notification to trigger MME and SGSN to page the UE (as specified in
+clause&nbsp;5.3.4.3) before sending the Create Bearer Request message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span
+style='mso-tab-count:1'>   </span>The MME </span></span><span style='mso-bookmark:
+historyclause'><span lang=EN-GB style='mso-fareast-language:ZH-CN'>selects an
+EPS Bearer Identity, which has not yet been assigned to the UE. The MME then </span><span
+lang=EN-GB>builds a Session Management Request including the PTI, TFT, EPS Bearer
+QoS parameters (excluding ARP)</span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-fareast-language:ZH-CN'>, Protocol Configuration Options,
+the EPS Bearer Identity,</span><span lang=EN-GB> the Linked EPS Bearer Identity</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'> (LBI) and a WLAN offloadability indication</span><span lang=EN-GB>. If
+the UE has UTRAN or GERAN capabilities and the network supports mobility to
+UTRAN or GERAN, the MME uses the EPS bearer QoS parameters to derive the
+corresponding PDP context parameters QoS Negotiated (R99 QoS profile), Radio
+Priority, Packet Flow Id and TI and includes them in the Session Management
+Request. If the UE indicated in the UE Network Capability it does not support
+BSS packet flow procedures, then the MME shall not include the Packet Flow Id.
+The MME then signals the Bearer Setup Request (EPS Bearer Identity, EPS Bearer
+QoS, Maximum Packet Loss Rate (UL, DL), Session Management Request, S1-TEID)
+message to the eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME may include an indication whether
+the traffic of this PDN Connection is allowed to be offloaded to WLAN as described
+in clause&nbsp;4.3.23.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>The eNodeB maps the EPS Bearer QoS to the
+Radio Bearer QoS. It then signals a RRC Connection Reconfiguration (Radio
+Bearer QoS, Session Management Request</span></span><span style='mso-bookmark:
+historyclause'><span lang=EN-GB style='mso-fareast-language:ZH-CN'>, EPS RB
+Identity</span><span lang=EN-GB>) message to the UE. The UE shall store the QoS
+Negotiated, Radio Priority, Packet Flow Id and TI, which it received in the
+Session Management Request, for use when accessing via GERAN or UTRAN. The UE
+NAS stores the EPS Bearer Identity and links the dedicated bearer to the
+default bearer indicated by the Linked EPS Bearer Identity</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'> (LBI)</span><span lang=EN-GB>. The UE uses the uplink packet filter (UL
+TFT) to determine the mapping of traffic flows to the radio bearer. The UE may
+provide the EPS Bearer QoS parameters to the application handling the traffic
+flow. The application usage of the EPS Bearer QoS is implementation dependent.
+The UE shall not reject the RRC Connection Reconfiguration on the basis of the
+EPS Bearer QoS parameters contained in the Session Management Request.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>How the eNB uses the Maximum Packet Loss Rate
+(UL, DL) for handover threshold decision, if provided, is out of scope of 3GPP
+specifications.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>The details of the Radio Bearer QoS are
+specified in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span
+style='mso-tab-count:1'>   </span>The UE acknowledges the radio bearer
+activation to the eNodeB with a RRC Connection Reconfiguration Complete
+message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span
+style='mso-tab-count:1'>   </span>The eNodeB acknowledges the bearer activation
+to the MME with a Bearer Setup Response (</span></span><span style='mso-bookmark:
+historyclause'><span lang=EN-GB style='mso-fareast-language:ZH-CN'>EPS Bearer
+Identity, </span><span lang=EN-GB>S1-TEID) message. The eNodeB indicates whether
+the requested EPS Bearer QoS could be allocated or not.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME shall be prepared to receive this
+message either before or after the Session Management Response message (sent in
+step&nbsp;9).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span
+style='mso-tab-count:1'>   </span>The UE NAS layer builds a Session Management
+Response including EPS Bearer Identity. The UE then sends a Direct Transfer
+(Session Management Response) message to the eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>9.<span
+style='mso-tab-count:1'>   </span>The eNodeB sends an Uplink NAS Transport
+(Session Management Response) message to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>10.<span
+style='mso-tab-count:1'> </span>Upon reception of the Bearer Setup Response message
+in step 7 and the Session Management Response message in step 9, the MME
+acknowledges the bearer activation to the Serving GW by sending a Create Bearer
+Response (</span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-fareast-language:ZH-CN'>EPS Bearer Identity, </span><span
+lang=EN-GB>S1-TEID, User Location Information (ECGI)) message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>11.<span
+style='mso-tab-count:1'> </span>The Serving GW acknowledges the bearer
+activation to the PDN GW by sending a Create Bearer Response (</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>EPS Bearer Identity, </span><span lang=EN-GB>S5/S8-TEID, User Location
+Information (ECGI)) message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>12.<span
+style='mso-tab-count:1'> </span>If the dedicated bearer activation procedure
+was triggered by a PCC Decision Provision message from the PCRF, the PDN GW
+indicates to the PCRF whether the requested PCC decision (QoS policy) could be
+enforced or not, allowing the completion of the PCRF-Initiated IP&#8209;CAN
+Session Modification procedure or the PCEF initiated IP-CAN Session Modification
+procedure as defined in TS&nbsp;23.203&nbsp;[6], after the completion of IP&#8209;CAN
+bearer signalling. If requested by the PCRF the PDN&nbsp;GW indicates User
+Location Information and/or UE Time Zone Information to the PCRF as defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the dedicated bearer activation is
+rejected with a cause indicating that the UE is temporarily not reachable due
+to power saving, then the PDN GW re-attempts the same procedure after it
+receives the indication that the is UE available for end to end signalling in
+the subsequent Modify Bearer Request message.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
+style='mso-tab-count:1'>  </span>The exact signalling of step 1 and 12 (e.g.
+for local break-out) is outside the scope of this specification. This signalling
+and its interaction with the dedicated bearer activation procedure are to be
+specified in TS&nbsp;23.203&nbsp;[6]. Steps 1 and 12 are included here only for
+completeness.</span></span></p></body>

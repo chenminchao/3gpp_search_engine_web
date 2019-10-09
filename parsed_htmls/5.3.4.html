@@ -3102,78 +3102,644 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133994"><span
-lang=EN-GB>5.3.4A<span style='mso-tab-count:1'>    </span>Connection Suspend
-procedure</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
-procedure is used by the network to suspend the connection if the UE and the
-network support User Plane CIoT EPS Optimisation (see TS&nbsp;36.300&nbsp;[5]).</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1071" type="#_x0000_t75" style='width:410.5pt;height:191pt' o:ole="">
- <v:imagedata src="23401-g30_files/image093.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=547 height=255
-src="23401-g30_files/image094.gif" v:shapes="_x0000_i1071"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1071"
-  DrawAspect="Content" ObjectID="_1631980400">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133990"><span
+lang=EN-GB>5.3.4<span style='mso-tab-count:1'>      </span>Service Request
+procedures</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133991"><span
+lang=EN-GB>5.3.4.1<span style='mso-tab-count:1'>          </span>UE triggered
+Service Request</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1069" type="#_x0000_t75" style='width:466pt;height:305.5pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image089.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=621 height=407
+src="23401-g30_files/image090.gif" v:shapes="_x0000_i1069"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1069"
+  DrawAspect="Content" ObjectID="_1631980398">
  </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 5.3.4A-1:
-eNodeB initiated Connection Suspend procedure</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span style='mso-tab-count:
-1'>   </span>The eNodeB initiates the Connection Suspend procedure to the MME,
-see TS&nbsp;36.413&nbsp;[36]. The eNodeB indicates to the MME that the UE's RRC
-connection is to be suspended upon which MME enters ECM-IDLE. Data related to the
-S1AP association, UE Context and bearer context, necessary to resume the
-connection is kept in the eNB, UE and the MME.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.4.1-1: UE triggered Service Request procedure</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Service Request procedure in this clause&nbsp;is triggered by the UE in
+ECM-IDLE status to establish user plane radio bearers for the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+UE in ECM-IDLE state can also use this procedure to establish user plane radio
+bearers even if the UE applies Control Plane CIoT EPS Optimisation, when the UE
+and MME supports S1-U data transfer or User Plane EPS Optimisation in addition
+to Control Plane CIoT EPS Optimisation.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>For a PMIP-based S5/S8, procedure steps (A)
+are defined in TS&nbsp;23.402&nbsp;[2]. Steps&nbsp;9 and 11 concern GTP-based
+S5/S8.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>The UE sends NAS message Service Request
+towards the MME encapsulated in an RRC message to the eNodeB. The RRC
+message(s) that can be used to carry the S-TMSI and this NAS message are described
+in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The eNodeB forwards NAS message to MME. NAS
+message is encapsulated in an S1-AP: Initial UE Message (NAS message, TAI+ECGI
+of the serving cell, S-TMSI, CSG ID, CSG access Mode, RRC establishment cause).
+Details of this step are described in TS&nbsp;36.300&nbsp;[5]. If the MME can't
+handle the Service Request it will reject it. CSG ID is provided if the UE
+sends the Service Request message via a CSG cell or a hybrid cell. CSG access
+mode is provided if the UE sends the Service Request message via a hybrid cell.
+If the CSG access mode is not provided but the CSG ID is provided, the MME
+shall consider the cell as a CSG cell.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If a CSG ID is indicated and CSG access
+mode is not provided, and there is no subscription data for this CSG ID and associated
+PLMN or the CSG subscription is expired, the MME rejects the Service Request
+with an appropriate cause. The UE shall remove the CSG ID and associated PLMN
+of the cell where the UE has initiated the service request procedure from the
+Allowed CSG list, if present.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>For UEs with emergency EPS bearers, i.e.
+at least one EPS bearer has an ARP value reserved for emergency services, if
+CSG access restrictions do not allow the UE to get normal services the MME
+shall deactivate all non-emergency bearers and accept the Service Request.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If LIPA is active for a PDN connection and
+if the cell accessed by the UE does not link to the L-GW where the UE
+inititiated the LIPA PDN Connection, the MME shall not request the establishment
+of the bearers of the LIPA PDN connection from the eNodeB in step&nbsp;4 and
+shall request disconnection of the LIPA PDN connection according to
+clause&nbsp;5.10.3. If the UE has no other PDN connection then the MME shall
+reject the Service Request with an appropriate cause value resulting in the UE
+detaching, skip the following steps of the procedure and initiate the release
+of the core network resources with the implicit MME-initiated Detach procedure
+according to clause&nbsp;5.3.8.3.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If there is a &quot;Availability after DDN
+Failure&quot; monitoring event or a &quot;UE Reachability&quot; monitoring
+event configured for the UE in the MME, the MME sends an event notification
+(see TS&nbsp;23.682&nbsp;[74] for further information).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>To assist Location Services, the eNB
+indicates the UE's Coverage Level to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span
+style='mso-tab-count:1'>   </span>NAS authentication/security procedures as
+defined in clause&nbsp;5.3.10 on &quot;Security function&quot; may be performed.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the MME is configured to support RLOS
+and the UE indicated Attach Type &quot;RLOS&quot;, based on local regulation
+and operator policy, the MME may skip the authentication and security setup, or
+the MME may perform authentication if security information is available or
+obtainable from a HSS, and continue the Service Request procedure regardless of
+the authentication result.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span
+style='mso-tab-count:1'>   </span>If there is a Service Gap timer running in the
+MME MM Context for the UE and the MME is not waiting for a MT paging response
+from the UE, the MME rejects the Service Request with an appropriate cause. In
+addition, MME may also provide a UE with a Mobility Management Back-off timer
+set to the remaining value of the Service Gap timer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME deletes S11-U related information
+in UE context if there is any, including TEID(DL) for the S11-U for Control
+Plane CIoT EPS Optimisation if data buffering is in the MME, ROHC context for
+Control Plane CIoT EPS Optimisation, etc, but not the Header Compression
+Configuration. The MME sends S1-AP Initial Context Setup Request (Serving GW
+address, S1-TEID(s) (UL), EPS Bearer QoS(s), Security Context, MME Signalling
+Connection Id, Handover Restriction List, CSG Membership Indication) message to
+the eNodeB. If there is a PDN connection established for Local IP Access, this
+message includes a Correlation ID for enabling the direct user plane path
+between the HeNB and the L-GW. If there is a PDN connection established for SIPTO
+at the Local Network with L-GW function collocated with the (H)eNB, this message
+includes a SIPTO Correlation ID for enabling the direct user plane path between
+the (H)eNB and the L&#8209;GW. This step activates the radio and S1 bearers for
+all the active EPS Bearers. The eNodeB stores the Security Context, MME
+Signalling Connection Id, EPS Bearer QoS(s) and S1-TEID(s) in the UE RAN
+context. The step is described in detail in TS&nbsp;36.300&nbsp;[5]. Handover
+Restriction List is described in clause 4.3.5.7 &quot;Mobility Restrictions&quot;.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>In this release of the 3GPP specification the
+Correlation ID and SIPTO Correlation ID is set equal to the user plane PDN GW
+TEID (GTP-based S5) or GRE key (PMIP-based S5) which is specified in clause&nbsp;5.3.2.1
+and clause&nbsp;5.10.2.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the UE included support for restriction
+of use of Enhanced Coverage, the MME sends Enhanced Coverage Restricted
+parameter to the eNB in the S1-AP message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME shall only request to establish
+Emergency EPS Bearer if the UE is not allowed to access the cell where the UE
+initiated the service request procedure due to CSG access restriction.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Service Request is performed via a
+hybrid cell, CSG Membership Indication indicating whether the UE is a CSG
+member shall be included in the S1-AP message from the MME to the RAN. Based on
+this information the RAN can perform differentiated treatment for CSG and
+non-CSG members.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If RACS is supported and MME has UE Radio
+Capability ID in UE context, it signals the UE Radio Capability ID to the eNB
+as defined in clause&nbsp;5.11.3a. If the eNB does not have mapping between the
+specific UE Radio Capability ID and the UE radio capabilities, it shall use the
+procedure described in TS&nbsp;36.413&nbsp;[36] to retrieve the mapping from
+the Core Network.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>The eNodeB performs the radio bearer
+establishment procedure. The user plane security is established at this step,
+which is described in detail in TS&nbsp;36.300&nbsp;[5]. When the user plane
+radio bearers are setup. EPS bearer state synchronization is performed between
+the UE and the network, i.e. the UE shall locally remove any EPS bearer for
+which no radio bearers are setup and, if the radio bearer for a default EPS
+bearer is not established, the UE shall locally deactivate all EPS bearers
+associated to that default EPS bearer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span
+style='mso-tab-count:1'>   </span>The uplink data from the UE can now be
+forwarded by eNodeB to the Serving GW. The eNodeB sends the uplink data to the
+Serving GW address and TEID provided in the step 4. The Serving GW forwards the
+uplink data to the PDN&nbsp;GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span
+style='mso-tab-count:1'>   </span>The eNodeB sends an S1-AP message Initial
+Context Setup Complete (eNodeB address, List of accepted EPS bearers, List of
+rejected EPS bearers, S1 TEID(s) (DL)) to the MME. This step is described in
+detail in TS&nbsp;36.300&nbsp;[5]. If the Correlation ID or SIPTO Correlation
+ID is included in step&nbsp;4, the eNodeB shall use the included information to
+establish a direct user plane path to the L-GW and forward uplink data for
+Local IP Access or SIPTO at the Local Network with L-GW function collocated
+with the (H)eNB accordingly.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span
+style='mso-tab-count:1'>   </span>The MME sends a Modify Bearer Request message
+(eNodeB address, S1 TEID(s) (DL) for the accepted EPS bearers, Delay Downlink
+Packet Notification Request, RAT Type, MO Exception data counter) per PDN
+connection to the Serving GW. If the Serving GW supports Modify Access Bearers
+Request procedure and if there is no need for the Serving GW to send the signalling
+to the PDN GW, the MME may send Modify Access Bearers Request (eNodeB
+address(es) and TEIDs for downlink user plane for the accepted EPS bearers,
+Delay Downlink Packet Notification Request) per UE to the Serving GW to optimise
+the signalling. The Serving GW is now able to transmit downlink data towards
+the UE. The usage of the Delay Downlink Packet Notification Request Information
+Element is specified in clause 5.3.4.2 below. If the PDN GW requested UE's
+location and/or User CSG information and the UE's location and/or User CSG
+information has changed, the MME also includes the User Location Information IE
+and/or User CSG Information IE in this message. If ISR is activated or if the
+Serving Network IE has changed compared to the last reported Serving Network IE
+then the MME also includes the Serving Network IE in this message. If the UE
+Time Zone has changed compared to the last reported UE Time Zone then the MME
+shall include the UE Time Zone IE in this message. If the internal flag Pending
+Network Initiated PDN Connection Signalling is set, the MME indicates UE available
+for end to end signalling in the Modify Bearer Request message and reset the
+flag.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME only includes the MO Exception
+data counter if the RRC establishment cause is set to &quot;MO exception
+data&quot; and the UE is accessing via the NB-IoT RAT. The MME maintains the MO
+Exception Data Counter for Serving PLMN Rate Control purposes (see
+clause&nbsp;4.7.7.2). The MME may immediately send the MO Exception Data
+Counter to the Serving GW. Alternatively, in order to reduce signalling, the
+MME may send the MO Exception Data Counter to the Serving GW as described in TS&nbsp;29.274&nbsp;[43].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME and the Serving GW clears the DL
+Data Buffer Expiration Time in their UE contexts if it was set, to remember
+that any DL data buffered for a UE using power saving functions has been delivered
+and to avoid any unnecessary user plane setup in conjunction with a later TAU.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If a default EPS bearer is not accepted by
+the eNodeB, all the EPS bearers associated to that default bearer shall be
+treated as non-accepted bearers. The MME releases the non-accepted bearers by
+triggering the bearer release procedure as specified in clause&nbsp;5.4.4.2. If
+the Serving GW receives a DL packet for a non-accepted bearer, the Serving GW
+drops the DL packet and does not send a Downlink Data Notification to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>9.<span
+style='mso-tab-count:1'>   </span>If the RAT Type has changed compared to the
+last reported RAT Type or if the UE's Location and/or Info IEs and/or UE Time
+Zone and/or if ISR is not activated and Serving Network id and/or the indication
+UE available for end to end signalling are present in step&nbsp;8, the Serving
+GW shall send the Modify Bearer Request message (RAT Type, MO Exception data
+counter) per PDN connection to the PDN GW. User Location Information IE and/or
+User CSG Information IE and/or Serving Network IE and/or UE Time Zone and/or
+the indication UE available for end to end signalling are also included if they
+are present in step&nbsp;8.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Modify Bearer Request message is
+not sent because of above reasons and the PDN GW charging is paused, then the
+SGW shall send a Modify Bearer Request message with PDN Charging Pause Stop
+Indication to inform the PDN GW that the charging is no longer paused. Other
+IEs are not included in this message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Modify Bearer Request message is
+not sent because of above reasons but the MME indicated the MO Exception data
+counter, then the Serving Gateway should notify the PDN GW that this RRC
+establishment cause has been used by the MO Exception Data Counter (see TS&nbsp;29.274&nbsp;[43]).
+The Serving GW indicates each use of this RRC establishment cause by the
+related counter on its CDR.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>10.<span
+style='mso-tab-count:1'> </span>If dynamic PCC is deployed, the PDN GW
+interacts with the PCRF to get the PCC rule(s) according to the RAT Type by
+means of a PCEF initiated IP&#8209;CAN Session Modification procedure as defined
+in TS&nbsp;23.203&nbsp;[6]. If dynamic PCC is not deployed, the PDN GW may
+apply local QoS policy.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The PDN GW indicates each use of the RRC
+establishment cause &quot;MO Exception Data&quot; by the related counter on its
+CDR.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>11.<span
+style='mso-tab-count:1'> </span>The PDN GW sends the Modify Bearer Response to
+the Serving GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>12.<span
+style='mso-tab-count:1'> </span>The Serving GW shall return a Modify Bearer
+Response (Serving GW address and TEID for uplink traffic) to the MME as a
+response to a Modify Bearer Request message, or a Modify Access Bearers Response
+(Serving GW address and TEID for uplink traffic) as a response to a Modify
+Access Bearers Request message. If the Serving GW cannot serve the MME Request
+in the Modify Access Bearers Request message without S5/S8 signalling other
+than to unpause charging in the PDN GW or without corresponding Gxc signalling
+when PMIP is used over the S5/S8 interface, it shall respond to the MME with
+indicating that the modifications are not limited to S1-U bearers, and the MME
+shall repeat its request using a Modify Bearer Request message per PDN connection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If SIPTO at the Local Network is active
+for a PDN connection with stand-alone GW deployment and the Local Home Network
+ID for stand-alone accessed by the UE differs from the Local Home Network ID
+where the UE initiated the SIPTO@LN PDN Connection, the MME shall request
+disconnection of the SIPTO at the local network PDN connection(s) with the
+&quot;reactivation requested&quot; cause value according to clause&nbsp;5.10.3.
+If the UE has no other PDN connection, the MME initiated &quot;explicit detach
+with reattach required&quot; procedure according to clause&nbsp;5.3.8.3.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If SIPTO at the Local Network is active
+for a PDN connection with collocated LGW deployement and the L-GW CN address of
+the cell accessed by the UE differs from the L-GW CN address of the cell where
+the UE initiated the SIPTO at the Local Network PDN Connection, the MME shall
+request disconnection of the SIPTO at the local network PDN connection(s) with
+the &quot;reactivation requested&quot; cause value according to
+clause&nbsp;5.10.3. If the UE has no other PDN connection, the MME initiated
+&quot;explicit detach with reattach required&quot; procedure according to
+clause&nbsp;5.3.8.3.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133992"><span
+lang=EN-GB>5.3.4.2<span style='mso-tab-count:1'>          </span>Handling of
+abnormal conditions in UE triggered Service Request</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Under
+certain conditions, the current UE triggered Service Request procedure can
+cause unnecessary Downlink Packet Notification messages which increase the load
+of the MME.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>This
+can occur when uplink data sent in step 6 causes a response on the downlink
+which arrives at the Serving GW before the Modify Bearer Request message, step
+8. This data cannot be forwarded from the Serving GW to the eNodeB and hence it
+triggers a Downlink Data Notification message.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the MME receives a Downlink Data Notification after step 2 and before step 9,
+the MME shall not send S1 interface paging messages. However, across all the
+UEs on that MME, the MME shall monitor the rate at which these events occur. If
+the rate becomes significant (as configured by the operator) and the MME's load
+exceeds an operator configured value, the MME shall indicate &quot;Delay
+Downlink Packet Notification Request&quot; with parameter D to the Serving
+Gateway, where D is the requested delay given as an integer multiple of
+50&nbsp;ms, or zero. The Serving GW then uses this delay in between receiving
+downlink data and sending the Downlink Data Notification message.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>A low rate of reception of Downlink Data
+Notifications between steps 2 and 9 should be considered a normal circumstance,
+e.g. due to the chance that a UE Terminating call/session is initiated at
+roughly the same time as the UE triggered Service Request procedure.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>It is recommended that this rate is determined
+over 60&nbsp;second periods.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+MME shall use the step 8 Modify Access Bearers Request or Modify Bearer Request
+of the UE initiated Service Request procedure to indicate &quot;Delay Downlink
+Packet Notification Request&quot; to the Serving GW.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>To
+determine the amount of delay requested by a given MME, the Serving GW either
+uses the last Modify Access Bearers Request or Modify Bearer Request message
+which is part of a Service Request procedure, or, just uses one of the Service
+Request procedure's Modify Access Bearers Request or Modify Bearer Request
+messages received within the preceding 30&nbsp;seconds. The latter mode of
+operation shall be taken into account when implementing the MME.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+MME is responsible for setting the value of D. The exact algorithm for setting
+the value is implementation dependent, two examples are given below to serve as
+a guideline:</span></span></p><p class=EX><span style='mso-bookmark:historyclause'><span lang=EN-GB>EXAMPLE
+1:<span style='mso-tab-count:1'>     </span>The MME adaptively increases the
+value of D when the rate of unnecessary Downlink Data Notifications is too
+high; and correspondingly it decreases the value when the rate is not too high.</span></span></p><p class=EX><span style='mso-bookmark:historyclause'><span lang=EN-GB>EXAMPLE
+2:<span style='mso-tab-count:1'>     </span>When unnecessary Downlink Data
+Notifications arrive, the MME measures the average time from the reception of
+the unnecessary Downlink Data Notification to the reception of the Modify
+Access Bearers Request or Modify Bearer Response from the Serving GW in the
+same UE triggered Service Request Procedure. The value of D is calculated from
+this average, by adding a safety margin.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
+style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>Normally, upon
+receipt of a downlink data packet for which there is no DL-TEID of the S1 user
+plane tunnel, the S&#8209;GW shall send the</span><span lang=EN-GB> Downlink
+Data Notification message to the MME without delay.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the S&#8209;GW determines from the last Modify Access Bearers Request or Modify
+Bearer Request message which is part of a Service Request procedure that a
+given MME request delaying of the Downlink Packet Notification by a delay of D,
+it shall (only for UEs of that MME) buffer the Downlink Data for a period D. If
+the DL-TEID and eNodeB address for the UE is received before the expiry of the
+timer, the timer shall be cancelled and the Network triggered Service Request
+procedure is finished without sending the Downlink Data Notification message to
+the MME, i.e. DL data are sent to the UE. Otherwise </span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
+Batang;mso-fareast-language:KO'>the </span><span lang=EN-GB>Downlink Data Notification
+message is sent to the MME when the timer expires</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
+Batang;mso-fareast-language:KO'>.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>The above procedure and indicated time values
+are intended to ensure that the procedure is &quot;stable&quot;; avoids RAN
+impacts; and, that the negative impacts of shortening the DRX interval on UE
+battery life are avoided.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133993"><span
+lang=EN-GB>5.3.4.3<span style='mso-tab-count:1'>          </span>Network
+Triggered Service Request</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1070" type="#_x0000_t75" style='width:431.5pt;height:235pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image091.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=575 height=313
+src="23401-g30_files/image092.gif" v:shapes="_x0000_i1070"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1070"
+  DrawAspect="Content" ObjectID="_1631980399">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.3.4.3-1: Network triggered Service Request procedure</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the MME needs to signal with the UE that is in ECM-IDLE state, e.g. to perform
+the MME/HSS-initiated detach procedure for the ECM-IDLE mode UE or the S&#8209;GW
+receives control signalling (e.g. Create Bearer Request or Update Bearer
+Request), the MME starts network triggered service request procedure from step
+3a in the Network Triggered Service request procedure.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the MME wishes to use the Control Plane CIoT EPS Optimisation for mobile
+terminating services, then the procedure of clause&nbsp;5.3.4B.3 is used to
+replace the procedure of this clause.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+ISR is activated, when the Serving GW receives a Create Bearer Request or
+Update Bearer Request for a UE, and the S&#8209;GW does not have a downlink
+S1-U and the SGSN has notified the Serving GW that the UE has moved to PMM-IDLE
+or STANDBY state, the Serving GW buffers signalling messages and sends a
+Downlink Data Notification to trigger the MME and SGSN to page the UE. If the
+Serving GW, while waiting for the user plane to be established, is triggered to
+send a second Downlink Data Notification with higher priority (i.e. ARP priority
+level) than the first Downlink Data Notification was sent with, the Serving GW
+sends a new Downlink Data Notification message indicating the higher priority
+to the MME. If the Serving GW receives additional downlink signalling messages
+for a bearer with same or lower priority than the first Downlink Data
+Notification was sent for or if the Serving GW has sent the second Downlink
+Data Notification message indicating the higher priority and receives
+additional downlink signalling messages for this UE, the Serving GW buffers
+these downlink signalling messages and does not send a new Downlink Data
+Notification. The S&#8209;GW will be notified about the current RAT type based
+on the UE triggered service request procedure. The S&#8209;GW will go on executing
+the dedicated bearer activation or dedicated bearer modification procedure,
+i.e. send the corresponding buffered signalling to MME or SGSN which UE resides
+in now and inform the current RAT type to the PDN GW if the RAT type has been changed
+compared to the last reported RAT Type. If dynamic PCC is deployed, the current
+RAT type information shall also be conveyed from the PDN GW to the PCRF. If the
+PCRF response leads to an EPS bearer modification the PDN GW should initiate a
+bearer update procedure as specified in clause&nbsp;5.4.2.1 below.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+the Serving GW sends a Downlink Data Notification, it shall include both EPS
+Bearer ID and ARP. If the Downlink Data Notification is triggered by the
+arrival of downlink data packets at the Serving GW, the Serving GW shall
+include the EPS Bearer ID and ARP associated with the bearer on which the
+downlink data packet was received. If the Downlink Data Notification is
+triggered by the arrival of control signalling, the Serving GW shall include
+the EPS Bearer ID and ARP if present in the control signalling. If the ARP is not
+present in the control signalling, the Serving GW shall include the ARP in the
+stored EPS bearer context.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+a LIPA PDN connection exists, when the L-GW receives the downlink data for a UE
+that is in ECM-IDLE state, the L-GW sends the first downlink user packet to
+Serving GW and buffers all other downlink user packets. The Serving GW will
+trigger the MME to page the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>When the Serving GW receives a downlink data
+packet/control signalling for a UE known as not user plane connected (i.e. the
+S&#8209;GW context data indicates no downlink user plane TEID)</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
+Batang;mso-fareast-language:KO'>, it</span><span lang=EN-GB> buffers the
+downlink data packet and identifies which MME or SGSN is serving that UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If that MME has requested the Serving GW
+to throttle downlink low priority traffic and if the downlink data packet is
+received on a low priority bearer to be throttled (see clause&nbsp;4.3.7.4.1a),
+the SGW drops the downlink data. The steps below are not executed.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If that MME has requested the S&#8209;GW
+to delay sending the Downlink Data Notification (see clause 5.3.4.2 on
+&quot;Handling of abnormal conditions in UE triggered Service Request&quot;),
+the Serving GW buffers the downlink data and waits until the timer expires
+before continuing with step 2. If the DL-TEID and eNodeB address for that UE is
+received before the expiry of the timer, the timer shall be cancelled and the
+Network triggered Service Request procedure is finished without executing the
+steps below, i.e. DL data are sent to the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Serving GW receives additional
+downlink data packets/control signalling for this UE before the expiry of the
+timer, the Serving GW does not restart this timer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The Serving GW sends a Downlink Data
+Notification message (ARP, EPS Bearer ID, Paging Policy Indication) to the MME
+and SGSN nodes for which it has control plane connectivity for the given UE.
+The ARP and EPS Bearer ID are always set in Downlink Data Notification. The MME
+and SGSN respond to the S&#8209;GW with a Downlink Data Notification Ack
+message. When supporting Paging Policy Differentiation, the Serving GW
+indicates in the message the Paging Policy Indication related to the downlink
+data that triggered the Downlink Data Notification message, as described in
+clause&nbsp;4.9.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The ARP, the EPS Bearer ID and optionally the
+Paging Policy Indication are sent to the SGSN as well as MME, but the usage of
+these parameters at SGSN is not specified in this release of the specification.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>An MME and an SGSN that detects that the
+UE is in a power saving state (e.g. Power Saving Mode or extended idle mode DRX)
+and cannot be reached by paging at the moment, shall invoke extended buffering
+depending on operator configuration, except for cases described in next
+paragraphs. MME/SGSN derives the expected time before radio bearers can be
+established to the UE. The MME/SGSN then indicates DL Buffering Requested to
+the Serving GW in the Downlink Data Notification Ack message and includes a DL
+Buffering Duration time and optionally a DL Buffering Suggested Packet Count.
+The MME/SGSN stores a new value for the DL Data Buffer Expiration Time in the
+MM context for the UE based on the DL Buffering Duration time and skips the
+remaining steps of this procedure. The DL Data Buffer Expiration Time is used
+for UEs using power saving state and indicates that there are buffered data in
+the Serving GW and that the user plane setup procedure is needed when the UE
+makes signalling with the network. When the DL Data Buffer Expiration Time has
+expired, the MME/SGSN considers no DL data to be buffered and no indications of
+Buffered DL Data Waiting are sent during context transfers at TAU procedures.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If there is a &quot;Availability after DDN
+Failure&quot; monitoring event configured for the UE in the MME/SGSN, the
+MME/SGSN does not invoke extended buffering. Instead, the MME/SGSN sets the
+Notify-on-available-after-DDN-failure flag to remember to send an
+&quot;Availability after DDN Failure&quot; notification when the UE becomes
+available. If there is a &quot;UE Reachability&quot; monitoring event
+configured for the UE in the MME/SGSN, the MME/SGSN should not need to invoke
+extended buffering.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>When &quot;Availability after DDN
+failure&quot; and &quot;UE reachability&quot; monitoring events are used for a
+UE, the application server is assumed to send data when the UE is reachable or
+about to become reachable, hence no extended buffering is needed. If there are
+multiple application servers, the event notifications and extended buffering
+may be needed simultaneously. It is assumed this is handled through additional
+information based on SLA as described in the next paragraph.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME/SGSN may use additional
+information based on a SLA with the MTC user for when to invoke extended
+buffering, e.g. only invoke it for a certain APN, do not invoke it for certain
+subscribers, invoke extended buffering in conjunction with &quot;Availability
+after DDN failure&quot; and &quot;UE reachability&quot; monitoring events, etc.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>A Serving GW that receives a DL Buffering
+Requested indication in a Downlink Data Notification Ack message stores a new
+value for the DL Data Buffer Expiration Time based on the DL Buffering Duration
+time and does not send any additional Downlink Data Notification if subsequent
+downlink data packets are received in the Serving GW before the buffer time DL
+Data Buffer Expiration Time has expired for the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Serving GW, while waiting for the
+user plane to be established, is triggered to send a second Downlink Data
+Notification for a bearer with higher priority (i.e. ARP priority level) than
+the first Downlink Data Notification was sent for, the SGW sends a new Downlink
+Data Notification message indicating the higher priority to the MME. If the
+Serving GW receives additional downlink data packets for a bearer with same or
+lower priority than the first Downlink Data Notification was sent for or if the
+Serving GW has sent the second Downlink Data Notification message indicating
+the higher priority and receives additional downlink data packets for this UE,
+the Serving GW buffers these downlink data packets and does not send a new
+Downlink Data Notification.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Serving GW, while waiting for the
+user plane to be established, receives a Modify Bearer Request message from MME
+or SGSN other than the one it sent a Downlink Data Notification message to, the
+Serving GW re-sends the Downlink Data Notification message only to the new MME
+or SGSN from which it received the Modify Bearer Request message even if ISR is
+active.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Tracking Area Update procedure with
+MME change or the Routing Area Update procedure is in progress when the old MME
+receives a Downlink Data Notification message, the old MME may reject a
+Downlink Data Notification message with an indication that the Downlink Data
+Notification message has been temporarily rejected.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>Similarly, if the Routing Area Update
+procedure with SGSN change or the Tracking Area Update procedure is in progress
+when the old SGSN receives a Downlink Data Notification message, the old SGSN
+may reject a Downlink Data Notification message with an indication that the Downlink
+Data Notification message has been temporarily rejected.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>Upon reception of a Downlink Data Notification
+Ack message with an indication that the Downlink Data Notification message has
+been temporarily rejected and if the Downlink Data Notification is triggered by
+the arrival of downlink data packets at the Serving GW, the Serving GW may
+start a locally configured guard timer and buffers all downlink user packets
+received to the given UE and waits for a Modify Bearer Request message to come.
+Upon reception of a Modify Bearer Request message, the Serving GW re-sends the
+Downlink Data Notification message only to the new MME or SGSN from which it
+received the Modify Bearer Request message even if ISR is active. Otherwise the
+Serving GW releases buffered downlink user packets at expiry of the guard timer
+or receiving the Delete Session Request message from MME/SGSN.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>Upon reception of a Downlink Data
+Notification Ack message with an indication that the Downlink Data Notification
+message has been temporarily rejected and if the Downlink Data Notification is
+triggered by the arrival of signalling messages at the Serving GW, the Serving
+GW may reject the PDN GW initiated EPS bearer(s) request with the same
+indication that the request has been temporarily rejected. Upon reception of a
+rejection for an EPS bearer(s) PDN GW initiated procedure with an indication
+that the request has been temporarily rejected, the PDN GW may start a locally
+configured guard timer. The PDN GW may re-attempt, up to a pre-configured
+number of times, when either it detects the UE accesses via a new SGW or at
+expiry of the guard timer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3a.<span
+style='mso-tab-count:1'> </span>If the UE is registered in the MME and
+considered reachable for paging, the MME sends a Paging message (NAS ID for
+paging, TAI(s), UE identity based DRX index, Paging DRX length, list of CSG IDs
+for paging, Paging Priority indication, Enhanced Coverage Restricted, CE mode B
+Restricted) to each eNodeB belonging to the tracking area(s) in which the UE is
+registered. The step is described in detail in TS&nbsp;36.300&nbsp;[5] and TS&nbsp;36.413&nbsp;[36].
+Steps 3-4 are omitted if the MME already has a signalling connection over
+S1-MME towards the UE but the S1-U tunnel has not yet been established.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If extended idle mode DRX is enabled for
+the UE, the MME pages the UE just before the occurrence of the UE's next paging
+occasion, which is determined as described in TS&nbsp;23.682&nbsp;[74].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>Steps 3a and 4a are performed also when the UE
+and the network support User Plane CIoT EPS Optimisation and the previous RRC
+connection has been suspended.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>Paging priority indication is included
+only:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>if the MME receives a Downlink Data Notification
+or Create Bearer Request with an ARP priority level associated with MPS or
+other priority services, as configured by the operator.</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>One Paging Priority level can be used for
+multiple ARP priority level values. The mapping of ARP priority level values to
+Paging Priority level (or levels) is configured by operator policy.</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>During a congestion situation the eNodeB
+may prioritise the paging of UEs according to the Paging Priority indications.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the MME, while waiting for a UE response
+to the Paging Request message sent without Paging Priority indication, receives
+an Update Bearer Request, Create Bearer Request or Downlink Data Notification,
+any of which indicates an ARP priority level associated with MPS or other priority
+services, as configured by the operator, the MME shall send another paging
+message with the suitable Paging Priority.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>When the MME is configured to support CSG
+paging optimisation in the CN, the MME should avoid sending Paging messages to
+those eNodeB(s) with CSG cells for which the UE does not have a CSG subscription.
+When the MME is configured to support CSG paging optimisation in the HeNB
+Subsystem, the list of CSG IDs for paging is included in the Paging message.
+For CSG paging optimisation, the CSG IDs of expired CSG subscriptions and valid
+CSG subscriptions are both included in the list. If the UE has emergency bearer
+service the MME shall not perform the CSG paging optimisation.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>An expired CSG subscription indicates that the
+UE is not allowed service in the CSG. However, since the removal of the CSG from
+the UE is pending, it is possible the UE will camp on that CSG and therefore
+the UE is still paged for the CSG.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>The eNodeB reports to the MME the CSG ID
+supported. For More detail of this procedure refer to TS&nbsp;36.413&nbsp;[36].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>When the MME supports SIPTO at Local
+Network and LIPA paging for traffic arriving on the PDN connection with L-GW
+function collocated with the (H)eNB the MME should only page this (H)eNB to
+avoid sending Paging messages to eNodeB(s) that are not handling this specific
+PDN connection.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>Paging strategies may be configured in the
+MME for different combinations of APN, Paging Policy Indication from SGW when
+available (see clause&nbsp;4.9) and other EPS bearer context information e.g.
+QCI. APN and any EPS bearer context information are identified by EPS bearer ID
+received in Downlink Data Notification. Paging strategies may include:</span></span></p><p class=B2 style='mso-prop-change:"23401_CR1706R2_TEI10_\(Rel-10\)" 20100917T1741'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>paging retransmission scheme (e.g. how frequently the paging is
+repeated or with what time interval);</span></span></p><p class=B2 style='mso-prop-change:"23401_CR1706R2_TEI10_\(Rel-10\)" 20100917T1741'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>determining whether to send the Paging message to the eNodeBs
+during certain MME high load conditions;</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>whether to apply sub-area based paging (e.g.
+first page in the last known ECGI or TA and retransmission in all registered
+TAs).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If extended idle mode DRX was enabled in the
+UE, the MME may additionally take into account the Paging Time Window length
+for paging retransmission schemes.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;6:<span
+style='mso-tab-count:1'>  </span>The Paging priority in the Paging message is
+set based on priority level of the ARP IE received in Downlink Data
+Notification or Create/Update Bearer Request message and is independent from
+any paging strategy.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME and the E-UTRAN may support
+further paging optimisations in order to reduce the signalling load and the
+network resources used to successfully page a UE by one or several following
+means:</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>by the MME implementating specific paging
+strategies (e.g. the S1 Paging message is sent to the eNB that served the UE
+last);</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>by the MME considering Information On
+Recommended Cells And ENBs provided by the E-UTRAN at transition to ECM IDLE.
+The MME takes the eNB related part of this information into account to
+determine the eNBs to be paged, and provides the information on recommended
+cells within the S1 Paging message to each of these eNBs;</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>by the E-UTRAN considering the Paging Attempt
+Count Information provided by the MME at paging.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>When implementing such
+optimisations/strategies, the MME shall take into account any PSM active timer
+and the DRX interval for the UE.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the UE Radio Capability for Paging Information
+is available in the MME, the MME adds the UE Radio Capability for Paging
+Information in the S1 Paging message to the eNB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Information On Recommended Cells
+And ENBs For Paging is available in the MME, the MME shall take that information
+into account to determine the eNBs for paging and, when paging an eNB, the MME
+may transparently convey the information on recommended cells to the eNB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME may include in the S1AP Paging
+message(s) the paging attempt count information. The paging attempt count
+information shall be the same for all eNBs selected by the MME for paging.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the MME has Information for Enhanced
+Coverage stored and Enhanced Coverage is not restricted then the MME shall
+include Information for Enhanced Coverage in the Paging message for all eNBs selected
+by the MME for paging. For including the Enhanced Coverage Restricted parameter
+in the paging message, see clause&nbsp;4.3.28.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>For including the CE mode B Restricted
+parameter in the Paging message, see clause&nbsp;4.3.27a.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3b.<span
+style='mso-tab-count:1'> </span>If the UE is registered in the SGSN, the SGSN
+sends paging messages to RNC/BSS, which is described in detail in TS&nbsp;23.060&nbsp;[7].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4a.<span
+style='mso-tab-count:1'> </span>If eNodeBs receive paging messages from the
+MME, the UE is paged by the eNodeBs. The step is described in detail in TS&nbsp;36.300&nbsp;[5]
+and TS&nbsp;36.304&nbsp;[34].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4b.<span
+style='mso-tab-count:1'> </span>If RNC/BSS nodes receive paging messages from
+the SGSN the UE is paged by the RNSC/BSS, which is described in detail in TS&nbsp;23.060&nbsp;[7].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>When UE is in the ECM-IDLE state, upon
+reception of paging indication in E-UTRAN access, the UE initiates the UE
+triggered Service Request procedure (clause&nbsp;5.3.4.1) or, if the UE is
+enabled to use User Plane CIoT EPS Optimisation and there is suspended access
+stratum context stored in the UE, the UE initiates the Connection Resume procedure
+(clause&nbsp;5.3.5A). If the MME already has a signalling connection over
+S1-MME towards the UE but the S1-U tunnel has not yet been established, then
+the messages sequence performed start from the step when MME establishes the
+bearer(s).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>Upon reception of paging indication in
+UTRAN or GERAN access, the MS shall respond in respective access as specified TS&nbsp;24.008&nbsp;[47]
+and the SGSN shall notify the S&#8209;GW.</span></span></p><p class=B1 style='mso-prop-change:23401CR0177R6 20080527T1711'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The eNodeB may include the Information On Recommended Cells And
-eNBs For Paging in the S1 UE Context Suspend Request message. If available, the
-MME shall store this information to be used when paging the UE.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
+1'>      </span>The MME and/or SGSN supervises the paging procedure with a
+timer. If the MME and/or SGSN receives no response from the UE to the Paging
+Request message, it may repeat the paging according to any applicable paging
+strategy described in step&nbsp;2.</span></span></p><p class=B1 style='mso-prop-change:23401CR0177R6 20080527T1711'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The eNB includes Information for Enhanced Coverage, if
-available, in the S1 UE Context Suspend Request message.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If the PLMN has configured secondary RAT reporting and the
-eNodeB has Secondary RAT usage data to report, the Secondary RAT usage data is
-included.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>If Service Gap Control is being applied to the UE (see
-clause&nbsp;4.3.17.9) and the Service Gap timer is not already running, the
-Service Gap timer shall be started in the MME when entering ECM-IDLE, unless
-the connection was initiated after a paging of an MT event, or after a TAU
-procedure without any active flag or signalling active flag set.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>1a-d.<span
-style='mso-tab-count:1'>   </span>If the eNodeB provided Secondary RAT usage
-data in step&nbsp;1 and if PGW secondary RAT usage data reporting is active,
-the MME initiates the Secondary RAT usage data reporting procedure in
-clause&nbsp;5.7A.3 as illustrated in figure 5.7A.3-2.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span style='mso-tab-count:
-1'>   </span>The MME sends a Release Access Bearers Request (Secondary RAT
-usage data) message to the Serving GW that requests the release of all S1-U
-bearers for the UE. If Secondary RAT usage data was received in step&nbsp;1,
-Secondary RAT usage data is included in this message. The message indicates
-that the SGW is the target for the reporting.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span style='mso-tab-count:
-1'>   </span>The Serving GW releases all eNodeB related information (address
-and downlink TEIDs) for the UE and responds with a Release Access Bearers
-Response message to the MME. Other elements of the UE's Serving GW context are
-not affected. If downlink packets arrive for the UE, the Serving GW starts buffering
-downlink packets received for the UE and initiating the &quot;Network Triggered
-Service Request&quot; procedure, described in clause&nbsp;5.3.4.3.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>Based on operator policy any received
-Indication of &quot;Abnormal Release of Radio Link&quot; may be used by Serving
-GW in subsequent decisions to trigger PDN charging pause if the feature has
-been enabled on that PDN.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>      </span>The Serving GW informs the MME in the Release Access Bearer
-Response message about release of S1-U bearers.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span style='mso-tab-count:
-1'>   </span>The MME sends an S1AP: UE Context Suspend Response message to the
-eNB to successfully terminate the Connection Suspend procedure initiated by the
-eNB, see TS&nbsp;36.413&nbsp;[36].</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1743'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span style='mso-tab-count:
-1'>   </span>The eNodeB sends RRC message to suspend the RRC Connection towards
-the UE, see TS&nbsp;36.300&nbsp;[5]).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
-style='mso-tab-count:1'>      </span>If Service Gap Control is being applied
-for the UE (see clause&nbsp;4.3.17.9) and the Service Gap timer is not already
-running, the Service Gap timer shall be started in the UE when entering
-ECM-IDLE, unless the connection was initiated as a response to paging of an MT
-event, or after a TAU procedure without any active flag or signalling active
-flag set.</span></span></p></body>
+1'>      </span>If the MME and/or SGSN receives no response from the UE after
+this paging repetition procedure, it shall use the Downlink Data Notification
+Reject message to notify the Serving GW about the paging failure, if paging was
+triggered by a Downlink Data Notification message, unless the MME or SGSN is
+aware of an ongoing MM procedure that prevents the UE from responding, i.e. the
+MME or SGSN received a Context Request message indicating that the UE performs
+TAU or RAU procedure with another MME or SGSN. If paging was triggered by
+control signalling from the Serving GW and if the MME or SGSN receives no
+response from the UE after this paging repetition procedure, the MME or SGSN
+shall reject that control signalling. When a Downlink Data Notification Reject
+message is received, if ISR is not activated, the Serving GW deletes the
+buffered packet(s). If ISR is activated and the Serving GW receives Downlink
+Data Notification Reject message from both SGSN and MME, the Serving GW deletes
+the buffered packet(s) or rejects the control signalling which triggers the
+Service Request procedure. The Serving GW may invoke the procedure PDN GW Pause
+of Charging (clause&nbsp;5.3.6A) if UE is in ECM IDLE and the PDN GW has
+enabled &quot;PDN charging pause&quot; feature.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;7:<span
+style='mso-tab-count:1'>  </span>The Serving GW may initiate the procedure PDN GW
+Pause of Charging at any time before step&nbsp;5 if the UE is in ECM IDLE and
+the PDN GW has indicated that the feature is enabled for this PDN. See
+clause&nbsp;5.3.6A.</span></span></p><p class=B1 style='mso-prop-change:23401CR0177R6 20080527T1711'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>6a.<span style='mso-tab-count:
+1'> </span>If ISR is activated and paging response is received in E&#8209;UTRAN
+access the Serving GW sends a &quot;Stop Paging&quot; message to the SGSN.</span></span></p><p class=B1 style='mso-prop-change:23401CR0177R6 20080527T1711'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>6b.<span style='mso-tab-count:
+1'> </span>If ISR is activated and paging response is received in UTRAN or
+GERAN access the Serving GW sends a &quot;Stop Paging&quot; message to the MME.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Serving GW transmits downlink data towards the UE via the RAT which performed
+the Service Request procedure.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
+a LIPA PDN connection, after the UE enters connected mode, the packets buffered
+in the L-GW are forwarded to the HeNB on the direct path. If the UE enters
+connected mode at a different cell than the one where the L-GW is colocated,
+the MME shall deactivate the LIPA PDN connection as defined in
+clause&nbsp;5.3.4.1 step&nbsp;2.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+the network triggered service request fails due to no response from the UE,
+then MME and/or SGSN may based on operator policy initiate the Dedicated Bearer
+Deactivation procedure for preserved GBR bearers. For details, see
+clause&nbsp;5.4.4.2 for MME and TS&nbsp;23.060&nbsp;[7] for SGSN.</span></span></p></body>

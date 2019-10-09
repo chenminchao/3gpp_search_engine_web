@@ -3102,8 +3102,23 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133961"><span
-lang=EN-GB>5.2.2<span style='mso-tab-count:1'>      </span>Globally Unique
-Temporary UE Identity</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-MME shall allocate a Globally Unique Temporary Identity (GUTI) to the UE. The
-GUTI is defined in TS&nbsp;23.003&nbsp;[9].</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133960"><span
+lang=EN-GB>5.2.1<span style='mso-tab-count:1'>      </span>EPS bearer identity</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>An
+EPS bearer identity uniquely identifies an EPS bearer for one UE accessing via
+E-UTRAN. The EPS Bearer Identity is allocated by the MME. When using an EPS
+Radio Bearer, there is a one to one mapping between EPS RB and EPS Bearer, and
+the mapping between EPS RB Identity and EPS Bearer Identity is made by E-UTRAN.
+The E-RAB ID value used at S1 and X2 interfaces to identify an E-RAB is the
+same as the EPS Bearer ID value used to identify the associated EPS Bearer.
+When using Control Plane CIoT EPS Optimisation for user data transport for the
+PDN connectivity service, the MME (for uplink) and UE (for downlink) uses the
+EPS Bearer Identity contained within the NAS PDUs to identify the associated
+EPS bearer.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>When
+there is a mapping between an EPS bearer and a PDP context, the same identity
+value is used for the EPS bearer ID and the NSAPI/RAB ID.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+some SM signalling messages in GERAN/UTRAN, transaction identifier (TI)
+represents NSAPI. The TI is dynamically allocated by the UE for UE-requested
+PDP context activation, and by the network for network-requested PDP context
+activation. A corresponding allocation is also needed for EPS Bearers in order
+to successfully transfer Bearers to GERAN/UTRAN. The TI is deallocated when a
+PDP context/EPS Bearer has been deactivated. TI usage is defined in TS&nbsp;23.060&nbsp;[7].</span></span></p></body>

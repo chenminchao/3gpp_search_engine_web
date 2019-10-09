@@ -3102,33 +3102,63 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133900"><span
-lang=EN-GB>4.4.10<span style='mso-tab-count:1'>    </span>DeNB</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR1995R2_\(Rel-10\)" 20110314T1631'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>DeNB function is described
-in more detail in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>DeNB
-provides the necessary S/P&#8209;GW functions for the operation of RNs
-connected to the DeNB.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
-order to provide the Relay Function the DeNB shall support<span
-style='mso-spacerun:yes'>  </span>the following P-GW functions:</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2027'><span
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133899"><span
+lang=EN-GB>4.4.9<span style='mso-tab-count:1'>      </span>HeNB subsystem</span></a></span></h3><p class=MsoNormal style='mso-prop-change:23401_CR1038R2 20090610T1118'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>A HeNB subsystem consists
+of a HeNB, optionally a HeNB GW and optionally a Local GW.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR1038R2 20090610T1118'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The Local IP Access and
+SIPTO at the Local Network with L-GW function collocated with the HeNB
+functions are achieved using a Local GW (L-GW) colocated with the HeNB.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR1038R2 20090610T1118'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 4.4.9-1 illustrates
+the architecture for LIPA and/or SIPTO at the Local Network with L-GW function
+collocated with the HeNB.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1037" type="#_x0000_t75" style='width:392.5pt;height:197.5pt'
+ o:ole="">
+ <v:imagedata src="23401-g30_files/image025.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=523 height=263
+src="23401-g30_files/image026.gif" v:shapes="_x0000_i1037"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1037"
+  DrawAspect="Content" ObjectID="_1631980375">
+ </o:OLEObject>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+4.4.9-1: Architecture for LIPA or SIPTO at the Local Network with L-GW
+collocated with the HeNB</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The optional HeNB GW is not shown in the
+figure for simplicity.</span></span></p><p class=MsoNormal style='mso-prop-change:23401_CR1038R2 20090610T1118'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The HeNB subsystem is
+connected by means of the standard S1 interface to the EPC (Evolved Packet
+Core), more specifically to the MME (Mobility Management Entity) by means of the
+S1-MME interface and to the Serving Gateway (S-GW) by means of the S1-U
+interface. When LIPA or SIPTO at the Local Network with L-GW function
+collocated with the HeNB is activated, the L-GW has a S5 interface with the
+S-GW.</span></span></p><p class=NO style='mso-prop-change:23401_CR1038R2 20090610T1118'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>In this specification and for simplification
+the term eNodeB refers to the HeNB subsystem if the UE accesses the network via
+a HeNB unless stated otherwise.</span></span></p><p class=NO style='mso-prop-change:23401_CR1038R2 20090610T1118'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>Detailed functions of HeNB and HeNB GW are
+described in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>An L-GWcollocated with a HeNB may support
+LIPA, or SIPTO@LN, or both.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+Local GW is the gateway towards the IP networks (e.g. residential/enterprise
+networks, Internet) associated with the HeNB. The Local GW has the following
+PDN GW functions:</span></span></p><p class=B1 style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1510'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>IP address allocation for the UE functionality of the RN;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2027'><span
+1'>    </span>UE IP address allocation;</span></span></p><p class=B1 style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1510'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Downlink transport level packet mapping between the DSCP value
-used over S1-U of the UE (which is the SGi interface of the PDN GW function in
-the DeNB) and the EPS bearers with an appropriate QCI value and optionally ARP
-priority level value, established between the PDN GW function in the DeNB and
-the UE function of the RN;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2027'><span
+1'>    </span>DHCPv4 (server and client) and DHCPv6 (client and server)
+functions;</span></span></p><p class=B1 style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1510'><span
 style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>    </span>Uplink transport level packet mapping between QCI value and
-optionally ARP priority level value, of the EPS bearers (established between
-the PDN GW function in the DeNB and the UE function of the RN) and the DSCP value
-used over S1-U of the UE (which is the SGi interface of the PDN GW function in
-the DeNB).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
-order to provide the Relay Function<span style='mso-spacerun:yes'>  </span>the
-DeNB shall support<span style='mso-spacerun:yes'>  </span>the following S-GW
-functions:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Termination the S11 session of the MME(RN).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2028'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>S-GW functions related to
-ECM-IDLE are not required.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2100R3_TEI10_\(Rel-10\)" 20110602T2028'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>S-GW functions related to
-mobility management are not supported.</span></span></p></body>
+1'>    </span>Packet screening;</span></span></p><p class=B1 style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1510'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>Functionality as defined in RFC 4861&nbsp;[32].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Additionally,
+the Local GW has the following functions:</span></span></p><p class=B1 style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1510'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>ECM-IDLE mode downlink packet buffering;</span></span></p><p class=B1 style='mso-prop-change:"\.23401_CR1638R4_LIPA_SIPTO_\(Rel-10\)" 20100917T1510'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>ECM-CONNECTED mode direct tunnelling towards the HeNB.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>The architecture for SIPTO at the Local Network
+with L-GW function collocated with a HeNB depicted in Figure 4.4.9-1 also
+applies to SIPTO at the Local Network with L-GW function collocated with an
+eNB.</span></span></p></body>

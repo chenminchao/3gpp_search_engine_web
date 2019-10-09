@@ -3102,89 +3102,31 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133907"><span
-lang=EN-GB>4.6.2<span style='mso-tab-count:1'>      </span>Definition of main
-EPS Mobility Management states</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133908"><span
-lang=EN-GB>4.6.2.1<span style='mso-tab-count:1'>          </span>EMM-DEREGISTERED</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
-the </span></span><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>EMM</span><span
-lang=EN-GB>&#8209;DEREGISTERED state</span></span><span style='mso-bookmark:
-historyclause'><span lang=EN-GB style='mso-fareast-font-family:Batang;
-mso-fareast-language:KO'>,</span><span lang=EN-GB> the EMM context in </span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
-Batang;mso-fareast-language:KO'>MME</span><span lang=EN-GB> holds no valid
-location or routing information for the </span></span><span style='mso-bookmark:
-historyclause'><span lang=EN-GB style='mso-fareast-font-family:Batang;
-mso-fareast-language:KO'>UE.</span><span lang=EN-GB> The </span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
-Batang;mso-fareast-language:KO'>UE</span><span lang=EN-GB> is not reachable by
-a </span></span><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>MME</span><span
-lang=EN-GB>, as the </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>UE</span><span
-lang=EN-GB> location is not known.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
-the EMM-DEREGISTERED state, some UE context can still be stored in </span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
-Batang;mso-fareast-language:KO'>the UE and </span><span lang=EN-GB>MME</span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
-Batang;mso-fareast-language:KO'>, e.g. to avoid running an AKA procedure during
-every Attach procedure.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>During
-the successful Inter-RAT TAU/RAU/handover procedure and ISR activated is not
-indicated to the UE, the old S4 SGSN/old MME changes the EMM state of the UE to
-GPRS-IDLE/PMM-DETACHED/EMM-DEREGISTERED.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133909"><span
-lang=EN-GB>4.6.2.2<span style='mso-tab-count:1'>          </span>EMM-REGISTERED</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-UE enters the EMM-REGISTERED state by a successful registration with an Attach
-procedure to either E-UTRAN or GERAN/UTRAN. The MME enters the EMM-REGISTERED
-state by a successful Tracking Area Update procedure for a UE selecting an E-UTRAN
-cell from GERAN/UTRAN or by an Attach procedure via E-UTRAN. In the EMM-REGISTERED
-state, the UE can receive services that require registration in the EPS.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>The UE employs a single combined state
-machine for EMM and GMM states.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-UE location is known in the MME to at least an accuracy of the tracking area
-list allocated to that UE (excluding some abnormal cases).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
-the EMM-REGISTERED state, the </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>UE</span><span
-lang=EN-GB> shall:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:Batang'>-<span style='mso-tab-count:1'>    </span>always
-have at least one active PDN connection (unless the UE supports &quot;Attach
-without PDN connectivity&quot;);<o:p></o:p></span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:Batang'>-<span style='mso-tab-count:1'>    </span>setup
-the EPS security context.<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>After performing
-the D</span><span lang=EN-GB>etach </span></span><span style='mso-bookmark:
-historyclause'><span lang=EN-GB style='mso-fareast-font-family:Batang;
-mso-fareast-language:KO'>procedure, </span><span lang=EN-GB>the state is
-changed to </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>EMM-</span><span
-lang=EN-GB>DEREGISTERED in the </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>UE</span><span
-lang=EN-GB> and in the </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>MME</span><span
-lang=EN-GB>. Upon receiving </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>the </span><span
-lang=EN-GB>TAU Reject and Attach Reject</span></span><span style='mso-bookmark:
-historyclause'><span lang=EN-GB style='mso-fareast-font-family:Batang;
-mso-fareast-language:KO'> messages the actions of the UE and MME depend upon
-the 'cause value' in the reject message, but, in many cases the state is </span><span
-lang=EN-GB>changed to </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>EMM-</span><span
-lang=EN-GB>DEREGISTERED in the </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>UE</span><span
-lang=EN-GB> and in the </span></span><span style='mso-bookmark:historyclause'><span
-lang=EN-GB style='mso-fareast-font-family:Batang;mso-fareast-language:KO'>MME</span><span
-lang=EN-GB>.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-all the bearers belonging to a UE that does not support &quot;Attach without
-PDN connectivity&quot; are released (e.g., after handover from E&#8209;UTRAN to
-non-3GPP access), the MME shall change the MM state of that UE to EMM-DEREGISTERED.
-If the UE that does not support &quot;Attach without PDN connectivity&quot;
-camps on E-UTRAN and the UE detects that all of its bearers are released, the
-UE shall change the MM state to EMM-DEREGISTERED. If all the bearers (PDP
-contexts) belonging to a UE are released, while the UE camps on GERAN/UTRAN,
-the UE shall deactivate ISR by setting its TIN to &quot;P-TMSI&quot; as specified
-in TS&nbsp;23.060&nbsp;[7]. This ensures that the UE performs Tracking Area
-Update when it re-selects E-UTRAN. If the UE switches off its E&#8209;UTRAN
-interface when performing handover to non-3GPP access, the UE shall
-automatically change its MM state to EMM-DEREGISTERED.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-MME may perform an implicit detach any time after the Implicit Detach timer
-expires. The state is changed to EMM-DEREGISTERED in the MME after performing
-the implicit detach.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133906"><span
+lang=EN-GB>4.6.1<span style='mso-tab-count:1'>      </span>General</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+EPS Mobility Management (EMM) states describe the Mobility Management states
+that result from the mobility management procedures e.g. Attach and Tracking
+Area Update procedures.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Two
+EMM states are described in this document:</span></span></p><p class=B1 style='mso-prop-change:23401_CR0485R3 20081021T1123'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>EMM-DEREGISTERED.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0485R3 20081021T1123'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>EMM-REGISTERED.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>Other specifications may define more detailed
+EMM states (see e.g. TS&nbsp;24.301&nbsp;[46]).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+EPS Connection Management (ECM) states describe the signalling connectivity
+between the UE and the EPC.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Two
+ECM states are described in this document:</span></span></p><p class=B1 style='mso-prop-change:23401_CR0485R3 20081021T1124'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>ECM-IDLE.</span></span></p><p class=B1 style='mso-prop-change:23401_CR0485R3 20081021T1124'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>ECM-CONNECTED.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>The ECM-CONNECTED and ECM-IDLE states used in
+this document correspond respectively to the EMM-CONNECTED and EMM-IDLE modes
+defined in TS&nbsp;24.301&nbsp;[46].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>In
+general, the ECM and EMM states are independent of each other. Transition from
+EMM-REGISTERED to EMM-DEREGISTERED can occur regardless of the ECM state, e.g.
+by explicit detach signalling in ECM-CONNECTED or by implicit detach locally in
+the MME during ECM-IDLE. However there are some relations, e.g. to transition
+from EMM-DEREGISTERED to EMM-REGISTERED the UE has to be in the ECM-CONNECTED
+state.</span></span></p></body>

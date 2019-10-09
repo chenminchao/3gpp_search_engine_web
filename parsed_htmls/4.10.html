@@ -3102,54 +3102,52 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133933"><span
-lang=EN-GB>4.11<span style='mso-tab-count:1'>      </span>User Plane CIoT EPS Optimisation</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The User Plane CIoT EPS Optimisation
-functionality enables support for transfer of user plane data without the need
-for using the Service Request procedure to establish Access Stratum (AS) context
-in the serving eNodeB and UE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>If the following
-preconditions are met:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UE and MME support User Plane CIOT EPS
-Optimisation as defined in clause&nbsp;4.3.5.10,</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>MME indicates &quot;UE User Plane CIoT
-Support Indicator&quot; IE to &quot;supported&quot; as defined in TS&nbsp;36.413&nbsp;[36],</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>and the UE performs an initial connection
-establishment that establishes the AS bearers and the AS security context in
-the network and UE,</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>then the RRC connection can
-be suspended by means of a Connection Suspend Procedure (see
-clause&nbsp;5.3.4A).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Based on trigger from the
-NAS layer when UE is in ECM-IDLE including if it attempts to send data using
-Control Plane CIoT EPS Optimisation as defined in clause&nbsp;5.3.4B, the UE
-shall attempt the Connection Resume procedure, see clause&nbsp;5.3.5A and TS&nbsp;24.301&nbsp;[46].
-If the Connection Resume procedure fails, the UE initiates the pending NAS
-procedure, see TS&nbsp;24.301&nbsp;[46]. To maintain support for User Plane
-CIoT EPS Optimisation at UE mobility between cells configured on different
-eNodeBs, the AS Context should be transferred between the eNodeBs, see TS&nbsp;36.300&nbsp;[5]
-and TS&nbsp;36.423&nbsp;[76].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>By using the Connection
-Suspend procedure, see clause&nbsp;5.3.5A and TS&nbsp;36.300&nbsp;[5]:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>the UE at transition into ECM-IDLE stores
-the AS information;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>the eNodeB stores the AS information, the
-S1AP association and the bearer context for that UE;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>MME stores the S1AP association and the
-bearer context for that UE and enters ECM-IDLE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>In the context of this
-functionality, the UE and the eNodeB store the relevant AS information at
-transition into ECM-IDLE.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2930R11_CIoT_\(Rel-13\)" 20160305T1739'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>By using the Connection
-Resume procedure, see clause&nbsp;5.3.5A and TS&nbsp;36.300&nbsp;[5]:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>the UE resumes the connection with the
-network using the AS information stored during the Connection Suspend procedure;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>the, potentially new, eNodeB notifies the
-MME that the connection with the UE has been securely resumed and the MME enters
-ECM-CONNECTED.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-a MME has a S1AP association stored for a UE and the MME receives for that UE a
-EMM procedure over another UE-associated logical S1-connection or at Tracking
-Area Update procedure with MME change, or SGSN Context Request, when the UE has
-re-attached, or when the UE has been Detached, the MME and the previously
-involved eNodeB shall delete that stored S1AP association using the S1 Release
-procedure, see clause&nbsp;5.3.5 and TS&nbsp;36.413&nbsp;[36].</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133932"><span
+lang=EN-GB>4.10<span style='mso-tab-count:1'>      </span>Introduction of CIoT
+EPS Optimisations</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>CIoT EPS Optimisations
+provide improved support of small data transfer. One optimisation is based on
+User Plane transport of user data and is referred to as User Plane CIoT EPS
+Optimisation. Another optimisation, known as Control Plane CIoT EPS
+Optimisation, transports user data or SMS messages via MME by encapsulating
+them in NAS, reducing the total number of control plane messages when handling
+a short data transaction. For EPC Mobile Originated Location Request
+(EPC-MO-LR) and EPC Mobile Terminated Location Request (EPC-MT-LR) when the UE
+and network support Control Plane CIoT EPS Optimisation, Control Plane Service
+Request is used. These optimisations can be used separately e.g. if the UE or
+the network supports one of them, or in parallel if the UE and the network
+supports both. If both the Control Plane and User Plane CIoT EPS Optimisations
+are supported for a UE, the PDN connections that only use the Control Plane CIoT
+EPS Optimisation, i.e. the MME has included Control Plane Only Indicator in the
+ESM request, will only be handled via the Control Plane CIoT EPS Optimisation.
+All other PDN connections are handled using Control Plane or User Plane CIoT
+EPS Optimisations. In addition, the Control Plane CIoT Optimisation can be used
+to support PDN connections to an SCEF, while regular S1-U data transfer is used
+independently to support PDN connections to P-GW. The MME shall consistently
+include Control Plane Only Indicator either in all SGi PDN connections of a UE
+or in none of them. All the SGi PDN connections of a UE shall either use S11-U or
+S1-U at any point in time.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The CIoT data could include
+e.g. status information, measurement data from Machine-to-Machine applications.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Several types of MME are
+envisaged, e.g.</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>an MME that supports either User Plane or Control Plane CIoT EPS
+Optimisation;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>an MME that supports both User Plane and Control Plane CIoT EPS
+Optimisations;</span></span></p><p class=B1 style='mso-prop-change:"23401_CR2941R5_AE_CIoT_\(Rel-13\)" 20160305T1800'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
+1'>    </span>an MME that does not support any CIoT EPS Optimisations.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+E-UTRAN shall support the routeing of UEs to an MME that can process the
+request from the UE.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+CIoT EPS Optimisations are negotiated as described in clause&nbsp;4.3.5.10
+&quot;Preferred and Supported Network Behaviour&quot;.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>CIoT
+EPS Optimisations may be supported also by UEs that are not limited to low
+complexity and low throughput applications for Machine Type Communications.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
+Control Plane CIoT EPS Optimisation applies, separation of S11-U from S1-U may
+be required, and if required, the MME and the Serving GW shall handle the IP
+address and TEID for the S1-U and the address and TEID for the S11-U
+separately.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>Homogeneous support of separation of S11-U
+from S1-U in the MMEs and Serving GWs is assumed.</span></span></p></body>

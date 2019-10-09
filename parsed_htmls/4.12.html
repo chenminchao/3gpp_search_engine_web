@@ -3102,6 +3102,60 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h1><span style='mso-bookmark:historyclause'><a name="_Toc11133935"><span
-lang=EN-GB>5<span style='mso-tab-count:1'>         </span>Functional
-description and information flows</span></a></span></h1></div></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133934"><span
+lang=EN-GB>4.12<span style='mso-tab-count:1'>      </span>Supporting up to 15
+EPS bearers per UE</span></a></span></h2><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>A UE attached to WB-E-UTRAN
+access, including for dual connectivity using E-UTRAN access as described in
+clause&nbsp;4.3.2a, may support 8 or 15 EPS bearers. To enable support of
+establishing 15 EPS bearers, it requires the EPC connected to the E-UTRAN
+access to support 15 EPS bearers for such UEs.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the UE supports 15 EPS
+bearers, then the UE shall indicate this to the MME in NAS signalling as defined
+in TS&nbsp;24.301&nbsp;[46].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The network shall support
+E-UTRAN idle mode mobility and handover procedures in such PLMNs, where only
+part of the network nodes have been upgraded to support 15 EPS bearers. In case
+of mobility procedures involving target nodes not supporting 15 EPS bearers,
+additional bearers not supported by the non-upgraded nodes should be thus
+released.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The network shall
+homogeneously support 15 EPS bearers per UE, at least per MME pool area/SGW
+serving area, in order to avoid EPS bearer deactivations and attempts from
+services to re-activate the deactivated EPS bearers caused by UE mobility
+within that area, by defining the tracking areas accordingly (see
+clause&nbsp;4.3.5.3).</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The MME shall provide the
+UE with a TAI List such that it triggers the UE to perform the TAU procedure,
+as defined in clause&nbsp;5.3.3.0, when the UE enters and exits the area with
+support for 15 EPS bearers per UE. The TAU procedure execution enables the
+nodes in the supporting area to identify a supporting UE when it enters the
+area. When exiting the area, also enables the nodes to remove bearer resources
+for the UE towards nodes without support for 15 EPS bearers per UE.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>In order for the above TAI List handling to be
+fully successful, the network requires the PGWs the UE is connected to from
+these MME pool area/SGW serving area to be upgaded to support 15 EPS bearers.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>For a UE supporting 15 EPS
+bearers, mobility to UTRAN or GERAN may also lead to selective release of EPS
+bearers, due to the lack of support of 15 PDP contexts in the GPRS core network
+and Radio Access networks.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>EPS bearers need to be released either because
+the UE has more than 8 active EPS bearers, or because they are identified by
+EPS Bearer Identities not supported.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3396r3_INOBEAR_\(Rel-15\)" 20180314T1630'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>In order to minimize the
+impact from release of bearers not supported by the target nodes during
+mobility, the MME should be able to allocate the EPS bearer IDs in such way
+that the bearers with higher operator preference will be preserved in case of
+mobility involving legacy target nodes. This prioritised bearer allocation
+should be based on, at least, the Allocation Retention Priority of the EPS
+bearers and may take other bearer parameters (e.g. QCI, APN) into
+consideration.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3430_INOBEAR_\(Rel-15\)" 20180607T1121'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>All PDN GWs in a PLMN shall
+support 15 EPS bearers. MME may be configured to take into account additional
+PDN GW information such as whether the HPLMN supports 15 EPS bearers when selecting
+PDN GW (e.g. in case of roaming users Home Routed PDN GW selection) for UEs
+supporting 15 EPS bearers.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3430_INOBEAR_\(Rel-15\)" 20180607T1121'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>For inter-PLMN handover,
+support of 15 EPS bearers is based on MME configuration according to operator
+policy (e.g. bilateral agreements between operators).</span></span></p><div style='mso-element:para-border-div;border:none;border-top:solid windowtext 1.5pt;
+padding:3.0pt 0in 0in 0in'></body>

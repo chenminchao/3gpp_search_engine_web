@@ -3102,112 +3102,61 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133887"><span
-lang=EN-GB>4.4.3<span style='mso-tab-count:1'>      </span>Gateway</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133888"><span
-lang=EN-GB>4.4.3.1<span style='mso-tab-count:1'>          </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Two
-logical Gateways exist:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Serving GW (S&#8209;GW);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>PDN GW (P&#8209;GW).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>The PDN GW and the Serving GW may be
-implemented in one physical node or separated physical nodes.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133889"><span
-lang=EN-GB>4.4.3.2<span style='mso-tab-count:1'>          </span>Serving GW</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-Serving GW is the gateway which terminates the user plane interface towards
-E-UTRAN (except when user data is transported using the Control Plane CIoT EPS
-Optimisation).</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>For
-each UE associated with the EPS, at a given point of time, there is a single
-Serving GW.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-functions of the Serving GW, for both the GTP-based and the PMIP-based S5/S8,
-include:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>the local Mobility Anchor point for
-inter-eNodeB handover (except when user data is transported using the Control
-Plane CIoT EPS Optimisation);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>sending of one or more &quot;end
-marker&quot; to the source eNodeB, source SGSN or source RNC immediately after
-the Serving GW switches the path during inter-eNodeB and inter-RAT handover, especially
-to assist the reordering function in eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Mobility anchoring for inter-3GPP mobility
-(terminating S4 and relaying the traffic between 2G/3G system and PDN GW);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>ECM-IDLE mode downlink packet buffering and
-initiation of network triggered service request procedure and optionally Paging
-Policy Differentiation;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Lawful Interception;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Packet routing and forwarding;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Transport level packet marking in the uplink
-and the downlink, e.g. setting the DiffServ Code Point, based on the QCI, and
-optionally the ARP priority level, of the associated EPS bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Accounting for inter-operator charging. For
-GTP-based S5/S8, the Serving GW generates accounting data per UE and bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Interfacing OFCS according to charging
-principles and through reference points specified in TS&nbsp;32.240&nbsp;[51];</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Forwarding of &quot;end marker&quot; to the
-source eNodeB, source SGSN or source RNC when the &quot;end marker&quot; is
-received from PDN GW and the Serving GW has downlink user plane established.
-Upon reception of &quot;end marker&quot;, the Serving GW shall not send
-Downlink Data Notification.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Additional
-Serving GW functions for the PMIP-based S5/S8 are captured in TS&nbsp;23.402&nbsp;[2].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Connectivity
-to a GGSN is not supported.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133890"><span
-lang=EN-GB>4.4.3.3<span style='mso-tab-count:1'>          </span>PDN GW</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-PDN GW is the gateway which terminates the SGi interface towards the PDN.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>If
-a UE is accessing multiple PDNs, there may be more than one PDN GW for that UE,
-however a mix of S5/S8 connectivity and Gn/Gp connectivity is not supported for
-that UE simultaneously.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>PDN
-GW functions include for both the GTP-based and the PMIP-based S5/S8:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Per-user based packet filtering (by e.g.
-deep packet inspection);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Lawful Interception;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UE IP address allocation;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Transport level packet marking in the uplink
-and downlink, e.g. setting the DiffServ Code Point, based on the QCI, and
-optionally the ARP priority level, of the associated EPS bearer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Accounting for inter-operator charging: for
-home routed roaming, the P-GW shall collect and report the uplink and downlink
-data volume (per EPS bearer) as received from and sent to the serving node;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UL and DL service level charging as defined
-in TS&nbsp;23.203&nbsp;[6]<br>
-(e.g. based on SDFs defined by the PCRF, or based on deep packet inspection
-defined by local policy);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Interfacing OFCS through according to
-charging principles and through reference points specified in TS&nbsp;32.240&nbsp;[51].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UL and DL service level gating control as
-defined in TS&nbsp;23.203&nbsp;[6];</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UL and DL service level rate enforcement as
-defined in TS&nbsp;23.203&nbsp;[6]<br>
-(e.g. by rate policing/shaping per SDF);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UL and DL rate enforcement based on APN-AMBR<br>
-(e.g. by rate policing/shaping per aggregate of traffic of all SDFs of the same
-APN that are associated with Non-GBR QCIs);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>DL rate enforcement based on the accumulated
-MBRs of the aggregate of SDFs with the same GBR QCI<br>
-(e.g. by rate policing/shaping);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>DHCPv4 (server and client) and DHCPv6
-(client and server) functions;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:"MS Mincho"'>-<span style='mso-tab-count:1'>    </span>The
-network does not support PPP bearer type in this version of the specification.
-Pre-</span></span><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-font-family:"MS Mincho";mso-bidi-font-family:Arial'>Release
-8 </span></span><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-bidi-font-family:Arial'>PPP functionality</span></span><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-font-family:
-"MS Mincho";mso-bidi-font-family:Arial'> of a GGSN may be implemented in the
-PDN GW;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The PDN GW may support Non-IP data transfer
-(e.g. with CIoT EPS Optimisations);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>The PDN GW (when acting as a combined PDN
-GW+SMF as specified in TS&nbsp;23.501&nbsp;[83]) may support Ethernet data
-transfer;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>packet screening;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>sending of one or more &quot;end
-marker&quot; to the source SGW immediately after switching the path during SGW
-change;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>PCC related features (e.g. involving PCRF
-and OCS) as described in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Additionally
-the PDN GW includes the following functions for the GTP-based S5/S8:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UL and DL bearer binding as defined in TS&nbsp;23.203&nbsp;[6];</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>UL bearer binding verification as defined in
-TS&nbsp;23.203&nbsp;[6];</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Functionality as defined in RFC&nbsp;4861&nbsp;[32];</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>Accounting per UE and bearer.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-P&#8209;GW provides PDN connectivity to both GERAN/UTRAN only UEs and E&#8209;UTRAN
-capable UEs using any of E&#8209;UTRAN, GERAN or UTRAN. The P&#8209;GW provides
-PDN connectivity to E&#8209;UTRAN capable UEs using E&#8209;UTRAN only over the
-S5/S8 interface.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133886"><span
+lang=EN-GB>4.4.2<span style='mso-tab-count:1'>      </span>MME</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>MME
+functions include:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>NAS signalling;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>NAS signalling security;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Inter CN node signalling for mobility
+between 3GPP access networks (terminating S3);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>UE Reachability in ECM-IDLE state (including
+control, execution of paging retransmission and optionally Paging Policy
+Differentiation);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Tracking Area list management;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Mapping from UE location (e.g. TAI) to time
+zone, and signalling a UE time zone change associated with mobility,</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>PDN GW and Serving GW selection;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>MME selection for handovers with MME change;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>SGSN selection for handovers to 2G or 3G
+3GPP access networks;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Roaming (S6a towards home HSS);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Authentication;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Authorization;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Bearer management functions including
+dedicated bearer establishment;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Lawful Interception of signalling traffic;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Warning message transfer function (including
+selection of appropriate eNodeB);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>UE Reachability procedures;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Support Relaying function (RN Attach/Detach);</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>Change of UE presence in Presence Reporting
+Area reporting upon PCC request,</span></span></p><p class=B2><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>in the case of Change of UE presence in Presence
+Reporting Area reporting, management of Core Network pre-configured Presence
+Reporting Areas.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>For the Control Plane CIoT EPS Optimisation:</span></span></p><p class=B2 style='mso-prop-change:"23401_CR2948R8_CIoT_\(Rel-13\)" 20160305T2011'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>a)<span style='mso-tab-count:
+1'>  </span>transport of user data (IP, Non-IP and Ethernet));</span></span></p><p class=B2 style='mso-prop-change:"23401_CR2948R8_CIoT_\(Rel-13\)" 20160305T2011'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>b)<span style='mso-tab-count:
+1'>  </span>local Mobility Anchor point;</span></span></p><p class=B2 style='mso-prop-change:"23401_CR2948R8_CIoT_\(Rel-13\)" 20160305T2011'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>c)<span style='mso-tab-count:
+1'>  </span>header compression (for IP user data);</span></span></p><p class=B2 style='mso-prop-change:"23401_CR2948R8_CIoT_\(Rel-13\)" 20160305T2011'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>d)<span style='mso-tab-count:
+1'>  </span>ciphering and integrity protection of user data;</span></span></p><p class=B2 style='mso-prop-change:"23401_CR2948R8_CIoT_\(Rel-13\)" 20160305T2011'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>e)<span style='mso-tab-count:
+1'>  </span>Lawful Interception of user traffic not transported via the Serving
+GW (e.g. traffic using T6a).</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
+style='mso-tab-count:1'>      </span>The Serving GW and the MME may be
+implemented in one physical node or separated physical nodes. For CIoT EPS Optimisation,
+the Serving GW and the MME can be implemented in one physical node (e.g. C-SGN)
+or separated physical nodes. The C-SGN can also encompass the PDN GW function.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR1736R2_TEI9_\(Rel-10\)" 20100917T1435'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The MME shall signal a
+change in UE Time Zone only in case of mobility and in case of UE triggered
+Service Request, PDN Disconnection and UE Detach. If the MME cannot determine
+whether the UE Time Zone has changed (e.g. the UE Time Zone is not sent by the
+old MME during MME relocation), the MME should not signal a change in UE Time
+Zone. A change in UE Time Zone caused by a regulatory mandated time change (e.g.
+daylight saving time or summer time change) shall not trigger the MME to
+initiate signalling procedures due to the actual change. Instead the MME shall
+wait for the UE's next mobility event or Service Request procedure and then use
+these procedures to update the UE Time Zone information in the PDN GW.</span></span></p></body>

@@ -3102,55 +3102,24 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133865"><span
-lang=EN-GB>4.3.24<span style='mso-tab-count:1'>    </span>RAN user plane congestion
-management function</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133866"><span
-lang=EN-GB>4.3.24.1<span style='mso-tab-count:1'>        </span>General</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-fareast-language:JA'>The user plane congestion management function
-addresses how the system can effectively mitigate RAN user plane congestion in
-order to reduce the negative impact on the perceived service quality. The
-congestion mitigation measures include traffic prioritization, traffic
-reduction and limitation of traffic, and shall be able to manage user plane traffic
-across a range of variables including the user's subscription, the type of
-application, and the type of content. Congestion mitigation can be performed in
-the RAN or in the CN, or in a combined way both in the RAN and in the CN.<o:p></o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133867"><span
-lang=EN-GB>4.3.24.2<span style='mso-tab-count:1'>        </span>RAN user plane congestion
-mitigation in the RAN</span></a></span></h4><p class=EditorsNote><span style='mso-bookmark:historyclause'><span lang=EN-GB>Editor's
-note:<span style='mso-tab-count:1'> </span>Text to be added depending on the
-outcome of the UPCON study.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133868"><span
-lang=EN-GB>4.3.24.3<span style='mso-tab-count:1'>        </span>RAN user plane
-congestion mitigation in the CN</span></a></span></h4><p class=MsoNormal style='mso-prop-change:"23401_CR2733R2_UPCON_\(Rel-13\)" 20140820T1042'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>RAN user plane congestion mitigation in the CN uses RAN OAM information,
-collected by the RAN Congestion Awareness Function (RCAF), to detect
-congestion. The RAN Congestion Awareness Function is further described in
-clause&nbsp;4.4.12. This functionality is applicable only in case of
-UTRAN/E-UTRAN accesses.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>The criteria used for detection of RAN user
-plane congestion (including detection of congestion abatement) are outside the
-scope of 3GPP specifications.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>The interface to the RAN's OAM system is not
-standardized.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2733R2_UPCON_\(Rel-13\)" 20140820T1042'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>The RCAF can transfer RAN user plane congestion information (RUCI) to the
-PCRF over the Np reference point in order to mitigate the congestion by
-measures selected by the PCRF, as specified in TS&nbsp;23.203&nbsp;[6].
-Decisions to apply congestion mitigation measures may take into account
-operator policies and subscriber information and all additional available
-IP-CAN session information.<o:p></o:p></span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2733R2_UPCON_\(Rel-13\)" 20140820T1042'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
-JA'>Different mechanisms and mitigation actions applicable as described in TS&nbsp;23.203&nbsp;[6]
-in order to mitigate RAN User Plane Congestion. Those mechanisms include e.g.
-service/application gating, service/application bandwidth limitation, deferring
-of services.<o:p></o:p></span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
-style='mso-tab-count:1'>  </span>Co-existence between congestion mitigation in
-RAN and CN can be assured by appropriate network configuration of applicable
-policies for congestion mitigation, as well as related RAN parameter alignment/tuning,
-such as tuning of parameters for e.g., load balancing, carrier aggregation,
-co-ordinated multipoint, dual connectivity. This parameter alignment/tuning is
-not further specified.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
-style='mso-tab-count:1'>  </span>A condition leading to interoperability issues
-which may lead to suboptimal situation is that the time scales for actions of
-congestion mitigation in RAN and in CN are of comparable duration. Therefore,
-congestion mitigation in RAN and CN cannot have comparable time scales,
-otherwise interoperability is affected.</span></span></p></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133864"><span
+lang=EN-GB>4.3.23a<span style='mso-tab-count:1'>  </span>Access network
+selection and traffic steering based on RAN-Controlled WLAN interworking</span></a></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>As
+described in TS&nbsp;36.300&nbsp;[5] E-UTRAN may support RAN-Controlled WLAN
+interworking (RCLWI) for controlling traffic steering between E-UTRAN and WLAN
+for UEs in RRC_CONNECTED. When E-UTRAN sends an &quot;offload&quot; command to
+the UE, the UE passes an indication to the upper layers indicating that traffic
+steering to/from WLAN is needed. The upper layers determine to initiate traffic
+steering to/from WLAN based on the UE capability and the configuration
+information that has received from NAS layer indicating which PDN connections
+are offloadable. When the UE receives the &quot;offload&quot; command from the
+EUTRAN, the UE shall perform handover to WLAN only the PDN connections that
+have been authorized for offloading.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2935R3_TEI13_\(Rel-13\)" 20151127T0825'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The NAS level indication
+about &quot;offloadability&quot; of PDN connections is defined in
+clause&nbsp;4.3.23.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2935R3_TEI13_\(Rel-13\)" 20151127T0825'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The UE uses the RCLWI
+procedures to perform access network selection and traffic steering decisions
+between 3GPP access and WLAN or using ANDSF policies defined in TS&nbsp;23.402&nbsp;[2].
+Co-existence between the procedures defined for RCLWI, ANDSF policies and user preference
+is described in TS&nbsp;23.402&nbsp;[2].</span></span></p></body>

@@ -3102,40 +3102,24 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133902"><span
-lang=EN-GB>4.4.12<span style='mso-tab-count:1'>    </span>RAN Congestion
-Awareness Function</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The RAN Congestion
-Awareness Function (RCAF) is an element that provides RAN User Plane Congestion
-Information (RUCI) to the PCRF to enable the PCRF to take the RAN user plane
-congestion status into account for policy decisions.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>The RCAF collects
-information related to user plane congestion from the RAN's OAM system based on
-which the RCAF determines the congestion level (and the identifier) of an eNB
-or E-UTRAN cell.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Via the Nq interface the
-RCAF determines the UEs served by a congested eNB or congested E-UTRAN cell and
-retrieves the APNs of the active PDN connections of those UEs. The decision
-whether the RCAF operates on eNB or E-UTRAN cell level is up to operator
-configuration.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2728R2_UPCON_\(Rel-13\)" 20140820T1033'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>Via the Np reference point,
-the RCAF sends the RUCI to the PCRFs serving the UEs' PDN connections.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
-style='mso-tab-count:1'>  </span>The details of congestion reporting to the PCRF
-and the Np reference point are specified in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
-style='mso-tab-count:1'>  </span>In the case of roaming or RAN sharing as
-specified in TS&nbsp;23.251&nbsp;[24], Np is an inter-operator reference point.
-Whether Np applies in case of roaming and RAN sharing is subject to inter-operator
-agreements.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.4.12-1 illustrates the RCAF connected to the MME. The RCAF is located in the
-same PLMN as the serving MME except in network sharing scenarios where the RCAF
-belongs to the RAN operator.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1039" type="#_x0000_t75" style='width:174.5pt;height:30.5pt'
- o:ole="">
- <v:imagedata src="23401-g30_files/image029.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=233 height=41
-src="23401-g30_files/image030.gif" v:shapes="_x0000_i1039"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1039"
-  DrawAspect="Content" ObjectID="_1631980377">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133901"><span
+lang=EN-GB>4.4.11<span style='mso-tab-count:1'>    </span>CSG Subscriber Server</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1407'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>CSG Subscriber Server (CSS)
+is an optional element that stores CSG subscription data for roaming
+subscribers. The CSS stores and provides VPLMN specific CSG subscription
+information to the MME. The CSS is accessible from the MME via the S7a
+interface. The CSS is always in the same PLMN as the current MME.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1407'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the same CSG ID exists in
+both CSS subscription data and HSS subscription data, the CSG subscription data
+from the HSS shall take precedence over the data from CSS.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1407'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 4.4.11-1 illustrates
+CSS connected to MME.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1038" type="#_x0000_t75" style='width:175pt;height:32pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image027.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=233 height=43
+src="23401-g30_files/image028.gif" v:shapes="_x0000_i1038"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1038"
+  DrawAspect="Content" ObjectID="_1631980376">
  </o:OLEObject>
 </xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-4.4.12-1: RCAF connected to MME</span></span></p></body>
+4.4.11-1: CSS connected to MME</span></span></p></body>

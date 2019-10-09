@@ -3102,5 +3102,39 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><span style='mso-bookmark:historyclause'><a name="_Toc11133884"><span
-lang=EN-GB>4.4<span style='mso-tab-count:1'>        </span>Network elements</span></a></span></h2></body>
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133883"><span
+lang=EN-GB>4.3.31<span style='mso-tab-count:1'>    </span>Subscription handling
+for Aerial UEs</span></a></span></h3><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>This clause&nbsp;describes
+subscription information handling in order to support operating Aerial UE
+function over E-UTRAN as defined in TS&nbsp;36.300&nbsp;[5] and TS&nbsp;36.331&nbsp;[37].</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>The eNB supporting Aerial
+UE function handling uses the per user information supplied by the MME to
+determine whether or not to allow the UE to use Aerial UE function.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>Support of Aerial UE
+function is stored in the user's subscription information in HSS. HSS transfers
+this information to the MME via Update Location message during Attach and
+Tracking Area Update procedures. Home Operator may revoke user's subscription
+authorisation for operating Aerial UEs at any time.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>MME that supports Aerial UE
+function provides the user's subscription information on Aerial UE authorisation
+to the eNB via the S1 AP Initial Context Setup Request during Attach, Tracking
+Area Update and Service Request procedures.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>For the intra and inter MME
+S1 based handover (intra RAT) or Inter-RAT handover to E-UTRAN, the Aerial UE
+subscription information for the user is included in the S1-AP UE Context Modification
+Request message sent to the target eNodeB after the handover procedure.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>For X2-based handover, the
+Aerial UE subscription information for the user is sent to target eNodeB as
+follows:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>If the source eNodeB supports Aerial UE
+function and the user's Aerial UE subscription information is included in the
+UE context, the source eNodeB shall include the information in the X2-AP
+Handover Request message to the target eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
+style='mso-tab-count:1'>    </span>The MME shall send the Aerial UE
+subscription information to the target eNodeB in the Path Switch Request
+Acknowledge message.</span></span></p><p class=MsoNormal style='mso-prop-change:"23401_CR3411r4_LTE_Aerial_\(Rel-15\)" 20180607T1035'><span
+style='mso-bookmark:historyclause'><span lang=EN-GB>If the Aerial UE
+subscription information has changed, the updated Aerial UE subscription information
+is included in the S1-AP UE Context Modification Request message sent to the
+eNodeB.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p></body>

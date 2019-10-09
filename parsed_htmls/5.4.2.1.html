@@ -3102,204 +3102,235 @@ table.MsoTableGrid
  </o:shapelayout></xml><![endif]-->
 </head>
 
-<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11133938"><span
-lang=EN-GB>5.1.1<span style='mso-tab-count:1'>      </span>Control Plane</span></a></span></h3><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133939"><span
-lang=EN-GB>5.1.1.1<span style='mso-tab-count:1'>          </span>General</span></a></span></h4><p class=MsoNormal style='page-break-after:avoid'><span style='mso-bookmark:
-historyclause'><span lang=EN-GB>The control plane consists of protocols for
-control and support of the user plane functions:</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>controlling the E-UTRA network access
-connections, such as attaching to and detaching from E-UTRAN;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>controlling the attributes of an established
-network access connection, such as activation of an IP address;</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>controlling the routing path of an
-established network connection in order to support user mobility; and</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>    </span>controlling the assignment of network
-resources to meet changing user demands.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
-following control planes are used in E-UTRAN mode.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133940"><span
-lang=EN-GB>5.1.1.2<span style='mso-tab-count:1'>          </span>eNodeB - MME</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1046" type="#_x0000_t75" style='width:283.5pt;height:182pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image043.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=378 height=243
-src="23401-g30_files/image044.gif" v:shapes="_x0000_i1046"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>S1 Application Protocol (S1-AP):</b> Application Layer Protocol between
-the eNodeB and the MME.</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>Stream Control Transmission Protocol (SCTP):</b> This protocol
-guarantees delivery of signalling messages between MME and eNodeB (S1). SCTP is
-defined in RFC&nbsp;4960&nbsp;[35].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure <span
-style='mso-no-proof:yes'>5.1.1.2-1</span>: Control Plane for S1-MME Interface</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE:<span
-style='mso-tab-count:1'>      </span>Refer to TS&nbsp;36.300&nbsp;[5] for the
-corresponding control plane for the HeNB Subsystem - MME.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133941"><span
-lang=EN-GB>5.1.1.3<span style='mso-tab-count:1'>          </span>UE - MME</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1047" type="#_x0000_t75" style='width:454pt;height:136pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image045.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=605 height=181
-src="23401-g30_files/image046.gif" v:shapes="_x0000_i1047"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Legend:</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>NAS:</b> The NAS protocol supports mobility management functionality
-and user plane bearer activation, modification and deactivation. It is also
-responsible of ciphering and integrity protection of NAS signalling.</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>LTE-Uu: </b>The radio protocol of E-UTRAN between the UE and the eNodeB
-is specified in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure <span
-style='mso-no-proof:yes'>5.1.1.3-1</span>: Control Plane UE - MME</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133942"><span
-lang=EN-GB>5.1.1.4<span style='mso-tab-count:1'>          </span>SGSN - MME</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1048" type="#_x0000_t75" style='width:255pt;height:162pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image047.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=340 height=216
-src="23401-g30_files/image048.gif" v:shapes="_x0000_i1048"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>GPRS Tunnelling Protocol for the control plane (GTP&#8209;C):</b> This
-protocol tunnels signalling messages between SGSN and MME (S3).</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>User Datagram Protocol (UDP): </b>This protocol transfers signalling
-messages. UDP is defined in RFC&nbsp;768&nbsp;[26].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure <span
-style='mso-no-proof:yes'>5.1.1.4-1</span>: Control Plane for S3 Interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133943"><span
-lang=EN-GB>5.1.1.5<span style='mso-tab-count:1'>          </span>SGSN - S&#8209;GW</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1049" type="#_x0000_t75" style='width:255pt;height:162pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image049.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=340 height=216
-src="23401-g30_files/image050.gif" v:shapes="_x0000_i1049"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>GPRS Tunnelling Protocol for the control plane (GTP&#8209;C):</b> This
-protocol tunnels signalling messages between SGSN and S&#8209;GW (S4).</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>User Datagram Protocol (UDP): </b>This protocol transfers signalling
-messages. UDP is defined in RFC&nbsp;768&nbsp;[26].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure <span
-style='mso-no-proof:yes'>5.1.1.5-1</span>: Control Plane for S4 interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133944"><span
-lang=EN-GB>5.1.1.6<span style='mso-tab-count:1'>          </span>S&#8209;GW - P&#8209;GW</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1050" type="#_x0000_t75" style='width:255pt;height:169.5pt'>
- <v:imagedata src="23401-g30_files/image051.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=340 height=226
-src="23401-g30_files/image052.gif" v:shapes="_x0000_i1050"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>GPRS Tunnelling Protocol for the control plane (GTP&#8209;C):</b> This
-protocol tunnels signalling messages between S&#8209;GW and P&#8209;GW (S5 or
-S8).</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>User Datagram Protocol (UDP):</b> This protocol transfers signalling
-messages between S&#8209;GW and P&#8209;GW. UDP is defined in
-RFC&nbsp;768&nbsp;[26].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.1.1.6-1: Control Plane for S5 and S8 interfaces</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133945"><span
-lang=EN-GB>5.1.1.7<span style='mso-tab-count:1'>          </span>MME - MME</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1051" type="#_x0000_t75" style='width:255pt;height:171pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image053.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=340 height=228
-src="23401-g30_files/image054.gif" v:shapes="_x0000_i1051"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>GPRS Tunnelling Protocol for the control plane (GTP&#8209;C):</b> This
-protocol tunnels signalling messages between MMEs (S10).</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>User Datagram Protocol (UDP):</b> This protocol transfers signalling
-messages between MMEs. UDP is defined in RFC&nbsp;768&nbsp;[26].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure <span
-style='mso-no-proof:yes'>5.1.1.7-1</span>: Control Plane for S10 interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133946"><span
-lang=EN-GB>5.1.1.8<span style='mso-tab-count:1'>          </span>MME - S&#8209;GW</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1052" type="#_x0000_t75" style='width:255pt;height:155.5pt'
- o:allowoverlap="f">
- <v:imagedata src="23401-g30_files/image055.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=340 height=207
-src="23401-g30_files/image056.gif" v:shapes="_x0000_i1052"><![endif]></span></span></p><p class=NF><span style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:
-normal'><span lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>GPRS Tunnelling Protocol for the control plane (GTP&#8209;C):</b> This
-protocol tunnels signalling messages between MME and S&#8209;GW (S11).</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB>-<span
-style='mso-tab-count:1'>                </span><b style='mso-bidi-font-weight:
-normal'>User Datagram Protocol (UDP):</b> This protocol transfers signalling
-messages. UDP is defined in RFC&nbsp;768&nbsp;[26].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure <span
-style='mso-no-proof:yes'>5.1.1.8-1</span>: Control Plane for S11 interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133947"><span
-lang=EN-GB>5.1.1.9<span style='mso-tab-count:1'>          </span>MME - HSS</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1053" type="#_x0000_t75" style='width:225pt;height:162pt' o:ole="">
- <v:imagedata src="23401-g30_files/image057.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=300 height=216
-src="23401-g30_files/image058.gif" v:shapes="_x0000_i1053"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1053"
-  DrawAspect="Content" ObjectID="_1631980383">
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h3><span style='mso-bookmark:historyclause'><a name="_Toc11134038"></a><st1:chsdate
+Year="1899" Month="12" Day="30" IsLunarDate="False" IsROCDate="False" w:st="on"><span
+ style='mso-bookmark:_Toc11134038'><span lang=EN-GB>5.4.2</span></span></st1:chsdate><span
+style='mso-bookmark:_Toc11134038'><span lang=EN-GB>.1<span style='mso-tab-count:
+1'>   </span></span></span></span><span style='mso-bookmark:historyclause'><span
+style='mso-bookmark:_Toc11134038'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>PDN GW initiated b</span><span lang=EN-GB>earer modification with bearer
+QoS update</span></span></span></h3><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+PDN&nbsp;GW initiated bearer modification procedure (including EPS Bearer QoS
+update) for a GTP based S5/S8 is depicted in figure 5.4.2.1-1. This procedure
+is used in cases when one or several of the EPS Bearer QoS parameters QCI, GBR,
+MBR or ARP are modified (including the QCI or the ARP of the default EPS bearer
+e.g. due to the HSS Initiated Subscribed QoS Modification procedure, as
+described in clause&nbsp;5.4.2.2) or to modify the APN-AMBR. Modification from
+a QCI of resource type non-GBR to a QCI of resource type GBR and vice versa is
+not supported by this procedure.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>The QCI of an existing dedicated bearer should
+only be modified if no additional bearer can be established with the desired
+QCI.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1094" type="#_x0000_t75" style='width:6in;height:244pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image139.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=576 height=325
+src="23401-g30_files/image140.gif" v:shapes="_x0000_i1094"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1094"
+  DrawAspect="Content" ObjectID="_1631980422">
  </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=NF style='mso-prop-change:23401_CR0533R1 20080912T1220'><span
-style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:normal'><span
-lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF style='mso-prop-change:23401_CR0533R1 20080912T1220'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>                </span><b style='mso-bidi-font-weight:normal'>Diameter: </b>This
-protocol supports transferring of subscription and authentication data for
-authenticating/authorizing user access to the evolved system between MME and
-HSS (S6a). Diameter is defined in RFC&nbsp;3588&nbsp;[31].</span></span></p><p class=NF style='mso-prop-change:23401_CR0533R1 20080912T1220'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>                </span><b style='mso-bidi-font-weight:normal'>Stream Control
-Transmission Protocol (SCTP): </b>This protocol transfers signalling messages.
-SCTP is defined in RFC&nbsp;4960&nbsp;[35].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.1.1.9-1: Control Plane for S6a interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133948"><span
-lang=EN-GB>5.1.1.10<span style='mso-tab-count:1'>        </span>MME - EIR</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1054" type="#_x0000_t75" style='width:225pt;height:162pt' o:ole="">
- <v:imagedata src="23401-g30_files/image059.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=300 height=216
-src="23401-g30_files/image060.gif" v:shapes="_x0000_i1054"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1054"
-  DrawAspect="Content" ObjectID="_1631980384">
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.4.2.1-1: Bearer Modification Procedure with Bearer QoS Update</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>Steps 3-10 are common for architecture
+variants with GTP based S5/S8 and PMIP-based S5/S8. For a PMIP-based S5/S8,
+procedure steps (A) and (B) are defined in TS&nbsp;23.402&nbsp;[2]. Steps 1, 2,
+11 and 12 concern GTP based S5/S8.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>If dynamic PCC is deployed, the PCRF sends a
+PCC decision provision (QoS policy) message to the PDN GW. This corresponds to
+the initial steps of the PCRF-Initiated IP&#8209;CAN Session Modification
+procedure or to the PCRF response in the PCEF initiated IP-CAN Session
+Modification procedure as defined in TS&nbsp;23.203&nbsp;[6], up to the point
+that the PDN GW requests IP&#8209;CAN Bearer Signalling. The PCC decision
+provision message may indicate that User Location Information and/or UE Time
+Zone Information is to be provided to the PCRF as defined in TS&nbsp;23.203&nbsp;[6].
+If dynamic PCC is not deployed, the PDN GW may apply local QoS policy.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2.<span
+style='mso-tab-count:1'>   </span>The PDN GW uses this QoS policy to determine
+that the authorized QoS of a service data flow has changed or that a service
+data flow shall be aggregated to or removed from an active bearer. The PDN GW
+generates the TFT and updates the EPS Bearer QoS to match the traffic flow
+aggregate. The PDN GW then sends the Update Bearer Request (PTI, </span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>EPS Bearer Identity, EPS </span><span lang=EN-GB>Bearer QoS, APN-AMBR,
+TFT, Maximum Packet Loss Rate (UL, DL)) message to the Serving GW. The
+Procedure Transaction Id (PTI) parameter is used when the procedure was
+initiated by a UE </span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-bidi-font-family:Arial'>Requested Bearer Resource
+Modification Procedure - see clause&nbsp;5.4.5. For APN-AMBR, the EPS bearer
+identity must refer to a non-GBR bearer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>For a QCI=1 bearer, the Maximum Packet
+Loss Rate (UL, DL) may be provided by the PDN GW as described in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span
+style='mso-tab-count:1'>   </span>The Serving GW sends the Update Bearer
+Request (PTI, </span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-fareast-language:ZH-CN'>EPS Bearer Identity, EPS </span><span
+lang=EN-GB>Bearer QoS, TFT, APN&#8209;AMBR, Maximum Packet Loss Rate (UL, DL))
+message to the MME. If the UE is in ECM&#8209;IDLE state the MME will trigger
+the Network Triggered Service Request from step&nbsp;3 (which is specified in
+clause&nbsp;5.3.4.3). In that case the following steps&nbsp;4&#8209;7 may be
+combined into Network Triggered Service Request procedure or be performed stand-alone.
+If only the QoS parameter ARP is modified and if the UE is in ECM IDLE state
+the MME shall skip the Network Triggered Service Request. In that case the
+following steps 4-9 are also skipped and the MME sends an Update Bearer Response
+to the Serving GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If extended idle mode DRX is enabled for
+the UE, the MME will trigger Network Triggered Service Request from step&nbsp;3
+(which is specified in clause&nbsp;5.3.4.3), and start a timer which is
+configured to a value smaller than the GTP re-transmission timer. If the MME
+receives no response from the UE before the timer expires, the MME sends an
+Update Bearer Response with a rejection cause indicating that the UE is
+temporarily not reachable due to power saving and, if a Delay Tolerant
+Connection indication was set for the PDN connection, the MME sets the internal
+flag Pending Network Initiated PDN Connection Signalling. The rejection is
+forwarded by the Serving GW to the PDN GW. In this case, the steps 4-11 are
+skipped.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;3:<span
+style='mso-tab-count:1'>  </span>If ISR is activated and the Serving GW does
+not have a downlink S1-U and the SGSN has notified the Serving GW that the UE
+has moved to PMM-IDLE or STANDBY state, the Serving GW sends Downlink Data
+Notification to trigger MME and SGSN to page the UE (as specified in
+clause&nbsp;5.3.4.3) before sending the Update Bearer Request message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span
+style='mso-tab-count:1'>   </span>The MME builds a Session Management Request
+including the PTI, EPS Bearer QoS parameters (excluding ARP), TFT, APN&#8209;AMBR,</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'> EPS Bearer Identity and a WLAN offloadability indication</span><span
+lang=EN-GB>. If the UE has UTRAN or GERAN capabilities and the network supports
+mobility to UTRAN or GERAN, the MME uses the EPS Bearer QoS parameters to
+derive the corresponding PDP context parameters QoS Negotiated (R99 QoS
+profile), Radio Priority and Packet Flow Id and includes them in the Session
+Management Request. If the UE indicated in the UE Network Capability it does
+not support BSS packet flow procedures, then the MME shall not include the
+Packet Flow Id. If the APN&#8209;AMBR has changed the MME may update the UE&#8209;AMBR
+if appropriate. The MME then sends the Bearer Modify Request (</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>EPS Bearer Identity, EPS </span><span lang=EN-GB>Bearer QoS, Session
+Management Request, UE&#8209;AMBR, Maximum Packet Loss Rate (UL, DL)) message
+to the eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME may include an indication whether
+the traffic of this PDN Connection is allowed to be offloaded to WLAN as
+described in clause&nbsp;4.3.23.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>The eNodeB maps the modified EPS Bearer QoS
+to the Radio Bearer QoS. It then signals a RRC Connection Reconfiguration
+(Radio Bearer QoS, Session Management Request</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>, EPS RB Identity</span><span lang=EN-GB>) message to the UE. The UE
+shall store the QoS Negotiated, Radio Priority, Packet Flow Id, which it
+received in the Session Management Request, for use when accessing via GERAN or
+UTRAN. If the APN-AMBR has changed, the UE stores the modified APN-AMBR value
+and sets the MBR parameter of the corresponding non-GBR PDP contexts (of this
+PDN connection) to the new value. The UE uses the uplink packet filter (UL TFT)
+to determine the mapping of traffic flows to the radio bearer. The UE may
+provide EPS Bearer QoS parameters to the application handling the traffic flow(s).
+The application usage of the EPS Bearer QoS is implementation dependent. The UE
+shall not reject the Radio Bearer Modify Request on the basis of the EPS Bearer
+QoS parameters contained in the Session Management Request. The UE shall set
+its TIN to &quot;GUTI&quot; if the modified EPS bearer was established before
+ISR activation.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;4:<span
+style='mso-tab-count:1'>  </span>The details of the Radio Bearer QoS are
+specified in TS&nbsp;36.300&nbsp;[5].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span
+style='mso-tab-count:1'>   </span>The UE acknowledges the radio bearer modification
+to the eNodeB with a RRC Connection Reconfiguration Complete message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span
+style='mso-tab-count:1'>   </span>The eNodeB acknowledges the bearer
+modification to the MME with a Bearer Modify Response (</span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>EPS Bearer Identity</span><span lang=EN-GB>) message. With this message,
+the eNodeB indicates whether the requested EPS Bearer QoS could be allocated or
+not.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The MME shall be prepared to receive this
+message either before or after the Session Management Response message (sent in
+step&nbsp;9).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span
+style='mso-tab-count:1'>   </span>The UE NAS layer builds a Session Management
+Response including EPS Bearer Identity. The UE then sends a Direct Transfer
+(Session Management Response) message to the eNodeB.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>9.<span
+style='mso-tab-count:1'>   </span>The eNodeB sends an Uplink NAS Transport
+(Session Management Response) message to the MME.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>10.<span
+style='mso-tab-count:1'> </span>Upon reception of the Bearer Modify Response
+message in step 7 and the Session Management Response message in step 9, the
+MME acknowledges the bearer modification to the Serving GW by sending an Update
+Bearer Response </span></span><span style='mso-bookmark:historyclause'><span
+lang=EN-GB style='mso-fareast-language:ZH-CN'>(EPS Bearer Identity, User
+Location Information (ECGI))</span><span lang=EN-GB> message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>11.<span
+style='mso-tab-count:1'> </span>The Serving GW acknowledges the bearer
+modification to the PDN GW by sending an Update Bearer Response </span></span><span
+style='mso-bookmark:historyclause'><span lang=EN-GB style='mso-fareast-language:
+ZH-CN'>(EPS Bearer Identity, User Location Information (ECGI))</span><span
+lang=EN-GB> message.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>12.<span
+style='mso-tab-count:1'> </span>If the Bearer modification procedure was
+triggered by a PCC Decision Provision message from the PCRF, the PDN GW indicates
+to the PCRF whether the requested PCC decision (QoS policy) could be enforced
+or not by sending a Provision Ack message allowing the completion of the PCRF-Initiated
+IP&#8209;CAN Session Modification procedure or the PCEF initiated IP-CAN Session
+Modification procedure as defined in TS&nbsp;23.203&nbsp;[6], after the completion
+of IP&#8209;CAN bearer signalling. If requested by the PCRF the PDN&nbsp;GW
+indicates User Location Information and/or UE Time Zone Information to the PCRF
+as defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>If the Bearer modification is rejected
+with a cause indicating that the UE is temporarily not reachable due to power
+saving, then the PDN GW re-attempts the same procedure after it receives the
+indication that the is UE available for end to end signalling in the subsequent
+Modify Bearer Request message.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;5:<span
+style='mso-tab-count:1'>  </span>The exact signalling of step 1 and 12 (e.g.
+for local break-out) is outside the scope of this specification. This signalling
+and its interaction with the bearer activation procedure are to be specified in
+TS&nbsp;23.203&nbsp;[6]. Steps 1 and 12 are included here only for completeness.</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11134039"><span
+lang=EN-GB>5.4.2.2<span style='mso-tab-count:1'>          </span>HSS Initiated
+Subscribed QoS Modification</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
+HSS Initiated Subscribed QoS Modification for a GTP-based S5/S8 is depicted in
+figure 5.4.2.2-1.</span></span></p><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
+ id="_x0000_i1095" type="#_x0000_t75" style='width:452pt;height:300pt' o:ole="">
+ <v:imagedata src="23401-g30_files/image141.emz" o:title=""/>
+</v:shape><![endif]--><![if !vml]><img width=603 height=400
+src="23401-g30_files/image142.gif" v:shapes="_x0000_i1095"><![endif]><!--[if gte mso 9]><xml>
+ <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1095"
+  DrawAspect="Content" ObjectID="_1631980423">
  </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=NF style='mso-prop-change:23401_CR0533R1 20080912T1223'><span
-style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:normal'><span
-lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF style='mso-prop-change:23401_CR0533R1 20080912T1223'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>                </span><b style='mso-bidi-font-weight:normal'>Diameter:</b>
-This protocol supports UE identity check procedure between MME and EIR (S13).
-Diameter is defined in RFC&nbsp;3588&nbsp;[31].</span></span></p><p class=NF style='mso-prop-change:23401_CR0533R1 20080912T1223'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB>-<span style='mso-tab-count:
-1'>                </span><b style='mso-bidi-font-weight:normal'>Stream Control
-Transmission Protocol (SCTP):</b> This protocol transfers signalling messages.
-SCTP is defined in RFC&nbsp;4960&nbsp;[35].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.1.1.10-1: Control Plane for S13 interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133949"><span
-lang=EN-GB>5.1.1.11<span style='mso-tab-count:1'>        </span>Void</span></a></span></h4><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB
-style='mso-no-proof:yes'><o:p>&nbsp;</o:p></span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133950"><span
-lang=EN-GB>5.1.1.12<span style='mso-tab-count:1'>        </span>MME - CSS</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1055" type="#_x0000_t75" style='width:199.5pt;height:148.5pt'
- o:ole="">
- <v:imagedata src="23401-g30_files/image061.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=266 height=198
-src="23401-g30_files/image062.gif" v:shapes="_x0000_i1055"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1055"
-  DrawAspect="Content" ObjectID="_1631980385">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=NF style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1413'><span
-style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:normal'><span
-lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1413'><span
-style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:normal'><span
-lang=EN-GB><span style='mso-tab-count:1'>                 </span>Diameter: </span></b><span
-lang=EN-GB>This protocol supports transferring of CSG subscription data for
-roaming subscribers only between MME and CSS (S7a). Diameter is defined in
-RFC&nbsp;3588&nbsp;[31].</span></span></p><p class=NF style='mso-prop-change:"23401_CR2142R2_VCSG_\(Rel-11\)" 20111124T1413'><span
-style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:normal'><span
-lang=EN-GB><span style='mso-tab-count:1'>                 </span>Stream Control
-Transmission Protocol (SCTP):</span></b><span lang=EN-GB> This protocol transfers
-signalling messages. SCTP is defined in RFC&nbsp;4960&nbsp;[35].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure 5.1.1.12-1:
-Control Plane for S7a interface</span></span></p><h4><span style='mso-bookmark:historyclause'><a name="_Toc11133951"><span
-lang=EN-GB>5.1.1.13<span style='mso-tab-count:1'>        </span>MME - RCAF</span></a></span></h4><p class=TH><span style='mso-bookmark:historyclause'><span lang=EN-GB><!--[if gte vml 1]><v:shape
- id="_x0000_i1056" type="#_x0000_t75" style='width:225.5pt;height:152pt' o:ole="">
- <v:imagedata src="23401-g30_files/image063.emz" o:title=""/>
-</v:shape><![endif]--><![if !vml]><img width=301 height=203
-src="23401-g30_files/image064.gif" v:shapes="_x0000_i1056"><![endif]><!--[if gte mso 9]><xml>
- <o:OLEObject Type="Embed" ProgID="Word.Picture.8" ShapeID="_x0000_i1056"
-  DrawAspect="Content" ObjectID="_1631980386">
- </o:OLEObject>
-</xml><![endif]--></span></span></p><p class=NF style='mso-prop-change:"23401_CR2797_UPCON_\(Rel-13\)" 20141201T1409'><span
-style='mso-bookmark:historyclause'><b style='mso-bidi-font-weight:normal'><span
-lang=EN-GB>Legend:<o:p></o:p></span></b></span></p><p class=NF style='mso-prop-change:"23401_CR2797_UPCON_\(Rel-13\)" 20141201T1409'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>                 </span><b style='mso-bidi-font-weight:normal'>Nq-AP: </b>This
-application layer protocol supports the IMSI and APN retrieval procedure between
-the RCAF and the MME.</span></span></p><p class=NF style='mso-prop-change:"23401_CR2797_UPCON_\(Rel-13\)" 20141201T1409'><span
-style='mso-bookmark:historyclause'><span lang=EN-GB><span style='mso-tab-count:
-1'>                 </span><b style='mso-bidi-font-weight:normal'>Stream
-Control Transmission Protocol (SCTP):</b> This protocol transfers signalling
-messages. SCTP is defined in RFC&nbsp;4960&nbsp;[35].</span></span></p><p class=NF><span style='mso-bookmark:historyclause'><span lang=EN-GB><o:p>&nbsp;</o:p></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
-5.1.1.13-1: Control Plane for Nq interface</span></span></p></body>
+</xml><![endif]--></span></span></p><p class=TF><span style='mso-bookmark:historyclause'><span lang=EN-GB>Figure
+5.4.2.2-1: HSS Initiated Subscribed QoS Modification</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;1:<span
+style='mso-tab-count:1'>  </span>For a PMIP-based S5/S8, procedure steps (A)
+and steps (B) are defined in TS&nbsp;23.402&nbsp;[2]. Steps&nbsp;3, 4, 5, 7 and
+8 concern GTP based S5/S8.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1.<span
+style='mso-tab-count:1'>   </span>The HSS sends an Insert Subscriber Data
+(IMSI, Subscription Data) message to the MME. The Subscription Data includes
+EPS subscribed QoS (QCI, ARP) and the subscribed UE-AMBR and APN&#8209;AMBR.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>1a.<span
+style='mso-tab-count:1'> </span>The MME updates the stored Subscription Data
+and acknowledges the Insert Subscriber Data message by returning an Insert
+Subscriber Data Ack (IMSI) message to the HSS (see clause&nbsp;5.3.9.2).</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2a<span
+style='mso-tab-count:1'>  </span>If only the subscribed UE-AMBR has been
+modified, the MME calculates a new UE-AMBR value as described in
+clause&nbsp;4.7.3 and may then signal a modified UE-AMBR value to the eNodeB by
+using S1-AP UE Context Modification Procedure. The HSS Initiated Subscribed QoS
+Modification Procedure ends after completion of the UE Context Modification
+Procedure.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>2b.<span
+style='mso-tab-count:1'> </span>If the QCI and/or ARP and/or subscribed
+APN-AMBR has been modified and there is related active PDN connection with the
+modified QoS Profile the MME sends the Modify Bearer Command (EPS Bearer
+Identity, EPS Bearer QoS, APN&#8209;AMBR) message to the Serving GW. The EPS
+Bearer Identity identifies the default bearer of the affected PDN connection.
+The EPS Bearer QoS contains the EPS subscribed QoS profile to be updated.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>3.<span
+style='mso-tab-count:1'>   </span>The Serving GW sends the Modify Bearer
+Command (EPS Bearer Identity, EPS Bearer QoS, APN&#8209;AMBR) message to the
+PDN GW.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>4.<span
+style='mso-tab-count:1'>   </span>If PCC infrastructure is deployed, the PDN GW
+informs the PCRF about the updated EPS Bearer QoS and APN-AMBR. The PCRF sends
+new updated PCC decision to the PDN GW. This corresponds to the PCEF-initiated
+IP&#8209;CAN Session Modification procedure as defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB><span
+style='mso-tab-count:1'>      </span>The PCRF may modify the APN-AMBR and the
+QoS parameters (QCI and ARP) associated with the default bearer in the response
+to the PDN GW as defined in TS&nbsp;23.203&nbsp;[6].</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>5.<span
+style='mso-tab-count:1'>   </span>The PDN GW modifies the default bearer of each
+PDN connection corresponding to the APN for which subscribed QoS has been
+modified. If the subscribed ARP parameter has been changed, the PDN&nbsp;GW
+shall also modify all dedicated EPS bearers having the previously subscribed
+ARP value unless superseded by PCRF decision. The PDN GW then sends the Update
+Bearer Request (EPS Bearer Identity, EPS Bearer QoS, TFT, APN&#8209;AMBR)
+message to the Serving GW.</span></span></p><p class=NO><span style='mso-bookmark:historyclause'><span lang=EN-GB>NOTE&nbsp;2:<span
+style='mso-tab-count:1'>  </span>As no PTI is included the MME use protocol
+specific details, as described in TS&nbsp;29.274&nbsp;[43], to determine if the
+Update Bearer Request was triggered by this procedure or not.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>6.<span
+style='mso-tab-count:1'>   </span>If the QCI and/or ARP parameter(s) have been
+modified, steps 3 to 10, as described in clause&nbsp;5.4.2.1, Figure 5.4.2.1-1,
+are invoked. If neither the QCI nor the ARP have been modified, but instead
+only the APN-AMBR was updated, steps 3 to 8, as described in clause&nbsp;5.4.3,
+Figure 5.4.3-1, are invoked.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>7.<span
+style='mso-tab-count:1'>   </span>The Serving GW acknowledges the bearer modification
+to the PDN GW by sending an Update Bearer Response (EPS Bearer Identity, User
+Location Information (ECGI)) message. If the bearer modification fails the PDN
+GW deletes the concerned EPS Bearer.</span></span></p><p class=B1><span style='mso-bookmark:historyclause'><span lang=EN-GB>8.<span
+style='mso-tab-count:1'>   </span>The PDN GW indicates to the PCRF whether the
+requested PCC decision was enforced or not by sending a Provision Ack message.</span></span></p></body>
