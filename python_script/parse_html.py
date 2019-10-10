@@ -1,64 +1,21 @@
 import lxml.etree as etree
 import argparse
 import re
+import os
 
-def get_keys(content):
-    key_list = []
-    dom = etree.HTML(content)
-    h1_keys = dom.xpath('/html/body//h1')
-    h2_keys = dom.xpath('/html/body//h2')
-    h3_keys = dom.xpath('/html/body//h3')
-    for h1_key in h1_keys:
-        key = ''.join(h1_key.itertext()).replace("\n", " ").replace("\xa0", " ")
-        keys = key.split()
-        if len(keys) > 1:
-            key = (keys[0], re.sub(keys[0], '', key).strip())
-        else:
-            key = (0, key)
-        key_list.append(key)
-    for h2_key in h2_keys:
-        key = ''.join(h2_key.itertext()).replace("\n", " ").replace("\xa0", " ")
-        keys = key.split()
-        if len(keys) > 1:
-            key = (keys[0], re.sub(keys[0], '', key).strip())
-        else:
-            key = (0, key)
-        key_list.append(key)
-    for h3_key in h3_keys:
-        key = ''.join(h3_key.itertext()).replace("\n", " ").replace("\xa0", " ")
-        keys = key.split()
-        if len(keys) > 1:
-            key = (keys[0], re.sub(keys[0], '', key).strip())
-        else:
-            key = (0, key)
-        key_list.append(key)
-    print(key_list)
-    return key_list
+def create_folder(out_path, dir):
+    if not os.path.exists(os.path.join(out_path, dir)):
+        os.makedirs(os.path.join(out_path, dir))
+        print("create folder ", os.path.join(out_path, dir))
 
-def sort_key_list(paragraph_list_sorted, key_list):
-    print("sort_key_list\n")
-    print(len(paragraph_list_sorted), len(key_list))
-    key_list_sorted = []
-    for paragraph in paragraph_list_sorted:
-        content = re.sub(r'\<.*?\>', '', paragraph)
-        for key in key_list:
-            #if str(key[0]) in paragraph and str(key[1].split("(")[0].split('"')[0]) in paragraph:
-            if str(key[0]) in content and str(key[1].split('"')[0]) in content:
-                key_list_sorted.append(key)
-            elif key[0] == 0 and str(key[1]) in content:
-                key_list_sorted.append(key)
-    print(key_list_sorted)
-    for key in key_list:
-        if key not in key_list_sorted:
-            print(key)
-    return key_list_sorted
-
-def main(infile, outfile):
+def parse_file(infile, outfile):
     print(infile)
-    with open(infile) as f:
+    create_folder(outfile, os.path.basename(infile).split(".")[0])
+    outfile = outfile + "\\" + os.path.basename(infile).split(".")[0]
+    print("outfile is ", outfile)
+    with open(infile, errors='ignore') as f:
         content = f.read()
 
-    key_list = get_keys(content)
     html_header = content.split('<body')[0]
     html_header = html_header + "<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'>"
     html_end = "</body>"
@@ -73,15 +30,8 @@ def main(infile, outfile):
        if("</h3>" in paragraph):
            paragraph_list_sorted.append(paragraph.replace("\n", " "))
 
-    key_list_sorted = sort_key_list(paragraph_list_sorted, key_list)
-
     current_index = 0
     htmls = []
-    print(len(key_list_sorted))
-    print(key_list_sorted)
-    print(len(paragraph_list_sorted))
-    print(paragraph_list_sorted)
-    print(len(paragraphs))
     for paragraph in paragraphs:
         if current_index == len(paragraph_list_sorted) -1:
             break
@@ -90,8 +40,9 @@ def main(infile, outfile):
             htmls.append(paragraph)
         elif paragraph.replace("\n", " ") == paragraph_list_sorted[current_index+1]:
             #fname = str(key_list_sorted[current_index][0]) + "-" + str(key_list_sorted[current_index][1].replace(" ", "_"))
-            fname = str(key_list_sorted[current_index][0])
-            fname = outfile + '/' + fname + '.html'
+            content = re.sub(r'\<.*?\>', '', paragraph_list_sorted[current_index])
+            fname = str(content.split(" ")[0].strip())
+            fname = outfile + '\\' + fname + '.html'
             print(fname, current_index)
             with open(fname, "w") as f:
                 f.write(html_header)
@@ -103,6 +54,11 @@ def main(infile, outfile):
             current_index = current_index + 1
         else:
             htmls.append(paragraph)
+
+def main(in_path, out_path):
+    input_files = [f for f in os.listdir(in_path) if os.path.isfile(os.path.join(in_path, f)) and f.endswith(".htm")]
+    for input_file in input_files:
+        parse_file(os.path.join(in_path, input_file), out_path)
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="extract paragraph htmls")

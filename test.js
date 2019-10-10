@@ -16,10 +16,46 @@ let run_search = text => {
   return client.search({
     index: '*',
     // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
+    stats:"_index",
     body: {
-      query: {
-        match: { desc: JSON.stringify(text) }
+      "query": {
+        "bool": {
+          "should": [
+            {
+              "multi_match": {
+                "query": JSON.stringify(text),
+                "fields": ["key", "desc"]
+              }
+            },
+            {
+              "prefix": {
+                "key": {
+                  "value": JSON.stringify(text)
+                }
+              }
+            },
+            {
+              "prefix": {
+                "desc": {
+                  "value": JSON.stringify(text)
+                }
+              }
+            }
+          ]
+        }
+      },
+      "aggs": {
+        "group_by_index": {
+          "terms": {
+            "field": "_index",
+            "size": 10
+          }
+        }
       }
+
+/*      query: {
+        match: { desc: JSON.stringify(text) }
+      }*/
     }
   }).then(result => {return result})
 
@@ -30,7 +66,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
 		res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\index.html');
-		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\load_test_2.html');
+		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\test_mark.html');
 });
 
 app.get('/submit-search-data', function (req, res) {
@@ -38,7 +74,7 @@ app.get('/submit-search-data', function (req, res) {
 	run_search(key).then(function(results)
 		{
 			search_results = results.body.hits.hits
-			//console.log(search_results)
+      console.log(results.body.aggregations.group_by_index)
 			res.render('search_results', {searchResultList : search_results} );
 			req.app.locals.search_results = JSON.stringify(search_results)
 		}
@@ -51,6 +87,8 @@ app.get('/details', function (req, res)
 		id = req.url.split("?")[1];
 		saved_results = JSON.parse(req.app.locals.search_results)
 		numbering = String(saved_results[id]._source.numbering);
+    index = String(saved_results[id]._index);
+    console.log(index)
 		len = String(saved_results[id]._source.numbering).split(".").length
 		values = String(saved_results[id]._source.numbering).split(".")
 		if (len > 3)
@@ -58,7 +96,7 @@ app.get('/details', function (req, res)
 			numbering = values[0] + '.' + values[1] + '.' + values[2]
 		}
 
-    html_file = "/" + numbering + ".html"
+    html_file = "/" + index + "/" + numbering + ".html"
     console.log(html_file)
     res.redirect(html_file)
 		//link_html_file = "C:\\3gpp_search_engine\\3gpp_search_engine_web\\parsed_htmls\\" + numbering + ".html"
