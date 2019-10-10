@@ -2,10 +2,103 @@ doctype html
 html
 head
 title=title
-body
-    h1 Search result
+style.
+    p{
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+    }
 
-    each item, index in searchResultList
-        a(href='/details?'+index, target="_blank")
-          h1= item._source.key
-        p= item._source.desc
+    body{
+        font-family:Verdana;
+        font-size:15px;
+        margin: 0 auto;
+    }
+
+    .wrap{
+        width:960px;
+        margin: 0 auto;
+    }
+	
+    *{
+        padding: 0;
+        margin: 50;
+    }
+
+    .tag{
+        font-size: 18px;
+        color: #0066FF;
+        margin: 0 auto;
+        font-family: "Times New Roman",Georgia,Serif;
+    }
+
+    /* 名称 */
+    .title{
+        text-align: center;
+        font-size: 25px;
+        font-weight: bold;
+        color: cadetblue;
+        margin-top: 30px;
+        margin-bottom: 20px;
+        font-family: fantasy;
+    }
+
+    /* 下面是搜索框样式 */
+    .searchBox{
+        width: 52%;
+        height: 45px;
+        border: 1px solid cadetblue;
+        outline: hidden;
+        border-radius: 2px;
+        margin: 0 auto;
+        position: relative;
+    }
+
+    .inputBox{
+        border: none;
+        width: 95%;
+        height: 45px;
+        line-height: 35px;
+        outline: none;
+        padding-left: 10px;
+        /* 改变光标的颜色 */
+        caret-color:#008B8B;
+        font-size: 14px;
+    }
+
+    .searchBtn{
+        width: 65px;
+        height: 45px;
+        border: none;
+        position: absolute;
+        right: 0;
+        outline: none;
+        color: white;
+        font-size: 15px;
+        background-color: cornflowerblue;
+    }
+
+    /* 鼠标滑过按钮时背景色改变 */
+    .searchBtn:hover{
+        background-color: #497fdf;
+    }
+
+script.
+    var a = 1;
+
+body
+    div.title
+        p.
+            3GPP &nbsp;Search&nbsp;
+
+    form(name="submit-search-data", method="get")
+        div.searchBox
+            input(class="inputBox", type="text", name="search_text")
+            button(class="searchBtn", type="submit", value="search") Submit
+    div.wrap
+        each item, index in searchResultList
+            a(href='/details?'+index)
+              h1= item._source.key
+            p= item._source.desc
+            p.tag Categories:23401-g30
