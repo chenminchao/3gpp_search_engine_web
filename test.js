@@ -17,6 +17,7 @@ let run_search = text => {
     index: '*',
     // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
     stats:"_index",
+    size:30,
     body: {
       "query": {
         "bool": {
@@ -74,8 +75,9 @@ app.get('/submit-search-data', function (req, res) {
 	run_search(key).then(function(results)
 		{
 			search_results = results.body.hits.hits
-      console.log(results.body.aggregations.group_by_index)
-			res.render('search_results', {searchResultList : search_results} );
+      //console.log(results.body.aggregations.group_by_index)
+      console.log(search_results)
+			res.render('search_results', {searchResultList : search_results, searchKey : key} );
 			req.app.locals.search_results = JSON.stringify(search_results)
 		}
 	).catch(console.log)

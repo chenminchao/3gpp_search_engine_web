@@ -20,7 +20,7 @@ style.
         width:960px;
         margin: 0 auto;
     }
-	
+
     *{
         padding: 0;
         margin: 50;
@@ -94,11 +94,14 @@ body
 
     form(name="submit-search-data", method="get")
         div.searchBox
-            input(class="inputBox", type="text", name="search_text")
+            input(class="inputBox", type="text", name="search_text", value= searchKey)
             button(class="searchBtn", type="submit", value="search") Submit
     div.wrap
+        if searchResultList.length == 0
+            p "There's no results available."
+        else
         each item, index in searchResultList
             a(href='/details?'+index)
               h1= item._source.key
             p= item._source.desc
-            p.tag Categories:23401-g30
+            p.tag= 'Doc: ' + item._index + " Keyword: " + item._source.Keywords
