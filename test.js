@@ -13,37 +13,18 @@ app.use(express.static('public'));
 
 let run_search = text => {
   // Let's search!
-  return client.search({
+  a = 1
+  if (a == 1)
+  {
+    return client.search({
     index: '*',
-    // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
     stats:"_index",
     size:200,
     body: {
       "query": {
-        "bool": {
-          "should": [
-            {
-              "multi_match": {
-                "query": JSON.stringify(text),
-                "fields": ["key", "desc"]
-              }
-            },
-            {
-              "prefix": {
-                "key": {
-                  "value": JSON.stringify(text)
-                }
-              }
-            },
-            {
-              "prefix": {
-                "desc": {
-                  "value": JSON.stringify(text)
-                }
-              }
-            }
-          ]
-        }
+        "match_phrase": {
+          "key": JSON.stringify(text)
+          }
       },
       "aggs": {
         "group_by_index": {
@@ -53,12 +34,58 @@ let run_search = text => {
           }
         }
       }
-
-/*      query: {
-        match: { desc: JSON.stringify(text) }
-      }*/
     }
-  }).then(result => {return result})
+    }).then(result => {return result})
+  }
+  else
+  {
+      return client.search({
+        index: '*',
+        // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
+        stats:"_index",
+        size:200,
+        body: {
+          "query": {
+            "bool": {
+              "should": [
+                {
+                  "multi_match": {
+                    "query": JSON.stringify(text),
+                    "fields": ["key", "desc"]
+                  }
+                },
+                {
+                  "prefix": {
+                    "key": {
+                      "value": JSON.stringify(text)
+                    }
+                  }
+                },
+                {
+                  "prefix": {
+                    "desc": {
+                      "value": JSON.stringify(text)
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "aggs": {
+            "group_by_index": {
+              "terms": {
+                "field": "_index",
+                "size": 10
+              }
+            }
+          }
+
+    /*      query: {
+            match: { desc: JSON.stringify(text) }
+          }*/
+        }
+      }).then(result => {return result})
+  }
 
 }
 
