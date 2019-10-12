@@ -1,5 +1,6 @@
 import lxml.etree as etree
 import argparse
+import glob
 import re
 import os
 
@@ -18,8 +19,8 @@ def parse_file(infile, outfile):
 
     html_header = content.split('<body')[0]
     html_header = html_header + "<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'>\n"
-    mark_script = '</body>\n' +\
-                  '<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>\n' +  \
+    body_end = '</body>\n';
+    mark_script = '<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>\n' +  \
                   '<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>\n' + \
                   '<script type="text/javascript">\n' +\
                   '$(document).ready(function(){\n' + \
@@ -42,6 +43,7 @@ def parse_file(infile, outfile):
 
     current_index = 0
     htmls = []
+    print(len(paragraph_list_sorted))
     for paragraph in paragraphs:
         if current_index == len(paragraph_list_sorted) -1:
             break
@@ -57,7 +59,8 @@ def parse_file(infile, outfile):
             with open(fname, "w") as f:
                 f.write(html_header)
                 f.write(''.join(htmls))
-                f.write(mark_script)
+                f.write(body_end)
+                #f.write(mark_script)
                 f.write(html_end)
                 f.close()
             htmls.clear()
@@ -67,12 +70,18 @@ def parse_file(infile, outfile):
             htmls.append(paragraph)
 
 def main(in_path, out_path):
-    input_files = [f for f in os.listdir(in_path) if os.path.isfile(os.path.join(in_path, f)) and f.endswith(".htm")]
-    for input_file in input_files:
-        parse_file(os.path.join(in_path, input_file), out_path)
+    for root, dirs, files in os.walk(in_path):
+        for file in files:
+            if file.endswith(".htm"):
+                print(os.path.join(root, file))
+                if("_files" not in str(root)):
+                    parse_file(os.path.join(root, file), out_path)
+    #input_files = [f for f in os.listdir(in_path) if os.path.isfile(os.path.join(in_path, f)) and f.endswith(".htm")]
+    #for input_file in input_files:
+    #    parse_file(os.path.join(in_path, input_file), out_path)
 
 if __name__ == "__main__":
-    rootpath = os.path.abspath('..')  # 获取上级路径
+    rootpath = "C:\\3gpp_search_engine\\3gpp_search_engine_web"  # 获取上级路径
     in_Path = rootpath + "\\specs\\spec_htms"
     out_Path = rootpath + "\\parsed_htmls"
     main(in_Path, out_Path)
