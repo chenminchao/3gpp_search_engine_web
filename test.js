@@ -70,10 +70,12 @@ app.get('/', function (req, res) {
 		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\test_mark.html');
 });
 
-app.get('/sort', function (req, res) {
+app.get('/sort', function (req, res) {	
     var filterDoc = req.originalUrl.split('?')[1];
     searchResults =  JSON.parse(req.app.locals.search_results)
     groups = req.app.locals.groups;
+	key = req.app.locals.searchKey;
+	
     var filterSearchResults = [];
     for(var item in searchResults)
     {
@@ -85,7 +87,7 @@ app.get('/sort', function (req, res) {
         }
     }
     console.log(filterSearchResults);
-    res.render('search_results', {searchResultList : filterSearchResults, searchKey : filterDoc, searchGroups : groups} );
+    res.render('search_results', {searchResultList : filterSearchResults, searchKey : key, searchGroups : groups} );
 
 });
 
@@ -99,6 +101,7 @@ app.get('/submit-search-data', function (req, res) {
 			res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
 			req.app.locals.search_results = JSON.stringify(search_results)
 			req.app.locals.groups = groups
+			req.app.locals.searchKey = key
 		}
 	).catch(console.log)
 
