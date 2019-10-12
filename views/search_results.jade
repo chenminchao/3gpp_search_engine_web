@@ -122,7 +122,6 @@ body
         | Search Results
         </span>
         ul
-            li
-                a(href="/") 23401
-            li
-                a(href="/") 29274
+            each item in searchGroups.buckets
+                a(href='/sort?'+ item.key)
+                    p= item.key + "(" + item.doc_count + ")"

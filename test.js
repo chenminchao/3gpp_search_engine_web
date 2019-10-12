@@ -17,7 +17,7 @@ let run_search = text => {
     index: '*',
     // type: '_doc', // uncomment this line if you are using Elasticsearch ≤ 6
     stats:"_index",
-    size:30,
+    size:200,
     body: {
       "query": {
         "bool": {
@@ -70,15 +70,35 @@ app.get('/', function (req, res) {
 		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\test_mark.html');
 });
 
+app.get('/sort', function (req, res) {
+    var filterDoc = req.originalUrl.split('?')[1];
+    searchResults =  JSON.parse(req.app.locals.search_results)
+    groups = req.app.locals.groups;
+    var filterSearchResults = [];
+    for(var item in searchResults)
+    {
+        if(String(filterDoc) == (String(searchResults[item]._index)))
+        {
+            console.log(String(filterDoc));
+            console.log(String(searchResults[item]._index));
+            filterSearchResults.push(searchResults[item]);
+        }
+    }
+    console.log(filterSearchResults);
+    res.render('search_results', {searchResultList : filterSearchResults, searchKey : filterDoc, searchGroups : groups} );
+
+});
+
 app.get('/submit-search-data', function (req, res) {
 	var key = req.query.search_text;
 	run_search(key).then(function(results)
 		{
 			search_results = results.body.hits.hits
-      //console.log(results.body.aggregations.group_by_index)
-      console.log(search_results)
-			res.render('search_results', {searchResultList : search_results, searchKey : key} );
+			groups = results.body.aggregations.group_by_index
+
+			res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
 			req.app.locals.search_results = JSON.stringify(search_results)
+			req.app.locals.groups = groups
 		}
 	).catch(console.log)
 
