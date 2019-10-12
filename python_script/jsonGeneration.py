@@ -7,15 +7,14 @@ from logging import config
 
 config.fileConfig('./loggingConfig.conf')
 
-
 def get_title_info(catelog):
     title_level = catelog.count('.')
     title_pre = catelog.split()[0]
-    key = re.sub(title_pre, '', catelog)
-    key = re.sub(r'\d+', '', key).strip()
+    key = catelog.split()[1:-1]
+    key = " ".join(key)
+    # key = re.sub(r'\d+', '', key).strip()
     # print(title_level, title_pre, key)
     return (key, title_pre, title_level)
-
 
 def get_desc_info(title_infos, content):
     desc_infos = []
