@@ -87,8 +87,8 @@ app.get('/sort', function (req, res) {
         }
     }
     console.log(filterSearchResults);
+    req.app.locals.search_results = JSON.stringify(filterSearchResults);
     res.render('search_results', {searchResultList : filterSearchResults, searchKey : key, searchGroups : groups} );
-
 });
 
 app.get('/submit-search-data', function (req, res) {

@@ -83,7 +83,9 @@ def save_json_file(file_name, dict_list):
 def get_def_key(def_input):
     def_key_list = []
     for line in def_input['desc'].split('\n'):
-        if (line.find(':') != -1):
+        #if (line.find(':') != -1):
+        #29890-f20 definition
+        if (line.find(':') != -1 and line.split(':')[1].strip() != ""):
             def_key_list.append(line.split(':')[0])
             print(line.split(':')[0])
     return def_key_list
