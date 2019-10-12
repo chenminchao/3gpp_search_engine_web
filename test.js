@@ -72,7 +72,8 @@ app.get('/sort', function (req, res) {
         }
     }
     console.log(filterSearchResults);
-    req.app.locals.search_results = JSON.stringify(filterSearchResults);
+    req.app.locals.filtered_search_results = JSON.stringify(filterSearchResults);
+    req.app.locals.last_operation = "sort";
     res.render('search_results', {searchResultList : filterSearchResults, searchKey : key, searchGroups : groups} );
 });
 
@@ -87,6 +88,7 @@ app.get('/submit-search-data', function (req, res) {
 			req.app.locals.search_results = JSON.stringify(search_results)
 			req.app.locals.groups = groups
 			req.app.locals.searchKey = key
+      req.app.locals.last_operation = "search"
 		}
 	).catch(console.log)
 
@@ -95,7 +97,14 @@ app.get('/submit-search-data', function (req, res) {
 app.get('/details', function (req, res)
 	{
 		id = req.url.split("?")[1];
-		saved_results = JSON.parse(req.app.locals.search_results)
+    if(req.app.locals.last_operation == "search")
+    {
+		    saved_results = JSON.parse(req.app.locals.search_results);
+    }
+    else
+    {
+        saved_results = JSON.parse(req.app.locals.filtered_search_results);
+    }
 		numbering = String(saved_results[id]._source.numbering);
     index = String(saved_results[id]._index);
     console.log(index)
