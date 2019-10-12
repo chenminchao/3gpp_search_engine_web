@@ -61,8 +61,7 @@ def main(in_path, out_path):
         parse_file(os.path.join(in_path, input_file), out_path)
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser(description="extract paragraph htmls")
-    parser.add_argument("--input", required="true")
-    parser.add_argument("--output", required="true")
-    args = parser.parse_args()
-    main(args.input, args.output)
+    rootpath = os.path.abspath('..')  # 获取上级路径
+    in_Path = rootpath + "\\specs\\spec_htms"
+    out_Path = rootpath + "\\parsed_htmls"
+    main(in_Path, out_Path)

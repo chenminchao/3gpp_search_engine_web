@@ -66,7 +66,7 @@ var bodyParser =require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-		res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\index.html');
+		res.sendFile('C:\\hackathon\\3gpp_search_engine_web\\index.html');
 		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\test_mark.html');
 });
 

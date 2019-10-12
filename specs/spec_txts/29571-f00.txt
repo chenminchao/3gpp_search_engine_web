@@ -1,0 +1,1981 @@
+
+                                            3GPP TS 29.571 V15.0.0 (2018-06)
+                                                     Technical Specification
+                                         3rd Generation Partnership Project;
+                   Technical Specification Group Core Network and Terminals;
+                  5G System; Common Data Types for Service Based Interfaces;
+                                                                     Stage 3
+                                                                (Release 15)
+  [pic]  [pic]
+
+The present document has been developed within the 3rd Generation
+Partnership Project (3GPP TM) and may be further elaborated for the
+purposes of 3GPP..
+The present document has not been subject to any approval process by the
+3GPP Organizational Partners and shall not be implemented.
+This Specification is provided for future development work within 3GPP
+only. The Organizational Partners accept no liability for any use of this
+Specification.
+Specifications and Reports for implementation of the 3GPP TM system should
+be obtained via the 3GPP Organizational Partners' Publications Offices.
+
+
+
+
+
+
+
+
+
+
+
+                                  Keywords
+                               3GPP, 5G System
+
+
+                                    3GPP
+
+                               Postal address
+
+
+
+                         3GPP support office address
+                  650 Route des Lucioles - Sophia Antipolis
+                              Valbonne - FRANCE
+               Tel.: +33 4 92 94 42 00 Fax: +33 4 93 65 47 16
+
+                                  Internet
+                             http://www.3gpp.org
+
+
+                           Copyright Notification
+
+    No part may be reproduced except as authorized by written permission.
+  The copyright and the foregoing restriction extend to reproduction in all
+                                   media.
+
+  © 2018, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA,
+                                    TTC).
+                            All rights reserved.
+
+UMTS™ is a Trade Mark of ETSI registered for the benefit of its members
+3GPP™ is a Trade Mark of ETSI registered for the benefit of its Members and
+of the 3GPP Organizational Partners
+LTE™ is a Trade Mark of ETSI registered for the benefit of its Members and
+of the 3GPP Organizational Partners
+GSM® and the GSM logo are registered and owned by the GSM Association
+
+         Contents
+
+
+Foreword 5
+
+1  Scope 6
+
+2  References 6
+
+3  Definitions and abbreviations  7
+3.1  Definitions  7
+3.2  Abbreviations  7
+
+4  Overview 7
+
+5  Common Data Types   7
+5.1  Introduction 7
+5.2  Data Types for Generic Usage 7
+5.2.1  Introduction 7
+5.2.2  Simple Data Types 7
+5.2.3  Enumerations 10
+5.2.3.1  Enumeration: PatchOperation  10
+5.2.4  Structured Data Types 10
+5.2.4.1  Type: ProblemDetails   10
+5.2.4.2  Type: Link 10
+5.2.4.3  Type PatchItem  11
+5.2.4.4  Type _LinksValueSchema 11
+5.2.4.5  Type _SelfLink  11
+5.2.4.6  Type: InvalidParam  11
+5.3  Data Types related to Subscription, Identification and Numbering  12
+5.3.1  Introduction 12
+5.3.2  Simple Data Types 12
+5.3.3  Enumerations 13
+5.3.3.1  Enumeration: <EnumType1> 13
+5.3.4  Structured Data Types 13
+5.3.4.1  Type: Guami   13
+5.3.4.2  Type: NetworkId 13
+5.4  Data Types related to 5G Network 13
+5.4.1  Introduction 13
+5.4.2  Simple Data Types 13
+5.4.3  Enumerations 15
+5.4.3.1  Enumeration: AccessType  15
+5.4.3.2  Enumeration: RatType   15
+5.4.3.3  Enumeration: PduSessionType  15
+5.4.3.4  Enumeration: UpIntegrity 15
+5.4.3.5  Enumeration: UpConfidentiality 15
+5.4.3.6  Enumeration: SscMode   16
+5.4.4.7  Type: RefToBinaryData  16
+5.4.4  Structured Data Types 16
+5.4.4.1  Type: DefaultQosInformation  16
+5.4.4.2  Type: Snssai  17
+5.4.4.3  Type: PlmnId  17
+5.4.4.4  Type: Tai  17
+5.4.4.5  Type: Ecgi 17
+5.4.4.6  Type: Ncgi 18
+5.4.4.7  Type: UserLocation  18
+5.4.4.8  Type: EutraLocation 18
+5.4.4.9  Type: NrLocation  18
+5.4.4.10 Type: N3gaLocation  18
+5.4.4.11 Type: UpSecurity  19
+5.5  Data Types related to 5G QoS 19
+5.5.1  Introduction 19
+5.5.2  Simple Data Types 19
+5.5.3  Enumerations 20
+5.5.3.1  Enumeration: PreemptionCapability 20
+5.5.3.2  Enumeration: PreemptionVulnerability  21
+5.5.3.3  Enumeration: ReflectiveQosAttribute 21
+5.5.3.4  Enumeration: DelayCritical 21
+5.5.3.5  Enumeration: NotificationControl  21
+5.5.4  Structured Data Types 22
+5.5.4.1  Type: Arp  22
+5.5.4.2  Type: Ambr 22
+
+Annex A (normative):   OpenAPI specification 22
+A.1  General  22
+A.2  Data related to Common Data Types  22
+
+Annex B (informative): Change history 31
+
+
+
+
+         Foreword
+
+This Technical Specification has been produced by the 3rd Generation
+Partnership Project (3GPP).
+
+The contents of the present document are subject to continuing work within
+the TSG and may change following formal TSG approval. Should the TSG modify
+the contents of the present document, it will be re-released by the TSG
+with an identifying change of release date and an increase in version
+number as follows:
+
+  Version x.y.z
+
+  where:
+
+    x  the first digit:
+
+       1  presented to TSG for information;
+
+       2  presented to TSG for approval;
+
+       3  or greater indicates TSG approved document under change control.
+
+    y  the second digit is incremented for all changes of substance, i.e.
+       technical enhancements, corrections, updates, etc.
+
+    z  the third digit is incremented when editorial only changes have been
+       incorporated in the document.
+
+
+
+         1  Scope
+
+The present document specifies the stage 3 protocol and data model for
+common data types that are used or may be expected to be used by multiple
+Service Based Interface APIs supported by the same or different Network
+Function(s).
+
+The Principles and Guidelines for Services Definition are specified in
+3GPP TS 29.501 [2].
+
+
+2  References
+
+The following documents contain provisions which, through reference in this
+text, constitute provisions of the present document.
+
+  -  References are either specific (identified by date of publication,
+    edition number, version number, etc.) or non-specific.
+
+  -  For a specific reference, subsequent revisions do not apply.
+
+  -  For a non-specific reference, the latest version applies. In the case
+    of a reference to a 3GPP document (including a GSM document), a non-
+    specific reference implicitly refers to the latest version of that
+    document in the same Release as the present document.
+
+  [1]  3GPP TR 21.905: "Vocabulary for 3GPP Specifications".
+
+  [2]  3GPP TS 29.501: "5G System; Principles and Guidelines for Services
+             Definition; Stage 3".
+
+  [3]  OpenAPI: "OpenAPI 3.0.0 Specification",
+             https://github.com/OAI/OpenAPI-
+             Specification/blob/master/versions/3.0.0.md.
+
+  [4]  IETF RFC 1166: "Internet Numbers".
+
+  [5]  IETF RFC 5952: "A recommendation for IPv6 address text
+             representation".
+
+  [6]  IETF RFC 3986: "Uniform Resource Identifier (URI): Generic Syntax".
+
+  [7]  3GPP TS 23.003: "Numbering, addressing and identification".
+
+  [8]  3GPP TS 23.501: "System Architecture for the 5G System; Stage 2".
+
+  [9]  IETF RFC 7807: "Problem Details for HTTP APIs".
+
+  [10] IETF RFC 3339: "Date and Time on the Internet: Timestamps".
+
+  [11] 3GPP TS 38.413: "NG-RAN; NG Application Protocol (NGAP) ".
+
+  [12] IETF RFC 6901: "JavaScript Object Notation (JSON) Pointer".
+
+  [13] 3GPP TS 24.007: " Mobile radio interface signalling layer 3; General
+             aspects".
+
+  [14] IETF RFC 6902: "JavaScript Object Notation (JSON) Patch".
+
+  [15] IETF RFC 4122: "A Universally Unique IDentifier (UUID) URN
+             Namespace"
+
+  [16] 3GPP TS 36.413: "Evolved Universal Terrestrial Radio Access Network
+             (E-UTRAN); S1 Application Protocol (S1AP)".
+
+  [17] IETF RFC 7042: "IANA Considerations and IETF Protocol and
+             Documentation Usage for IEEE 802 Parameters".
+
+  [18] IETF RFC 6733: "Diameter Base Protocol".
+
+
+3  Definitions and abbreviations
+
+
+3.1  Definitions
+
+For the purposes of the present document, the terms and definitions given
+in 3GPP TR 21.905 [1] and the following apply. A term defined in the
+present document takes precedence over the definition of the same term, if
+any, in 3GPP TR 21.905 [1].
+
+
+3.2  Abbreviations
+
+For the purposes of the present document, the abbreviations given in
+3GPP TR 21.905 [1] and the following apply. An abbreviation defined in the
+present document takes precedence over the definition of the same
+abbreviation, if any, in 3GPP TR 21.905 [1].
+
+  5GC  5G Core Network
+  GPSI Generic Public Subscription Identifier
+  GUAMI  Globally Unique AMF Identifier
+  PEI  Permanent Equipment Identifier
+  SBI  Service Based Interface
+  SUPI Subscription Permanent Identifier
+
+4  Overview
+
+For the different 5GC SBI API, data types shall be defined. Data types
+identified as common data types shall be defined in this Technical
+specification and should be referenced from individual 5GC SBI API
+specifications.
+
+Data types applicable or intended to be applicable to several 5GC SBI API
+specifications should be interpreted as common data types.
+
+
+5  Common Data Types
+
+
+5.1  Introduction
+
+In the following subclauses, common data types for the following areas are
+defined:
+
+  -  Data types for generic usage
+
+  -  Data types for Subscription, Identification and Numbering
+
+  -  Data types related to 5G Network
+
+  -  Data types related to 5G QoS
+
+
+5.2  Data Types for Generic Usage
+
+
+5.2.1  Introduction
+
+This clause defines common data types for generic usage.
+
+
+5.2.2  Simple Data Types
+
+This subclause specifies common simple data types.
+
+                      Table 5.2.2-1: Simple Data Types
+
+|Type Name     |Type         |Description                              |
+|              |Definition   |                                         |
+|Binary        |string       |String with format "binary" as defined in|
+|              |             |OpenAPI Specification [3]                |
+|Bytes         |string       |String with format "byte" as defined in  |
+|              |             |OpenAPI Specification [3], i.e,          |
+|              |             |base64-encoded characters,               |
+|Date          |string       |String with format "date" as defined in  |
+|              |             |OpenAPI Specification [3]                |
+|DateTime      |string       |String with format "date-time" as defined|
+|              |             |in OpenAPI Specification [3]             |
+|DiameterIdenti|string       |String with format “DiameterIdentity”    |
+|ty            |             |according to clause 4.3 of               |
+|              |             |IETF RFC 6733 [18]. In an                |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as string with|
+|              |             |pattern as                               |
+|              |             |'^([A-Za-z0-9]+(-[A-Za-z0-9]+).)+[a-z]{2,|
+|              |             |}$'.                                     |
+|Double        |number       |Number with format "double" as defined in|
+|              |             |OpenAPI Specification [3]                |
+|DurationSec   |integer      |Unsigned integer identifying a period of |
+|              |             |time in units of seconds. In an          |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as            |
+|              |             |"DurationSec".                           |
+|Float         |number       |Number with format "float" as defined in |
+|              |             |OpenAPI Specification [3]                |
+|Uint16        |integer      |Unsigned 16-bit integers, i.e. only value|
+|              |             |between 0 and 65535 are permissible.     |
+|Int32         |integer      |Integer with format "int32" as defined in|
+|              |             |OpenAPI Specification [3]                |
+|Int64         |integer      |Integer with format "int64" as defined in|
+|              |             |OpenAPI Specification [3]                |
+|Ipv4Addr      |string       |String identifying a IPv4 address        |
+|              |             |formatted in the "dotted decimal"        |
+|              |             |notation as defined in in                |
+|              |             |IETF RFC 1166 [4]. In an                 |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Ipv4Addr".|
+|Ipv6Addr      |string       |String identifying a IPv6 address        |
+|              |             |formatted according to clause 4 of       |
+|              |             |IETF RFC 5952 [5]. The mixed IPv4 IPv6   |
+|              |             |notation according to clause 5 of        |
+|              |             |IETF RFC 5952 [5] shall not be used. In  |
+|              |             |an OpenAPI Specification [3] schema, the |
+|              |             |format shall be designated as "Ipv6Addr".|
+|Ipv6Prefix    |string       |String identifying a IPv6 address prefix |
+|              |             |formatted according to clause 4 of       |
+|              |             |IETF RFC 5952 [5]. In an                 |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as            |
+|              |             |"Ipv6Prefix".                            |
+|MacAddr48     |string       |String identifying a MAC address         |
+|              |             |formatted in the hexadecimal notation    |
+|              |             |according to subclause 1.1 and           |
+|              |             |subclause 2.1 of IETF RFC 7042 [17]. In  |
+|              |             |an OpenAPI Specification [3] schema, the |
+|              |             |format shall be designated as string with|
+|              |             |pattern of                               |
+|              |             |'^([0-9a-fA-F]{2})((-[0-9a-fA-F]{2}){5})$|
+|              |             |'                                        |
+|SupportedFeatu|string       |A string used to indicate the features   |
+|res           |             |supported by an API that is used as      |
+|              |             |defined in subclause 6.6 in              |
+|              |             |3GPP TS 29.501 [2].                      |
+|              |             |The string shall contain a bitmask       |
+|              |             |indicating supported features in         |
+|              |             |hexadecimal representation: Each         |
+|              |             |character in the string shall take a     |
+|              |             |value of "0" to "9" or "A" to "F" and    |
+|              |             |shall represent the support of 4 features|
+|              |             |as described in table 5.2.2-3. The most  |
+|              |             |significant character representing the   |
+|              |             |highest-numbered features shall appear   |
+|              |             |first in the string, and the character   |
+|              |             |representing features 1 to 4 shall appear|
+|              |             |last in the string. The list of features |
+|              |             |and their numbering (starting with 1) are|
+|              |             |defined separately for each API. If the  |
+|              |             |string contains a lower number of        |
+|              |             |characters than there are defined        |
+|              |             |features for an API, all features that   |
+|              |             |would be represented by characters that  |
+|              |             |are not present in the string are not    |
+|              |             |supported.                               |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"SupportedFeatures".                     |
+|Uinteger      |integer      |Unsigned Integer, i.e. only value 0 and  |
+|              |             |integers above 0 are permissible. In an  |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Uinteger".|
+|Uint32        |integer      |Unsigned 32-bit integers, i.e. only value|
+|              |             |0 and 32-bit integers above 0 are        |
+|              |             |permissible. In an                       |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Uint32".  |
+|Uint64        |integer      |Unsigned 64-bit integers, i.e. only value|
+|              |             |0 and 64-bit integers above 0 are        |
+|              |             |permissible. In an                       |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Uint64".  |
+|Uri           |string       |String providing an URI formatted        |
+|              |             |according to IETF RFC 3986 [6]. In an    |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Uri".     |
+|TimeZone      |string       |String with format "<time-numoffset>"    |
+|              |             |optionally appended by                   |
+|              |             |"<daylightSavingTime>", where:           |
+|              |             |                                         |
+|              |             |-  <time-numoffset> shall represent the  |
+|              |             |time zone adjusted for daylight saving   |
+|              |             |time and be encoded as time-numoffset as |
+|              |             |defined in subclause 5.6 of IETF RFC 3339|
+|              |             |[10];                                    |
+|              |             |                                         |
+|              |             |- <daylightSavingTime> shall represent   |
+|              |             |the adjustment that has been made and be |
+|              |             |encoded as "+1" or "+2" for a +1 or +2   |
+|              |             |hours adjustment.                        |
+|              |             |                                         |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"TimeZone".                              |
+|              |             |                                         |
+|              |             |Example: "-08:00+1" (for 8 hours behind  |
+|              |             |UTC, +1 hour adjustment for Daylight     |
+|              |             |Saving Time).                            |
+
+
+                  Table 5.2.2-2: Reused OpenAPI data types
+
+|Type Name     |Description                              |
+|boolean       |As defined in OpenAPI Specification [3]  |
+|integer       |As defined in OpenAPI Specification [3]  |
+|number        |As defined in OpenAPI Specification [3]  |
+|string        |As defined in OpenAPI Specification [3]  |
+|NOTE Data types defined in OpenAPI Specification [3] do|
+|not follow the UpperCamel convention for data types in |
+|3GPP TS 29.501 [2]                                     |
+
+
+ Table 5.2.2-3: Meaning of a Hexadecimal Character in SupportedFeatures Type
+
+|Characte|Feature |Feature   |Feature   |Feature n |
+|r       |n+3     |n+2       |n+1       |supported |
+|        |supporte|supported |supported |          |
+|        |d       |          |          |          |
+|0       |no      |no        |no        |no        |
+|1       |no      |no        |no        |yes       |
+|2       |no      |no        |yes       |no        |
+|3       |no      |no        |yes       |yes       |
+|4       |no      |yes       |no        |no        |
+|5       |no      |yes       |no        |yes       |
+|6       |no      |yes       |yes       |no        |
+|7       |no      |yes       |yes       |yes       |
+|8       |yes     |no        |no        |no        |
+|9       |yes     |no        |no        |yes       |
+|A       |yes     |no        |yes       |no        |
+|B       |yes     |no        |yes       |yes       |
+|C       |yes     |yes       |no        |no        |
+|D       |yes     |yes       |no        |yes       |
+|E       |yes     |yes       |yes       |no        |
+|F       |yes     |yes       |yes       |yes       |
+|NOTE 1 "n" shall be i * 4 + 1, where "i" is zero or|
+|a natural number, i.e permissible values of "n" are|
+|1, 5, 9, …                                         |
+|NOTE 2 If a feature is not defined, it shall be    |
+|indicated with value "no".                         |
+
+
+For example, if only the first feature defined in the feature list is set
+to 1, the corresponding SupportedFeatures attribute would have a value of
+"1", or "001" (any amount of 0's to the left of the 1 would result into an
+equivalent feature list). If we have 32 features defined, and only the last
+feature in a feature list is set to 1, the corresponding SupportedFeatures
+attribute would have a value of "80000000".
+
+
+5.2.3  Enumerations
+
+
+5.2.3.1  Enumeration: PatchOperation
+
+                 Table 5.2.3.1-1: Enumeration PatchOperation
+
+|Enumeration value         |Description                                |
+|"add"                     |Add operation as defined in                |
+|                          |IETF RFC 6902 [14].                        |
+|"copy"                    |Copy operation as defined in               |
+|                          |IETF RFC 6902 [14].                        |
+|"move"                    |Move operation as defined in               |
+|                          |IETF RFC 6902 [14].                        |
+|"remove"                  |Remove operation as defined in             |
+|                          |IETF RFC 6902 [14].                        |
+|"replace"                 |Replace operation as defined in            |
+|                          |IETF RFC 6902 [14].                        |
+|"test"                    |Test operation as defined in               |
+|                          |IETF RFC 6902 [14].                        |
+
+
+
+5.2.4  Structured Data Types
+
+
+5.2.4.1  Type: ProblemDetails
+
+              Table 5.2.4-1: Definition of type ProblemDetails
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|title          |string     |O |0..1    |A short, human-readable summary  |
+|               |           |  |        |of the problem type. It should   |
+|               |           |  |        |not change from occurrence to    |
+|               |           |  |        |occurrence of the problem.       |
+|status         |integer    |O |0..1    |The HTTP status code for this    |
+|               |           |  |        |occurrence of the problem.       |
+|detail         |string     |O |0..1    |A human-readable explanation     |
+|               |           |  |        |specific to this occurrence of   |
+|               |           |  |        |the problem.                     |
+|instance       |Uri        |O |0..1    |A URI reference that identifies  |
+|               |           |  |        |the specific occurrence of the   |
+|               |           |  |        |problem.                         |
+|cause          |string     |C |0..1    |A machine-readable application   |
+|               |           |  |        |error cause specific to this     |
+|               |           |  |        |occurrence of the problem        |
+|               |           |  |        |This IE should be present and    |
+|               |           |  |        |provide application-related error|
+|               |           |  |        |information, if available.       |
+|invalidParams  |array(Inval|O |0..N    |Description of invalid           |
+|               |idParam)   |  |        |parameters, for a request        |
+|               |           |  |        |rejected due to invalid          |
+|               |           |  |        |parameters.                      |
+|NOTE 1: See IETF RFC 7807 [9] for detailed information and guidance for   |
+|each attribute, and 3GPP TS 29.501 [2] for guidelines on error handling   |
+|support by 5GC SBI APIs.                                                  |
+|NOTE 2: Additional attributes may be defined per API.                     |
+
+
+
+5.2.4.2  Type: Link
+
+                  Table 5.2.4.2-1: Definition of type link
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+
+
+
+5.2.4.3  Type PatchItem
+
+                Table 5.2.4.3-1: Definition of type PatchItem
+
+|Attribute  |Data type  |P  |Cardinal|Description             |Applicabil|
+|name       |           |   |ity     |                        |ity       |
+|path       |string     |M  |1       |This IE contains a JSON |          |
+|           |           |   |        |pointer value (as       |          |
+|           |           |   |        |defined in              |          |
+|           |           |   |        |IETF RFC 6901 [12]) that|          |
+|           |           |   |        |references a location of|          |
+|           |           |   |        |a resource on which the |          |
+|           |           |   |        |patch operation shall be|          |
+|           |           |   |        |performed.              |          |
+|from       |string     |C  |0..1    |This IE indicates the   |          |
+|           |           |   |        |path of the source JSON |          |
+|           |           |   |        |element (according to   |          |
+|           |           |   |        |JSON Pointer syntax)    |          |
+|           |           |   |        |being moved or copied to|          |
+|           |           |   |        |the location indicated  |          |
+|           |           |   |        |by the "path" attribute.|          |
+|           |           |   |        |It shall be present if  |          |
+|           |           |   |        |the patch operation is  |          |
+|           |           |   |        |"move" or "copy".       |          |
+|value      |Any type   |C  |0..1    |This IE indicates a new |          |
+|           |           |   |        |value for the resource  |          |
+|           |           |   |        |specified in the path   |          |
+|           |           |   |        |attribute.              |          |
+|           |           |   |        |It shall be present if  |          |
+|           |           |   |        |the patch operation is  |          |
+|           |           |   |        |"add", "replace" or     |          |
+|           |           |   |        |"test".                 |          |
+|           |           |   |        |The data type of this   |          |
+|           |           |   |        |attribute shall be the  |          |
+|           |           |   |        |same as the type of the |          |
+|           |           |   |        |resource on which the   |          |
+|           |           |   |        |patch operation shall be|          |
+|           |           |   |        |performed. The null     |          |
+|           |           |   |        |value shall be allowed. |          |
+
+
+
+5.2.4.4  Type _LinksValueSchema
+
+ Table 5.2.4.4-1: Definition of type LinksValueSchema as a list of mutually
+                           exclusive alternatives
+
+|Data type    |Cardinalit|Description                   |
+|             |y         |                              |
+|array(Link)  |1..N      |Array of links                |
+|Link         |1         |link                          |
+
+
+
+5.2.4.5  Type _SelfLink
+
+                Table 5.2.4.5-1: Definition of type SelfLink
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+
+
+
+5.2.4.6  Type: InvalidParam
+
+              Table 5.2.4.6-1: Definition of type InvalidParam
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|reason         |string     |O |0..1    |A human-readable reason, e.g.    |
+|               |           |  |        |"must be a positive integer".    |
+
+
+  Editor's Note: Error handling for invalid headers is FFS.
+
+
+5.3  Data Types related to Subscription, Identification and Numbering
+
+
+5.3.1  Introduction
+
+This clause defines common data types related to subscription,
+identification and numbering information.
+
+
+5.3.2  Simple Data Types
+
+This subclause specifies common simple data types.
+
+                      Table 5.3.2-1: Simple Data Types
+
+|Type Name     |Type         |Description                              |
+|              |Definition   |                                         |
+|Dnn           |string       |String representing a Data Network as    |
+|              |             |defined in subclause 9A of               |
+|              |             |3GPP TS 23.003 [7].                      |
+|Gpsi          |string       |String identifying a Gpsi shall contain  |
+|              |             |either an External Id or an MSISDN. It   |
+|              |             |shall be formatted as follows for:       |
+|              |             |-External Identifier "extid-<extid>,     |
+|              |             |<extid> shall be formatted according to  |
+|              |             |subclause 19.7.2 of 3GPP TS 23.003 [7]   |
+|              |             |that describes an External Identifier.   |
+|              |             |-MSISDN "msisdn-<msisdn>, <msisdn> shall |
+|              |             |be formatted according to subclause 3.3  |
+|              |             |of 3GPP TS 23.003 [7] that describes an  |
+|              |             |MSISDN.                                  |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as "Gpsi".|
+|              |             |                                         |
+|              |             |pattern:                                 |
+|              |             |'(msisdn-[0-9]{5,15}|extid-.+|.+)'       |
+|GroupId       |string       |String identifying a group of devices    |
+|              |             |network internal globally unique ID which|
+|              |             |identifies a set of IMSI subclause 19.9  |
+|              |             |of 3GPP TS 23.003 [7]s.                  |
+|              |             |pattern:                                 |
+|              |             |'(^groupid-[A-Fa-f0-9]{8}-[0-9]{3}-[0-9]{|
+|              |             |2,3}-([A-Fa-f0-9][A-Fa-f0-9]){1,10}$)'.  |
+|Pei           |string       |String Identifying a Permanent Equipment,|
+|              |             |if it contains an IMEI or IMEISV it is   |
+|              |             |defined as specified in subclause 6.2 of |
+|              |             |3GPP TS 23.003 [7].                      |
+|              |             |pattern:                                 |
+|              |             |'(imei-[0-9]{15}|imeisv-[0-9]{16}|.+)'.  |
+|Supi          |string       |String identifying a Supi shall contain  |
+|              |             |either an IMSI or an NAI. It shall be    |
+|              |             |formatted as follows for:                |
+|              |             |-IMSI "imsi-<imsi>, <imsi> shall be      |
+|              |             |formatted according to subclause 2.2 of  |
+|              |             |3GPP TS 23.003 [7] that describes an     |
+|              |             |IMSI.                                    |
+|              |             |-NAI "nai-<nai>, <nai> shall be formatted|
+|              |             |according to subclause 14.3 of           |
+|              |             |3GPP TS 23.003 [7] that describes an NAI.|
+|              |             |To enable that the value is used as part |
+|              |             |of a URI, the string shall only contain  |
+|              |             |characters allowed according to the      |
+|              |             |"lower-with-hyphen" naming convention    |
+|              |             |defined in 3GPP TS 29.501 [2]. In an     |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Supi".    |
+|              |             |pattern: '(imsi-[0-9]{5,15}|nai-.+|.+)'  |
+|NfInstanceId  |string       |String uniquely identifying a NF         |
+|              |             |instance. The format of the NF Instance  |
+|              |             |ID shall be a Universally Unique         |
+|              |             |Identifier (UUID) version 4, as described|
+|              |             |in IETF RFC 4122 [15].                   |
+|AmfId         |string       |String identifying the AMF ID composed of|
+|              |             |AMF Region ID (16 bits), AMF Set ID (4   |
+|              |             |bits) and AMF Pointer (4 bits) as        |
+|              |             |specified in subclause 2.10.1 of         |
+|              |             |3GPP TS 23.003 [7].                      |
+|              |             |It is encoded as a string of 6           |
+|              |             |hexadecimal characters (i.e., 24 bits)   |
+|              |             |Pattern: '^[A-Fa-f0-9]{6}$'              |
+|RfspIndex     |integer      |Unsigned integer represents the          |
+|              |             |"Subscriber Profile ID for RAT/Frequency |
+|              |             |Priority" as specified in                |
+|              |             |3GPP TS 36.413 [16].                     |
+|              |             |Minimum = 1. Maximum = 256.              |
+
+
+
+5.3.3  Enumerations
+
+
+5.3.3.1  Enumeration: <EnumType1>
+
+The enumeration <EnumType1> represents <something>. It shall comply with
+the provisions defined in table 5.2.3.1-1.
+
+                  Table 5.3.3.1-1: Enumeration < EnumType1>
+
+|Enumeration value         |Description                                |
+|                          |                                           |
+
+
+
+5.3.4  Structured Data Types
+
+
+5.3.4.1  Type: Guami
+
+                  Table 5.3.4.1-1: Definition of type Guami
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|amfId          |AmfId      |M |1       |AMF Identity                     |
+
+
+
+5.3.4.2  Type: NetworkId
+
+                Table 5.3.4.2-1: Definition of type NetworkId
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|mnc          |Mnc        |C |0..1    |Mobile Network Code              |
+|NOTE: At least one MNC or MCC shall be included.                        |
+
+
+
+
+
+5.4  Data Types related to 5G Network
+
+
+5.4.1  Introduction
+
+This clause defines common data types related to 5G Network (other than
+related to 5G QoS).
+
+
+5.4.2  Simple Data Types
+
+This subclause specifies common simple data types.
+
+                      Table 5.4.2-1: Simple Data Types
+
+|Type Name     |Type         |Description                              |
+|              |Definition   |                                         |
+|ApplicationId |string       |String providing an application          |
+|              |             |identifier and formatted FFS.            |
+|PduSessionId  |integer      |Unsigned integer identifying a PDU       |
+|              |             |session, within the range 0 to 255, as   |
+|              |             |specified in subclause 11.2.3.1.5, bits 5|
+|              |             |to 8, of 3GPP TS 24.007 [13].            |
+|Mcc           |string       |Mobile Country Code part of the PLMN,    |
+|              |             |comprising 3 digits, as defined in       |
+|              |             |3GPP TS 38.413 [11].                     |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as "Mcc". |
+|              |             |pattern: '^[0-9]{3}$'                    |
+|Mnc           |string       |Mobile Network Code part of the PLMN,    |
+|              |             |comprising 2 or 3 digits, as defined in  |
+|              |             |3GPP TS 38.413 [11].                     |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as "Mnc". |
+|              |             |Pattern: '^[0-9]{2,3}$'                  |
+|Tac           |string       |2 or 3-octet string identifying a        |
+|              |             |tracking area code as specified in       |
+|              |             |subclause 9.3.3.10 of                    |
+|              |             |3GPP TS 38.413 [11], in hexadecimal      |
+|              |             |representation. Each character in the    |
+|              |             |string shall take a value of "0" to "9"  |
+|              |             |or "A" to "F" and shall represent 4 bits.|
+|              |             |The most significant character           |
+|              |             |representing the 4 most significant bits |
+|              |             |of the TAC shall appear first in the     |
+|              |             |string, and the character representing   |
+|              |             |the 4 least significant bit of the TAC   |
+|              |             |shall appear last in the string.         |
+|              |             |                                         |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as "Tac". |
+|              |             |                                         |
+|              |             |Examples:                                |
+|              |             |A legacy TAC 0x4305 shall be encoded as  |
+|              |             |"4305".                                  |
+|              |             |An extended TAC 0x63F84B shall be encoded|
+|              |             |as "63F84B"                              |
+|EutraCellId   |string       |28-bit string identifying an E-UTRA Cell |
+|              |             |Id as specified in subclause 9.3.1.9 of  |
+|              |             |3GPP TS 38.413 [11], in hexadecimal      |
+|              |             |representation. Each character in the    |
+|              |             |string shall take a value of "0" to "9"  |
+|              |             |or "A" to "F" and shall represent 4 bits.|
+|              |             |The most significant character           |
+|              |             |representing the 4 most significant bits |
+|              |             |of the Cell Id shall appear first in the |
+|              |             |string, and the character representing   |
+|              |             |the 4 least significant bit of the Cell  |
+|              |             |Id shall appear last in the string.      |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"EutraCellId".                           |
+|              |             |                                         |
+|              |             |Example:                                 |
+|              |             |An E-UTRA Cell Id 0x5BD6007 shall be     |
+|              |             |encoded as "5BD6007".                    |
+|              |             |Pattern: '^[A-Fa-f0-9]{7}$'              |
+|NrCellId      |string       |36-bit string identifying an NR Cell Id  |
+|              |             |as specified in subclause 9.3.1.7 of     |
+|              |             |3GPP TS 38.413 [11], in hexadecimal      |
+|              |             |representation. Each character in the    |
+|              |             |string shall take a value of "0" to "9"  |
+|              |             |or "A" to "F" and shall represent 4 bits.|
+|              |             |The most significant character           |
+|              |             |representing the 4 most significant bits |
+|              |             |of the Cell Id shall appear first in the |
+|              |             |string, and the character representing   |
+|              |             |the 4 least significant bit of the Cell  |
+|              |             |Id shall appear last in the string.      |
+|              |             |                                         |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"NrCellId".                              |
+|              |             |                                         |
+|              |             |Example:                                 |
+|              |             |An NR Cell Id 0x225BD6007 shall be       |
+|              |             |encoded as "225BD6007".                  |
+|              |             |Pattern: '^[A-Fa-f0-9]{9}$'              |
+
+
+
+5.4.3  Enumerations
+
+
+5.4.3.1  Enumeration: AccessType
+
+                   Table 5.4.3.1-1: Enumeration AccessType
+
+|Enumeration value         |Description                                |
+|3GPP_ACCESS               |3GPP access                                |
+|NON_3GPP_ACCESS           |Non-3GPP access                            |
+
+
+
+5.4.3.2  Enumeration: RatType
+
+                    Table 5.4.3.2-1: Enumeration RatType
+
+|Enumeration value         |Description                                |
+|NR                        |New Radio                                  |
+|EUTRA                     |(WB) Evolved Universal Terrestrial Radio   |
+|                          |Access                                     |
+|WLAN                      |Wireless LAN                               |
+|VIRTUAL                   |Virtual (see NOTE)                         |
+|NOTE: Virtual shall be used if the N3IWF does not know the access      |
+|technology used for an untrusted non-3GPP access.                      |
+
+
+  Editor's Note: It is FFS whether and how to signal that a RAN is a NG-
+         RAN.
+
+
+5.4.3.3  Enumeration: PduSessionType
+
+The enumeration PduSessionType indicates the type of a PDU session. It
+shall comply with the provisions defined in table 5.4.3.3-1.
+
+                 Table 5.4.3.3-1: Enumeration PduSessionType
+
+|Enumeration value         |Description                                |
+|IPV4V6                    |IPv4v6 (see subclause 5.8.2.2.1 of         |
+|                          |3GPP TS 23.501 [8])                        |
+|IPV4                      |IPv4                                       |
+|IPV6                      |IPv6                                       |
+|UNSTR                     |Unstructured                               |
+|ETHER                     |Ethernet                                   |
+
+
+
+5.4.3.4  Enumeration: UpIntegrity
+
+The enumeration UpIntegrity indicates whether UP integrity protection is
+required, preferred or not needed for all the traffic on the PDU Session.
+It shall comply with the provisions defined in table 5.4.3.4-1.
+
+                  Table 5.4.3.4-1: Enumeration UpIntegrity
+
+|Enumeration value         |Description                                |
+|"REQUIRED"                |UP integrity protection shall apply for all|
+|                          |the traffic on the PDU Session.            |
+|"PREFERRED"               |UP integrity protection should apply for   |
+|                          |all the traffic on the PDU Session.        |
+|"NOT_NEEDED"              |UP integrity protection shall not apply on |
+|                          |the PDU Session.                           |
+
+
+
+5.4.3.5  Enumeration: UpConfidentiality
+
+The enumeration UpConfidentiality indicates whether UP confidentiality
+protection is required, preferred or not needed for all the traffic on the
+PDU Session. It shall comply with the provisions defined in table 5.4.3.5-
+1.
+
+               Table 5.4.3.5-1: Enumeration UpConfidentiality
+
+|Enumeration value         |Description                                |
+|"REQUIRED"                |UP confidentiality protection shall apply  |
+|                          |for all the traffic on the PDU Session.    |
+|"PREFERRED"               |UP confidentiality protection should apply |
+|                          |for all the traffic on the PDU Session.    |
+|"NOT_NEEDED"              |UP confidentiality protection shall not    |
+|                          |apply on the PDU Session.                  |
+
+
+
+5.4.3.6  Enumeration: SscMode
+
+The enumeration SscMode represents the service and session continuity mode.
+
+                    Table 5.4.3.6-1: Enumeration SscMode
+
+|Enumeration value            |Description                              |
+|“SSC_MODE_1”                 |see 3GPP TS 23.501 [2]                   |
+|“SSC_MODE_2”                 |see 3GPP TS 23.501 [2]                   |
+|“SSC_MODE_3”                 |see 3GPP TS 23.501 [2]                   |
+
+
+
+5.4.4.7  Type: RefToBinaryData
+
+             Table 5.4.4.7-1: Definition of type RefToBinaryData
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+
+
+
+5.4.4  Structured Data Types
+
+
+5.4.4.1  Type: DefaultQosInformation
+
+          Table 5.4.4.1-1: Definition of type DefaultQosInformation
+
+|Attribute name |Data type  |P |Cardinal|Description                   |
+|               |           |  |ity     |                              |
+|               |           |  |        |                              |
+|               |           |  |        |                              |
+
+
+
+5.4.4.2  Type: Snssai
+
+                 Table 5.4.4.2-1: Definition of type Snssai
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|sd           |string     |O |0..1    |3-octet string, representing the |
+|             |           |  |        |Slice Differentiator, in         |
+|             |           |  |        |hexadecimal representation. Each |
+|             |           |  |        |character in the string shall    |
+|             |           |  |        |take a value of "0" to "9" or "A"|
+|             |           |  |        |to "F" and shall represent 4     |
+|             |           |  |        |bits. The most significant       |
+|             |           |  |        |character representing the 4 most|
+|             |           |  |        |significant bits of the SD shall |
+|             |           |  |        |appear first in the string, and  |
+|             |           |  |        |the character representing the 4 |
+|             |           |  |        |least significant bit of the SD  |
+|             |           |  |        |shall appear last in the string. |
+|             |           |  |        |                                 |
+|             |           |  |        |This is an optional parameter    |
+|             |           |  |        |that complements the             |
+|             |           |  |        |Slice/Service type(s) to allow to|
+|             |           |  |        |differentiateamongst multiple    |
+|             |           |  |        |Network Slices of the same       |
+|             |           |  |        |Slice/Service type.              |
+|             |           |  |        |                                 |
+|             |           |  |        |Examples:                        |
+|             |           |  |        |A SD 0xD143A5 shall be encoded as|
+|             |           |  |        |"D143A5".                        |
+
+
+
+5.4.4.3  Type: PlmnId
+
+                 Table 5.4.4.3-1: Definition of type PlmnId
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|mnc          |Mnc        |M |1       |Mobile Network Code              |
+
+
+
+5.4.4.4  Type: Tai
+
+                   Table 5.4.4.4-1: Definition of type Tai
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|tac          |Tac        |M |1       |Tracking Area Code               |
+
+
+
+5.4.4.5  Type: Ecgi
+
+                  Table 5.4.4.5-1: Definition of type Ecgi
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|eutraCellId  |EutraCellId|M |1       |E-UTRA Cell Identity             |
+
+
+  Editor's Note: It is FFS whether to define the Ecgi as a structured data
+         type as proposed above or as a string.
+
+
+5.4.4.6  Type: Ncgi
+
+                  Table 5.4.4.6-1: Definition of type Ncgi
+
+|Attribute   |Data type  |P |Cardinal|Description                      |
+|name        |           |  |ity     |                                 |
+|nrCellId    |NrCellId   |M |1       |NR Cell Identity                 |
+
+
+  Editor's Note: It is FFS whether to define the Ncgi as a structured data
+         type as proposed above or as a string.
+
+
+5.4.4.7  Type: UserLocation
+
+              Table 5.4.4.7-1: Definition of type UserLocation
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|nrLocation   |NrLocation |C |0..1    |NR user location (see NOTE).     |
+|n3gaLocation |N3gaLocatio|C |0..1    |Non-3GPP access user location    |
+|             |n          |  |        |(see NOTE).                      |
+|NOTE: At least one of eutraLocation, nrLocation and n3gaLocation shall |
+|be present. Several of them may be present.                            |
+
+
+
+5.4.4.8  Type: EutraLocation
+
+              Table 5.4.4.8-1: Definition of type EutraLocation
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|ecgi         |Ecgi       |M |1       |E-UTRA Cell Identity             |
+
+
+
+5.4.4.9  Type: NrLocation
+
+               Table 5.4.4.9-1: Definition of type NrLocation
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|ncgi           |Ncgi       |M |1       |NR Cell Identity                 |
+
+
+
+5.4.4.10 Type: N3gaLocation
+
+              Table 5.4.4.10-1: Definition of type N3gaLocation
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|n3IwfId        |string     |M |1       |This IE shall contain the N3IWF  |
+|               |           |  |        |identifier received over NGAP and|
+|               |           |  |        |shall be encoded as a string of  |
+|               |           |  |        |hexadecimal characters.          |
+|               |           |  |        |Pattern: '^[A-Fa-f0-9]+$'        |
+|ueIpv4Addr     |Ipv4Addr   |C |0..1    |UE local IPv4 address (used to   |
+|               |           |  |        |reach the N3IWF).                |
+|               |           |  |        |The ueIPv4Addr or the ueIPv6Addr |
+|               |           |  |        |shall be present.                |
+|ueIpv6Addr     |Ipv6Addr   |C |0..1    |UE local IPv6 address (used to   |
+|               |           |  |        |reach the N3IWF).                |
+|               |           |  |        |The ueIPv4Addr or the ueIPv6Addr |
+|               |           |  |        |shall be present.                |
+|portNumber     |Uinteger   |C |0..1    |UDP or TCP source port number. It|
+|               |           |  |        |shall be present if NAT is       |
+|               |           |  |        |detected.                        |
+
+
+
+5.4.4.11 Type: UpSecurity
+
+               Table 5.4.4.11-1: Definition of type UpSecurity
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|upConfid       |UpConfident|M |1       |This IE shall indicate whether UP|
+|               |iality     |  |        |confidentiality protection is    |
+|               |           |  |        |required, preferred or not needed|
+|               |           |  |        |for all the traffic on the PDU   |
+|               |           |  |        |Session.                         |
+
+
+
+5.5  Data Types related to 5G QoS
+
+
+5.5.1  Introduction
+
+This clause defines common data types related to 5G QoS.
+
+
+5.5.2  Simple Data Types
+
+This subclause specifies common simple data types.
+
+                      Table 5.5.2-1: Simple Data Types
+
+|Type Name     |Type         |Description                              |
+|              |Definition   |                                         |
+|Qfi           |integer      |Unsigned integer identifying a QoS flow, |
+|              |             |within the range 0 to 63. In an          |
+|              |             |OpenAPI Specification [3] schema, the    |
+|              |             |format shall be designated as "Qfi".     |
+|5qi           |integer      |Unsigned integer representing a 5G QoS   |
+|              |             |Identifier (see subclause 5.7.2.1 of     |
+|              |             |3GPP TS 23.501 [8]), within the range 0  |
+|              |             |to 255. In an OpenAPI Specification [3]  |
+|              |             |schema, the format shall be designated as|
+|              |             |"5qi".                                   |
+|BitRate       |string       |String representing a bit rate that shall|
+|              |             |be formatted as follows:                 |
+|              |             |                                         |
+|              |             |Pattern: '^\d+(\.\d+)?                   |
+|              |             |(bps|Kbps|Mbps|Gbps|Tbps)$'              |
+|              |             |Examples:                                |
+|              |             |"125 Mbps", "0.125 Gbps", "125000 Kbps"  |
+|              |             |                                         |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"BitRate".                               |
+|ArpPriorityLev|integer      |Unsigned integer indicating the ARP      |
+|el            |             |Priority Level (see subclause 5.7.2.2 of |
+|              |             |3GPP TS 23.501 [8]), within the range 1  |
+|              |             |to 15.                                   |
+|              |             |Values are ordered in decreasing order of|
+|              |             |priority, i.e. with 1 as the highest     |
+|              |             |priority and 15 as the lowest priority.  |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"ArpPriorityLevel".                      |
+|5qiPriorityLev|integer      |Unsigned integer indicating the 5QI      |
+|el            |             |Priority Level (see subclauses 5.7.3.3   |
+|              |             |and 5.7.4 of 3GPP TS 23.501 [8]), within |
+|              |             |the range 1 to 127.                      |
+|              |             |Values are ordered in decreasing order of|
+|              |             |priority, i.e. with 1 as the highest     |
+|              |             |priority and 127 as the lowest priority. |
+|              |             |In an OpenAPI Specification [3] schema,  |
+|              |             |the format shall be designated as        |
+|              |             |"5qiPriorityLevel".                      |
+|PacketDelBudge|Integer      |Unsigned integer indicating Packet Delay |
+|t             |             |Budget (see subclauses 5.7.3.4 and 5.7.4 |
+|              |             |of 3GPP TS 23.501 [8])), expressed in    |
+|              |             |milliseconds.                            |
+|              |             |Minimum = 1.                             |
+|PacketErrRate |Integer      |Unsigned integer indicating Packet Error |
+|              |             |Rate (see subclause 5.7.3.5 and 5.7.4 of |
+|              |             |3GPP TS 23.501 [8]).                     |
+|              |             |                                         |
+|              |             |Examples:                                |
+|              |             |Packer Error Rate 10-6 shall be encoded  |
+|              |             |as "6".                                  |
+|              |             |Packer Error Rate 10-2 shall be encoded  |
+|              |             |as "2".                                  |
+|PacketLossRate|Integer      |Unsigned integer indicating Packet Loss  |
+|              |             |Rate (see subclauses 5.7.2.8 and 5.7.4 of|
+|              |             |3GPP TS 23.501 [8])), expressed in tenth |
+|              |             |of percent.                              |
+|              |             |Minimum = 0. Maximum = 1000.             |
+|AverWindow    |FFS          |Averaging Window                         |
+|MaxDataBurstVo|Integer      |Unsigned integer indicating Maximum Data |
+|l             |             |Burst Volume (see subclauses 5.7.3.7 and |
+|              |             |5.7.4 of 3GPP TS 23.501 [8])), expressed |
+|              |             |in Bytes.                                |
+|              |             |Minimum = 1.                             |
+
+
+
+5.5.3  Enumerations
+
+
+5.5.3.1  Enumeration: PreemptionCapability
+
+The enumeration PreemptionCapability indicates the pre-emption capability
+of a request on other QoS flows. See subclause 5.7.2.2 of
+3GPP TS 23.501 [8]. It shall comply with the provisions defined in
+table 5.5.3.1-1.
+
+              Table 5.5.3.1-1: Enumeration PreemptionCapability
+
+|Enumeration value         |Description                                |
+|NOT_PREEMPT               |Shall not trigger pre-emption.             |
+|MAY_PREEMPT               |May trigger pre-emption.                   |
+
+
+
+5.5.3.2  Enumeration: PreemptionVulnerability
+
+The enumeration PreemptionVulnerability indicates the pre-emption
+vulnerability of the QoS flow to pre-emption from other QoS flows. See
+subclause 5.7.2.2 of 3GPP TS 23.501 [8]. It shall comply with the
+provisions defined in table 5.5.3.2-1.
+
+            Table 5.5.3.2-1: Enumeration PreemptionVulnerability
+
+|Enumeration value         |Description                                |
+|NOT_PREEMPTABLE           |Shall not be pre-empted.                   |
+|PREEMPTABLE               |May be pre-empted.                         |
+
+
+
+5.5.3.3  Enumeration: ReflectiveQosAttribute
+
+The enumeration ReflectiveQosAttribute indicates whether certain traffic of
+the QoS flow may be subject to Reflective QoS (see subclause 5.7.2.3 of
+3GPP TS 23.501 [2]). It shall comply with the provisions defined in table
+5.5.3.3-1.
+
+             Table 5.5.3.3-1: Enumeration ReflectiveQosAttribute
+
+|Enumeration value         |Description                                |
+|RQOS                      |Certain traffic of the Qos flow may be     |
+|                          |subject to Reflective QoS.                 |
+|NO_RQOS                   |Traffic of the Qos flow is not subject to  |
+|                          |Reflective QoS.                            |
+
+
+
+5.5.3.4  Enumeration: DelayCritical
+
+The enumeration DelayCritical indicates whether a GBR QoS flow is delay
+critical or not (see subclauses 5.7.3.4 and 5.7.3.5 of 3GPP TS 23.501 [2]).
+It shall comply with the provisions defined in table 5.5.3.4-1.
+
+                 Table 5.5.3.4-1: Enumeration DelayCritical
+
+|Enumeration value         |Description                                |
+|CRITICAL                  |Delay Critical GBR QoS flow.               |
+|NON_CRITICAL              |Non-delay critical GBR QoS flow.           |
+
+
+
+5.5.3.5  Enumeration: NotificationControl
+
+The enumeration NotificationControl indicates whether notifications are
+requested from the RAN when the GFBR can no longer (or again) be fulfilled
+for a QoS Flow during the lifetime of the QoS Flow (see subclause 5.7.2.4
+of 3GPP TS 23.501 [2]). It shall comply with the provisions defined in
+table 5.5.3.5-1.
+
+              Table 5.5.3.5-1: Enumeration NotificationControl
+
+|Enumeration value         |Description                                |
+|REQUESTED                 |Notifications are requested from the RAN.  |
+|NOT_REQUESTED             |Notifications are not requested from the   |
+|                          |RAN.                                       |
+
+
+
+5.5.4  Structured Data Types
+
+
+5.5.4.1  Type: Arp
+
+                   Table 5.5.4.1-1: Definition of type Arp
+
+|Attribute    |Data type  |P |Cardinal|Description                      |
+|name         |           |  |ity     |                                 |
+|preemptCap   |PreemptionC|M |1       |Defines whether a service data   |
+|             |apability  |  |        |flow may get resources that were |
+|             |           |  |        |already assigned to another      |
+|             |           |  |        |service data flow with a lower   |
+|             |           |  |        |priority level.                  |
+|preemptVuln  |PreemptionV|M |1       |Defines whether a service data   |
+|             |ulnerabilit|  |        |flow may lose the resources      |
+|             |y          |  |        |assigned to it in order to admit |
+|             |           |  |        |a service data flow with higher  |
+|             |           |  |        |priority level.                  |
+
+
+
+5.5.4.2  Type: Ambr
+
+                  Table 5.5.4.2-1: Definition of type Ambr
+
+|Attribute name |Data type  |P |Cardinal|Description                      |
+|               |           |  |ity     |                                 |
+|downlink       |BitRate    |M |1       |AMBR for downlink                |
+
+
+
+Annex A (normative):
+OpenAPI specification
+
+
+A.1  General
+
+This Annex specifies the formal definition of common data types. It
+consists of an OpenAPI 3.0.0 specification, in YAML format.
+
+
+A.2  Data related to Common Data Types
+
+openapi: 3.0.0
+info:
+  version: '1.R15.0.0'
+  title: 'Common Data Types'
+  description: 'Common Data Types'
+paths: {}
+#
+# Definition based on 3GPP TS 29.571 version 0.7.0
+#
+components:
+  schemas:
+#
+# Common Data Types for  Generic usage definitiones as defined in subclause
+5.2
+#
+# COMMON SIMPLE DATA TYPES
+#
+    Binary:
+      format: binary
+      type: string
+    Bytes:
+      format: byte
+      type: string
+    Date:
+      format: date
+      type: string
+    DateTime:
+      format: date-time
+      type: string
+    DiameterIdentity:
+      type: string
+      pattern: '^([A-Za-z0-9]+(-[A-Za-z0-9]+).)+[a-z]{2,}$'
+    Double:
+      format: double
+      type: number
+    DurationSec:
+      type: integer
+    Float:
+      format: float
+      type: number
+    Int32:
+      format: int32
+      type: integer
+    Int64:
+      type: integer
+      format: int64
+    Ipv4Addr:
+      type: string
+    Ipv6Addr:
+      type: string
+    Ipv6Prefix:
+      type: string
+    MacAddr48:
+      type: string
+      pattern: '^([0-9a-fA-F]{2})((-[0-9a-fA-F]{2}){5})$'
+    SupportedFeatures:
+      type: string
+      pattern: '^[A-Fa-f0-9]*$'
+    Uinteger:
+      type: integer
+      minimum: 0
+    Uint16:
+      type: integer
+      minimum: 0
+      maximum: 65535
+    Uint32:
+      format: int32
+      type: integer
+      minimum: 0
+    Uint64:
+      format: int64
+      type: integer
+      minimum: 0
+    Uri:
+      type: string
+    TimeZone:
+      format: TimeZone
+      type: string
+#
+#   ENUMERATED
+#
+    PatchOperation:
+      anyOf:
+      - type: string
+        enum:
+          - "add"
+          - "copy"
+          - "move"
+          - "remove"
+          - "replace"
+          - "test"
+      - type: string
+#
+#  COMMON STRUCTURED DATA TYPES
+#
+    ProblemDetails:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/Uri'
+        title:
+          type: string
+        status:
+          type: integer
+        instance:
+          $ref: '#/components/schemas/Uri'
+        cause:
+          type: string
+        invalidParams:
+          type: array
+          items:
+            $ref: '#/components/schemas/InvalidParam'
+          minItems: 0
+    Link:
+      type: object
+      properties:
+        href:
+          $ref: '#/components/schemas/Uri'
+    PatchItem:
+      type: object
+      properties:
+        op:
+          $ref: '#/components/schemas/PatchOperation'
+        path:
+          type: string
+        from:
+          type: string
+        value:
+          nullable: true
+      required:
+        - op
+        - path
+    LinksValueSchema:
+      oneOf:
+        - type: array
+          items:
+            $ref: '#/components/schemas/Link'
+          minItems: 1
+        - $ref: '#/components/schemas/Link'
+    SelfLink:
+      type: object
+      properties:
+        self:
+          $ref: '#/components/schemas/Link'
+      required:
+        - self
+    InvalidParam:
+      type: object
+      properties:
+        param:
+          type: string
+        reason:
+          type: string
+      required:
+        - param
+#
+# Data Types related to Subscription, Identification and Numbering as
+defined in subclause 5.3
+#
+# SIMPLE DATA TYPES
+#
+    Dnn:
+      type: string
+    Gpsi:
+      type: string
+      pattern: '^(msisdn-[0-9]{5,15}|extid-.+|.+)$'
+    GroupId:
+      type: string
+      pattern: '^(groupid-[A-Fa-f0-9]{14,34}|.+)$'
+    Pei:
+      type: string
+      pattern: '^(imei-[0-9]{15}|imeisv-[0-9]{16}|.+)$'
+    Supi:
+      format: Supi
+      type: string
+      pattern: '^(imsi-[0-9]{5,15}|nai-.+|.+)$'
+    NfInstanceId:
+      type: string
+      format: uuid
+    AmfId:
+      type: string
+      pattern: '^[A-Fa-f0-9]{6}$'
+    RfspIndex:
+      type: integer
+      minimum: 1
+      maximum: 256
+#
+# STRUCTURED DATA TYPES
+#
+    Guami:
+      type: object
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        amfId:
+          $ref: '#/components/schemas/AmfId'
+      required:
+        - plmnId
+        - amfId
+    NetworkId:
+      type: object
+      properties:
+        mnc:
+          $ref: '#/components/schemas/Mnc'
+        mcc:
+          $ref: '#/components/schemas/Mcc'
+      minProperties: 1
+#
+# Data Types related to 5G Network as defined in subclause 5.4
+#
+# SIMPLE DATA TYPES
+#
+    ApplicationId:
+      type: string
+    PduSessionId:
+      type: integer
+      minimum: 0
+      maximum: 255
+    Mcc:
+      type: string
+      pattern: '^\d{3}$'
+    Mnc:
+      type: string
+      pattern: '^\d{2,3}$'
+    Tac:
+      type: string
+      pattern: '(^[A-Fa-f0-9]{4}$)|(^[A-Fa-f0-9]{6}$)'
+    EutraCellId:
+
+      type: string
+      pattern: '^[A-Fa-f0-9]{7}$'
+    NrCellId:
+      type: string
+      pattern: '^[A-Fa-f0-9]{9}$'
+#
+# Enumerations
+#
+    AccessType:
+      type: string
+      enum:
+      - 3GPP_ACCESS
+      - NON_3GPP_ACCESS
+    RatType:
+      anyOf:
+      - type: string
+        enum:
+          - NR
+          - EUTRA
+          - WLAN
+          - VIRTUAL
+      - type: string
+    PduSessionType:
+      anyOf:
+      - type: string
+        enum:
+          - IPV4V6
+          - IPV4
+          - IPV6
+          - UNSTR
+          - ETHER
+      - type: string
+    UpIntegrity:
+      anyOf:
+      - type: string
+        enum:
+          - "REQUIRED"
+          - "PREFERRED"
+          - "NOT_NEEDED"
+      - type: string
+    UpConfidentiality:
+      anyOf:
+      - type: string
+        enum:
+          - "REQUIRED"
+          - "PREFERRED"
+          - "NOT_NEEDED"
+      - type: string
+    SscMode:
+      anyOf:
+      - type: string
+        enum:
+          - "SSC_MODE_1"
+          - "SSC_MODE_2"
+          - "SSC_MODE_3"
+      - type: string
+#
+# Structured Data Types
+#
+# the following data type is FFS
+    DefaultQosInformation:
+      type: string #FFS
+    Snssai:
+      type: object
+      properties:
+        sst:
+          $ref: '#/components/schemas/Uinteger'
+          minimum: 0
+          maximum: 255
+        sd:
+          type: string
+      required:
+        - sst
+    PlmnId:
+      type: object
+      properties:
+        mcc:
+          $ref: '#/components/schemas/Mcc'
+        mnc:
+          $ref: '#/components/schemas/Mnc'
+      required:
+        - mcc
+        - mnc
+    Tai:
+      type: object
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        tac:
+          $ref: '#/components/schemas/Tac'
+      required:
+        - plmnId
+        - tac
+    Ecgi:
+      type: object
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+          # PLMN Identity
+        eutraCellId:
+          $ref: '#/components/schemas/EutraCellId'
+      required:
+        - plmnId
+        - eutraCellId
+    Ncgi:
+      type: object
+      properties:
+        plmnId:
+          $ref: '#/components/schemas/PlmnId'
+        nrCellId:
+          $ref: '#/components/schemas/NrCellId'
+      required:
+        - plmnId
+        - nrCellId
+    UserLocation:
+      type: object
+      properties:
+        eutraLocation:
+          $ref: '#/components/schemas/EutraLocation'
+        nrLocation:
+          $ref: '#/components/schemas/NrLocation'
+        n3gaLocation:
+          $ref: '#/components/schemas/N3gaLocation'
+    EutraLocation:
+      type: object
+      properties:
+        tai:
+          $ref: '#/components/schemas/Tai'
+        ecgi:
+          $ref: '#/components/schemas/Ecgi'
+      required:
+        - tai
+        - ecgi
+    NrLocation:
+      type: object
+      properties:
+        tai:
+          $ref: '#/components/schemas/Tai'
+        ncgi:
+          $ref: '#/components/schemas/Ncgi'
+      required:
+        - tai
+        - ncgi
+    N3gaLocation:
+      type: object
+      properties:
+        n3gppTai:
+          $ref: '#/components/schemas/Tai'
+        n3IwfId:
+          type: string
+          pattern: '^[A-Fa-f0-9]+$'
+        ueIpv4Addr:
+          $ref: '#/components/schemas/Ipv4Addr'
+        ueIpv6Addr:
+          $ref: '#/components/schemas/Ipv6Addr'
+        portNumber:
+          $ref: '#/components/schemas/Uinteger'
+      required:
+        - n3gppTai
+        - n3IwfId
+    UpSecurity:
+      type: object
+      properties:
+        upIntegr:
+          $ref: '#/components/schemas/UpIntegrity'
+        upConfid:
+          $ref: '#/components/schemas/UpConfidentiality'
+      required:
+        - upIntegr
+        - upConfid
+    RefToBinaryData:
+      type: object
+      properties:
+        contentId:
+          type: string
+      required:
+        - contentId
+#
+# Data related to Data Types related to 5G QoS as defined in subclause 5.5
+#
+#
+# SIMPLE DATA TYPES
+#
+#
+    Qfi:
+      type: integer
+      minimum: 0
+      maximum: 63
+    5qi:
+      type: integer
+      minimum: 0
+      maximum: 255
+    BitRate:
+      type: string
+      pattern: '^\d+(\.\d+)? (bps|Kbps|Mbps|Gbps|Tbps)$'
+    ArpPriorityLevel:
+      type: integer
+      minimum: 1
+      maximum: 15
+    5qiPriorityLevel:
+      type: integer
+      minimum: 1
+      maximum: 127
+    PacketDelBudget:
+      type: integer
+      minimum: 1
+    PacketErrRate:
+      type: integer
+    PacketLossRate:
+      type: integer
+      minimum: 0
+      maximum: 1000
+    AverWindow:
+      type: string #FFS
+    MaxDataBurstVol:
+      type: integer
+      minimum: 1
+
+# Enumerations
+#
+    PreemptionCapability:
+      anyOf:
+      - type: string
+        enum:
+          - NOT_PREEMPT
+          - MAY_PREEMPT
+      - type: string
+    DelayCritical:
+      anyOf:
+      - type: string
+        enum:
+          - CRITICAL
+          - NON_CRITICAL
+      - type: string
+    PreemptionVulnerability:
+      anyOf:
+      - type: string
+        enum:
+          - NOT_PREEMPTABLE
+          - PREEMPTABLE
+      - type: string
+    ReflectiveQoSAttribute:
+      anyOf:
+      - type: string
+        enum:
+          - RQOS
+          - NO_RQOS
+      - type: string
+    NotificationControl:
+      anyOf:
+      - type: string
+        enum:
+          - REQUESTED
+          - NOT_REQUESTED
+      - type: string
+#
+# Structured Data Types
+#
+    Arp:
+      type: object
+      properties:
+        priorityLevel:
+          $ref: '#/components/schemas/ArpPriorityLevel'
+        preemptCap:
+          $ref: '#/components/schemas/PreemptionCapability'
+        preemptVuln:
+          $ref: '#/components/schemas/PreemptionVulnerability'
+      required:
+        - priorityLevel
+        - preemptCap
+        - preemptVuln
+    Ambr:
+      type: object
+      properties:
+        uplink:
+          $ref: '#/components/schemas/BitRate'
+        downlink:
+          $ref: '#/components/schemas/BitRate'
+      required:
+        - uplink
+        - downlink
+#
+# HTTP responses
+#
+  responses:
+    '400':
+      description: Bad request
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '401':
+      description: Unauthorized
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '403':
+      description: Forbidden
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '404':
+      description: Not Found
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '405':
+      description: Method Not Allowed
+    '408':
+      description: Request Timeout
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '409':
+      description: Conflict
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '410':
+      description: Gone
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '411':
+      description: Length Required
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '413':
+      description: Payload Too Large
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '414':
+      description: URI Too Long
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '415':
+      description: Unsupported Media Type
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '500':
+      description: Internal Server Error
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '501':
+      description: Not Implemented
+    '503':
+      description: Service Unavailable
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    '504':
+      description: Gateway Timeout
+      content:
+        application/problem+json:
+          schema:
+            $ref: '#/components/schemas/ProblemDetails'
+    default:
+      description: Generic Error
+
+
+Annex B (informative):
+Change history
+
+
+
+|Change history                                                            |
+
+
+ Date |Meeting |TDoc |CR |Rev |Cat |Subject/Comment |New version | |2017-10
+   |CT4#80 |C4-175048 | | | |Initial Draft. |0.1.0 | |2017-10 |CT4#80 |C4-
+ 175400 | | | |Skeleton and scope |0.2.0 | |2017-12 |CT4#81 |C4-176442 | | |
+   |After CT4#81 |0.3.0 | |2018-01 |CT4#82 |C4-181395 | | | |After CT4#82
+ |0.4.0 | |2018-03 |CT4#83 |C4-182440 | | | |After CT4#83 |0.5.0 | |2018-04
+ |CT4#84 |C4-183521 | | | |After CT4#84 |0.6.0 | |2018-05 |CT4#85 |C4-184635
+| | | |After CT4#85 |0.7.0 | |2018-06 |CT#80 |CP-181110 | | | |Presented
+for informaion and approval |1.0.0 | |2018-06 |CT#80 | | | | |Approved in
+CT#80 |15.0.0 | |
+

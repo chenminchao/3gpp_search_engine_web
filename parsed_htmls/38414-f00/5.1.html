@@ -1,0 +1,855 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<title>3GPP TS 38.414</title>
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:SimSun;
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@SimSun";
+	panose-1:2 1 6 0 3 1 1 1 1 1;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+h1
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.7pt;
+	text-indent:-56.7pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+h2
+	{margin-top:9.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.7pt;
+	text-indent:-56.7pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+h3
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.7pt;
+	text-indent:-56.7pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:14.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+h4
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:70.9pt;
+	text-indent:-70.9pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:12.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+h5
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:85.05pt;
+	text-indent:-85.05pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+h6
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:99.25pt;
+	text-indent:-99.25pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:normal;}
+p.MsoHeading7, li.MsoHeading7, div.MsoHeading7
+	{margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:99.25pt;
+	text-indent:-99.25pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoHeading8, li.MsoHeading8, div.MsoHeading8
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoHeading9, li.MsoHeading9, div.MsoHeading9
+	{margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;}
+p.MsoIndex1, li.MsoIndex1, div.MsoIndex1
+	{margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoIndex2, li.MsoIndex2, div.MsoIndex2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:14.2pt;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc1, li.MsoToc1, div.MsoToc1
+	{margin-top:6.0pt;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:28.35pt;
+	margin-bottom:.0001pt;
+	text-indent:-28.35pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc2, li.MsoToc2, div.MsoToc2
+	{margin-top:0in;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:42.55pt;
+	margin-bottom:.0001pt;
+	text-indent:-42.55pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc3, li.MsoToc3, div.MsoToc3
+	{margin-top:0in;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:56.7pt;
+	margin-bottom:.0001pt;
+	text-indent:-56.7pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc4, li.MsoToc4, div.MsoToc4
+	{margin-top:0in;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:70.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-70.9pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc5, li.MsoToc5, div.MsoToc5
+	{margin-top:0in;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:85.05pt;
+	margin-bottom:.0001pt;
+	text-indent:-85.05pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc6, li.MsoToc6, div.MsoToc6
+	{margin-top:0in;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:99.25pt;
+	margin-bottom:.0001pt;
+	text-indent:-99.25pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc7, li.MsoToc7, div.MsoToc7
+	{margin-top:0in;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:113.4pt;
+	margin-bottom:.0001pt;
+	text-indent:-113.4pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoToc8, li.MsoToc8, div.MsoToc8
+	{margin-top:9.0pt;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:134.65pt;
+	margin-bottom:.0001pt;
+	text-indent:-134.65pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoToc9, li.MsoToc9, div.MsoToc9
+	{margin-top:9.0pt;
+	margin-right:21.25pt;
+	margin-bottom:0in;
+	margin-left:70.9pt;
+	margin-bottom:.0001pt;
+	text-indent:-70.9pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:11.0pt;
+	font-family:"Times New Roman",serif;
+	font-weight:bold;}
+p.MsoFootnoteText, li.MsoFootnoteText, div.MsoFootnoteText
+	{mso-style-link:"Footnote Text Char";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:22.7pt;
+	margin-bottom:.0001pt;
+	text-indent:-22.7pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:8.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoHeader, li.MsoHeader, div.MsoHeader
+	{margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.MsoFooter, li.MsoFooter, div.MsoFooter
+	{margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;
+	font-style:italic;}
+span.MsoFootnoteReference
+	{position:relative;
+	top:-3.0pt;
+	font-weight:bold;}
+p.MsoList, li.MsoList, div.MsoList
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:28.4pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet, li.MsoListBullet, div.MsoListBullet
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:28.4pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber, li.MsoListNumber, div.MsoListNumber
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:28.4pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList2, li.MsoList2, div.MsoList2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:42.55pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList3, li.MsoList3, div.MsoList3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.75pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList4, li.MsoList4, div.MsoList4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:70.9pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoList5, li.MsoList5, div.MsoList5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:85.1pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet2, li.MsoListBullet2, div.MsoListBullet2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:42.55pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet3, li.MsoListBullet3, div.MsoListBullet3
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.75pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet4, li.MsoListBullet4, div.MsoListBullet4
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:70.9pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListBullet5, li.MsoListBullet5, div.MsoListBullet5
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:85.1pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoListNumber2, li.MsoListNumber2, div.MsoListNumber2
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:42.55pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.MsoAcetate, li.MsoAcetate, div.MsoAcetate
+	{mso-style-link:"Balloon Text Char";
+	margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:8.0pt;
+	font-family:"Tahoma",sans-serif;}
+p.H6, li.H6, div.H6
+	{mso-style-name:H6;
+	margin-top:6.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:99.25pt;
+	text-indent:-99.25pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.EQ, li.EQ, div.EQ
+	{mso-style-name:EQ;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+span.ZGSM
+	{mso-style-name:ZGSM;}
+p.ZD, li.ZD, div.ZD
+	{mso-style-name:ZD;
+	margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:16.0pt;
+	font-family:"Arial",sans-serif;}
+p.TT, li.TT, div.TT
+	{mso-style-name:TT;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.7pt;
+	text-indent:-56.7pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:18.0pt;
+	font-family:"Arial",sans-serif;}
+p.NF, li.NF, div.NF
+	{mso-style-name:NF;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.75pt;
+	margin-bottom:.0001pt;
+	text-indent:-42.55pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+p.NO, li.NO, div.NO
+	{mso-style-name:NO;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.75pt;
+	text-indent:-42.55pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.PL, li.PL, div.PL
+	{mso-style-name:PL;
+	margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:8.0pt;
+	font-family:"Courier New";}
+p.TAR, li.TAR, div.TAR
+	{mso-style-name:TAR;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+p.TAL, li.TAL, div.TAL
+	{mso-style-name:TAL;
+	margin:0in;
+	margin-bottom:.0001pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+p.TAH, li.TAH, div.TAH
+	{mso-style-name:TAH;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.TAC, li.TAC, div.TAC
+	{mso-style-name:TAC;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+p.LD, li.LD, div.LD
+	{mso-style-name:LD;
+	margin:0in;
+	margin-bottom:.0001pt;
+	line-height:9.0pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.EX, li.EX, div.EX
+	{mso-style-name:EX;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:85.1pt;
+	text-indent:-70.9pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.FP, li.FP, div.FP
+	{mso-style-name:FP;
+	margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.NW, li.NW, div.NW
+	{mso-style-name:NW;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:56.75pt;
+	margin-bottom:.0001pt;
+	text-indent:-42.55pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.EW, li.EW, div.EW
+	{mso-style-name:EW;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:85.1pt;
+	margin-bottom:.0001pt;
+	text-indent:-70.9pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.B1, li.B1, div.B1
+	{mso-style-name:B1;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:28.4pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.EditorsNote, li.EditorsNote, div.EditorsNote
+	{mso-style-name:"Editor\0027s Note";
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.75pt;
+	text-indent:-42.55pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:red;}
+p.TH, li.TH, div.TH
+	{mso-style-name:TH;
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.ZA, li.ZA, div.ZA
+	{mso-style-name:ZA;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:20.0pt;
+	font-family:"Arial",sans-serif;}
+p.ZB, li.ZB, div.ZB
+	{mso-style-name:ZB;
+	margin-top:0in;
+	margin-right:1.4pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-style:italic;}
+p.ZT, li.ZT, div.ZT
+	{mso-style-name:ZT;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:17.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.ZU, li.ZU, div.ZU
+	{mso-style-name:ZU;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.TAN, li.TAN, div.TAN
+	{mso-style-name:TAN;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:42.55pt;
+	margin-bottom:.0001pt;
+	text-indent:-42.55pt;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:9.0pt;
+	font-family:"Arial",sans-serif;}
+p.ZH, li.ZH, div.ZH
+	{mso-style-name:ZH;
+	margin:0in;
+	margin-bottom:.0001pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.TF, li.TF, div.TF
+	{mso-style-name:TF;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:12.0pt;
+	margin-left:0in;
+	text-align:center;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.ZG, li.ZG, div.ZG
+	{mso-style-name:ZG;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.B2, li.B2, div.B2
+	{mso-style-name:B2;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:42.55pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.B3, li.B3, div.B3
+	{mso-style-name:B3;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:56.75pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.B4, li.B4, div.B4
+	{mso-style-name:B4;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:70.9pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.B5, li.B5, div.B5
+	{mso-style-name:B5;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:85.1pt;
+	text-indent:-14.2pt;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;}
+p.ZTD, li.ZTD, div.ZTD
+	{mso-style-name:ZTD;
+	margin-top:0in;
+	margin-right:1.4pt;
+	margin-bottom:0in;
+	margin-left:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:20.0pt;
+	font-family:"Arial",sans-serif;}
+p.ZV, li.ZV, div.ZV
+	{mso-style-name:ZV;
+	margin:0in;
+	margin-bottom:.0001pt;
+	text-align:right;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	border:none;
+	padding:0in;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;}
+p.TAJ, li.TAJ, div.TAJ
+	{mso-style-name:TAJ;
+	margin-top:3.0pt;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	text-align:center;
+	page-break-after:avoid;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Arial",sans-serif;
+	font-weight:bold;}
+p.Guidance, li.Guidance, div.Guidance
+	{mso-style-name:Guidance;
+	margin-top:0in;
+	margin-right:0in;
+	margin-bottom:9.0pt;
+	margin-left:0in;
+	punctuation-wrap:simple;
+	text-autospace:none;
+	font-size:10.0pt;
+	font-family:"Times New Roman",serif;
+	color:blue;
+	font-style:italic;}
+span.BalloonTextChar
+	{mso-style-name:"Balloon Text Char";
+	mso-style-link:"Balloon Text";
+	font-family:"Tahoma",sans-serif;}
+span.FootnoteTextChar
+	{mso-style-name:"Footnote Text Char";
+	mso-style-link:"Footnote Text";
+	font-family:"Times New Roman",serif;}
+ /* Page Definitions */
+ @page WordSection1
+	{size:595.35pt 842.0pt;
+	margin:113.4pt 42.55pt 538.65pt 42.55pt;}
+div.WordSection1
+	{page:WordSection1;}
+@page WordSection2
+	{size:595.35pt 842.0pt;
+	margin:70.8pt 56.65pt 56.65pt 56.65pt;}
+div.WordSection2
+	{page:WordSection2;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'><h2><a name="_Toc517375258"><span lang=EN-GB>5.1        General</span></a></h2><p class=MsoNormal><span lang=EN-GB>Both gNB and ng-eNB can be connected to 5GC
+over NG interface.</span></p><p class=MsoNormal><span lang=EN-GB>The transport layer for data streams over </span><span
+lang=EN-GB>NG</span><span lang=EN-GB> is an IP based Transport. The following
+figure shows the transport protocol stacks over </span><span lang=EN-GB>NG</span><span
+lang=EN-GB>.</span></p><p class=TH><span lang=EN-GB><img width=131 height=180
+src="38414-f00_files/image003.gif"></span></p><p class=TF><a name="OLE_LINK5"><span lang=EN-GB>Figure </span></a><span
+lang=EN-GB>5</span><span lang=EN-GB>.1: Transport network layer for data
+streams over </span><span lang=EN-GB>NG</span></p><p class=MsoNormal><span lang=EN-GB>The GTP-U (TS 29.281 [</span><span
+lang=EN-GB>3</span><span lang=EN-GB>]) protocol over UDP over IP shall be
+supported as the transport for data streams on the </span><span lang=EN-GB>NG</span><span
+lang=EN-GB> interface. The data link layer is as specified in clause 4.</span></p><p class=MsoNormal><span lang=EN-GB>The transport bearer is identified by the
+GTP-U TEID (TS 29.281 [</span><span lang=EN-GB>3</span><span lang=EN-GB>]) and
+the IP address (source TEID, destination TEID, source IP address, destination
+IP address).</span></p></body>

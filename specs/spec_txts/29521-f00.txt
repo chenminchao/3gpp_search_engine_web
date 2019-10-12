@@ -1,0 +1,1000 @@
+
+                                            3GPP TS 29.521 V15.0.0 (2018-06)
+                                                     Technical Specification
+                                         3rd Generation Partnership Project;
+                   Technical Specification Group Core Network and Terminals;
+                              5G System; Binding Support Management Service;
+                                                                     Stage 3
+                                                                (Release 15)
+[pic]  [pic]
+
+The present document has been developed within the 3rd Generation
+Partnership Project (3GPP TM) and may be further elaborated for the
+purposes of 3GPP.
+The present document has not been subject to any approval process by the
+3GPP Organizational Partners and shall not be implemented.
+This Specification is provided for future development work within 3GPP
+only. The Organizational Partners accept no liability for any use of this
+Specification.
+Specifications and Reports for implementation of the 3GPP TM system should
+be obtained via the 3GPP Organizational Partners' Publications Offices.
+
+
+
+
+
+                                  Keywords
+
+
+
+
+
+
+                                    3GPP
+
+                               Postal address
+
+
+
+                         3GPP support office address
+                  650 Route des Lucioles - Sophia Antipolis
+                              Valbonne - FRANCE
+               Tel.: +33 4 92 94 42 00 Fax: +33 4 93 65 47 16
+
+                                  Internet
+                             http://www.3gpp.org
+
+
+                           Copyright Notification
+
+    No part may be reproduced except as authorized by written permission.
+  The copyright and the foregoing restriction extend to reproduction in all
+                                   media.
+
+  © 2018, 3GPP Organizational Partners (ARIB, ATIS, CCSA, ETSI, TSDSI, TTA,
+                                    TTC).
+                            All rights reserved.
+
+UMTS™ is a Trade Mark of ETSI registered for the benefit of its members
+3GPP™ is a Trade Mark of ETSI registered for the benefit of its Members and
+of the 3GPP Organizational Partners
+LTE™ is a Trade Mark of ETSI registered for the benefit of its Members and
+of the 3GPP Organizational Partners
+GSM® and the GSM logo are registered and owned by the GSM Association
+
+         Contents
+
+
+Foreword 5
+
+1  Scope 6
+
+2  References 6
+
+3  Definitions and abbreviations  6
+3.1  Definitions  6
+3.2  Abbreviations  7
+
+4  Binding Support Management Service 7
+4.1  Service Description 7
+4.1.1  Overview 7
+4.1.2  Service Architecture  7
+4.1.3  Network Functions 8
+4.1.3.1  Binding Support Function (BSF) 8
+4.1.3.2  NF Service Consumers   8
+4.2  Service Operations  9
+4.2.1  Introduction 9
+4.2.2  Nbsf_Management_Register Service Operation   9
+4.2.2.1  General  9
+4.2.2.2  Register a new PCF Session binding information 9
+4.2.3  Nbsf_Management_Deregister Service Operation 10
+4.2.3.1  General  10
+4.2.3.2  Deregister an individual PCF Session binding information  10
+4.2.4  Nbsf_Management_Discovery Service Operation  10
+4.2.4.1  General  10
+4.2.4.2  Retrieve the PCF Session binding information for a given tuple
+           11
+
+5  Nbsf_Management Service API  11
+5.1  Introduction 11
+5.2  Usage of HTTP  12
+5.2.1  General  12
+5.2.2  HTTP standard headers 12
+5.2.2.1  General  12
+5.2.2.2  Content type  12
+5.2.3  HTTP custom headers 12
+5.2.3.1  General  12
+5.3  Resources  12
+5.3.1  Resource Structure  12
+5.3.2  Resource: PCF Session Bindings 13
+5.3.2.1  Description   13
+5.3.2.2  Resource definition 13
+5.3.2.3  Resource Standard Methods  13
+5.3.2.3.1   POST  13
+5.3.2.3.2   GET 14
+5.3.3  Resource: Individual PCF Session Binding  14
+5.4  Custom Operations without associated resources 15
+5.5  Notifications  15
+5.6  Data Model 15
+5.6.1  General  15
+5.6.2  Structured data types 16
+5.6.2.1  Introduction  16
+5.6.2.2  Type PcfBinding 16
+5.6.3  Simple data types and enumerations  16
+5.6.3.1  Introduction  16
+5.6.3.2  Simple data types 16
+5.7  Error handling 17
+5.8  Feature negotiation 17
+
+Annex A (normative): OpenAPI specification 18
+
+A.1  General  18
+
+A.2  Nbsf_Management API 18
+
+Annex B (informative): Change history 19
+
+
+
+
+         Foreword
+
+This Technical Specification has been produced by the 3rd Generation
+Partnership Project (3GPP).
+
+The contents of the present document are subject to continuing work within
+the TSG and may change following formal TSG approval. Should the TSG modify
+the contents of the present document, it will be re-released by the TSG
+with an identifying change of release date and an increase in version
+number as follows:
+
+  Version x.y.z
+
+  where:
+
+    x  the first digit:
+
+       1  presented to TSG for information;
+
+       2  presented to TSG for approval;
+
+       3  or greater indicates TSG approved document under change control.
+
+    y  the second digit is incremented for all changes of substance, i.e.
+       technical enhancements, corrections, updates, etc.
+
+    z  the third digit is incremented when editorial only changes have been
+       incorporated in the document.
+
+
+
+         1  Scope
+
+The present specification provides the stage 3 definition of the Binding
+Support Management Service of the 5G System.
+
+The 5G System Architecture is defined in 3GPP TS 23.501 [2]. The stage 2
+definition and related procedures for Binding Support Management Service is
+specified in 3GPP TS 23.502 [3] and 3GPP TS 23.503 [4].
+
+The 5G System stage 3 call flows are provided in 3GPP TS 29.513 [5].
+
+The Technical Realization of the Service Based Architecture and the
+Principles and Guidelines for Services Definition are specified in
+3GPP TS 29.500 [6] and 3GPP TS 29.501 [7].
+
+The Binding Support Management Service is provided by the Binding Support
+Function (BSF).
+
+
+2  References
+
+The following documents contain provisions which, through reference in this
+text, constitute provisions of the present document.
+
+  -  References are either specific (identified by date of publication,
+    edition number, version number, etc.) or non-specific.
+
+  -  For a specific reference, subsequent revisions do not apply.
+
+  -  For a non-specific reference, the latest version applies. In the case
+    of a reference to a 3GPP document (including a GSM document), a non-
+    specific reference implicitly refers to the latest version of that
+    document in the same Release as the present document.
+
+  [1]  3GPP TR 21.905: "Vocabulary for 3GPP Specifications".
+
+  [2]  3GPP TS 23.501: "System Architecture for the 5G System; Stage 2".
+
+  [3]  3GPP TS 23.502: "Procedures for the 5G System; Stage 2".
+
+  [4]  3GPP TS 23.503: "Policy and Charging Control Framework for the 5G
+             System; Stage 2".
+
+  [5]  3GPP TS 29.513: "5G System; Policy and Charging Control signalling
+             flows and QoS parameter mapping; Stage 3".
+
+  [6]  3GPP TS 29.500: "5G System; Technical Realization of Service Based
+             Architecture; Stage 3".
+
+  [7]  3GPP TS 29.501: "5G System; Principles and Guidelines for Services
+             Definition; Stage 3".
+
+  [8]  IETF RFC 7540: "Hypertext Transfer Protocol Version 2 (HTTP/2)".
+
+  [9]  IETF RFC 7159: "The JavaScript Object Notation (JSON) Data
+             Interchange Format".
+
+  [10] 3GPP TS 29.571: "5G System; Common Data Types for Service Based
+             Interfaces Stage 3".
+
+
+3  Definitions and abbreviations
+
+
+3.1  Definitions
+
+For the purposes of the present document, the terms and definitions given
+in 3GPP TR 21.905 [1] and the following apply. A term defined in the
+present document takes precedence over the definition of the same term, if
+any, in 3GPP TR 21.905 [1].
+
+
+3.2  Abbreviations
+
+For the purposes of the present document, the abbreviations given in
+3GPP TR 21.905 [1] and the following apply. An abbreviation defined in the
+present document takes precedence over the definition of the same
+abbreviation, if any, in 3GPP TR 21.905 [1].
+
+  API  Application Programming Interface
+  BSF  Binding Support Function
+  HTTP Hypertext Transfer Protocol
+  NF Network Function
+
+4  Binding Support Management Service
+
+
+4.1  Service Description
+
+
+4.1.1  Overview
+
+The Binding Support Management Service as defined in 3GPP TS 23.502 [3] and
+3GPP TS 23.503 [4], is provided by the Binding Support Function (BSF).
+
+The Nbsf service is used for the BSF to provide a PDU session binding
+functionality, which ensures that an AF request for a certain PDU Session
+reaches the relevant PCF holding the PDU Session information.
+
+This service:
+
+  -  Allows NF consumers to register, update and remove the binding
+    information; and
+
+  -  allows NF consumers to retrieve the binding information.
+
+
+4.1.2  Service Architecture
+
+The 5G System Architecture is defined in 3GPP TS 23.501 [2]. The Policy and
+Charging related 5G architecture is also described in 3GPP TS 23.503 [4]
+and 3GPP TS 29.513 [5].
+
+The Binding Support Management Service (Nbsf_Management) is exhibited by
+the Binding Support Function (BSF).
+
+Known consumers of the Nbsf_management service are:
+
+  -  Policy Control Function (PCF)
+
+  -  Network Exposure Function (NEF)
+
+  -  Application Function (AF)
+
+As described in 3GPP TS 23.503 [4], the BSF is a function that can be
+deployed standalone or can be the functionality provided by other network
+functions, such as PCF, UDR, NRF, SMF.
+
+  NOTE:  The PCF accesses the Nbsf_management service at the BSF via an
+         internal interface when it is collocated with BSF.
+
+                                    [pic]
+
+ Figure 4.1.2-1: Reference Architecture for the Nbsf_management service; SBI
+                               representation
+
+
+4.1.3  Network Functions
+
+
+4.1.3.1  Binding Support Function (BSF)
+
+The BSF provides:
+
+  -  stores the binding information for a certain PDU Session; and
+
+  -  discovers the selected PCF according to the binding information.
+
+The BSF allows PCFs to register, update and remove the binding information
+from it, and allows NF consumers to discover the selected PCF.
+
+The BSF can be deployed standalone or can be collocated with other network
+functions, such as PCF, UDR, NRF andSMF.
+
+
+4.1.3.2  NF Service Consumers
+
+The Policy Control Function (PCF):
+
+  -  registers and deregisters the binding information in BSF for a UE when
+    an IP address is allocated , updated or released for a PDU Session.
+
+The Network Exposure Function (NEF):
+
+  -  provides a means for the Application Functions to securely interact
+    with the Policy framework for policy control to 3GPP network. During
+    the procedure, it needs to discover the selected PCF by using the Nbsf
+    management service discovery service operation.
+
+The Application Function (AF):
+
+  -  discover the selected PCF by using the Nbsf management service
+    discovery service operation when it is allowed to interact directly
+    with the policy framework for policy control.
+
+
+4.2  Service Operations
+
+
+4.2.1  Introduction
+
+          Table 4.2.1-1: Operations of the Nbsf_management Service
+
+|Service operation    |Description                          |Initiated by   |
+|name                 |                                     |               |
+|Nbsf_Management_Regis|This service operation is used to    |NF consumer    |
+|ter                  |register the binding information for |(PCF)          |
+|                     |a UE when an IP address is allocated |               |
+|                     |for a PDU Session.                   |               |
+|Nbsf_Management_Dereg|This service operation is used to    |NF consumer    |
+|ister                |deregister the binding information   |(PCF)          |
+|                     |for a UE when the PDU Session is     |               |
+|                     |released.                            |               |
+|Nbsf_Management_Disco|This service operation is used by an |NF consumer    |
+|very                 |NEF or AF to discover a selected PCF |(NEF, AF)      |
+|                     |.                                    |               |
+
+
+
+4.2.2  Nbsf_Management_Register Service Operation
+
+
+4.2.2.1  General
+
+This service operation allows the service consumer to register the session
+binding information for a UE in the BSF by providing the user identity, the
+DNN, the UE IP address(es) and the selected PCF address for a certain PDU
+Session to the BSF, and BSF stores the information.
+
+
+4.2.2.2  Register a new PCF Session binding information
+
+                                    [pic]
+
+  Figure 4.2.2.2-1: NF service consumer register a new PCF Session binding
+                                 information
+
+The NF service consumer shall invoke the Nbsf_Management_Register service
+operation to register the session binding information for a UE in the BSF.
+The NF service consumer shall send an HTTP POST request with
+"{apiRoot}/nbsf-management/v1/pcfBindings" as Resource URI representing the
+"PCF Session Bindings", as shown in figure 4.2.2.2-1, step 1, to create a
+binding information for an "Individual PCF Session Binding" arording to the
+information (e.g. UE address(es), SUPI; GPSI, DNN, S-NNSAI,.NSI) in message
+body. The PcfBinding data structure provided in the request body shall
+include:
+
+  -  UE address(es);
+
+  -  PCF id;
+
+  and may include:
+
+  -  DNN;
+
+  -  SUPI;
+
+  -  GPSI; and
+
+  -  S-NSSAI.
+
+Upon the the reception of an HTTP POST request with: "{apiRoot}/nbsf-
+management/v1/pcfBindings" as Resource URI and PcfBinding data structure as
+request body, the BSF shall:
+
+  -  create new binding information;
+
+  -  assign a bindingId;
+
+  -  store the binding information.
+
+If the BSF created an "Individual PCF Session Binding" resource, the BSF
+shall respond with "201 Created" with the message body containing a
+representation of the created binding information, as shown in
+figure 4.2.2.2.2-1, step 2. The BSF shall include a Location HTTP header
+field. The Location header field shall contain the URI of the created
+binding information i.e. "{apiRoot}/nbsf-
+management/v1/pcfBindings/{bindingId}".
+
+
+4.2.3  Nbsf_Management_Deregister Service Operation
+
+
+4.2.3.1  General
+
+This service operation allows the service consumer to remove the session
+binding information for a UE in the BSF by providing an IP-address for a
+certain PDU Session to the BSF. It is executed by deleting a given resource
+identified by an "IP-address". The operation is invoked by issuing a DELETE
+request on the URI representing the specific session binding information.
+
+
+4.2.3.2  Deregister an individual PCF Session binding information
+
+                                    [pic]
+
+        Figure 4.2.3.2-1: Session Binding Information Deregistration
+
+The NF service consumer shall invoke the Nbsf_Management_DeRegister service
+operation to deregister the session binding information for a UE in the
+BSF. The NF service consumer shall send an HTTP DELETE request with
+"{apiRoot}/nbsf-management/v1/pcfBindings/{bindingId}" as Resource URI ,
+where "{bindingId}" is the event subscriptionId of the existing
+subscription that is to be deleted..
+
+Upon the the reception of an HTTP DELETE request with: "{apiRoot}/nbsf-
+management/v1/pcfBindings/{bindingId}" as Resource URI, the BSF shall:
+
+  -  remove the corresponding binding information.
+
+If the HTTP request message from the NF service consumer is accepted, the
+BSF shall respond with "204 No Content". If the Individual PCF Session
+Binding resource does not exist, the BSF shall respond with "404 Not
+Found".
+
+
+4.2.4  Nbsf_Management_Discovery Service Operation
+
+
+4.2.4.1  General
+
+This service operation allows the service consumer to use the HTTP GET
+method to obtain the selected PCF ID.
+
+
+4.2.4.2  Retrieve the PCF Session binding information for a given tuple
+
+                                    [pic]
+
+   Figure 4.2.4.2-1: NF service consumer retrieve the PCF Session binding
+                        information for a given tuple
+
+The NF service consumer shall invoke the Nbsf_Management_Descovery service
+operation to obtain the selected PCF ID for a PDU session in the BSF. The
+NF service consumer shall send an HTTP GET request with "{apiRoot}/nbsf-
+management/v1/pcfBindings?query_parameters" as Resource URI, where
+query_parameters shall include:
+
+  -  UE address(es); or
+
+  -  the tuple UE address, DNN, S-NNSAI; or
+
+  -  the tuple SUPI, DNN, S-NNSAI; or
+
+  -  the tuple GPSI, DNN, S-NNSAI; or
+
+  -  the tuple UE address, DNN, SUPI/GPSI, S-NNSAI.
+
+Upon the the reception of an HTTP GET request with: "{apiRoot}/nbsf-
+management/v1/pcfBindings?query_parameters" as Resource URI, the BSF shall:
+
+
+  -  search the corresponding binding information.
+
+If the HTTP request message from the NF service consumer is accepted, the
+BSF shall respond the PCF id within the pcfBinding data structure with "200
+OK". If the PCF Session Binding resource does not exist, the BSF shall
+respond with "404 Not Found".
+
+
+5  Nbsf_Management Service API
+
+
+5.1  Introduction
+
+The Nbsf_management Service shall use the Nbsf_management API.
+
+The request URI used in each HTTP request from the NF service consumer
+towards the BSF shall have the structure defined in subclause 4.4.1 of
+3GPP TS 29.501 [2], i.e.:
+
+  {apiRoot}/{apiName}/{apiVersion}/{apiSpecificResourceUriPart}
+
+with the following components:
+
+  -  The {apiRoot} shall be set as described in 3GPP TS 29.501 [2].
+
+  -  The {apiName} shall be "nbsf_management".
+
+  -  The {apiVersion} shall be "v1".
+
+  -  The {apiSpecificResourceUriPart} shall be set as described in
+    subclause 5.3.
+
+
+5.2  Usage of HTTP
+
+
+5.2.1  General
+
+HTTP/2, IETF RFC 7540 [8], shall be used as specified in clause 5 of
+3GPP TS 29.500 [6].
+
+HTTP/2 shall be transported as specified in subclause 5.3 of
+3GPP TS 29.500 [6].
+
+The OpenAPI [11] specification of HTTP messages and content bodies for the
+Nbsf_management is contained in Annex A.
+
+
+5.2.2  HTTP standard headers
+
+
+5.2.2.1  General
+
+See subclause 5.2.2 of 3GPP TS 29.500 [6] for the usage of HTTP standard
+headers.
+
+
+5.2.2.2  Content type
+
+JSON, IETF RFC 7159 [9], shall be used as content type of the HTTP bodies
+specified in the present specification as specified in subclause 5.4 of
+3GPP TS 29.500 [6].
+
+
+5.2.3  HTTP custom headers
+
+
+5.2.3.1  General
+
+The Nbsf_Management Service API shall support HTTP custom header fields
+specified in subclause 5.2.3.2 of 3GPP TS 29.500 [6].
+
+In this release of the specification, no specific custom headers are
+defined for the Nbsf_Management Service API.
+
+
+5.3  Resources
+
+
+5.3.1  Resource Structure
+
+The structure of the Resource URI of the Nbsf_Management service is shown
+in Figure 5.3.1-1.
+
+                                    [pic]
+
+      Figure 5.3.1-1: Resource URI structure of the Nbsf_Management API
+
+Table 5.3.1-1 provides an overview of the resources and applicable HTTP
+methods.
+
+                Table 5.3.1-1: Resources and methods overview
+
+|Resource name      |Resource URI          |HTTP  |Description             |
+|                   |                      |method|                        |
+|                   |                      |or    |                        |
+|                   |                      |custom|                        |
+|                   |                      |operat|                        |
+|                   |                      |ion   |                        |
+|PCF Session        |{apiRoot}/            |POST  |Register new PCF Session|
+|Bindings           |nbsf-management/v1    |      |binding information of a|
+|                   |/pcfBindings          |      |given IP address in BSF.|
+|                   |                      |GET   |Retrieve the Session    |
+|                   |                      |      |binding PCF ID or       |
+|                   |                      |      |address of a given tuple|
+|                   |                      |      |(UE IP address(es),     |
+|                   |                      |      |SUPI; GPSI, DNN,        |
+|                   |                      |      |snssai).                |
+|Individual PCF     |{apiRoot}/            |DELETE|Deregister existing PCF |
+|Session Binding    |nbsf-management/v1    |      |Session binding         |
+|                   |/pcfBindings          |      |information from BSF.   |
+|                   |/{bindingId}          |      |                        |
+
+
+
+5.3.2  Resource: PCF Session Bindings
+
+
+5.3.2.1  Description
+
+This resource represents a collection of the different PCF Session binding
+information of given IP addresses registered in the BSF.
+
+
+5.3.2.2  Resource definition
+
+Resource URI: {apiRoot}/nbsf-management/v1/pcfBidings
+
+This resource shall support the resource URI variables defined in
+table 5.3.2.2-1.
+
+          Table 5.3.2.2-1: Resource URI variables for this resource
+
+|Name          |Definition                                                  |
+|apiRoot       |See subclause 5.1                                           |
+
+
+
+5.3.2.3  Resource Standard Methods
+
+
+5.3.2.3.1   POST
+
+This method shall support the URI query parameters specified in
+table 5.3.2.3.1-1.
+
+   Table 5.3.2.3.1-1: URI query parameters supported by the POST method on
+                                this resource
+
+|Name       |Data type |P |Cardinal|Description                            |
+|           |          |  |ity     |                                       |
+
+
+This method shall support the request data structures specified in
+table 5.3.2.3.1-2 and the response data structures and response codes
+specified in table 5.3.2.3.1-3.
+
+  Table 5.3.2.3.1-2: Data structures supported by the POST Request Body on
+                                this resource
+
+|Data type   |P |Cardinali|Description                                      |
+|            |  |ty       |                                                 |
+|PcfBinding  |M |1..2     |Register a new Individual PCF binding            |
+|            |  |         |information.                                     |
+
+
+  Table 5.3.2.3.1-3: Data structures supported by the POST Response Body on
+                                this resource
+
+|Data type  |P |Cardinali|Response|Description                             |
+|           |  |ty       |codes   |                                        |
+
+
+
+5.3.2.3.2   GET
+
+This method shall support the URI query parameters specified in
+table 5.3.3.3.1-1.
+
+ Table 5.3.2.3.1-1: URI query parameters supported by the GET method on this
+                                  resource
+
+|Name       |Data type  |P |Cardinali|Description                         |
+|           |           |  |ty       |                                    |
+|ipv6Prefix |Ipv6Prefix |C |0..1     |The Ipv6 Address Prefix of the      |
+|           |           |  |         |served UE.                          |
+|macAddr48  |MacAddr48  |C |0..1     |The MAC Address of the served UE.   |
+|dnn        |Dnn        |C |0..1     |DNN                                 |
+|supi       |Supi       |C |0..1     |Subscription Permanent Identifier   |
+|gpsi       |Gpsi       |C |0..1     |Generic Public Subscription         |
+|           |           |  |         |Identifier                          |
+|snssai     |Snssai     |C |0..1     |The identification of slice.        |
+
+
+This method shall support the request data structures specified in
+table 5.3.3.3.1-2 and the response data structures and response codes
+specified in table 5.3.3.3.1-3.
+
+   Table 5.3.2.3.1-2: Data structures supported by the GET Request Body on
+                                this resource
+
+|Data type   |P |Cardinali|Description                                      |
+|            |  |ty       |                                                 |
+|n/a         |  |         |                                                 |
+
+
+  Table 5.3.2.3.1-3: Data structures supported by the GET Response Body on
+                                this resource
+
+|Data type    |P  |Cardinali|Response  |Description                         |
+|             |   |ty       |codes     |                                    |
+|n/a          |   |         |404 Not   |If the PCF Session Binding resource |
+|             |   |         |Found     |does not exist, the BSF shall       |
+|             |   |         |          |respond with "404 Not Found ".      |
+
+
+
+5.3.3  Resource: Individual PCF Session Binding
+
+
+5.3.3.1  Description
+
+This resource represents a collection of the different PCF Session binding
+information of given IP addresses registered in the BSF.
+
+
+5.3.3.2  Resource definition
+
+Resource URI: {apiRoot}/nbsf-management/v1/pcfBidings/{bindingId}
+
+This resource shall support the resource URI variables defined in
+table 5.3.3.2-1.
+
+          Table 5.3.3.2-1: Resource URI variables for this resource
+
+|Name          |Definition                                                  |
+|apiRoot       |See subclause 5.1                                           |
+
+
+
+5.3.3.3  Resource Standard Methods
+
+
+5.3.3.3.1   DELETE
+
+This method shall support the URI query parameters specified in
+table 5.3.3.3.2-1.
+
+  Table 5.3.3.3.1-1: URI query parameters supported by the DELETE method on
+                                this resource
+
+|Name       |Data type |P |Cardinal|Description                            |
+|           |          |  |ity     |                                       |
+
+
+This method shall support the request data structures specified in
+table 5.3.3.3.1-2 and the response data structures and response codes
+specified in table 5.3.3.3.1-3.
+
+ Table 5.3.3.3.1-2: Data structures supported by the DELETE Request Body on
+                                this resource
+
+|Data type   |P |Cardinali|Description                                      |
+|            |  |ty       |                                                 |
+|n/a         |  |         |                                                 |
+
+
+ Table 5.3.3.3.1-3: Data structures supported by the DELETE Response Body on
+                                this resource
+
+|Data type  |P |Cardinali|Response   |Description                         |
+|           |  |ty       |codes      |                                    |
+|n/a        |  |         |404 Not    |If the Individual PCF Session       |
+|           |  |         |Found      |Binding resource does not exist, the|
+|           |  |         |           |BSF shall respond with "404 Not     |
+|           |  |         |           |Found ".                            |
+
+
+
+5.4  Custom Operations without associated resources
+
+None in this release of this specification.
+
+
+5.5  Notifications
+
+None in this release of this specification.
+
+
+5.6  Data Model
+
+
+5.6.1  General
+
+This subclause specifies the application data model supported by the API.
+
+Table 5.6.1-1 specifies the data types defined for the Nbsf service based
+interface protocol.
+
+                   Table 5.6.1-1: Nbsf specific Data Types
+
+|Data type      |Section     |Description                   |Applicabilit|
+|               |defined     |                              |y           |
+|PcfBinding     |5.6.2.2     |Identifies an Individual PCF  |            |
+|               |            |binding.                      |            |
+
+
+Table 5.6.1-2 specifies data types re-used by the Nbsf service based
+interface protocol from other specifications, including a reference to
+their respective specifications and when needed, a short description of
+their use within the Nbsf service based interface.
+
+                   Table 5.6.1-2: Nbsf re-used Data Types
+
+|Data type      |Reference    |Comments                     |Applicabilit|
+|               |             |                             |y           |
+|DiameterIdentit|3GPP TS 29.57|                             |            |
+|y              |1 [10]       |                             |            |
+|Dnn            |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|Gpsi           |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|Ipv4Addr,      |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|Ipv6Prefix     |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|MacAddr48      |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|NfInstanceId   |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|Snssai         |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|Supi           |3GPP TS 29.57|                             |            |
+|               |1 [10]       |                             |            |
+|SupportedFeatur|3GPP TS 29.57|Used to negotiate the        |            |
+|es             |1 [10]       |applicability of the optional|            |
+|               |             |features defined in          |            |
+|               |             |table 5.8-1.                 |            |
+
+
+
+5.6.2  Structured data types
+
+
+5.6.2.1  Introduction
+
+This subclause defines the structures to be used in resource
+representations.
+
+Allowed structures are: array, object.
+
+
+5.6.2.2  Type PcfBinding
+
+               Table 5.6.2.2-1: Definition of type PcfBinding
+
+|Attribute  |Data type  |P |Cardinal|Description          |Applicability|
+|name       |           |  |ity     |                     |             |
+|gpsi       |Gpsi       |C |0..1    |Generic Public       |             |
+|           |           |  |        |Subscription         |             |
+|           |           |  |        |Identifier           |             |
+|ipv4Addr   |Ipv4Addr   |C |0..1    |The IPv4 Address of  |             |
+|           |           |  |        |the served UE. (NOTE)|             |
+|ipv6Prefix |Ipv6Prefix |C |0..1    |The Ipv6 Address     |             |
+|           |           |  |        |Prefix of the served |             |
+|           |           |  |        |UE. (NOTE)           |             |
+|macAddr48  |MacAddr48  |C |0..1    |The MAC Address of   |             |
+|           |           |  |        |the served UE.       |             |
+|dnn        |Dnn        |C |0..1    |DNN                  |             |
+|pcfSvcId   |NfInstanceI|M |1       |String uniquely      |             |
+|           |d          |  |        |identifying the PCF  |             |
+|           |           |  |        |service instance.    |             |
+|pcfDiamHost|DiameterIde|C |0..1    |The diameter host for|             |
+|           |ntity      |  |        |an individual PCF    |             |
+|           |           |  |        |with Diameter        |             |
+|           |           |  |        |interface..          |             |
+|pcfDiamReal|DiameterIde|C |0..1    |The diameter realm   |             |
+|m          |ntity      |  |        |for an individual PCF|             |
+|           |           |  |        |with Diameter        |             |
+|           |           |  |        |interface..          |             |
+|snssai     |Snssai     |C |0..1    |The identification of|             |
+|           |           |  |        |slice.               |             |
+|NOTE: At least one of ipv4Addr, ipv6Prefix and macAddr48 shall be       |
+|included.                                                               |
+
+
+
+5.6.3  Simple data types and enumerations
+
+
+5.6.3.1  Introduction
+
+This subclause defines simple data types and enumerations that can be
+referenced from data structures defined in the previous subclauses.
+
+
+5.6.3.2  Simple data types
+
+The simple data types defined in table 5.6.3.2-1 shall be supported.
+
+                     Table 5.6.3.2-1: Simple data types
+
+|Type Name              |Type Definition|Description             |Applicab|
+|                       |               |                        |ility   |
+|n/a                    |               |                        |        |
+
+
+
+5.7  Error handling
+
+
+5.7.1  General
+
+HTTP error handling shall be supported as specified in subclause 5.2.4 of
+3GPP TS 29.500 [6].
+
+For the Nbsf_Management Service API, HTTP error responses shall be
+supported as specified in subclause 4.8 of 3GPP TS 29.501 [2]. Protocol
+errors and application errors specified in table 5.2.7.2-1 of
+3GPP TS 29.500 [6] shall be supported for an HTTP method if the
+corresponding HTTP status codes are specified as mandatory for that HTTP
+method in table 5.2.7.1-1 of 3GPP TS 29.500 [6]. In addition, the
+requirements in the following subclauses shall apply.
+
+
+5.7.2  Protocol Errors
+
+In this Release of the specification, there are no additional protocol
+errors applicable for the Nbsf_Management Service API.
+
+
+5.7.3  Application Errors
+
+The application errors defined for the Nbsf_Management Service API are
+listed in table 5.7.3-1. The PCF shall include in the HTTP status code a
+"ProblemDetails" data structure with the "cause" attribute indicating the
+application error as listed in table 5.7.3-1.
+
+                      Table 5.7.3-1: Application errors
+
+|Application Error            |HTTP status   |Description                   |
+|                             |code          |                              |
+|BINDING_INFORMATION_NOT_FOUND|404 Not Found |Indicates that the            |
+|                             |              |modification has failed       |
+|                             |              |because the specified PCF     |
+|                             |              |Session Bindings or Individual|
+|                             |              |PCF Session Binding does not  |
+|                             |              |exist. (NOTE)                 |
+|NOTE: This application error is included in the responses to the GET and   |
+|the DELETE requests.                                                       |
+
+
+
+5.8  Feature negotiation
+
+The optional features in table 5.8-1 are defined for the Nbsf_Management
+Service API. They shall be negotiated using the extensibility mechanism
+defined in subclause 6.6 of 3GPP TS 29.500 [6].
+
+                       Table 5.8-1: Supported Features
+
+|Feature     |Feature Name      |Description                              |
+|number      |                  |                                         |
+|            |                  |                                         |
+
+
+
+Annex A (normative):
+OpenAPI specification
+
+
+A.1  General
+
+This clause shall describe the purpose of the Annex.
+
+
+A.2  Nbsf_Management API
+
+
+
+
+Annex B (informative):
+Change history
+
+|Change history                                                             |
+
+
+Date |TSG # |TSG Doc. |CR |Rev |Cat |Subject/Comment |New | |2018-01 | | |
+| | |TS skeleton of Binding Support Management Service specification |0.0.0
+| |2018-01 | | | | | |Inclusion of documents agreed in CT3#94 C3-180301, C3-
+180191, C3-180192 and C3-180193. |0.1.0 | |2018-03 | | | | | |Inclusion of
+documents agreed in CT3#95 C3-181350 and C3-181352. |0.2.0 | |2018-04 | | |
+| | |Inclusion of documents agreed in CT3#96 C3-182424 and C3-182510.
+|0.3.0 | |2018-05 | | | | | |Inclusion of documents agreed in CT3#97 C3-
+183287, C3-183500, C3-183881, C3-183502 and C3-183733. |0.4.0 | |2018-06
+|CT3#98 |CP-181031 | | | |TS sent to plenary for approval. |1.0.0 | |2018-
+06 |CT3#98 |CP-181031 | | | |TS approved by plenary |15.0.0 | |
+
