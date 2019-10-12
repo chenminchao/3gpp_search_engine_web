@@ -17,8 +17,18 @@ def parse_file(infile, outfile):
         content = f.read()
 
     html_header = content.split('<body')[0]
-    html_header = html_header + "<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'>"
-    html_end = "</body>"
+    html_header = html_header + "<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'>\n"
+    mark_script = '</body>\n' +\
+                  '<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>\n' +  \
+                  '<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>\n' + \
+                  '<script type="text/javascript">\n' +\
+                  '$(document).ready(function(){\n' + \
+                  'var instance = new Mark(document.querySelector("body"));\n' + \
+                  'instance.unmark({done: function(){\n' +\
+                  'instance.mark("") }})\n' +\
+                  '});\n' +\
+                  '</script>\n'
+    html_end = '</html>'
 
     paragraph_list_sorted = []
     paragraphs = content.split("\n\n");
@@ -47,6 +57,7 @@ def parse_file(infile, outfile):
             with open(fname, "w") as f:
                 f.write(html_header)
                 f.write(''.join(htmls))
+                f.write(mark_script)
                 f.write(html_end)
                 f.close()
             htmls.clear()
