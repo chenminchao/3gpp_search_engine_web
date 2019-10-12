@@ -64,14 +64,14 @@ def create_spec_dict_list(title_infos, desc_infos, keywords):
     spec_dict_list = []
     print(len(title_infos), len(desc_infos))
     for i, title_info in enumerate(title_infos):
-        spec_dict = {}
-        spec_dict['key'] = title_info[0]
-        spec_dict['numbering'] = title_info[1]
-        spec_dict['title_level'] = title_info[2]
-        spec_dict['desc'] = desc_infos[i]
-        spec_dict['Keywords'] = keywords
-
-        spec_dict_list.append(spec_dict)
+        if (desc_infos[i].strip() != "" and " ".join(desc_infos[i].split()[1:]) != title_info[0]):
+            spec_dict = {}
+            spec_dict['key'] = title_info[0]
+            spec_dict['numbering'] = title_info[1]
+            spec_dict['title_level'] = title_info[2]
+            spec_dict['desc'] = desc_infos[i]
+            spec_dict['Keywords'] =  keywords
+            spec_dict_list.append(spec_dict)
     return spec_dict_list
 
 
