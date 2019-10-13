@@ -107,6 +107,16 @@ body
         div.searchBox
             input(class="inputBox", type="text", name="search_text", value= searchKey)
             button(class="searchBtn", type="submit", value="search") Submit
+
+    div.navigators
+        <span style="font-size: 15px; font-weight: bold;">
+        | Search Results
+        </span>
+        ul
+            each item in searchGroups.buckets
+                a(href='/sort?'+ item.key)
+                  p= item.key + "(" + item.doc_count + ")"
+
     div.wrap
         if searchResultList.length == 0
             p "There's no results available."
@@ -116,12 +126,3 @@ body
               h1= item._source.key
             p= item._source.desc
             p.tag= 'Doc: ' + item._index + " Keyword: " + item._source.Keywords
-
-    div.navigators
-        <span style="font-size: 15px; font-weight: bold;">
-        | Search Results
-        </span>
-        ul
-            each item in searchGroups.buckets
-                a(href='/sort?'+ item.key)
-                    p= item.key + "(" + item.doc_count + ")"
