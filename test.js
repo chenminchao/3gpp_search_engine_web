@@ -24,34 +24,74 @@ function get_mark_script(highlight_key)
 
 let run_search = text => {
   // Let's search!
-    return client.search({
-    index: '*',
-    stats:"_index",
-    size:200,
-    body: {
-      "query": {
-        "multi_match": {
-          "query": JSON.stringify(text),
-          "fields": ["key^5", "desc"]
+    if (String(JSON.stringify(text)).split(" ").length > 1)
+    {
+        return client.search({
+        index: '*',
+        stats:"_index",
+        size:200,
+        body: {
+          "query":{
+              "bool": {
+              "should": [
+                {
+                  "match_phrase": {
+                    "key": {
+                      "query": JSON.stringify(text),
+                      "slop": 1
+                    }
+                  }
+                },
+                {
+                  "match_phrase": {
+                    "desc": JSON.stringify(text)
+                  }
+                }
+              ]
+            }
+          },
+          "aggs": {
+            "group_by_index": {
+              "terms": {
+                "field": "_index",
+                "size": 10
+              }
+            }
           }
-      },
-      "aggs": {
-        "group_by_index": {
-          "terms": {
-            "field": "_index",
-            "size": 10
+          }
+        }).then(result => {return result})
+    }
+    else
+    {
+        return client.search({
+        index: '*',
+        stats:"_index",
+        size:200,
+        body: {
+          "query": {
+            "multi_match": {
+              "query": JSON.stringify(text),
+              "fields": ["key^5", "desc"]
+              }
+          },
+          "aggs": {
+            "group_by_index": {
+              "terms": {
+                "field": "_index",
+                "size": 10
+              }
+            }
           }
         }
-      }
+        }).then(result => {return result})
     }
-    }).then(result => {return result})
 }
 
 var bodyParser =require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-		res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\index.html');
+		res.sendFile('C:\\hackathon\\3gpp_search_engine_web\\index.html');
 		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\test_mark.html');
 });
 
