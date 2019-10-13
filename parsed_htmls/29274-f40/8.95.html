@@ -7044,4 +7044,16 @@ lang=EN-GB style='mso-fareast-language:JA'>) where binary encoding of the
 integer part is in the 32 most significant bits and binary encoding of the
 fraction part in the 32 least significant bits. The fraction part is expressed
 with a granularity of 1 /2**32 second.<o:p></o:p></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

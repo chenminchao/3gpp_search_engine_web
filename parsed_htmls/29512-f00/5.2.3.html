@@ -868,4 +868,16 @@ name="_Toc493665974"><span lang=EN-GB>5.2.3      HTTP custom headers</span></a><
 name="_Toc512348941"></a><a name="_Toc494449420"></a><a name="_Toc493774022"></a><a
 name="_Toc492974840"></a><a name="_Toc493665975"><span lang=EN-GB>5.2.3.1</span></a><span
 lang=EN-GB>          General</span></h4></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

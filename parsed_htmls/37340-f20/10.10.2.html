@@ -1223,4 +1223,16 @@ lang=EN-GB> shows an example signaling flow for RRC Transfer in case of the
 forwarding of the NR measurement report from the UE:</span></p><p class=B1><span lang=EN-GB>1.   When the UE sends a measurement report, it
 sends it to the MN in the <i>GenericContainer</i>.</span></p><p class=B1><span lang=EN-GB>2.   The MN initiates the RRC Transfer procedure,
 in which it transfers the received NR measurement report as an octet string.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1173,4 +1173,16 @@ lang=EN-GB style='layout-grid-mode:line'>.</span></p><p class=MsoNormal><span la
 of uplink IP packets via non-3GPP access.</span></p><p class=MsoNormal><span lang=EN-GB>3GPP PS data off does not restrict sending
 of uplink user data packets via a PDU session of Ethernet or Unstructured PDU
 session type.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

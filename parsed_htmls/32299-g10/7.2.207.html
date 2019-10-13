@@ -1403,4 +1403,16 @@ ul
 <h3><a name="_Toc532895304"><span lang=EN-GB>7.2.207  SM-Message-Type AVP</span></a></h3><p class=MsoNormal><span lang=EN-GB>The <i>SM</i>-<i>Message-Type</i> AVP (AVP
 code 2007) is of type Enumerated and indicates the type of the message which
 caused the charging interaction. The values are given below:  </span></p><p class=B1><span lang=EN-GB>0    SUBMISSION</span></p><p class=B1><span lang=EN-GB>1    DELIVERY_REPORT</span></p><p class=B1><span lang=EN-GB>2.   SM Service Request</span></p><p class=B1><span lang=EN-GB>3    T4 Device Trigger</span></p><p class=B1><span lang=EN-GB>4    SM Device Trigger</span></p><p class=B1><span lang=EN-GB>5    </span>MO-SMS T4 s<span lang=EN-GB>ubmission</span></p><p class=MsoNormal><span lang=EN-GB>&nbsp;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

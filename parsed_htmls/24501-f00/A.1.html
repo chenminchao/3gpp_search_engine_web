@@ -1135,4 +1135,16 @@ the network has implicitly de-registered the UE, e.g. after the implicit de-regi
 timer has expired, or if the 5GMM context data related to the subscription does
 not exist in the AMF e.g. because of a AMF restart, or because of a registration
 request for mobility or registration update is routed to a new AMF.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

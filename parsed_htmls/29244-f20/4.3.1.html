@@ -1202,4 +1202,16 @@ ul
 either to IPv4 as defined by IETF&nbsp;RFC&nbsp;791&nbsp;[5] or IPv6 as defined
 by IETF&nbsp;RFC&nbsp;2460&nbsp;[6]. A PFCP entity shall support both IPv4 and
 IPv6.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

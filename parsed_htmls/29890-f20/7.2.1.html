@@ -1074,4 +1074,16 @@ purposes such as analytics.</span></p><p class=NO><span lang=EN-GB>NOTE:      </
 access the UDR located in the same PLMN</span><span lang=EN-GB>.</span></p><p class=EditorsNote><span lang=EN-GB>Editor's note:</span><span lang=EN-GB> </span><span
 lang=EN-GB>It is FFS whether the stored information in the UDR can be exposed
 directly to other network functions and Application Functions.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

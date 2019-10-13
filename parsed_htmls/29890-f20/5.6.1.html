@@ -1065,4 +1065,16 @@ Restrictions is executed in the UE, when the UE is in CM-IDLE state or in
 CM-CONNECTED state when in RRC Inactive, and in the RAN/AMF when the UE is in
 CM-CONNECTED state, while the enforcement of RAT/Frequency Selection Priority
 is always performed in the RAN.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

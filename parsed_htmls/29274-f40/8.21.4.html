@@ -7019,4 +7019,16 @@ octets. Bit 8 of Octet d+3 is the most significant bit and bit 1 of Octet d+4
 the least significant bit. The coding of the tracking area code is the responsibility
 of each administration. Coding using full hexadecimal representation (binary,
 not ASCII encoding) shall be used.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

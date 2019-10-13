@@ -1287,4 +1287,16 @@ purpose of the </span><span lang=EN-GB>Secondary RAT Data Usage Report </span><s
 lang=EN-GB>procedure is to provides </span><span lang=EN-GB>information on the
 used resources of the secondary RAT (e.g. NR resources during EN-DC operation)
 as specified in </span><span lang=EN-GB>TS 23.401 [11].</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

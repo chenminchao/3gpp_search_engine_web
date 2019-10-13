@@ -1293,4 +1293,16 @@ lang=EN-GB> messages are transported in an IE of the </span><span lang=EN-GB>INI
 UE MESSAGE, </span><span lang=EN-GB>DOWNLINK </span><span lang=EN-GB>NAS T</span><span
 lang=EN-GB>RANSPORT, UPLINK NAS </span><span lang=EN-GB>T</span><span
 lang=EN-GB>RANSPORT or REROUTE NAS REQUEST messages.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

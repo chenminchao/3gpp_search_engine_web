@@ -1283,4 +1283,16 @@ Technically, the contents of this clause and annex A are completely identical.
 In case of deviations between this clause and annex A due to errors in the
 present document, the annex shall prevail.</span></p><p class=MsoNormal><span lang=EN-GB>Note that the encoding rules for the
 abstract syntax specified in this clause, are detailed in clause 6.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1216,4 +1216,16 @@ a NAS signalling connection over non-3GPP access is established for the UE.</spa
 mobility management messages and T3346 value is greater than timer T3512, the
 AMF sets the mobile reachable timer and the implicit de-registration timer such
 that the sum of the timer values is greater than timer T3346 value.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

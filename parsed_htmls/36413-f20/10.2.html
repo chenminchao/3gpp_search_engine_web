@@ -1294,4 +1294,16 @@ if a list is defined as containing 1 to 10 elements, and 12 elements will be
 received, than this case will be handled as a transfer syntax error.</span></p><p class=B1><span lang=EN-GB>-    Missing mandatory elements in ASN.1 SEQUENCE
 definitions (as sent by the originator of the message).</span></p><p class=B1><span lang=EN-GB>-    Wrong order of elements in ASN.1 SEQUENCE
 definitions (as sent by the originator of the message).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

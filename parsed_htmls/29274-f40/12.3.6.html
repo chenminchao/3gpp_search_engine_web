@@ -6846,4 +6846,16 @@ lang=EN-GB><span style='mso-list:Ignore'>-<span style='font:7.0pt "Times New Rom
 currently serving MME/S4-SGSN identity, received from the SGW, to be able to
 reduce the PGW initiated signalling messages for the PDN connections during an
 overload situation at the serving MME/S4-SGSN.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

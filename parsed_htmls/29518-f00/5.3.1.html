@@ -1104,4 +1104,16 @@ NOTE 3), Continuous Report (See NOTE 4)</span></p><p class=B2><span lang=EN-GB> 
 area</span></p><p class=NO><span lang=EN-GB>NOTE 3:  For One-time Report, UE Last Known
 Location is used to count the UEs within the area</span></p><p class=NO><span lang=EN-GB>NOTE 4:  Support of Continuous Report should be
 controlled by operator.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

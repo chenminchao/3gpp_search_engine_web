@@ -10,18 +10,6 @@ app.set("view engine","jade");
 
 app.use(express.static('public'));
 
-function get_mark_script(highlight_key)
-{
-  var mark_script = 'instance.mark("' + highlight_key + '") }})\n'
-                  + '});\n'
-                  + '</script>\n'
-                  + '</html>'
-  return mark_script
-}
-
-//const jsdom = require("jsdom");
-//const { JSDOM } = jsdom;
-
 let run_search = text => {
   // Let's search!
     if (String(JSON.stringify(text)).split(" ").length > 1)
@@ -91,15 +79,14 @@ var bodyParser =require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
-		res.sendFile('C:\\hackathon\\3gpp_search_engine_web\\index.html');
-		//res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\test_mark.html');
+    res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\index.html');
 });
 
 app.get('/sort', function (req, res) {
     var filterDoc = req.originalUrl.split('?')[1];
     searchResults =  JSON.parse(req.app.locals.search_results)
     groups = req.app.locals.groups;
-	key = req.app.locals.searchKey;
+	  key = req.app.locals.searchKey;
 
     var filterSearchResults = [];
     for(var item in searchResults)
@@ -155,41 +142,7 @@ app.get('/details', function (req, res)
 			numbering = values[0] + '.' + values[1] + '.' + values[2]
 		}
 
-    html_file = "/" + index + "/" + numbering + ".html"
-    /*absolute_html_file = "C:\\3gpp_search_engine\\3gpp_search_engine_web\\parsed_htmls\\" +
-     index + "\\" + numbering + ".html"
-     console.log(absolute_html_file);
-    fs.readFile(absolute_html_file, function (err, data) {
-        if (!err){
-          theFile = data.toString().split("\n");
-          console.log("================================")
-          console.log("theFile length is ", theFile.length);
-          console.log("\n")
-          removed = theFile.splice((theFile.length-4), 4);
-          console.log("removed is ", removed)
-          theFile = theFile.join('')
-          console.log(theFile)
-          console.log("#################################")
-          console.log(get_mark_script(req.app.locals.search_key))
-          theFile = theFile + get_mark_script(req.app.locals.search_key)
-          console.log("*****************************")
-          console.log(theFile)
-
-          fs.writeFile(absolute_html_file, theFile, function (err) {
-            if (err) {
-                return console.log(err);
-            }
-            console.log("Removed last 4 lines");
-
-          });
-        }
-        else {
-          console.log(error);
-        }
-    });*/
-
-
-    //fs.appendFileSync(absolute_html_file, get_mark_script(req.app.locals.search_key));
+    html_file = "/" + index + "/" + numbering + ".html" + "?hightlight=" + String(req.app.locals.searchKey);
     console.log(html_file)
     res.redirect(html_file)
 		//link_html_file = "C:\\3gpp_search_engine\\3gpp_search_engine_web\\parsed_htmls\\" + numbering + ".html"

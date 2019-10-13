@@ -7001,4 +7001,16 @@ encoded as specified in subclause 7.7.53 of 3GPP TS 29.060 [4], beginning with
 octet 4 of Figure 7.7.53.1.</span></p><p class=MsoNormal><span lang=EN-GB>The IMEI(SV) digits are encoded using BCD
 coding where IMEI is 15 BCD digits and IMEISV is 16 BCD digits. For IMEI, bits
 5 to 8 of the last octet shall be filled with an end mark coded as '1111'.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

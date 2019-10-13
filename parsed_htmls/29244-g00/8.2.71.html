@@ -4255,4 +4255,16 @@ lang=X-NONE style='mso-fareast-language:JA'>1</span><span lang=X-NONE>: </span><
 style='mso-bookmark:historyclause'><span lang=X-NONE style='mso-fareast-language:
 JA'>UR-SEQN<o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
 UR-SEQN value shall be encoded as an Unsigned32 binary integer value. </span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

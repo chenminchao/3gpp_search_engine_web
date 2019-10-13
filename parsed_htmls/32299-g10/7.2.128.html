@@ -1409,4 +1409,16 @@ contains either a Point Code (ISPC) or a Global Title, where Global Title repres
 an E.164 number. The Address Type discriminator in <span style='color:black'>RFC
 6733</span> [401] is set to value 8, E.164, and the address information is UTF8
 encoded.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

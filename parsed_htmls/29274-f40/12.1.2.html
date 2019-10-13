@@ -6834,4 +6834,16 @@ semi-static DNS weights can lead to a load imbalance and thus GTP-C signalling
 scenarios, such as those mentioned above, may result in an overload of the SGWs
 or PGWs with the highest load while there is still remaining capacity on other SGWs
 or PGWs.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

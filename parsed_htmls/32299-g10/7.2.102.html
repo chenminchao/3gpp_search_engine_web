@@ -1411,4 +1411,16 @@ adding/removing, connecting/disconnecting the media</span><span lang=EN-GB>.
 The </span><span lang=EN-GB>Media Initiator Party</span><span lang=EN-GB> shall
 be populated with the SIP URI or Tel URI contained in the Request-URI of the
 outgoing request.</span><span lang=EN-GB> It is use for PoC charging.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

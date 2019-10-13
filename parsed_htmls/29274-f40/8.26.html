@@ -7084,4 +7084,16 @@ receiving side. </span></p><div align=center><table class=MsoNormalTable border=
 lang=EN-GB style='mso-fareast-language:ZH-CN'>8</span><span lang=EN-GB>.</span><span
 lang=EN-GB style='mso-fareast-language:ZH-CN'>26-1:</span><span lang=EN-GB> </span><span
 lang=EN-GB style='mso-fareast-language:ZH-CN'>S1-U Data Forwarding Info</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

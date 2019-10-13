@@ -1498,4 +1498,16 @@ length of the Header Field Value.</span></p><p class=MsoNormal><span lang=EN-GB>
 lang=EN-GB>.</span></p><p class=MsoNormal><span lang=EN-GB>For a HTTP Header Type, the contents of the
 Header Field Name and Header Field Value shall comply with the HTTP header
 field format (see subclause 3.2 of IETF&nbsp;RFC&nbsp;7230&nbsp;[23]).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

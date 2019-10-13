@@ -3164,4 +3164,16 @@ style='mso-bookmark:historyclause'><span lang=EN-GB>3)<span style='mso-tab-count
 message or the Update Location message for an UE that has URRP-MME set, it
 triggers appropriate notifications to the entities that have subscribed to the
 HSS for this notification and clears the URRP-MME for that UE.</span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -7046,4 +7046,16 @@ octets. Only Octet c+5 contains the RAC. Octet c+6 is coded as all 1's
 (11111111). The RAC is defined by the operator. Coding using full hexadecimal
 representation (binary, not ASCII encoding) shall be used (see 3GPP TS 23.003
 [2]).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

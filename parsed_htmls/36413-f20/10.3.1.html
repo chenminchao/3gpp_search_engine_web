@@ -1307,4 +1307,16 @@ Information and Presence Information for the IE/IE group due to which Abstract
 Syntax Error occurred in accordance with subclauses 10.3.4 and 10.3.5. The
 handling of case</span><span lang=EN-GB>s</span><span lang=EN-GB> 4 and 5 is
 specified in subclause 10.3.6.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

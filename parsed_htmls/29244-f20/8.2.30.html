@@ -1346,4 +1346,16 @@ lang=EN-GB>is coded as depicted in Figure 8.2.30-1.</span></p><p class=TH><span 
 Packet Count</p><p class=MsoNormal>The Packet Count value is encoded with the number of octets
 defined in the Length field, e.g. when n=2, the range of the Packet Count value
 is from 0 to 65535.</p><p class=MsoNormal>The length shall be set to 1 or 2 octets.</p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

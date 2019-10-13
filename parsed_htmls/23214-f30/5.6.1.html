@@ -2791,4 +2791,16 @@ the UP with instructions for at least the following behaviors: forward, forward
 with end marker. The CP function shall also be able to request multiple sets of
 forwarding instructions to be performed in sequence, e.g. forward to the DL
 side and forward to the CP function for the purpose of duplication.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

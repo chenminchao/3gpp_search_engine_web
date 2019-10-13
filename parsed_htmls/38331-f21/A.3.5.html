@@ -1466,4 +1466,16 @@ capability groups is based on the following guideline. If there is more than
 one field in the lower level IE, then OPTIONAL keyword is added at the group
 level. If there is only one field in the lower level IE, OPTIONAL keyword is
 not added at the group level.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

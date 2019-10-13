@@ -3249,4 +3249,16 @@ style='mso-bookmark:historyclause'><span lang=EN-GB>10b.<span style='mso-tab-cou
 Context Accept) message to the MME.</span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span lang=EN-GB>The
 MME determines the Maximum APN Restriction for the remaining PDN connections
 and stores this new value for the Maximum APN Restriction.</span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

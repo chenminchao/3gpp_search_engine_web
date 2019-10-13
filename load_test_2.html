@@ -1,5 +1,19 @@
 <html>
 		<head>
+			<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+			<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+			<script type="text/javascript">
+			$(document).ready(function(){
+				var instance = new Mark(document.querySelector("body"));
+				var url = document.URL;
+				var key = url.split("=")[1];
+				console.log(url, key);
+				instance.unmark({done: function(){
+					instance.mark(key) }})
+				});
+			</script>
 			<style type="text/css">
 			mark{
     		background: orange;
@@ -8,9 +22,6 @@
   		</style>
 		</head>
 		<body>
-			<div class="context">
-    		<h1 id="mark">highlight high</p>
-			</div>
 			<a href="#link" id="test">Click Me</a>
       <p>hello world</p>
       <a href="#link2" id="test2"></a>
@@ -50,25 +61,4 @@
       <a name="link2">link2</a>
       <img width=621 height=407 src="23401-g30_files/image090.gif">
 		</body>
-		<!--<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
-		<script type="text/javascript">
-			$(document).ready(function(){
-				var instance = new Mark(document.querySelector("body"));
-				instance.unmark({done: function(){
-					instance.mark("high") }})
-		</script>-->
-		<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
-		<script type="text/javascript">
-		$(document).ready(function(){
-			var instance = new Mark(document.querySelector("body"));
-			instance.unmark({done: function(){
-				instance.mark("highlight") }})
-				//$(document).ready(function(){
-				//document.getElementById("test2").click();
-				//var instance = new Mark(document.querySelector("body"));
-				//instance.mark("high");
-			});
-		</script>
 </html>

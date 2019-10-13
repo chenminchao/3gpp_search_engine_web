@@ -1444,4 +1444,16 @@ margin-left:142.0pt;margin-bottom:.0001pt;text-indent:65.0pt'>[ 3GPP-RAT-Type ]<
 margin-left:198.75pt;margin-bottom:.0001pt;text-indent:0in'><span lang=EN-GB>  
 [ Related-Trigger ]<br>
 <s><span style='color:#999999'>* [ AVP ]</span></s></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

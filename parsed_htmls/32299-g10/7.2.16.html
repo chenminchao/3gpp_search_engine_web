@@ -1406,4 +1406,16 @@ lang=EN-GB>AoC-Request-Type AVP</span></h3><p class=MsoNormal><span lang=EN-GB>T
 2055) is of type enumerated and tags if the client is looking for AoCI in
 conjunction to the Request-Type and Request-Action AVPs. It can be one of the
 following values:</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>0    AoC_NOT_REQUESTED</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>1    AoC_FULL</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>2    AoC_COST_ONLY</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>3    AoC_TARIFF_ONLY</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>&nbsp;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

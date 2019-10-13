@@ -25,8 +25,11 @@ def parse_file(infile, outfile):
                   '<script type="text/javascript">\n' +\
                   '$(document).ready(function(){\n' + \
                   'var instance = new Mark(document.querySelector("body"));\n' + \
-                  'instance.unmark({done: function(){\n' +\
-                  'instance.mark("") }})\n' +\
+                  'instance.unmark({done: function(){\n' + \
+                  'var url = document.URL;\n' +\
+                  'var key = decodeURIComponent(url.split("=")[1]);\n' +\
+                  'console.log(key);\n' + \
+                  'instance.mark(key) }})\n' +\
                   '});\n' +\
                   '</script>\n'
     html_end = '</html>'
@@ -60,7 +63,7 @@ def parse_file(infile, outfile):
                 f.write(html_header)
                 f.write(''.join(htmls))
                 f.write(body_end)
-                #f.write(mark_script)
+                f.write(mark_script)
                 f.write(html_end)
                 f.close()
             htmls.clear()

@@ -1134,4 +1134,16 @@ by the AMF to update </span><span lang=EN-GB>the S-NSSAI(s) the AMF supports on
 a per TA basis on the NSSF, subscribe and unsubscribe the notification of any
 changes to the NSSAI availability information and used by the NSSF to update
 the restricted S-NSSAI(s) per TA and per PLMN on the AMF.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

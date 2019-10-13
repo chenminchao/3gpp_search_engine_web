@@ -3971,4 +3971,16 @@ by the &quot;PDN GW back-off time&quot; the MME may select another PDN GW of
 that APN instead of rejecting PDN connection requests unless there is already
 an existing PDN connection to the same APN for the UE, in which case, the MME
 shall reject PDN connection request.</span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

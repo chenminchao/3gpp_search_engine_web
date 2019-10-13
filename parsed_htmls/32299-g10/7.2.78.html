@@ -1408,4 +1408,16 @@ when emergency bearer service is provided </span><span lang=EN-GB>(refer to TS
 23.060&nbsp;[74] and TS 29.274 [91]). If this flag is not present, this means
 the </span><span lang=EN-GB>served IMSI is authenticated. </span><span
 lang=EN-GB>The following values are defined:</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>0    Authenticated</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>1    Unauthenticated</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>&nbsp;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

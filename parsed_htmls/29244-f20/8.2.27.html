@@ -1388,4 +1388,16 @@ to '0', then octet 'm' shall not be present.</span></p><p class=MsoNormal><span 
 octet 'm', shall be encoded as the </span><span lang=EN-GB>DSCP in TOS (IPv4) or
 TC (IPv6) information received in the IP payload of the GTP-U packet from the
 PGW (see IETF&nbsp;RFC&nbsp;2474&nbsp;[13]).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

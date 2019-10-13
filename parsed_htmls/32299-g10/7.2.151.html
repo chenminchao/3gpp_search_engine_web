@@ -1405,4 +1405,16 @@ lang=EN-GB>PoC-User-Role-Info-Units</span><span lang=EN-GB> AVP</span></h3><p cl
 code 1254) is of type </span><span lang=EN-GB>Enumerated and specify the role
 type details of PoC users</span><span lang=EN-GB>. The identifier can be one of
 the following</span><span lang=EN-GB>:</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>1    Moderator</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>2    Dispatcher</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>3    Session-Owner</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>4    Session-Participant</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>&nbsp;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1058,4 +1058,16 @@ event subscription or for both. The AF requests may </span><span lang=EN-GB>infl
 UPF (re)selection and allow rout</span><span lang=EN-GB>ing</span><span
 lang=EN-GB> user traffic to a local access to a Data Network </span><span
 lang=EN-GB>(identified by a DNAI).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

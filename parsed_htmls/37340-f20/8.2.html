@@ -1216,4 +1216,16 @@ be hosted in the SN, some of the related QoS flows may be realized as SCG
 bearer, some as MCG bearer, while others may be realized as split bearer. The
 SN may remove or add SCG resources for the respective QoS flows, as long as the
 QoS for the respective QoS flow is guaranteed.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

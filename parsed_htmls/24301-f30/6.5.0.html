@@ -1244,4 +1244,16 @@ number of 15 EPS bearer contexts by setting the 15 bearers bit in the </span><sp
 lang=EN-GB>EPS network feature support IE.</span></p><p class=NO><span lang=EN-GB>NOTE&nbsp;2:  A UE and a network not supporting </span>signalling
 for<span lang=EN-GB> a maximum number of 15 EPS bearer contexts will treat the
 EPS bearer identity values 1 to 4 as 'reserved' values.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1405,4 +1405,16 @@ AVP</span></a></h3><p class=MsoNormal style='margin-bottom:0in;margin-bottom:.00
 lang=EN-GB>The <i>LCS-Data-Coding-Scheme </i>AVP (AVP code 1236) is of type
 UTF8String and contains the information of the alphabet and the language used.</span></p><p class=MsoNormal style='margin-bottom:0in;margin-bottom:.0001pt'><span
 lang=EN-GB>&nbsp;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

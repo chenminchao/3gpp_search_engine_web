@@ -1427,4 +1427,16 @@ physical implementations are possible. Further details of the configuration
 refer toTS 32.240 [1]. Details of the implementation options per domain /
 subsystem / service (usually a subset of the overall possible variants
 described above) are specified in the respective middle tier TSs.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

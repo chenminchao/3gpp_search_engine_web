@@ -1446,4 +1446,16 @@ ul
 <h3><a name="_Toc517307916"><span lang=X-NONE>5.3.3      RRC connection
 establishment</span></a></h3><p class=EditorsNote><span lang=EN-GB>Editor's Note: Targeted for completion in
 Sept 2018.<a name="_Hlk515424142"></a></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

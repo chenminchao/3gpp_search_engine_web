@@ -1304,4 +1304,16 @@ lang=EN-GB style='font-size:12.0pt;font-family:"Arial",sans-serif'>6.6.4.5      
 cases on the network side</span></p><p class=B1 style='margin-left:0in;text-indent:0in'>Apart from the case
 described in subclause&nbsp;6.3.4, n<span lang=EN-GB>o other abnormal cases
 have been identified</span>.</p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -2794,4 +2794,16 @@ the CP function towards the OFCS/OCS and PCRF are fulfilled.</span></p><p class=
 Detection Rule with one or more measurement keys on Sx, the CP function
 includes in the Packet Detection Rule a reference to each URR (Rule ID) that is
 applicable for the traffic covered by the PDR.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

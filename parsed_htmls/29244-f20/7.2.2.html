@@ -2055,4 +2055,16 @@ code. As an implementation option, the node may not look up the remote peer’s SE
 and set the PFCP header SEID to <span lang=X-NONE>&quot;0&quot;</span> in the
 response message. However in this case, the cause value shall not be set to
 &quot;Session not found&quot;.</p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -4281,4 +4281,16 @@ style='mso-bookmark:historyclause'><span lang=X-NONE style='mso-fareast-language
 ZH-CN'><o:p></o:p></span></span></p><p class=MsoNormal><span style='mso-bookmark:historyclause'><span
 style='mso-ansi-language:EN-US'>The Packet Count value is encoded in octet 5
 and the range of the Packet Count value is from 0 to 255.<o:p></o:p></span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

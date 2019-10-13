@@ -3150,4 +3150,16 @@ between messages is transparent for the MME, i.e. a request/response exchange
 between applications, for example SON applications, is routed and relayed as
 two independent messages by the MME. An MME supporting the Configuration
 Transfer procedures provides addressing, routing and relaying functions.</span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

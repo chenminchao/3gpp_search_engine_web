@@ -1224,4 +1224,16 @@ information element contains the integrity protection information for the
 message. The MAC IE shall be included in the security protected NAS message if
 a valid EPS security context exists and security functions are started. The
 usage of MAC is specified in subclause&nbsp;4.4.3.3.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

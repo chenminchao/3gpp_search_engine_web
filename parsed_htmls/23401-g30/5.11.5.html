@@ -3133,4 +3133,16 @@ MME to the target MME as part of the MM Context information. The UE Radio
 Capability for Category M Differentiation is only applicable for MMEs, i.e. it
 is not applicable for SGSNs. Therefore, it will not be included during context
 transfers from and towards SGSNs.</span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

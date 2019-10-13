@@ -1093,4 +1093,16 @@ lang=EN-GB>PCF to </span><span lang=EN-GB>the </span><span lang=EN-GB>UE would
 require additional transport options.</span></p><p class=EditorsNote><span lang=EN-GB>Editor's note:</span><span lang=EN-GB> </span><span
 lang=EN-GB>It is FFS if </span><span lang=EN-GB>part of the policies can be
 transferred via UDM</span><span lang=EN-GB>.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1495,4 +1495,16 @@ not regarded as a level on its own. E.g. in the ASN.1 extract in the previous,
 a error regarding the conditionality of <i>field3</i> would result in the
 entire <i>BroadcastInfoBlock1</i> to be ignored (rather than just the non
 critical extension containing <i>field3</i> and <i>field4</i>).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

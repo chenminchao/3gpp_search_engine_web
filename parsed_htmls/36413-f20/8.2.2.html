@@ -1374,4 +1374,16 @@ e.g., “Multiple E-RAB ID instances”.</span></p><p class=MsoNormal><span lang=EN-
 message containing some <i>E-RAB ID </i>IEs that eNB does not recognize, the
 eNB shall report the corresponding invalid E-RABs as failed in the E-RAB MODIFY
 RESPONSE with the appropriate cause value, e.g., “Unknown E-RAB ID”.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

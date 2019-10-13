@@ -6810,4 +6810,16 @@ table.MsoTableGrid
 <h2 style='margin-left:42.75pt;text-indent:-42.75pt;tab-stops:42.75pt'><a
 name="_Toc517086619"><span lang=EN-GB>7.9<span style='mso-tab-count:1'>    </span>Restoration
 and Recovery</span></a></h2></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

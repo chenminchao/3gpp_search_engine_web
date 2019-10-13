@@ -1243,4 +1243,16 @@ NAS security are described as part of the EPS mobility management in
 clause&nbsp;5. In addition to that, principles for the handing of EPS security
 contexts and for the activation of ciphering and integrity protection, when a
 NAS signalling connection is established, are provided in subclause&nbsp;4.4.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

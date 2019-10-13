@@ -1492,4 +1492,16 @@ Additionally, the network shall delete an already established mapped EPS
 security context for the PS domain, if any, if the eKSI of the already established
 EPS security context is equal to the </span>KSI<sub>SGSN</sub><span lang=EN-GB>
 of the new derived EPS security context for the PS domain.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

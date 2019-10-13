@@ -1135,4 +1135,16 @@ have already expired.</span></p><p class=NO><span lang=EN-GB>NOTE:      Timers T
 actions:</span></p><p class=B1><span lang=EN-GB>a)   stop other running timers (e.g. T3511, T3512);</span></p><p class=B1><span lang=EN-GB>b)  if the UE is currently registered to the
 network for 5GS services, perform a de-registration procedure;</span></p><p class=B1><span lang=EN-GB>c)   delete any 5G-GUTI, TAI list, last visited
 registered TAI, list of equivalent PLMNs, and ngKSI; and</span></p><p class=B1><span lang=EN-GB>d)  enter 5GMM-DEREGISTERED.eCALL-INACTIVE state.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

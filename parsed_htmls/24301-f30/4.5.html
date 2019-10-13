@@ -1358,4 +1358,16 @@ value of the timer for enabling E-UTRA</span><span lang=EN-GB> </span><span
 lang=EN-GB>capability is recommended to be not larger than the </span><span
 lang=EN-GB>default </span><span lang=EN-GB>value </span><span lang=EN-GB>of </span><span
 lang=EN-GB>T3402</span><span lang=EN-GB>.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

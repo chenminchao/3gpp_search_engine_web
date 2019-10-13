@@ -866,4 +866,16 @@ ul
 name="_Toc515872342"></a><a name="_Toc515636067"></a><a name="_Toc512348935"></a><a
 name="_Toc494449414"></a><a name="_Toc493774016"></a><a name="_Toc493665969"><span
 lang=EN-GB>5.2        Usage of HTTP</span></a></h2></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

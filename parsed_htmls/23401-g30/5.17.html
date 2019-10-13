@@ -3121,4 +3121,16 @@ retransmit UPnP service advertisements to UEs after changing the source
 address. This proxying to the UE shall not be performed if the multicast packet
 is transmitted with an IPv4 or IPv6 link-local source address,
 RFC&nbsp;3927&nbsp;[64], RFC&nbsp;4291&nbsp;[65].</span></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

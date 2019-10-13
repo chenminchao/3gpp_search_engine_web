@@ -1355,4 +1355,16 @@ Private IEs</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'
 {S1AP-PRIVATE-IES : IEsSetParam} ::= SEQUENCE {</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'>    id                 S1AP-PRIVATE-IES.&amp;id                ({IEsSetParam}),</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'>    criticality         S1AP-PRIVATE-IES.&amp;criticality       ({IEsSetParam}{@id}),</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'>    value              S1AP-PRIVATE-IES.&amp;Value             ({IEsSetParam}{@id})</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'>}</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'>&nbsp;</span></p><p class=PL><span lang=EN-GB style='layout-grid-mode:line'>END</span></p></div><span lang=EN-GB style='font-size:10.0pt;font-family:"Times New Roman",serif'><br
 clear=all style='page-break-before:always'>
 </span><div class=WordSection6></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

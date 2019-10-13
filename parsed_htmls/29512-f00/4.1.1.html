@@ -874,4 +874,16 @@ and control. </span><span lang=EN-GB>Session Management Policy Control Service
 applies to the cases where the SMF interacts with the PCF in the non-roaming scenario,
 the V-SMF interacts with the V-PCF in the local breakout roaming scenario and
 the H-SMF interacts with the H-PCF in the home-routed scenario.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

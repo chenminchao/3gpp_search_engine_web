@@ -2829,4 +2829,16 @@ function identifies the Sx session context based on the received Session ID and
 applies the reported information for the corresponding PDN connection IP-CAN
 session, TDF session or TDF in unsolicited reporting mode. The CP function
 responds with an Sx report ACK message.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

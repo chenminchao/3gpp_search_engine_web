@@ -2790,4 +2790,16 @@ packets can either be done in the CP function or in the UP function, as
 described in clauses 5.8.1 and 5.8.2. Whether constructing of end marker
 packets is performed by CP function or UP function is determined by network
 configuration.<o:p></o:p></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

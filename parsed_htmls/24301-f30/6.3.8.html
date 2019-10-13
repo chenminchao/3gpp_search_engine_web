@@ -1236,4 +1236,16 @@ provided this information. This Serving PLMN rate control information shall be
 discarded when the UE successfully registers to another PLMN.</span></p><p class=NO><span lang=EN-GB>NOTE:      The serving PLMN can discard or delay
 NAS messages including user data over control plane that exceed the limit
 provided for serving PLMN rate control.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

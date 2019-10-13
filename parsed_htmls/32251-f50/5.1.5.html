@@ -7550,4 +7550,16 @@ transparently through the MME and the Serving GW from UE to PGW. </span><span
 lang=EN-GB>If the PGW detects that the 3GPP PS Data Off Status has changed, the
 PGW shall indicate this event to the charging system for offline and online
 charging.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

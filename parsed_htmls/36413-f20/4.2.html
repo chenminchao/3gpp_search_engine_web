@@ -1289,4 +1289,16 @@ IEs or groups of related IEs, include I</span><span lang=EN-GB>D</span><span
 lang=EN-GB> and criticality fields that are coded in a standard format that
 will not be changed in the future. These parts can always be decoded regardless
 of the standard version.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

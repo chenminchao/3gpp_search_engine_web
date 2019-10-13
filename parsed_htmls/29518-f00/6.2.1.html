@@ -1045,4 +1045,16 @@ ul
 root:</span></p><p class=MsoNormal><span lang=EN-GB>{apiRoot}/{apiName}/{apiVersion}/</span></p><p class=MsoNormal><span lang=EN-GB>where the &quot;apiName&quot; shall be set
 to &quot;namf-evts&quot; and the &quot;apiVersion&quot; shall be set to
 &quot;v1&quot; for the current version of this specification.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1430,4 +1430,16 @@ margin-left:142.0pt;margin-bottom:.0001pt'>[ MTC-IWF-Address ]</p><p class=MsoNo
 margin-left:142.0pt;margin-bottom:.0001pt'><span lang=FR>[
 Application-Port-Identifier ]</span></p><p class=MsoNormalCxSpMiddle style='margin-left:142.0pt'><span lang=FR>[
 External-Identifier ]</span><span lang=FR> </span></p><p class=MsoNormal><span lang=FR>&nbsp;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

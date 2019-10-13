@@ -1715,4 +1715,16 @@ to provide the UE with a new configured NSSAI for the current PLMN.</span></p><h
 lang=EN-GB>Rejected NSSAI</span></h4><p class=MsoNormal><span lang=EN-GB>The network may include this IE to inform
 the UE of the S-NSSAIs that were previously sent to the UE in the allowed NSSAI,
 but are now rejected by the network.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

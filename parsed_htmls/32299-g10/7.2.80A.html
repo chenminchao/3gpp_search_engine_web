@@ -1407,4 +1407,16 @@ lang=EN-GB>the IP realm used </span><span lang=EN-GB>for the SDP media
 component</span><span lang=EN-GB> is the Default IP realm or not</span><span
 lang=EN-GB>. </span><span lang=EN-GB>The following values are defined:</span></p><p class=B1 style='margin-bottom:0in;margin-bottom:.0001pt'><span lang=EN-GB>0    Default
 IP Realm Not used</span></p><p class=B1><span lang=EN-GB>1    Default IP realm used </span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1408,4 +1408,16 @@ identify an IMS Application as defined in TS 24.229 [202].</span></p><p class=Ed
 lang=EN-GB>Editor's Note: The SIP parameter from which the IMS Application
 Reference ID (IARI) is to be extracted requires further investigation in CT1. A
 mechanism to identify the IARI in use is FFS. </span></a></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

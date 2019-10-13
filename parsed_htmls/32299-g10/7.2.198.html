@@ -1409,4 +1409,16 @@ is of type </span><span lang=EN-GB>Enumerated and identifies the type of</span><
 lang=EN-GB> Serving Node</span><span lang=EN-GB>. It may take the following
 values:</span></p><p class=MsoNormalCxSpMiddle><span lang=EN-GB>0    </span><span lang=EN-GB>SGSN</span></p><p class=MsoNormalCxSpMiddle><span lang=EN-GB>1    PMIP</span><span lang=EN-GB>SGW</span></p><p class=MsoNormalCxSpMiddle><span lang=EN-GB>2    GTPSGW</span></p><p class=MsoNormalCxSpMiddle><span lang=EN-GB>3</span><span lang=EN-GB>   </span><span
 lang=EN-GB> </span><span lang=EN-GB>ePDG</span></p><p class=MsoNormalCxSpMiddle><span lang=EN-GB>4    hSGW</span></p><p class=MsoNormalCxSpMiddle><span lang=EN-GB>5    MME</span></p><p class=MsoNormalCxSpLast><span lang=EN-GB>6    TWAN</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

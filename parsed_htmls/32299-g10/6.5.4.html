@@ -1423,4 +1423,16 @@ quota consumption begins again when the next service data flow packet matching
 the Charging Rule is received. </span></p><p class=MsoNormal><span lang=EN-GB>If a Quota-Consumption-Time AVP value of
 zero is provided, or if no Quota-Consumption-Time AVP is present in the CCA,
 the quota is consumed continuously from the point at which it is granted.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

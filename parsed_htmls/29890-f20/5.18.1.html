@@ -1071,4 +1071,16 @@ rules for service data flows without a corresponding AF session.</span></p><p cl
 rules depends only on the operator configuration. An AF session can be covered
 by one or more PCC rules, if applicable (e.g. one rule per media component of
 an IMS session).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

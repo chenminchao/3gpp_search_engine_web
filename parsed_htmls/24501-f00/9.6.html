@@ -1125,4 +1125,16 @@ ul
 identity</span></a></h2><p class=MsoNormal><span lang=EN-GB>Bits 1 to 8 of the third octet of every
 5GSM message contain the procedure transaction identity. The procedure
 transaction identity and its use are defined in 3GPP&nbsp;TS&nbsp;24.007&nbsp;[11].</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

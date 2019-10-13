@@ -1296,4 +1296,16 @@ lang=EN-GB>.</span><span lang=EN-GB> </span><span lang=EN-GB>Successful operatio
 a </span><span lang=EN-GB>PWS </span><span lang=EN-GB>FAILURE INDICATION
 message to the MME.</span><span lang=EN-GB> On receipt of a PWS FAILURE
 INDICATION message, the MME shall act as defined in TS 23.041 [29].</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

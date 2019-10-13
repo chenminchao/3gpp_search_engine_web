@@ -7036,4 +7036,16 @@ Time Zone change still needs to be reported to the SGW/PGW.</span></p><p class=B
 style='mso-tab-count:1'>    </span>Bit 1</span><span lang=EN-GB> – SNCR
 (Serving Network Change to Report): When set to 1, this bit indicates that a
 Serving Network change still need to be reported to the SGW/PGW.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -7093,4 +7093,16 @@ TBCD digits, i.e. digits from 0 through 9 are encoded &quot;0000&quot; to
 &quot;1001&quot;. When there is an odd number of digits, bits 8 to 5 of the
 last octet are encoded with the filler &quot;1111&quot;. The maximum number of
 digits is 15.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

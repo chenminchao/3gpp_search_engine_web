@@ -1409,4 +1409,16 @@ lang=EN-GB>) is of type </span><span lang=EN-GB>Unsigned32</span><span
 lang=EN-GB> and </span><span lang=EN-GB>indicates the number of SMSs sent by
 the IMS application, if applicable. It contains the total number of SMS when
 concatenated short message for SMS Offline Charging</span><span lang=EN-GB>.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

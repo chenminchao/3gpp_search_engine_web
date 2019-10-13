@@ -1337,4 +1337,16 @@ reinitiate a further eNB Configuration Update procedure towards the same MME,
 provided that the content of the new ENB CONFIGURATION UPDATE message is
 identical to the content of the previously unacknowledged ENB CONFIGURATION
 UPDATE message.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

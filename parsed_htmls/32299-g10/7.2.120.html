@@ -1407,4 +1407,16 @@ lang=EN-GB>holds information on routing number received by the node (e.g. S-CSCF
 performing number portability look-up (ENUM/DNS). This information is also sent
 over SIP in the Requested URI header <span style='color:red'>enabling other IMS
 nodes receiving this header to also report this information</span>.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

@@ -1134,4 +1134,16 @@ the terms and definitions given in <a name="OLE_LINK8"></a><a name="OLE_LINK7"><
 name="OLE_LINK6">3GPP</a>&nbsp;TR&nbsp;21.905&nbsp;[1] and the following apply.
 A term defined in the present document takes precedence over the definition of
 the same term, if any, in 3GPP&nbsp;TR&nbsp;21.905&nbsp;[1].</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

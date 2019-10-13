@@ -1457,4 +1457,16 @@ value encoding shall be identical to the encoding of a FQDN within a DNS
 message of section 3.1 of IETF&nbsp;RFC&nbsp;1035&nbsp;[27] but excluding the
 trailing zero byte.</span></p><p class=NO><span lang=X-NONE>NOTE 1:  The FQDN field in the IE is not encoded
 as a dotted string as commonly used in DNS master zone files.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

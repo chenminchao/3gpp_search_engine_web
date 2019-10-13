@@ -2819,4 +2819,16 @@ Rule can be used for different purposes (for both usage monitoring and
 charging), e.g. in case the same set of traffic flows, measurement method,
 trigger event, threshold, etc. apply. Similarly a reported measurement can be
 used for different purposes by the CP function.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

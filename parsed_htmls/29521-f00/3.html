@@ -850,4 +850,16 @@ name="_Toc483474886"></a><a name="_Toc384334025"><span lang=EN-GB>3         Defi
 lang=EN-GB> </span><span lang=EN-GB>and abbreviations</span><a
 name="_Toc466346617"></a><a name="_Toc451844175"></a><a name="_Toc436619245"></a><a
 name="_Toc374930454"></a></h1></div></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

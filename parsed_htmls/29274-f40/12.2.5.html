@@ -7251,4 +7251,16 @@ node (i.e. per SGW or PGW) and at most 10 APN level instances.</span></p><p clas
 level: the maximum number of instances of LCI IE which may be provided across
 multiple messages by a given node shall be the same as the maximum number of
 instances of LCI IE at message level. </span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

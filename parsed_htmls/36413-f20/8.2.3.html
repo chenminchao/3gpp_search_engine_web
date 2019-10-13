@@ -1367,4 +1367,16 @@ containing some <i>E-RAB ID</i> IEs that eNB does not recognize, the eNB shall
 report the corresponding invalid E-RABs as failed in the E-RAB RELEASE </span><span
 lang=EN-GB style='layout-grid-mode:line'>RESPONSE message </span><span
 lang=EN-GB>with the appropriate cause, e.g., “Unknown E-RAB ID”.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

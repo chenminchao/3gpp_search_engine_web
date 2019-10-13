@@ -1406,4 +1406,16 @@ application relative to refund mechanism. When refund mechanism is implemented
 in the OCS this AVP may be included in the CCA of the previous IEC. This AVP shall
 be used by the CTF in case of a refund scenario and thus shall be included in
 the CCR for refund if previously received in CCA for IEC.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

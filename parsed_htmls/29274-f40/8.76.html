@@ -7048,4 +7048,16 @@ lang=EN-GB>:</span></p><ul style='margin-top:0in' type=disc>
 </ul><p class=MsoNormal style='mso-hyphenate:none'><span lang=EN-GB
 style='mso-fareast-language:ZH-CN'>All the bits 1 to 3 shall be set to 0 to
 stop reporting User CSG Info.<o:p></o:p></span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

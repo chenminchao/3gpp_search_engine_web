@@ -1403,4 +1403,16 @@ ul
 <h3><a name="_Toc532895001"><span lang=EN-GB>7.2.28    Aux-Applic-Info AVP</span></a></h3><p class=MsoNormal><span lang=EN-GB>The <i>Aux-Applic-Info</i> AVP (AVP code
 1219) is of type UTF8String and holds additional application/implementation
 specific control information.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

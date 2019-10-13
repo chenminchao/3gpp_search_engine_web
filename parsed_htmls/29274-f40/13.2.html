@@ -6810,4 +6810,16 @@ table.MsoTableGrid
 <h2><a name="_Toc517086877"><span lang=EN-GB>13.2<span style='mso-tab-count:
 1'>     </span>Detection and handling of requests which collide with an
 existing session context</span></a></h2></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

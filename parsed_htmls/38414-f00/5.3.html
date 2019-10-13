@@ -866,4 +866,16 @@ lang=EN-GB>b)  128 bits in case of IPv6 address according to IETF RFC 2460 [5];
 or</span></p><p class=MsoNormal style='margin-left:28.4pt;text-indent:-14.2pt'><span
 lang=EN-GB>c)   160 bits if both IPv4 and IPv6 addresses are signalled, in
 which case the IPv4 address is contained in the first 32 bits.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

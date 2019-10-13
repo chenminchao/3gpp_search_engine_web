@@ -1441,4 +1441,16 @@ content</span></p><div align=center><table class=MsoNormalTable border=0 cellspa
 list</h4><p class=MsoNormal><span lang=EN-GB>This IE may be included to assign a TAI
 list to the UE.</span></p><h4><a name="_Toc517371688"><span lang=EN-GB>8.2.16.3        </span></a>DCN-ID</h4><p class=MsoNormal><span lang=EN-GB>This IE may be included to assign a new
 DCN-ID to the UE.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

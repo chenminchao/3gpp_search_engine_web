@@ -1126,4 +1126,16 @@ lang=EN-GB>UE powers off and powers on again or the USIM is removed.</span></p><
 a timer for re-enabling </span>N1 mode capability, after the N1 mode capability
 was disabled. On the expiry of this timer, the UE should re-enable the N1 mode
 capability.</p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

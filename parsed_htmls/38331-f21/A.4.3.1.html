@@ -1472,4 +1472,16 @@ Intermediate levels are primarily introduced for readability and overview.
 Hence intermediate levels need not allways be introduced e.g. they may not be
 needed when the default and the actual extension location are within the same
 ASN.1 section. &lt;TBD: ref to seperate example&gt;</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

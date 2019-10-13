@@ -1242,4 +1242,16 @@ lang=EN-GB>tracking area updating attempt counter is equal to 5; or</span></p><p
 equivalent PLMNs has been entered, the attach procedure fails, the attach
 attempt counter is equal to 5 and no ATTACH REJECT message was received from
 the new PLMN.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

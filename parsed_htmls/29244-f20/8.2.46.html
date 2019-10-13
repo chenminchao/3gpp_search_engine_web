@@ -1374,4 +1374,16 @@ lang=EN-GB>the same format as the first four octets of the</span><span
 lang=EN-GB> 64-bit timestamp format as defined in</span><span lang=EN-GB>
 section 6 of IETF&nbsp;RFC&nbsp;5905&nbsp;[12]. </span></p><p class=NO><span lang=X-NONE>NOTE:     The encoding is defined as the time in
 seconds relative to 00:00:00 on 1 January 1900.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

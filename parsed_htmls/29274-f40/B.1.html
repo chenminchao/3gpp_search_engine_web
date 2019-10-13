@@ -6835,4 +6835,16 @@ SEQUENCE neither contains a type, nor a length-indication. Only in case of
 optional elements it contains a kind of bit string with each position of this
 bitstring indicating the presence of an OPTIONAL element (an encoded SEQUENCE
 type is referred to below as &quot;sequence&quot;).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

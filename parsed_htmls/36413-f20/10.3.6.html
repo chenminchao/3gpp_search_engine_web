@@ -1308,4 +1308,16 @@ erroneously present, the receiving node shall consider the procedure as
 unsuccessfully terminated and initiate local error handling.</span></p><p class=B1 style='margin-left:0in;text-indent:0in'><span lang=EN-GB>When
 determining the correct order only the IEs specified in the specification
 version used by the receiver shall be considered.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

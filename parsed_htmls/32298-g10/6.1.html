@@ -1283,4 +1283,16 @@ Encoding Rules (BER);</span></p><p class=B1><span lang=EN-GB>- &quot;2&quot; sig
 basic Packed Encoding Rules (PER);</span></p><p class=B1><span lang=EN-GB>- &quot;3&quot; signifies the use of aligned basic
 Packed Encoding Rules (PER);</span></p><p class=B1><span lang=EN-GB>- &quot;4&quot; signifies the use of XML Encoding
 Rules (XER).</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

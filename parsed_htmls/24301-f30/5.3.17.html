@@ -1271,4 +1271,16 @@ switch on. If t1 is greater than&nbsp;t, then the timer shall be restarted with
 the value t1 – t. If t1 is equal to or less than t, then the timer need not be
 restarted. If the UE is not capable of determining t, then the UE shall restart
 the timer with the value t1.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

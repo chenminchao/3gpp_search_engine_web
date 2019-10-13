@@ -1448,4 +1448,16 @@ not depends on CDR generation configuration.</span></p><p class=B1><b><span lang
 lang=EN-GB> the CDF informs the CTF that charging data was stored.</span></p><p class=MsoNormal style='margin-bottom:3.0pt'><span lang=EN-GB>&nbsp;</span></p><span lang=EN-GB style='font-size:14.0pt;font-family:"Arial",sans-serif'><br
 clear=all style='page-break-before:always'>
 </span></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>

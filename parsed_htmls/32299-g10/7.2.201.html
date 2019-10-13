@@ -1404,4 +1404,16 @@ ul
 AVP (AVP code 824) is of type UTF8String and holds the name of the SIP Method
 (INVITE, UPDATE etc.) causing a accounting request to be sent to the CDF</span><span
 lang=EN-GB> or CCR to be sent to the OCF</span><span lang=EN-GB>.</span></p></body>
+<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+var instance = new Mark(document.querySelector("body"));
+instance.unmark({done: function(){
+var url = document.URL;
+var key = decodeURIComponent(url.split("=")[1]);
+console.log(key);
+instance.mark(key) }})
+});
+</script>
 </html>
