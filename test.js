@@ -32,7 +32,10 @@ let run_search = text => {
                 },
                 {
                   "match_phrase": {
-                    "desc": JSON.stringify(text)
+                    "desc": {
+                      "query": JSON.stringify(text),
+                      "slop": 1
+                    }
                   }
                 }
               ]
