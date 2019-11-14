@@ -6,7 +6,7 @@ import argparse
 import ntpath
 import os
 
-def main(file):
+def upload_windows(file):
     name = ntpath.basename(file).split('.')[0]
     print(name)
     es = Elasticsearch(['localhost'], port=9200, timeout=50)
@@ -27,4 +27,4 @@ if __name__ == "__main__":
     for fileName in fileNames:
         if fileName.endswith('json'):
             input = filePath + "\\" + fileName
-            main(input)
+            upload_windows(input)

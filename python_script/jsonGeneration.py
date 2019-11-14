@@ -163,7 +163,7 @@ def find_keywords_in_line(line, keywords):
     return ret
 
 
-def main(input, output):
+def txt2json(input, output):
     spec_dict_list = []
     title_infos = []
     desc_infos = []
@@ -243,4 +243,4 @@ if __name__ == "__main__":
             input = in_Path + "\\" + fileName
             output = out_Path + "\\" + fileName.split(".txt")[0] + ".json"
             logging.getLogger().info("program is dealing with {}!".format(fileName))
-            main(input, output)
+            txt2json(input, output)

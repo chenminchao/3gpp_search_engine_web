@@ -1,6 +1,3 @@
-import lxml.etree as etree
-import argparse
-import glob
 import re
 import os
 
