@@ -154,18 +154,6 @@ def Convert_html_to_slice_html():
                     print(html_name + " slice fails")
                     continue
 
-def upload(file, series, num, ver):
-    name = series + num + "-" + ver
-    data = json.load(open(file, "r"))
-
-    print("starting to upload " + name);
-    for i, line in enumerate(data):
-        if len(line['desc']) < 1000000:
-            es.index(index=name, doc_type='doc', id=i, body=line)
-        else:
-            print("======================================")
-            print(line['key'])
-
 def Update_index_for_elasticsearch():
     if platform.system() == 'Windows':
         es = Elasticsearch(['localhost'], port=9200, timeout=50)
@@ -189,9 +177,27 @@ def Update_index_for_elasticsearch():
                 if (current_ver < ver):
                     print(str(*result) + "is not the latest one, update it")
                     es.indices.delete(index=spec_in_elasticsearch)
-                    upload(out_json, series, num, ver)
+                    name = series + num + "-" + ver
+                    data = json.load(open(out_json, "r"))
+
+                    print("starting to upload " + name);
+                    for i, line in enumerate(data):
+                        if len(line['desc']) < 1000000:
+                            es.index(index=name, doc_type='doc', id=i, body=line)
+                        else:
+                            print("======================================")
+                            print(line['key'])
             else:
-                upload(out_json, series, num, ver)
+                name = series + num + "-" + ver
+                data = json.load(open(out_json, "r"))
+
+                print("starting to upload " + name);
+                for i, line in enumerate(data):
+                    if len(line['desc']) < 1000000:
+                        es.index(index=name, doc_type='doc', id=i, body=line)
+                    else:
+                        print("======================================")
+                        print(line['key'])
 
 if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.realpath(__file__))
