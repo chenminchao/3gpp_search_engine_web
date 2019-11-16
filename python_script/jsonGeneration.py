@@ -62,7 +62,7 @@ def get_desc_info(title_infos, content):
 
 def create_spec_dict_list(title_infos, desc_infos, keywords):
     spec_dict_list = []
-    print(len(title_infos), len(desc_infos))
+    #print(len(title_infos), len(desc_infos))
     for i, title_info in enumerate(title_infos):
         if (desc_infos[i].strip() != "" and " ".join(desc_infos[i].split()[1:]) != title_info[0]):
             spec_dict = {}
@@ -87,7 +87,7 @@ def get_def_key(def_input):
         #29890-f20 definition
         if (line.find(':') != -1 and line.split(':')[1].strip() != ""):
             def_key_list.append(line.split(':')[0])
-            print(line.split(':')[0])
+            #print(line.split(':')[0])
     return def_key_list
 
 
@@ -111,8 +111,8 @@ def populateDefList(def_input):
         spec_defination['desc'] = ''.join(def_input['desc'][start:end]).strip()
         spec_defination['numbering'] = def_input["numbering"]
         spec_defination['Keywords'] = def_input["Keywords"]
-        print(spec_defination['key'])
-        print(spec_defination['desc'])
+        #(spec_defination['key'])
+        #print(spec_defination['desc'])
         spec_def_list.append(spec_defination)
     return spec_def_list
 
@@ -128,7 +128,7 @@ def populateAbbrList(abbr_input):
     abbr_def_list = []
     for line in abbr_input_start.split('\n'):
         line = line.strip()
-        print(line)
+        #print(line)
         if (len(line.split()) > 1):
             abbr_def = {}
             abbr_def['key'] = line.split()[0]
@@ -136,10 +136,10 @@ def populateAbbrList(abbr_input):
             abbr_def['numbering'] = abbr_input["numbering"]
             abbr_def['Keywords'] = abbr_input["Keywords"]
             abbr_def_list.append(abbr_def)
-            print(abbr_def['key'])
-            print(abbr_def['desc'])
-        else:
-            print(len(line.split()))
+            #print(abbr_def['key'])
+            #print(abbr_def['desc'])
+        #else:
+            #print(len(line.split()))
     return abbr_def_list
 
 
@@ -209,7 +209,7 @@ def txt2json(input, output):
             title_info = get_title_info(line)
             title_infos.append(title_info)
             title_index.append(title_info[1])
-            print(line)
+            #print(line)
 
     desc_infos = get_desc_info(title_infos, content)
     spec_dict_list = create_spec_dict_list(title_infos, desc_infos, keywords)

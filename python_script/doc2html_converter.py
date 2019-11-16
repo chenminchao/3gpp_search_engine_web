@@ -14,7 +14,7 @@ def elasticsearch_convert_doc2html(input_docs):
             output_html = output_html_dir + "/" + os.path.basename(input_doc).replace('doc', 'html')
             if "docx" in input_doc:
                 output_html = output_html_dir + "/" + os.path.basename(input_doc).replace('docx', 'html')
-            print(output_html_dir)
+            #print(output_html_dir)
             print(output_html)
             if not os.path.exists(output_html_dir):
                 os.mkdir(output_html_dir)

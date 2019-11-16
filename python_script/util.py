@@ -22,8 +22,8 @@ def get_spec_list():
         spec = series + "_" + num
         if num != "":
             spec_list.append(spec)
-    print("spec list:")
-    print(spec_list)
+    #print("spec list:")
+    #print(spec_list)
     return spec_list
 
 def get_new_ver(series, num):
@@ -32,8 +32,8 @@ def get_new_ver(series, num):
     ver_files.sort(key=lambda i: int(i, base=32))
     for i in range(len(ver_files) - 1, -1, -1):
         ver = ver_files[i]
-        zip_path = Path_Name_Format.ZIP_PATH.format(basedir=basedir, series=series, num=num, ver=ver)
-        if os.path.exists(zip_path):
+        path = Path_Name_Format.ZIP_NAME.format(basedir=basedir, series=series, num=num, ver=ver)
+        if os.path.exists(path):
             return ver
     return "none"
 
@@ -53,12 +53,12 @@ def unzip(f, d):
 
 def copy_image(src, dst):
     save_dir = os.getcwd()
-    print(save_dir)
-    print(src)
+    #print(save_dir)
+    #print(src)
     os.chdir(src)
     png_list = glob.glob("*.png")
     for png in png_list:
-        print(os.path.join(src, png))
+        #print(os.path.join(src, png))
         shutil.copy(os.path.join(src, png), dst)
     os.chdir(save_dir)
 

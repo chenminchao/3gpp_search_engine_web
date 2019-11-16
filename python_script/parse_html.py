@@ -4,10 +4,10 @@ import os
 def create_folder(out_path, dir):
     if not os.path.exists(os.path.join(out_path, dir)):
         os.makedirs(os.path.join(out_path, dir))
-        print("create folder ", os.path.join(out_path, dir))
+        #print("create folder ", os.path.join(out_path, dir))
 
 def parse_file(infile, outfile):
-    print(infile)
+    print("infile is " + infile)
     create_folder(outfile, os.path.basename(infile).split(".")[0])
     outfile = outfile + "\\" + os.path.basename(infile).split(".")[0]
     print("outfile is ", outfile)
@@ -43,7 +43,7 @@ def parse_file(infile, outfile):
 
     current_index = 0
     htmls = []
-    print(len(paragraph_list_sorted))
+    #print(len(paragraph_list_sorted))
     for paragraph in paragraphs:
         if current_index == len(paragraph_list_sorted) -1:
             break
@@ -55,7 +55,7 @@ def parse_file(infile, outfile):
             content = re.sub(r'\<.*?\>', '', paragraph_list_sorted[current_index])
             fname = str(content.split(" ")[0].strip())
             fname = outfile + '\\' + fname + '.html'
-            print(fname, current_index)
+            #print(fname, current_index)
             with open(fname, "w") as f:
                 f.write(html_header)
                 f.write(''.join(htmls))
