@@ -10,6 +10,9 @@ app.set("view engine","jade");
 
 app.use(express.static('public'));
 
+var LocalStorage = require('node-localstorage').LocalStorage,
+localStorage = new LocalStorage('./scratch');
+
 let run_search = text => {
   // Let's search!
     if (String(JSON.stringify(text)).split(" ").length > 1)
@@ -83,13 +86,22 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
     res.sendFile('C:\\3gpp_search_engine\\3gpp_search_engine_web\\index.html');
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    console.log(ip)
 });
 
 app.get('/sort', function (req, res) {
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    search_results_key = ip + "-" + 'search_results'
+    search_group_key = ip + "-" + 'group'
+    search_key_key = ip + "-" + 'key'
+    operation_key = ip + "-" + 'operation'
+    filtered_search_results_key = ip + "-" + 'filtered_search_results'
+
     var filterDoc = req.originalUrl.split('?')[1];
-    searchResults =  JSON.parse(req.app.locals.search_results)
-    groups = req.app.locals.groups;
-	  key = req.app.locals.searchKey;
+    searchResults = JSON.parse(localStorage.getItem(search_results_key))
+    groups = JSON.parse(localStorage.getItem(search_group_key))
+    key = localStorage.getItem(search_key_key)
 
     var filterSearchResults = [];
     for(var item in searchResults)
@@ -101,24 +113,30 @@ app.get('/sort', function (req, res) {
             filterSearchResults.push(searchResults[item]);
         }
     }
-    console.log(filterSearchResults);
-    req.app.locals.filtered_search_results = JSON.stringify(filterSearchResults);
-    req.app.locals.last_operation = "sort";
+    localStorage.setItem(filtered_search_results_key, JSON.stringify(filterSearchResults))
+    localStorage.setItem(operation_key, "sort")
     res.render('search_results', {searchResultList : filterSearchResults, searchKey : key, searchGroups : groups} );
 });
 
 app.get('/submit-search-data', function (req, res) {
 	var key = req.query.search_text;
+  var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+  search_results_key = ip + "-" + 'search_results'
+  search_group_key = ip + "-" + 'group'
+  search_key_key = ip + "-" + 'key'
+  operation_key = ip + "-" + 'operation'
+  console.log(search_group_key)
 	run_search(key).then(function(results)
 		{
 			search_results = results.body.hits.hits
 			groups = results.body.aggregations.group_by_index
+      console.log(groups)
 
 			res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
-			req.app.locals.search_results = JSON.stringify(search_results)
-			req.app.locals.groups = groups
-			req.app.locals.searchKey = key
-      req.app.locals.last_operation = "search"
+      localStorage.setItem(search_results_key, JSON.stringify(search_results))
+      localStorage.setItem(search_group_key, JSON.stringify(groups))
+      localStorage.setItem(search_key_key, key)
+      localStorage.setItem(operation_key, "search")
 		}
 	).catch(console.log)
 
@@ -126,14 +144,21 @@ app.get('/submit-search-data', function (req, res) {
 
 app.get('/details', function (req, res)
 	{
+    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
+    search_results_key = ip + "-" + 'search_results'
+    search_group_key = ip + "-" + 'group'
+    search_key_key = ip + "-" + 'key'
+    operation_key = ip + "-" + 'operation'
+    filtered_search_results_key = ip + "-" + 'filtered_search_results'
+
 		id = req.url.split("?")[1];
-    if(req.app.locals.last_operation == "search")
+    if(localStorage.getItem(operation_key) == "search")
     {
-		    saved_results = JSON.parse(req.app.locals.search_results);
+        saved_results = JSON.parse(localStorage.getItem(search_results_key))
     }
     else
     {
-        saved_results = JSON.parse(req.app.locals.filtered_search_results);
+        saved_results = JSON.parse(localStorage.getItem(filtered_search_results_key))
     }
 		numbering = String(saved_results[id]._source.numbering);
     index = String(saved_results[id]._index);
@@ -145,19 +170,15 @@ app.get('/details', function (req, res)
 			numbering = values[0] + '.' + values[1] + '.' + values[2]
 		}
 
-    html_file = "/" + index + "/" + numbering + ".html" + "?hightlight=" + String(req.app.locals.searchKey);
+    var ver = String(index).split("-")[1]
+    var spec = String(index).split("-")[0]
+    console.log(spec)
+    spec = spec.substr(0, 2) + "." + spec.substr(-3)
+    search_text = localStorage.getItem(search_key_key);
+    html_file = "/spec/" + ver + "/" + spec + "/slice_html/" + numbering + ".html" + "?hightlight=" + search_text;
+
     console.log(html_file)
     res.redirect(html_file)
-		//link_html_file = "C:\\3gpp_search_engine\\3gpp_search_engine_web\\parsed_htmls\\" + numbering + ".html"
-		//console.log(link_html_file)
-		//res.sendFile(link_html_file)
-		//res.render('description', {search_desc : saved_results[id]})
-		/*JSDOM.fromFile("C:\\3gpp_search_engine\\3gpp_search_engine_web\\23401-g30.htm").then(dom => {
-  		const window = dom.window;
-			window.document.getElementById("test").href = "#_Toc11133729";
-			console.log(window.document.getElementById("test").innerHTML);
-			res.send(dom.serialize());
-		});*/
 	}
 )
 
