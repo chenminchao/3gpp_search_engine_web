@@ -12,6 +12,7 @@ if not platform.system() == 'Linux':
     from doc2html_converter import elasticsearch_convert_doc2html
 from jsonGeneration import txt2json
 from parse_html import parse_file
+from spy_download import spy_new_ver
 
 def move_zip():
     baseDir = Global_Basedir.SPEC_BASE_DIR
@@ -226,7 +227,13 @@ if __name__ == "__main__":
                 spec_info = spec.split("_")
                 series = spec_info[0]
                 num = spec_info[1]
-                ver = get_new_ver(series, num) # download instead
+
+                # get ver from zip
+                #ver = get_new_ver(series, num)
+
+                # get ver from network
+                url_num = Path_Name_Format.URL_NUM.format(basedir=baseDir, series=series, num=num)
+                ver = spy_new_ver(url_num)
                 specName = series + num + "-" + ver
 
                 print("")
@@ -237,15 +244,15 @@ if __name__ == "__main__":
 
                 #unzip zip to doc/docx
                 print("1. unzip " + specName + ".zip to " + specName + ".doc !!!")
-                #unzip_zip_to_doc(series, num, ver)
+                unzip_zip_to_doc(series, num, ver)
 
                 # convert doc/docx to html
                 print("2. convert " + specName + ".doc to " + specName + ".html !!!")
-                #convert_doc_to_html(series, num, ver)
+                convert_doc_to_html(series, num, ver)
 
                 # Convert html to slice html
                 print("3. convert " + specName + ".html to slice htmls !!!")
-                #Convert_html_to_slice_html(series, num, ver)
+                Convert_html_to_slice_html(series, num, ver)
     else:
         # get spec in speclist.txt and convert it: zip->doc/docx->html->slice_html doc/docx->txt->json->upload
         spec_list = get_spec_list()
