@@ -114,7 +114,7 @@ body
         </span>
         ul
             each item in searchGroups.buckets
-                a(href='/sort?'+ item.key)
+                a(href='/sort?'+ item.key + ' search_text=' + searchKey)
                   p= item.key + "(" + item.doc_count + ")"
 
     div.wrap
@@ -122,7 +122,7 @@ body
             p "There's no results available."
         else
         each item, index in searchResultList
-            a(href='/details?'+index)
+            a(href='/details?'+item._index + ' numbering=' + item._source.numbering + ' search_text=' + searchKey)
               h1= item._source.key
             p= item._source.desc
             p.tag= 'Doc: ' + item._index + " Keyword: " + item._source.Keywords

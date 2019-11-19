@@ -5,6 +5,7 @@ const { Client } = require('@elastic/elasticsearch')
 const client = new Client({ node: 'http://localhost:9200' })
 
 const fs = require('fs');
+const url = require('url');
 
 app.set("view engine","jade");
 
@@ -13,12 +14,19 @@ app.use(express.static('public'));
 var LocalStorage = require('node-localstorage').LocalStorage,
 localStorage = new LocalStorage('./scratch');
 
-let run_search = text => {
+let run_search = (text, filterDoc) => {
   // Let's search!
+    if (filterDoc === "")
+      search_doc = '*'
+    else
+      search_doc = filterDoc
+
     if (String(JSON.stringify(text)).split(" ").length > 1)
     {
+      if (filterDoc === "")
+      {
         return client.search({
-        index: '*',
+        index: search_doc,
         stats:"_index",
         size:200,
         body: {
@@ -54,11 +62,45 @@ let run_search = text => {
           }
           }
         }).then(result => {return result})
+      }
+      else {
+        return client.search({
+        index: search_doc,
+        stats:"_index",
+        size:200,
+        body: {
+          "query":{
+              "bool": {
+              "should": [
+                {
+                  "match_phrase": {
+                    "key": {
+                      "query": JSON.stringify(text),
+                      "slop": 1
+                    }
+                  }
+                },
+                {
+                  "match_phrase": {
+                    "desc": {
+                      "query": JSON.stringify(text),
+                      "slop": 1
+                    }
+                  }
+                }
+              ]
+            }
+          }
+          }
+        }).then(result => {return result})
+      }
     }
     else
     {
+      if (filterDoc === "")
+      {
         return client.search({
-        index: '*',
+        index: search_doc,
         stats:"_index",
         size:200,
         body: {
@@ -78,6 +120,22 @@ let run_search = text => {
           }
         }
         }).then(result => {return result})
+      }
+      else {
+        return client.search({
+        index: search_doc,
+        stats:"_index",
+        size:200,
+        body: {
+          "query": {
+            "multi_match": {
+              "query": JSON.stringify(text),
+              "fields": ["key^5", "desc"]
+              }
+          }
+        }
+        }).then(result => {return result})
+      }
     }
 }
 
@@ -92,51 +150,43 @@ app.get('/', function (req, res) {
 
 app.get('/sort', function (req, res) {
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    search_results_key = ip + "-" + 'search_results'
     search_group_key = ip + "-" + 'group'
-    search_key_key = ip + "-" + 'key'
-    operation_key = ip + "-" + 'operation'
-    filtered_search_results_key = ip + "-" + 'filtered_search_results'
 
-    var filterDoc = req.originalUrl.split('?')[1];
-    searchResults = JSON.parse(localStorage.getItem(search_results_key))
+    request_url = decodeURIComponent(req.url)
+    console.log(request_url)
+    var filterDoc = request_url.split('?')[1].split(' ')[0];
+    var key = request_url.split('search_text=')[1]
+    console.log(search_text)
+    console.log(filterDoc)
     groups = JSON.parse(localStorage.getItem(search_group_key))
-    key = localStorage.getItem(search_key_key)
+    run_search(search_text, filterDoc).then(function(results)
+  		{
+  			search_results = results.body.hits.hits
+        console.log(groups)
 
-    var filterSearchResults = [];
-    for(var item in searchResults)
-    {
-        if(String(filterDoc) == (String(searchResults[item]._index)))
-        {
-            console.log(String(filterDoc));
-            console.log(String(searchResults[item]._index));
-            filterSearchResults.push(searchResults[item]);
-        }
-    }
-    localStorage.setItem(filtered_search_results_key, JSON.stringify(filterSearchResults))
-    localStorage.setItem(operation_key, "sort")
-    res.render('search_results', {searchResultList : filterSearchResults, searchKey : key, searchGroups : groups} );
+  			res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
+        localStorage.setItem(search_group_key, JSON.stringify(groups))
+  		}
+  	).catch(console.log)
 });
 
 app.get('/submit-search-data', function (req, res) {
 	var key = req.query.search_text;
   var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-  search_results_key = ip + "-" + 'search_results'
   search_group_key = ip + "-" + 'group'
-  search_key_key = ip + "-" + 'key'
-  operation_key = ip + "-" + 'operation'
   console.log(search_group_key)
-	run_search(key).then(function(results)
+  request_url = req.url
+  search_text = request_url.split('search_text=')[1].replace(/\+/g, ' ')
+  console.log(search_text)
+
+	run_search(search_text, "").then(function(results)
 		{
 			search_results = results.body.hits.hits
 			groups = results.body.aggregations.group_by_index
       console.log(groups)
 
 			res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
-      localStorage.setItem(search_results_key, JSON.stringify(search_results))
       localStorage.setItem(search_group_key, JSON.stringify(groups))
-      localStorage.setItem(search_key_key, key)
-      localStorage.setItem(operation_key, "search")
 		}
 	).catch(console.log)
 
@@ -144,27 +194,13 @@ app.get('/submit-search-data', function (req, res) {
 
 app.get('/details', function (req, res)
 	{
-    var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
-    search_results_key = ip + "-" + 'search_results'
-    search_group_key = ip + "-" + 'group'
-    search_key_key = ip + "-" + 'key'
-    operation_key = ip + "-" + 'operation'
-    filtered_search_results_key = ip + "-" + 'filtered_search_results'
-
-		id = req.url.split("?")[1];
-    if(localStorage.getItem(operation_key) == "search")
-    {
-        saved_results = JSON.parse(localStorage.getItem(search_results_key))
-    }
-    else
-    {
-        saved_results = JSON.parse(localStorage.getItem(filtered_search_results_key))
-    }
-		numbering = String(saved_results[id]._source.numbering);
-    index = String(saved_results[id]._index);
-    console.log(index)
-		len = String(saved_results[id]._source.numbering).split(".").length
-		values = String(saved_results[id]._source.numbering).split(".")
+    request_url = decodeURIComponent(req.url)
+    info = request_url.split('?')[1]
+    index = info.split(' ')[0]
+    numbering = info.split('numbering=')[1].split(' ')[0]
+    search_text = info.split('search_text=')[1]
+		len = numbering.split(".").length
+		values = numbering.split(".")
 		if (len > 3)
 		{
 			numbering = values[0] + '.' + values[1] + '.' + values[2]
@@ -174,7 +210,6 @@ app.get('/details', function (req, res)
     var spec = String(index).split("-")[0]
     console.log(spec)
     spec = spec.substr(0, 2) + "." + spec.substr(-3)
-    search_text = localStorage.getItem(search_key_key);
     html_file = "/spec/" + ver + "/" + spec + "/slice_html/" + numbering + ".html" + "?hightlight=" + search_text;
 
     console.log(html_file)
