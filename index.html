@@ -25,16 +25,20 @@
             height: 100%;
             z-index: -1;
         }
+        .container {
+            height: 70px;
+            width: 800px;
+            margin: 30px auto 0 auto;
+        }
         .searchBox{
             background: #FFF;
-            width: 650px;
+            width: 800px;
             height: 45px;
             border: 1px solid cadetblue;
             outline: hidden;
             border-radius: 2px;
             padding-left: 15px;
-            margin-left: 300px;
-            margin-top: 50px;
+            margin: 0 auto;
             position: relative;
         }
         .inputBox{
@@ -80,11 +84,13 @@
     <div class="title">
       <p> 3GPP &nbsp;Search&nbsp;</p>
     </div>
-    <form class="navbar-form navbar-left" role="search" action="/submit-search-data" method=get>
-      <div class="searchBox">
-        <input type="text" class="inputBox" placeholder="Search" name="search_text">
-        <button type="submit" class="searchBtn">Submit</button>
-      </div>
+    <div class="container">
+      <form class="navbar-form navbar-left" role="search" action="/submit-search-data" method=get>
+        <div class="searchBox">
+          <input type="text" class="inputBox" placeholder="Search" name="search_text">
+          <button type="submit" class="searchBtn">Submit</button>
+        </div>
+    </div>
     </form>
 
     <!-- jQuery (Bootstrap 的所有 JavaScript 插件都依赖 jQuery，所以必须放在前边) -->
