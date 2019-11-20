@@ -181,7 +181,7 @@ def Update_index_for_elasticsearch(series, num, ver):
     if platform.system() == 'Windows':
         es = Elasticsearch(['localhost'], port=9200, timeout=50)
     else:
-        es = Elasticsearch(['10.0.2.2'], port=9200, timeout=50)
+        es = Elasticsearch(['localhost'], port=9200, timeout=50)
     if not os.path.exists(out_json):
         print("no html for spec: " + specName)
     else:
