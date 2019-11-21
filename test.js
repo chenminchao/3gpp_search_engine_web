@@ -1,11 +1,18 @@
 var express = require('express');
 var app = express();
 
-const { Client } = require('@elastic/elasticsearch')
-const client = new Client({ node: 'http://localhost:9200' })
+var elasticsearch = require('elasticsearch');
+var client = new elasticsearch.Client({
+  host: 'localhost:9200',
+  log: 'trace',
+  apiVersion: '7.4', // use the same version of your Elasticsearch instance
+});
 
 const fs = require('fs');
 const url = require('url');
+
+var LocalStorage = require('node-localstorage').LocalStorage
+localStorage = new LocalStorage('./scratch');
 
 app.set("view engine","jade");
 
@@ -156,15 +163,14 @@ app.get('/sort', function (req, res) {
     var key = request_url.split('search_text=')[1]
     console.log(search_text)
     console.log(filterDoc)
-    //groups = JSON.parse(window.localStorage.getItem(search_group_key))
-    groups = ""
+    groups = JSON.parse(localStorage.getItem(search_group_key))
     run_search(search_text, filterDoc).then(function(results)
     {
-  	search_results = results.body.hits.hits
+  	search_results = results.hits.hits
         console.log(groups)
 
   	res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
-        //window.localStorage.setItem(search_group_key, JSON.stringify(groups))
+        localStorage.setItem(search_group_key, JSON.stringify(groups))
     }
     ).catch(console.log)
 });
@@ -179,14 +185,12 @@ app.get('/submit-search-data', function (req, res) {
     console.log(search_text)
     run_search(search_text, "").then(function(results)
     {
-	search_results = results.body.hits.hits
-	console.log(search_results)
-	console.log(results.body)
-	groups = results.body.aggregations.group_by_index
+	search_results = results.hits.hits
+	groups = results.aggregations.group_by_index
         console.log(groups)
 
 	res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
-      	//window.localStorage.setItem(search_group_key, JSON.stringify(groups))
+      	localStorage.setItem(search_group_key, JSON.stringify(groups))
     }).catch(console.log)
 
 });
