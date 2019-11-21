@@ -22,6 +22,11 @@ def move_zip():
     else:
         inputFileNames = os.listdir(zip_Path)
         for i, fileName in enumerate(inputFileNames):
+            if fileName.endswith('ZIP'):
+                fname = zip_Path + fileName
+                fname1 = fname.replace("ZIP", "zip")
+                os.rename(fname, fname1)
+                fileName = fileName.replace("ZIP", "zip")
             if fileName.endswith('zip'):
                 series = fileName[0:2]
                 num = fileName[2:5]
@@ -50,11 +55,7 @@ def unzip_zip_to_doc(series, num, ver):
         docPath = Path_Name_Format.DOC_PATH.format(basedir=baseDir, series=series, num=num, ver=ver)
         docName = Path_Name_Format.DOC_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
         docxName = Path_Name_Format.DOCX_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
-        if os.path.exists(docName):
-            print(docName + " already exist!!!")
-        elif os.path.exists(docxName):
-            print(docxName + " already exist!!!")
-        else:
+        if not os.path.exists(docName) and not os.path.exists(docxName):
             try:
                 unzip(zip_file, docPath)
                 if os.path.exists(docName):
@@ -65,23 +66,22 @@ def unzip_zip_to_doc(series, num, ver):
                     # spec_zip name not consist with doc name
                     doclist = glob.glob(docPath + "/*.doc", recursive=True)
                     docxlist = glob.glob(docPath + "/*.docx", recursive=True)
-                    if len(doclist) == 1:
+                    if len(doclist) > 0:
                         if os.path.basename(doclist[0]) != os.path.basename(docName):
                             shutil.move(doclist[0], docName)
                             print(" rename " + os.path.basename(doclist[0]) + "->" + os.path.basename(docName))
                         else:
                             print("unzip" + zip_file + " failed!!!")
                             os.rmdir(docPath)
-                    elif len(docxlist) == 1:
+                    elif len(docxlist) > 0:
                         if os.path.basename(docxlist[0]) != os.path.basename(docxName):
-                            shutil.move(doclist[0], docxName)
+                            shutil.move(docxlist[0], docxName)
                             print(" rename " + os.path.basename(docxlist[0]) + "->" + os.path.basename(docxName))
                         else:
                             print("unzip" + zip_file + " failed!!!")
                             os.rmdir(docPath)
                     else:
-                        print("unzip" + zip_file + " failed!!!")
-                        os.rmdir(docPath)
+                        print("unzip" + zip_file + " but no doc/docx file!!!")
             except Exception as e:
                 print("unzip " + zip_file + " failed !!!")
                 os.rmdir(docPath)
@@ -90,22 +90,17 @@ def unzip_zip_to_doc(series, num, ver):
 def convert_doc_to_html(series, num, ver):
     baseDir = Global_Basedir.SPEC_BASE_DIR
     output_html_name = Path_Name_Format.HTML_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
-    if os.path.exists(output_html_name):
-        print(output_html_name  + " already exist!!!")
-    else:
-        docPath = Path_Name_Format.DOC_PATH.format(basedir=baseDir, series=series, num=num, ver=ver)
-        doclist = glob.glob(docPath + "/*.doc", recursive=True)
-        if len(doclist) > 0:
-            elasticsearch_convert_doc2html(doclist)
-        docxlist = glob.glob(docPath + "/*.docx", recursive=True)
-        if len(docxlist) > 0:
-            elasticsearch_convert_doc2html(docxlist)
-        if len(doclist) == 0 and len(docxlist) == 0:
+    if not os.path.exists(output_html_name):
+        docName = Path_Name_Format.DOC_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
+        docxName = Path_Name_Format.DOCX_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
+        if os.path.exists(docName):
+            elasticsearch_convert_doc2html(docName)
+        elif os.path.exists(docxName):
+            elasticsearch_convert_doc2html(docxName)
+        else:
             print(series + num + '-' + ver + " does not exist doc or docx")
-            os.rmdir(os.path.dirname(output_html_name))
         if not os.path.exists(output_html_name):
-            print("convert txt failed for spec " + series + num + '-' + ver)
-            os.rmdir(os.path.dirname(output_html_name))
+            print("convert html failed for spec " + series + num + '-' + ver)
 
 def convert_doc_to_txt(series, num, ver):
     baseDir = Global_Basedir.SPEC_BASE_DIR
@@ -116,34 +111,27 @@ def convert_doc_to_txt(series, num, ver):
         txt_path = os.path.dirname(output_txt_name)
         if not os.path.exists(os.path.dirname(output_txt_name)):
             os.makedirs(txt_path)
-        docPath = Path_Name_Format.DOC_PATH.format(basedir=baseDir, series=series, num=num, ver=ver)
-        doclist = glob.glob(docPath + "/*.doc", recursive=True)
-        if len(doclist) > 0:
-            cmd = "antiword -t " + doclist[0] + " > " + output_txt_name
+        docName = Path_Name_Format.DOC_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
+        docxName = Path_Name_Format.DOCX_NAME.format(basedir=baseDir, series=series, num=num, ver=ver)
+        if os.path.exists(docName):
+            cmd = "antiword -t " + docName + " > " + output_txt_name
             os.system(cmd)
-        docxlist = glob.glob(docPath + "/*.docx", recursive=True)
-        if len(docxlist) > 0:
-            cmd = "docx2txt < " + docxlist[0] + " > " + output_txt_name
+        elif os.path.exists(docxName):
+            cmd = "docx2txt < " + docxName + " > " + output_txt_name
             os.system(cmd)
-        if len(doclist) == 0 and len(docxlist) == 0:
+        else:
             print(series + num + '-' + ver + " does not exist doc or docx")
-            os.rmdir(txt_path)
         if not os.path.exists(output_txt_name):
             print("convert txt failed for spec " + series + num + '-' + ver)
-            os.rmdir(txt_path)
-        else:
-            print(output_txt_name)
 
 def convert_txt_to_json(series, num, ver):
     baseDir = Global_Basedir.SPEC_BASE_DIR
     out_json = Path_Name_Format.JSON_NAME.format(basedir=baseDir, series=series, ver=ver, num=num)
     txt_name = Path_Name_Format.TXT_NAME.format(basedir=baseDir, series=series, ver=ver, num=num)
-    if os.path.exists(out_json):
-        print(out_json  + " already exist!!!")
-    elif not os.path.exists(txt_name):
+    if not os.path.exists(txt_name):
         specName = series + num + "-" + ver
         print("no txt for spec: " + specName)
-    else:
+    elif not os.path.exists(out_json):
         json_path = os.path.dirname(out_json)
         if not os.path.exists(json_path):
             os.makedirs(json_path)
@@ -151,56 +139,67 @@ def convert_txt_to_json(series, num, ver):
             txt2json(txt_name, out_json)
             if not os.path.exists(out_json):
                 print("txt2json converts fails for " + out_json)
-                os.rmdir(out_json)
         except Exception as e:
             print("txt2json converts fails for " + out_json)
-            os.rmdir(out_json)
 
 def Convert_html_to_slice_html(series, num, ver):
     baseDir = Global_Basedir.SPEC_BASE_DIR
     html_name = Path_Name_Format.HTML_NAME.format(basedir=baseDir, series=series, ver=ver, num=num)
     slice_html_path = Path_Name_Format.SLICE_HTML_PATH.format(basedir=baseDir, series=series, ver=ver, num=num)
-    if os.path.exists(slice_html_path):
-        print(slice_html_path  + " already exist!!!")
-    elif not os.path.exists(html_name):
+    if not os.path.exists(html_name):
         specName = series + num + "-" + ver
         print("no html for spec: " + specName)
-    else:
+    elif not os.path.exists(slice_html_path):
         os.mkdir(slice_html_path)
         try:
             parse_file(html_name, slice_html_path)
             copy_image(os.path.dirname(html_name), slice_html_path)
         except Exception as e:
-            os.rmdir(slice_html_path)
             print(html_name + " slice fails!!!")
 
 def Update_index_for_elasticsearch(series, num, ver):
     baseDir = Global_Basedir.SPEC_BASE_DIR
     specName = series + num + "-" + ver
     out_json = Path_Name_Format.JSON_NAME.format(basedir=baseDir, series=series, ver=ver, num=num)
+    slice_html_path = Path_Name_Format.SLICE_HTML_PATH.format(basedir=baseDir, series=series, ver=ver, num=num)
     if platform.system() == 'Windows':
         es = Elasticsearch(['localhost'], port=9200, timeout=50)
     else:
         es = Elasticsearch(['localhost'], port=9200, timeout=50)
-    if not os.path.exists(out_json):
-        print("no html for spec: " + specName)
-    else:
+    if os.path.exists(out_json) and os.path.exists(slice_html_path):
         spec_in_elasticsearch = series + num + "*"
         result = es.indices.get(index=spec_in_elasticsearch)
         if result:
-            print(str(*result) + " exists in elasticsearch")
+            #print(str(*result) + " exists in elasticsearch")
             current_ver = (str(*result)).split("-")[1]
             if (current_ver < ver):
                 print(str(*result) + "is not the latest one, update it")
                 es.indices.delete(index=spec_in_elasticsearch)
-        data = json.load(open(out_json, "r"))
-        print("starting to upload " + specName);
-        for i, line in enumerate(data):
-            if len(line['desc']) < 1000000:
-                es.index(index=specName, doc_type='doc', id=i, body=line)
-            else:
-                print("======================================")
-                print(line['key'])
+                data = json.load(open(out_json, "r"))
+                # print("starting to upload " + specName);
+                try:
+                    for i, line in enumerate(data):
+                        if len(line['desc']) < 1000000:
+                            es.index(index=specName, doc_type='doc', id=i, body=line)
+                        else:
+                            print("======================================")
+                            print(line['key'])
+                except Exception as e:
+                    print("failed upload " + specName);
+                    print(e)
+        else:
+            data = json.load(open(out_json, "r"))
+            #print("starting to upload " + specName);
+            try:
+                for i, line in enumerate(data):
+                    if len(line['desc']) < 1000000:
+                        es.index(index=specName, doc_type='doc', id=i, body=line)
+                    else:
+                        print("======================================")
+                        print(line['key'])
+            except Exception as e:
+                print("failed upload " + specName);
+                print(e)
 
 if __name__ == "__main__":
     current_dir = os.path.dirname(os.path.realpath(__file__))
@@ -261,7 +260,13 @@ if __name__ == "__main__":
             spec_info = spec.split("_")
             series = spec_info[0]
             num = spec_info[1]
-            ver = get_new_ver(series, num) # download instead
+
+            # get ver from zip
+            # ver = get_new_ver(series, num)
+
+            # get ver from network
+            url_num = Path_Name_Format.URL_NUM.format(basedir=baseDir, series=series, num=num)
+            ver = spy_new_ver(url_num)
             specName = series + num + "-" + ver
 
             print("")

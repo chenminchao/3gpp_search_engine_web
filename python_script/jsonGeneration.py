@@ -118,7 +118,7 @@ def populateDefList(def_input):
 
 
 def populateAbbrList(abbr_input):
-    logging.getLogger().info("Populate Abbreviation List")
+    #logging.getLogger().info("Populate Abbreviation List")
     if (len(abbr_input['desc'].split(".\n\n")) >= 2):
         abbr_input_start = abbr_input['desc'].split(".\n\n")[1]
     elif (len(abbr_input['desc'].split(":\n\n")) >= 2):
@@ -198,7 +198,7 @@ def txt2json(input, output):
     else :
         keywords = "None"
     #    logging.getLogger().info("keywords_index={},keywords_list={}".format(keywords_index,keywords_list))
-    logging.getLogger().info("keywords={}".format(keywords))
+    #logging.getLogger().info("keywords={}".format(keywords))
 
     for i, line in enumerate(content):
         if (line.find('Foreword') != -1 and not line[-2].isdigit()):  # 23.214?

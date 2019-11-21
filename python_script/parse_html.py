@@ -7,10 +7,10 @@ def create_folder(out_path, dir):
         #print("create folder ", os.path.join(out_path, dir))
 
 def parse_file(infile, outfile):
-    print("infile is " + infile)
+    #print("infile is " + infile)
     create_folder(outfile, os.path.basename(infile).split(".")[0])
     outfile = outfile + "\\" + os.path.basename(infile).split(".")[0]
-    print("outfile is ", outfile)
+    #print("outfile is ", outfile)
     with open(infile, errors='ignore') as f:
         content = f.read()
 
