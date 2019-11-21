@@ -212,9 +212,8 @@ app.get('/details', function (req, res)
     var ver = String(index).split("-")[1]
     var spec = String(index).split("-")[0]
     console.log(spec)
-    spec_ver = spec + "-" + ver; 
     spec = spec.substr(0, 2) + "." + spec.substr(-3)
-    html_file = "/spec/" + ver + "/" + spec + "/slice_html/" + spec_ver + "/" + numbering + ".html" + "?hightlight=" + search_text;
+    html_file = "/spec/" + ver + "/" + spec + "/slice_html/" + numbering + ".html" + "?hightlight=" + search_text;
 
     console.log(html_file)
     res.redirect(html_file)

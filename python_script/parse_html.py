@@ -1,21 +1,34 @@
+import argparse
+import glob
 import re
 import os
+import platform
 
 def create_folder(out_path, dir):
     if not os.path.exists(os.path.join(out_path, dir)):
         os.makedirs(os.path.join(out_path, dir))
         #print("create folder ", os.path.join(out_path, dir))
 
-def parse_file(infile, outfile):
-    #print("infile is " + infile)
-    create_folder(outfile, os.path.basename(infile).split(".")[0])
-    outfile = outfile + "\\" + os.path.basename(infile).split(".")[0]
-    #print("outfile is ", outfile)
+def parse_file(infile, out_path):
     with open(infile, errors='ignore') as f:
         content = f.read()
 
+    spec_zip = os.path.basename(infile).replace("html", "zip")
+    spec_zip_path = os.path.dirname(os.path.dirname(infile)) + "/zip/" + spec_zip
+    spec_html_path = os.path.dirname(os.path.dirname(infile)) + "/html"
+    spec_html = os.path.basename(infile)
+
     html_header = content.split('<body')[0]
     html_header = html_header + "<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'>\n"
+    if os.path.exists(spec_html_path):
+        link_and_download = '<p align="right"> <a href=../html/' + spec_html +'>Link2doc</a> ' \
+            + '<a href=' + spec_zip_path + '>Download</a><p>'
+    else:
+        link_and_download = '<p align="right"> <a href=../html/' + spec_html \
+            + '>Link2doc</a> ' + '<a href=' + spec_zip_path + '>Download</a><p>'
+
+    #print(link_and_download)
+
     body_end = '</body>\n';
     mark_script = '<script type="text/javascript" src="https://ajax.microsoft.com/ajax/jQuery/jquery-1.4.2.min.js"></script>\n' +  \
                   '<script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/7.0.0/mark.min.js"></script>\n' + \
@@ -54,11 +67,15 @@ def parse_file(infile, outfile):
             #fname = str(key_list_sorted[current_index][0]) + "-" + str(key_list_sorted[current_index][1].replace(" ", "_"))
             content = re.sub(r'\<.*?\>', '', paragraph_list_sorted[current_index])
             fname = str(content.split(" ")[0].strip())
-            fname = outfile + '\\' + fname + '.html'
-            #print(fname, current_index)
+            fname = fname.replace("&nbsp;", "")
+            if not platform.system() == 'Linux':
+                fname = out_path + '\\' + fname + '.html'
+            else:
+                fname = out_path + '/' + fname + '.html'
             with open(fname, "w") as f:
                 f.write(html_header)
                 f.write(''.join(htmls))
+                f.write(link_and_download)
                 f.write(body_end)
                 f.write(mark_script)
                 f.write(html_end)
@@ -73,15 +90,14 @@ def main(in_path, out_path):
     for root, dirs, files in os.walk(in_path):
         for file in files:
             if file.endswith(".htm"):
-                print(os.path.join(root, file))
+                input_file = os.path.join(root, file)
                 if("_files" not in str(root)):
-                    parse_file(os.path.join(root, file), out_path)
-    #input_files = [f for f in os.listdir(in_path) if os.path.isfile(os.path.join(in_path, f)) and f.endswith(".htm")]
-    #for input_file in input_files:
-    #    parse_file(os.path.join(in_path, input_file), out_path)
+                    create_folder(out_path, os.path.basename(input_file).split(".")[0])
+                    out_path = out_path + "\\" + os.path.basename(input_file).split(".")[0]
+                    parse_file(input_file, out_path)
 
 if __name__ == "__main__":
-    rootpath = "C:\\3gpp_search_engine\\3gpp_search_engine_web"  # 获取上级路径
-    in_Path = rootpath + "\\specs\\spec_htms"
-    out_Path = rootpath + "\\parsed_htmls"
-    main(in_Path, out_Path)
+    in_file = "/home/minchao/feature-rich-spec-ng/spec/g40/23.401/html/23401-g40.html"
+    out_Path = "/home/minchao/feature-rich-spec-ng/spec/g40/23.401/slice_html"
+    parse_file(in_file, out_Path)
+    #main(in_Path, out_Path)
