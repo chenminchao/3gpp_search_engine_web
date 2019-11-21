@@ -1,0 +1,32 @@
+{
+  "name": "3gpp_search_engine_web",
+  "version": "1.0.0",
+  "description": "3Gpp serires search engine",
+  "main": "test.js",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "^3.4.1",
+    "elasticsearch": "^16.5.0",
+    "express": "^4.17.1",
+    "grunt-cli": "^1.3.2",
+    "jade": "^1.11.0",
+    "jquery": "^3.4.1",
+    "jsdom": "^15.1.1",
+    "mark.js": "^8.11.1",
+    "node-localstorage": "^2.1.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chenminchao/3gpp_search_engine_web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chenminchao/3gpp_search_engine_web/issues"
+  },
+  "homepage": "https://github.com/chenminchao/3gpp_search_engine_web#readme"
+}
