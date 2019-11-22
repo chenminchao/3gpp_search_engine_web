@@ -14,7 +14,7 @@ def parse_file(infile, out_path):
         content = f.read()
 
     spec_zip = os.path.basename(infile).replace("html", "zip")
-    spec_zip_path = os.path.dirname(os.path.dirname(infile)) + "/zip/" + spec_zip
+    #spec_zip_path = os.path.dirname(os.path.dirname(infile)) + "/zip/" + spec_zip
     spec_html_path = os.path.dirname(os.path.dirname(infile)) + "/html"
     spec_html = os.path.basename(infile)
 
@@ -22,10 +22,10 @@ def parse_file(infile, out_path):
     html_header = html_header + "<body lang=EN-US link=blue vlink=purple style='tab-interval:14.2pt'>\n"
     if os.path.exists(spec_html_path):
         link_and_download = '<p align="right"> <a href=../html/' + spec_html +'>Link2doc</a> ' \
-            + '<a href=' + spec_zip_path + '>Download</a><p>'
+            + '<a href=../zip/' + spec_zip + '>Download</a><p>'
     else:
         link_and_download = '<p align="right"> <a href=../html/' + spec_html \
-            + '>Link2doc</a> ' + '<a href=' + spec_zip_path + '>Download</a><p>'
+            + '>Link2doc</a> ' + '<a href=../zip/' + spec_zip + '>Download</a><p>'
 
     #print(link_and_download)
 
