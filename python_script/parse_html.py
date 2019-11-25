@@ -1,17 +1,19 @@
-import argparse
-import glob
-import re
-import os
-import platform
+import argparse 
+import glob 
+import re 
+import os 
+import platform 
 
-def create_folder(out_path, dir):
-    if not os.path.exists(os.path.join(out_path, dir)):
-        os.makedirs(os.path.join(out_path, dir))
+def create_folder(out_path, dir): 
+    if not os.path.exists(os.path.join(out_path, dir)): os.makedirs(os.path.join(out_path, dir))
         #print("create folder ", os.path.join(out_path, dir))
 
 def parse_file(infile, out_path):
     with open(infile, errors='ignore') as f:
         content = f.read()
+
+    if not os.path.exists(out_path):
+        os.makedirs(out_path)
 
     spec_zip = os.path.basename(infile).replace("html", "zip")
     #spec_zip_path = os.path.dirname(os.path.dirname(infile)) + "/zip/" + spec_zip
@@ -35,11 +37,12 @@ def parse_file(infile, out_path):
                   '<script type="text/javascript">\n' +\
                   '$(document).ready(function(){\n' + \
                   'var instance = new Mark(document.querySelector("body"));\n' + \
+		  'var options = {"separateWordSearch" : false};\n' +\
                   'instance.unmark({done: function(){\n' + \
                   'var url = document.URL;\n' +\
                   'var key = decodeURIComponent(url.split("=")[1]);\n' +\
                   'console.log(key);\n' + \
-                  'instance.mark(key) }})\n' +\
+                  'instance.mark(key, options) }})\n' +\
                   '});\n' +\
                   '</script>\n'
     html_end = '</html>'
@@ -97,7 +100,7 @@ def main(in_path, out_path):
                     parse_file(input_file, out_path)
 
 if __name__ == "__main__":
-    in_file = "/home/minchao/feature-rich-spec-ng/spec/g40/23.401/html/23401-g40.html"
-    out_Path = "/home/minchao/feature-rich-spec-ng/spec/g40/23.401/slice_html"
+    in_file = "/home/ubuntu/3gpp_search_engine/3gpp_search_engine_web/spec/g40/23.401/html/23401-g40.html"
+    out_Path = "/home/ubuntu/3gpp_search_engine/3gpp_search_engine_web/spec/g40/23.401/slice_html"
     parse_file(in_file, out_Path)
     #main(in_Path, out_Path)
