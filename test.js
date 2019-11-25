@@ -1,5 +1,19 @@
 var express = require('express');
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 var app = express();
+//var memCachedStore = require('connect-memcached')(session);
+
+app.use(cookieParser());
+app.use(session({
+      secret  : '3gpp_search_engine',
+      key     : 'test',
+      proxy   : 'true',
+      /*store   : new memCachedStore({
+        hosts: ['127.0.0.1:11211'], //this should be where your Memcached server is running
+        secret: 'memcached-secret-key' // Optionally use transparent encryption for memcache session data 
+    })*/
+}));
 
 var elasticsearch = require('elasticsearch');
 var client = new elasticsearch.Client({
@@ -10,9 +24,6 @@ var client = new elasticsearch.Client({
 
 const fs = require('fs');
 const url = require('url');
-
-var LocalStorage = require('node-localstorage').LocalStorage
-localStorage = new LocalStorage('./scratch');
 
 app.set("view engine","jade");
 
@@ -148,6 +159,9 @@ var bodyParser =require("body-parser");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', function (req, res) {
+    var sessionData = req.session;
+    console.log(sessionData.id)
+    //sessionData.uuid = String(uuid)
     res.sendFile('/home/ubuntu/3gpp_search_engine/3gpp_search_engine_web/index.html');
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     console.log(ip)
@@ -163,14 +177,14 @@ app.get('/sort', function (req, res) {
     var key = request_url.split('search_text=')[1]
     console.log(search_text)
     console.log(filterDoc)
-    groups = JSON.parse(localStorage.getItem(search_group_key))
+    groups = JSON.parse(req.session.groups)
     run_search(search_text, filterDoc).then(function(results)
     {
   	search_results = results.hits.hits
         console.log(groups)
 
   	res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
-        localStorage.setItem(search_group_key, JSON.stringify(groups))
+	req.session.groups = JSON.stringify(groups)
     }
     ).catch(console.log)
 });
@@ -180,6 +194,7 @@ app.get('/submit-search-data', function (req, res) {
     var ip = req.headers['x-forwarded-for'] || req.connection.remoteAddress;
     search_group_key = ip + "-" + 'group'
     console.log(search_group_key)
+    console.log(req.session.id)
     request_url = req.url
     search_text = request_url.split('search_text=')[1].replace(/\+/g, ' ')
     console.log(search_text)
@@ -190,7 +205,8 @@ app.get('/submit-search-data', function (req, res) {
         console.log(groups)
 
 	res.render('search_results', {searchResultList : search_results, searchKey : key, searchGroups : groups} );
-      	localStorage.setItem(search_group_key, JSON.stringify(groups))
+	req.session.groups = JSON.stringify(groups)
+        req.session.save(function(err){})
     }).catch(console.log)
 
 });
