@@ -225,11 +225,12 @@ app.get('/details', function (req, res)
 	numbering = values[0] + '.' + values[1] + '.' + values[2]
     }
 
+    var series = String(index).substr(0, 2)
     var ver = String(index).split("-")[1]
     var spec = String(index).split("-")[0]
     console.log(spec)
     spec = spec.substr(0, 2) + "." + spec.substr(-3)
-    html_file = "/spec/" + ver + "/" + spec + "/slice_html/" + numbering + ".html" + "?hightlight=" + search_text;
+    html_file = "/spec/" + series + "/" + spec + "/" + ver + "/slice_html/CLA_" + numbering + ".html" + "?hightlight=" + search_text;
 
     console.log(html_file)
     res.redirect(html_file)

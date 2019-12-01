@@ -28,14 +28,17 @@ def get_spec_list():
 
 def get_new_ver(series, num):
     basedir = Global_Basedir.SPEC_BASE_DIR
-    ver_files = os.listdir(basedir + '/spec')
-    ver_files.sort(key=lambda i: int(i, base=32))
-    for i in range(len(ver_files) - 1, -1, -1):
-        ver = ver_files[i]
-        path = Path_Name_Format.ZIP_NAME.format(basedir=basedir, series=series, num=num, ver=ver)
-        if os.path.exists(path):
-            return ver
-    return "none"
+    path = Path_Name_Format.ZIP_PATH.format(basedir=basedir, series=series, ver='*', num=num)
+    path = path.split("*")[0]
+    if os.path.exists(path):
+        ver_files = os.listdir(path)
+        ver_files.sort(key=lambda i: int(i, base=32))
+        if len(ver_files) > 0:
+            return ver_files[-1]
+        else:
+            return 'none'
+    else:
+        return 'none'
 
 def get_ver_list(series, num):
     basedir = Global_Basedir.SPEC_BASE_DIR
@@ -72,3 +75,14 @@ def copy_spec(src, dst):
         print(os.path.join(src, png))
         shutil.copy(os.path.join(src, png), dst)
     os.chdir(save_dir)
+
+def chang_html_lang(html):
+    f = open(html, 'r+', encoding='utf-8')
+    lines = f.readlines()
+    f.seek(0)
+    f.truncate()
+    for line in lines:
+        line = line.replace('p lang', 'p class="cjk" lang')
+        line = line.replace('p style', 'p class="cjk" style')
+        f.write(line)
+    f.close()
