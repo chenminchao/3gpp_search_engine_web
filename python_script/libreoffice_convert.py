@@ -227,7 +227,7 @@ def compareVer(a, b):
 
 def slice_html(htmlFile):
     slice_html_path = os.path.dirname(os.path.dirname(htmlFile)) + '/slice_html'
-    spec_html = './' + os.path.basename(htmlFile)
+    spec_html = '../html/' + os.path.basename(htmlFile)
     zip_file = '../zip/' + os.path.basename(htmlFile).split('.')[0] + '.zip'
     ### Read ###
     with open(htmlFile, 'rb') as fi:
